@@ -28,10 +28,41 @@
     <li>
       <a href="#about-the-project">Sobre el proyecto</a>
     </li>
+    <li>
+      <a href="#about-the-project">Concepto</a>
+    </li>
+    <li>
+      <a href="#about-the-project"></a>
+    </li>
   </ol>
   <ol>
     <li>
-      <a href="#about-the-project">Más cosas y tal</a>
+      <a href="#about-the-project">Gameplay </a>
+    </li>
+    <li>
+      <a href="#about-the-project">Objetivos</a>
+    </li>
+  </ol>
+  <ol>
+    <li>
+      <a href="#about-the-project">Progresión</a>
+    </li>
+    <li>
+      <a href="#about-the-project">Aún más cosas</a>
+    </li>
+  </ol>
+  <ol>
+    <li>
+      <a href="#about-the-project">Elementos del juego</a>
+    </li>
+    <li>
+      <a href="#about-the-project">Personajes</a>
+    </li>
+    <li>
+      <a href="#about-the-project">Items e interaccionables</a>
+    </li>
+    <li>
+      <a href="#about-the-project">Diseño de nivel</a>
     </li>
   </ol>
 </details>
@@ -41,7 +72,7 @@
 
 El juego va sobre un hombre y su mujer que está muerta. Hay puzzles con luces o algo así
 
-<!-- Cosas -->
+<!-- Más cosas y tal -->
 ## Cosas varias
 
 Espacio para cosas y tal
