@@ -5,19 +5,20 @@
 *** Thanks again! Now go create something AMAZING! :D
 -->
 
+
+<h1 align="center">Proyecto PVLI</h1>
+  
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
   <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
     <img src="images/hitchcock.jpg" alt="Logo" | width=256)>
   </a>
-
-  <h3 align="center">Proyecto PVLI</h3>
-
   <p align="center">
     Juego de Alfred Hitchcock
   </p>
 </p>
+
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
