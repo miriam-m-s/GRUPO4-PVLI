@@ -9,7 +9,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="images/hitchcock.jpg" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Proyecto PVLI</h3>
