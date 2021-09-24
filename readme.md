@@ -25,13 +25,13 @@
   <summary>Tabla de contenidos</summary>
   <ol>
     <li>
-      <a href="#sobre-el-proyecto">Sobre el proyecto</a>
+      <img src="images/gameplayicon.png" alt="Logo" | width=64)><a href="#sobre-el-proyecto">Sobre el proyecto</a>
       <ul>
         <li><a href="#Concepto/Pitch">Concepto/Pitch</a></li>
       </ul>
     </li>
     <li>
-      <a href="#Gameplay">Gameplay</a>
+      <img src="images/gameplayicon.png" alt="Logo" | width=64)><a href="#Gameplay">Gameplay</a>
       <ul>
         <li><a href="#Objetivos">Objetivos</a></li>
         <li><a href="#Progresión">Progresión</a></li>
