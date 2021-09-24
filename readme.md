@@ -56,8 +56,8 @@
 </details>
 
 <!-- Sobre-el-Proyecto -->
-<img src="images/gameplayicon.png" alt="Logo" | width=64)>
-## Sobre el Proyecto 
+
+## <a href="https://github.com/miriam-m-s/GRUPO4-PVLI"> <img src="images/hitchcock.jpg" alt="Logo" | width=256)> </a> Sobre el Proyecto 
 
 Proyecto para PVLI :)
 
