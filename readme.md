@@ -37,12 +37,20 @@
         <li><a href="#installation">Interfaz/GUI</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgements">Acknowledgements</a></li>
+    <li><a href="#usage">Mecánicas</a></li>
+    <li><a href="#roadmap">Elementos de juego</a></li>
+    <ul>
+        <li><a href="#prerequisites">Items/Interaccionables</a></li>
+        <li><a href="#installation">Personajes</a></li>
+        <li><a href="#installation">Diseño de nivel</a></li>
+      </ul>
+    <li><a href="#contributing">Assets</a></li>
+    <ul>
+        <li><a href="#prerequisites">Música y sonido</a></li>
+        <li><a href="#installation">Sprites</a></li>
+      </ul>
+    <li><a href="#contact">Contacto/Desarrolladores</a></li>
+    <li><a href="#acknowledgements">Agradecimientos y crédito</a></li>
   </ol>
 </details>
 
