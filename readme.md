@@ -33,9 +33,9 @@
     <li>
       <a href="#Gameplay">Gameplay</a>
       <ul>
-        <li><a href="#prerequisites">Objetivos</a></li>
-        <li><a href="#installation">Progresión</a></li>
-        <li><a href="#installation">Interfaz/GUI</a></li>
+        <li><a href="#Objetivos">Objetivos</a></li>
+        <li><a href="#Progresión">Progresión</a></li>
+        <li><a href="#Interfaz">Interfaz/GUI</a></li>
       </ul>
     </li>
     <li><a href="#usage">Mecánicas</a></li>
