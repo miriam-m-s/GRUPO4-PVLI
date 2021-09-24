@@ -25,13 +25,13 @@
   <summary>Tabla de contenidos</summary>
   <ol>
     <li>
-      <img src="images/gameplayicon.png" alt="Logo" | width=64)><a href="#sobre-el-proyecto">Sobre el proyecto</a>
+      <a href="#sobre-el-proyecto">Sobre el proyecto</a>
       <ul>
         <li><a href="#Concepto/Pitch">Concepto/Pitch</a></li>
       </ul>
     </li>
     <li>
-      <img src="images/gameplayicon.png" alt="Logo" | width=64)><a href="#Gameplay">Gameplay</a>
+      <a href="#Gameplay">Gameplay</a>
       <ul>
         <li><a href="#Objetivos">Objetivos</a></li>
         <li><a href="#Progresión">Progresión</a></li>
@@ -56,7 +56,7 @@
 </details>
 
 <!-- Sobre-el-Proyecto -->
-## Sobre el Proyecto
+## <img src="images/gameplayicon.png" alt="Logo" | width=64)> Sobre el Proyecto
 
 Proyecto para PVLI :)
 
@@ -66,7 +66,7 @@ El juego va sobre un hombre y su mujer que está muerta. Hay puzzles o algo así
 
 <!-- Gameplay -->
 
-## Gameplay
+## <img src="images/gameplayicon.png" alt="Logo" | width=64)> Gameplay
 
 Pues hay puzzles y esas cosas
 
@@ -80,10 +80,10 @@ Progresiva a ser posible
 Sí
 
 <!-- Mecánicas -->
-## Mecánicas
+## <img src="images/gameplayicon.png" alt="Logo" | width=64)> Mecánicas
 
 <!-- Elementos de Juego -->
-## Elementos de juego
+## <img src="images/gameplayicon.png" alt="Logo" | width=64)> Elementos de juego
 
 ### Items/Interaccionables
 Lámparas y espejos entre otros
@@ -96,7 +96,7 @@ Sí
 
 <!-- Créditos/Reconocimientos -->
 
-## Assets
+## <img src="images/gameplayicon.png" alt="Logo" | width=64)> Assets
 
 ### Música y Sonido
 
@@ -107,5 +107,5 @@ Correos de la uni/pagina HTML/itch.io¿?
 
 <!-- Créditos/Reconocimientos -->
 
-## Créditos/Reconocimientos
+## <img src="images/gameplayicon.png" alt="Logo" | width=64)> Créditos/Reconocimientos
 * [Wikipedia Hitchcock](https://es.wikipedia.org/wiki/Alfred_Hitchcock)
