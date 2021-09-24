@@ -17,8 +17,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  ![Screenshot](imnages/hitchcock.jpg)
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
+    <img src="hitchcock.jpg" alt="Logo" width="120" height="120">
   </a>
 
   <h3 align="center">Proyecto PVLI</h3>
