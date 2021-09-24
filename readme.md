@@ -59,7 +59,7 @@
 
 ##  Sobre el Proyecto 
 <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
-    <img src="images/hitchcock.jpg" alt="Logo" | width=256)>
+    <img src="images/documentIcon.png" alt="Logo" | width=256)>
   </a>
 Proyecto para PVLI :)
 
