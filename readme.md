@@ -24,9 +24,9 @@
   <summary>Tabla de contenidos</summary>
   <ol>
     <li>
-      <a href="#about-the-project">Sobre el proyecto</a>
+      <a href="#Sobre_el_Proyecto">Sobre el proyecto</a>
       <ul>
-        <li><a href="#built-with">Concepto/Pitch</a></li>
+        <li><a href="#Concepto/Pitch">Concepto/Pitch</a></li>
       </ul>
     </li>
     <li>
@@ -50,28 +50,22 @@
         <li><a href="#installation">Sprites</a></li>
       </ul>
     <li><a href="#contact">Contacto/Desarrolladores</a></li>
-    <li><a href="#acknowledgements">Agradecimientos y crédito</a></li>
+    <li><a href="#Créditos/Reconocimientos">Agradecimientos y créditos</a></li>
   </ol>
 </details>
 
-<!-- Sobre el proyecto -->
+
 ## Sobre el Proyecto
+
+Proyecto para PVLI :)
+
+## Concepto/Pitch
 
 El juego va sobre un hombre y su mujer que está muerta. Hay puzzles con luces o algo así
 
-<!-- Más cosas y tal -->
-## Cosas varias
+## Gameplay
 
-Espacio para cosas y tal
+Pues hay puzzles y esas cosas
 
-
-
-<!-- ROADMAP/Sprints -->
-## Roadmap/Sprints
-
-Pues estamos en el primero
-
-
-<!-- ACKNOWLEDGEMENTS -->
 ## Créditos/Reconocimientos
 * [Wikipedia](https://es.wikipedia.org/wiki/Alfred_Hitchcock)
