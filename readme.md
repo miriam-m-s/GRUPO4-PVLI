@@ -71,6 +71,9 @@ El juego va sobre un hombre y su mujer que está muerta. Hay puzzles o algo así
 <!-- Gameplay -->
 
 ## Gameplay
+<a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
+    <img src="images/gameIcon.png" alt="Logo" | width=48)>
+  </a>
 
 Pues hay puzzles y esas cosas
 
@@ -85,6 +88,9 @@ Sí
 
 <!-- Mecánicas -->
 ## Mecánicas
+<a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
+    <img src="images/mecanIcon.png" alt="Logo" | width=48)>
+  </a>
 
 <!-- Elementos de Juego -->
 ## Elementos de juego
@@ -101,6 +107,9 @@ Sí
 <!-- Créditos/Reconocimientos -->
 
 ## Assets
+<a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
+    <img src="images/assetsIcon.png" alt="Logo" | width=48)>
+  </a>
 
 ### Música y Sonido
 
