@@ -15,12 +15,12 @@
     <img src="images/hitchcock.jpg" alt="Logo" | width=256)>
   </a>
   <p align="center">
-    <h2>Juego de Alfred Hitchcock</h2>
+    <b>Juego de Alfred Hitchcock</b>
   </p>
 </p>
 
 
-<!--<h3> TABLE OF CONTENTS</h3> -->
+<!-- TABLE OF CONTENTS -->
 <details open="open">
   <summary>Tabla de contenidos</summary>
   <ol>
