@@ -30,10 +30,11 @@
       </ul>
     </li>
     <li>
-      <a href="#getting-started">Getting Started</a>
+      <a href="#Gameplay">Gameplay</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#prerequisites">Objetivos</a></li>
+        <li><a href="#installation">Progresión</a></li>
+        <li><a href="#installation">Interfaz/GUI</a></li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
