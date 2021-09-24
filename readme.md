@@ -79,7 +79,33 @@ Progresiva a ser posible
 ### Interfaz
 Sí
 
+<!-- Mecánicas -->
+## Mecánicas
+
+<!-- Elementos de Juego -->
+## Elementos de juego
+
+### Items/Interaccionables
+Lámparas y espejos entre otros
+
+### Personajes
+El hombre y la muerta
+
+### Diseño de nivel
+Sí
+
+<!-- Créditos/Reconocimientos -->
+
+## Assets
+
+### Música y Sonido
+
+### Sprites
+
+## Contacto
+Correos de la uni/pagina HTML/itch.io¿?
+
 <!-- Créditos/Reconocimientos -->
 
 ## Créditos/Reconocimientos
-* [Wikipedia](https://es.wikipedia.org/wiki/Alfred_Hitchcock)
+* [Wikipedia Hitchcock](https://es.wikipedia.org/wiki/Alfred_Hitchcock)
