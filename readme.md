@@ -15,7 +15,7 @@
     <img src="images/hitchcock.jpg" alt="Logo" | width=256)>
   </a>
   <p align="center">
-    Juego de Alfred Hitchcock
+    <h3>Juego de Alfred Hitchcock</h3>
   </p>
 </p>
 
