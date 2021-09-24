@@ -25,7 +25,7 @@
   <summary>Tabla de contenidos</summary>
   <ol>
     <li>
-      <a href="#Sobre_el_Proyecto">Sobre el proyecto</a>
+      <a href="#sobre-el-proyecto">Sobre el proyecto</a>
       <ul>
         <li><a href="#Concepto/Pitch">Concepto/Pitch</a></li>
       </ul>
