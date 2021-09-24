@@ -56,7 +56,7 @@
 </details>
 
 <!-- Sobre-el-Proyecto -->
-## <img src="images/gameplayicon.png" alt="Logo" | width=64)> Sobre el Proyecto
+## Sobre el Proyecto <img src="images/gameplayicon.png" alt="Logo" | width=64)>
 
 Proyecto para PVLI :)
 
@@ -66,7 +66,7 @@ El juego va sobre un hombre y su mujer que está muerta. Hay puzzles o algo así
 
 <!-- Gameplay -->
 
-## <img src="images/gameplayicon.png" alt="Logo" | width=64)> Gameplay
+## Gameplay
 
 Pues hay puzzles y esas cosas
 
@@ -80,10 +80,10 @@ Progresiva a ser posible
 Sí
 
 <!-- Mecánicas -->
-## <img src="images/gameplayicon.png" alt="Logo" | width=64)> Mecánicas
+## Mecánicas
 
 <!-- Elementos de Juego -->
-## <img src="images/gameplayicon.png" alt="Logo" | width=64)> Elementos de juego
+## Elementos de juego
 
 ### Items/Interaccionables
 Lámparas y espejos entre otros
@@ -96,7 +96,7 @@ Sí
 
 <!-- Créditos/Reconocimientos -->
 
-## <img src="images/gameplayicon.png" alt="Logo" | width=64)> Assets
+## Assets
 
 ### Música y Sonido
 
