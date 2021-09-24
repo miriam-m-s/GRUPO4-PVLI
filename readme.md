@@ -21,12 +21,12 @@
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
-  <summary>Table of Contents</summary>
+  <summary>Tabla de contenidos</summary>
   <ol>
     <li>
-      <a href="#about-the-project">About The Project</a>
+      <a href="#about-the-project">Sobre el proyecto</a>
       <ul>
-        <li><a href="#built-with">Built With</a></li>
+        <li><a href="#built-with">Concepto/Pitch</a></li>
       </ul>
     </li>
     <li>
@@ -42,52 +42,6 @@
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
-  </ol>
-</details>
-
-<!-- TABLE OF CONTENTS -->
-<details open="open">
-  <summary>Tabla de contenidos</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">Sobre el proyecto</a>
-    </li>
-    <ul>
-      <a href="#about-the-project">Concepto</a>
-    </li>
-    </ul>
-      <a href="#about-the-project"></a>
-    </li>
-  </ol>
-  <ol>
-    <li>
-      <a href="#about-the-project">Gameplay </a>
-    </li>
-    <li>
-      <a href="#about-the-project">Objetivos</a>
-    </li>
-  </ol>
-  <ol>
-    <li>
-      <a href="#about-the-project">Progresión</a>
-    </li>
-    <li>
-      <a href="#about-the-project">Aún más cosas</a>
-    </li>
-  </ol>
-  <ol>
-    <li>
-      <a href="#about-the-project">Elementos del juego</a>
-    </li>
-    <li>
-      <a href="#about-the-project">Personajes</a>
-    </li>
-    <li>
-      <a href="#about-the-project">Items e interaccionables</a>
-    </li>
-    <li>
-      <a href="#about-the-project">Diseño de nivel</a>
-    </li>
   </ol>
 </details>
 
