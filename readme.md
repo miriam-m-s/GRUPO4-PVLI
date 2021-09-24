@@ -55,7 +55,7 @@
   </ol>
 </details>
 
-
+<!-- Sobre-el-Proyecto -->
 ## Sobre el Proyecto
 
 Proyecto para PVLI :)
@@ -64,9 +64,13 @@ Proyecto para PVLI :)
 
 El juego va sobre un hombre y su mujer que está muerta. Hay puzzles con luces o algo así
 
+<!-- Gameplay -->
+
 ## Gameplay
 
 Pues hay puzzles y esas cosas
+
+<!-- Créditos/Reconocimientos -->
 
 ## Créditos/Reconocimientos
 * [Wikipedia](https://es.wikipedia.org/wiki/Alfred_Hitchcock)
