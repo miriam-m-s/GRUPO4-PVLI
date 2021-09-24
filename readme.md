@@ -56,7 +56,8 @@
 </details>
 
 <!-- Sobre-el-Proyecto -->
-## Sobre el Proyecto <img src="images/gameplayicon.png" alt="Logo" | width=64)>
+<img src="images/gameplayicon.png" alt="Logo" | width=64)>
+## Sobre el Proyecto 
 
 Proyecto para PVLI :)
 
@@ -107,5 +108,5 @@ Correos de la uni/pagina HTML/itch.io¿?
 
 <!-- Créditos/Reconocimientos -->
 
-## <img src="images/gameplayicon.png" alt="Logo" | width=64)> Créditos/Reconocimientos
+## Créditos/Reconocimientos
 * [Wikipedia Hitchcock](https://es.wikipedia.org/wiki/Alfred_Hitchcock)
