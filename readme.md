@@ -119,12 +119,12 @@ Sí
 ### Sprites
 
 ## Contacto
+<a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
+    <img src="images/contactIcon.png" alt="Logo" | width=48)>
+  </a>
 Correos de la uni/pagina HTML/itch.io¿?
 
 <!-- Créditos/Reconocimientos -->
 
 ## Créditos/Reconocimientos
-<a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
-    <img src="images/contactIcon.png" alt="Logo" | width=48)>
-  </a>
-* [Wikipedia Hitchcock](https://es.wikipedia.org/wiki/Alfred_Hitchcock)
+[Wikipedia Hitchcock](https://es.wikipedia.org/wiki/Alfred_Hitchcock)
