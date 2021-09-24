@@ -48,23 +48,21 @@
 <!-- Sobre el proyecto -->
 ## Sobre el Proyecto
 
-El juego va sobre un hombre y su mujer que está muerta.
+El juego va sobre un hombre y su mujer que está muerta. Hay puzzles con luces o algo así
 
 <!-- Cosas -->
 ## Cosas varias
 
 Espacio para cosas y tal
 
-_For more examples, please refer to the [Documentation](https://example.com)_
-
 
 
 <!-- ROADMAP/Sprints -->
 ## Roadmap/Sprints
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).
+Pues estamos en el primero
 
 
 <!-- ACKNOWLEDGEMENTS -->
-## Acknowledgements
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
+## Créditos/Reconocimientos
+* [Wikipedia](https://es.wikipedia.org/wiki/Alfred_Hitchcock)
