@@ -28,10 +28,10 @@
     <li>
       <a href="#about-the-project">Sobre el proyecto</a>
     </li>
-    <li>
+    <ul>
       <a href="#about-the-project">Concepto</a>
     </li>
-    <li>
+    </ul>
       <a href="#about-the-project"></a>
     </li>
   </ol>
