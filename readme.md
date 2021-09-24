@@ -17,7 +17,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://elcorreoweb.es/binrepository/alfred-hitchcock-presenta-los-10-mejores-episodios-dirigidos-por-hitchcock_20467988_20200712181250.jpg">
+  <a href="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/hitchcock.jpg">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
