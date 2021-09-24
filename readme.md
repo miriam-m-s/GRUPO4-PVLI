@@ -60,15 +60,24 @@
 
 Proyecto para PVLI :)
 
-## Concepto/Pitch
+### Concepto/Pitch
 
-El juego va sobre un hombre y su mujer que está muerta. Hay puzzles con luces o algo así
+El juego va sobre un hombre y su mujer que está muerta. Hay puzzles o algo así
 
 <!-- Gameplay -->
 
 ## Gameplay
 
 Pues hay puzzles y esas cosas
+
+### Objetivos
+Muchos
+
+### Progresión
+Progresiva a ser posible
+
+### Interfaz
+Sí
 
 <!-- Créditos/Reconocimientos -->
 
