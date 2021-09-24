@@ -91,6 +91,8 @@ Sí
 <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
     <img src="images/mecanIcon.png" alt="Logo" | width=48)>
   </a>
+  
+  Mecánicas
 
 <!-- Elementos de Juego -->
 ## Elementos de juego
