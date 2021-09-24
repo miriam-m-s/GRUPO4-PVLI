@@ -17,7 +17,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/hitchcock.jpg">
+  <a href="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/hitchcock">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
