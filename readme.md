@@ -154,7 +154,7 @@ Los nombres de los personajes Estrella y Luna se han elegido porque estos dan en
     - Lampara (encendido/apagado)
   </ul>
       <ul>
-    - Interruptor
+    - Interruptor (on/off)
   </ul>
  </li>
  <li>
