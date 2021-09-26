@@ -20,10 +20,10 @@
   
 <!-- TABLE OF CONTENTS -->
 
-![alt text](https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/assetsIcon.png)
+
 
 <details open="open">
-  <summary>Tabla de contenidos</summary> 
+  ![alt text](https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/assetsIcon.png) <summary>Tabla de contenidos</summary> 
   <ol>
     <li>
       <a href="#sobre-el-proyecto">Sobre el proyecto</a>
