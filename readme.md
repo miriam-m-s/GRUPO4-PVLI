@@ -131,16 +131,23 @@ Sprites necesarios
   Personajes(top-down, animación idle & andar, una dirección)
   <ul>
     Persona
+    </ul>
+   <ul>
     Fantasma
+   </ul>
   </ul>
+ </li>
+ <li>
   Items
   <ul>
     Muebles(3 variaciones, 2 direcciones)
-    Espejo (8 direcciones)
   </ul>
   <ul>
-  Fondo (casa antigua, top-down)
+    Espejo (8 direcciones)
   </ul>
+  </li>
+  <li>
+  Fondo (casa antigua, top-down)
  </li>
 
 ## Contacto
