@@ -96,12 +96,12 @@ Sí
   Mecánicas
 
 <!-- Elementos de Juego -->
-## Elementos de juego
+## Mecánicas de personajes
 <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
     <img src="images/sitemap-64.png" alt="Logo" | width=48)>
   </a>
 
-### Items/Interaccionables
+### Mecánicas de escenario
 |      OBJETOS      |  POSEIBLE |    DESCRIPCION     |   
 | ----------------- | --------- | ----------------------------------------------------------------------------------------- |
 |      Muebles      |     SI    | Objeto que ocupa una casilla, bloquea la luz y colisiona con el humano. |
