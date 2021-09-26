@@ -57,8 +57,9 @@
 
 <!-- Sobre-el-Proyecto -->
 
-<h2> Sobre el Proyecto </h2>
+
 <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
+  <h2> Sobre el Proyecto </h2>
     <img align="left" src="images/docuicon.png" alt="Logo" | width=30)>
   </a>
   
