@@ -145,8 +145,8 @@ Sprites necesarios
   <ul>
     Espejo (8 direcciones)
   </ul>
-  </li>
-  <li>
+ </li>
+ <li>
   Fondo (casa antigua, top-down)
  </li>
 
@@ -156,6 +156,8 @@ Sprites necesarios
   </a>
   
 Correos de la uni/pagina HTML/itch.io¿?
+
+
 
 <!-- Créditos/Reconocimientos -->
 
