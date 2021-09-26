@@ -126,6 +126,13 @@ Los nombres de los personajes Estrella y Luna se han elegido porque estos dan en
 
 ## 4 Contenido
 
+ <li>
+  
+      FONDO
+  Tiles de paredes de casa antigua con diagonales
+  Tiles de tablas de madera
+ </li>
+
     GFX
       SPRITES
 <li>
