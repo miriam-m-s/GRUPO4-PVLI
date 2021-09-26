@@ -12,7 +12,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
-    <img src="images/moonIcon.png" alt="Logo" | width=256)>
+    <img src="images/moonIcon.png" alt="Logo" | width=124)>
   </a>
   <p align="center">
     <b>Juego de Alfred Hitchcock</b>
