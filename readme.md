@@ -19,11 +19,11 @@
 <h1 align="center">Proyecto PVLI</h1>
   
 
-![alt text](https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/assetsIcon.png)
+
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
-  <summary>Tabla de contenidos</summary>
+  <summary>Tabla de contenidos ![alt text](https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/assetsIcon.png)</summary>
   <ol>
     <li>
       <a href="#sobre-el-proyecto">Sobre el proyecto</a>
