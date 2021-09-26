@@ -57,9 +57,8 @@
 
 <!-- Sobre-el-Proyecto -->
 
-
+## Sobre el Proyecto
 <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
-  <h3> Sobre el Proyecto </h3>
     <img align="left" src="images/docuicon.png" alt="Logo" | width=30)>
   </a>
   
@@ -102,13 +101,16 @@ Sí
   </a>
 
 ### Items/Interaccionables
-Lámparas y espejos entre otros
+|               |    Humano     |   Fantasma    |
+| ------------- | ------------- | ------------- |
+|    Espejo     |      Sí       |       Sí      |
+| Content Cell  | Content Cell  | Content Cell  |
 
 ### Personajes
 El hombre y la muerta
 
 ### Diseño de nivel
-Sí
+Sí, mucho
 
 <!-- Créditos/Reconocimientos -->
 
