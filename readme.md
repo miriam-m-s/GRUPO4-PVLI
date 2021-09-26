@@ -127,7 +127,7 @@ Los nombres de los personajes Estrella y Luna se han elegido porque estos dan en
 ## 4 Contenido
 GFX
 <li>
-  Personajes(top-down, animación idle & andar, una dirección)
+  PERSONAJES(top-down, animación idle & andar, una dirección)
   <ul>
     - Persona
     </ul>
@@ -137,7 +137,7 @@ GFX
   </ul>
  </li>
  <li>
-  Items
+  ITEMS
   <ul>
     - Mueble 1x1 : Armario
   </ul>
@@ -159,9 +159,12 @@ GFX
  </li>
  <li>
   
-      FONDO
-  Tiles de paredes de casa antigua con diagonales
-  Tiles de tablas de madera
+   <li>
+  FONDO
+  <ul>
+    - Tiles de paredes de casa antigua con diagonales
+  </ul>
+    - Tiles de tablas de madera
  </li>
  
     AUDIO
