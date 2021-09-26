@@ -179,13 +179,22 @@ AUDIO
    </ul>
      <ul>
        <li>
-    - Ambientales
-            <ul>
-             Pasos
-                  </ul>
+    Ambientales
+     <ul>
+       - Pasos
+     </ul>
        </li>
    </ul>
  </li>
+        <li>
+    MUSICA
+     <ul>
+       - Menú principal (loop corto)
+     </ul>
+       <ul>
+       - Gameplay
+     </ul>
+       </li>
 ## Assets
 <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
     <img src="images/assetsIcon.png" alt="Logo" | width=48)>
