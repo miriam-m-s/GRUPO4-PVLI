@@ -150,6 +150,12 @@ Los nombres de los personajes Estrella y Luna se han elegido porque estos dan en
     <ul>
     - Rayo de luz (vertical y horizontal)
   </ul>
+    <ul>
+    - Lampara (encendido/apagado)
+  </ul>
+      <ul>
+    - Interruptor
+  </ul>
  </li>
  <li>
   Fondo (casa antigua, top-down)
