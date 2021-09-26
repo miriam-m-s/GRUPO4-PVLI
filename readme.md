@@ -101,10 +101,13 @@ Sí
   </a>
 
 ### Items/Interaccionables
-|               |    Humano     |   Fantasma    |
-| ------------- | ------------- | ------------- |
-|    Espejo     |      Sí       |       Sí      |
-| Content Cell  | Content Cell  | Content Cell  |
+|               |    Humano     |   Fantasma    |    Efecto     |   
+| ------------- | ------------- | ------------- | ------------------------------------------------------------------------------ |
+|    Espejo     |      No       |       Sí      | Se puede rotar y redireccionar un rayo de luz incidente en otras 7 direcciones |
+|    Velas      |      No       |       Sí      | Produce un círculo de luz a su alrededor cuando |
+|    Muebles    |      No       |       Sí      | Se puede rotar y redireccionar un rayo de luz incidente en otras 7 direcciones |
+|     Nacho     |      Mal      |       Sí      | Se puede rotar y redireccionar un rayo de luz incidente en otras 7 direcciones |
+| Content Cell  | Content Cell  | Content Cell  | Content Cell  |
 
 ### Personajes
 El hombre y la muerta
