@@ -130,10 +130,10 @@ Sprites necesarios
 <li>
   Personajes(top-down, animación idle & andar, una dirección)
   <ul>
-    Persona
+    -  Persona
     </ul>
    <ul>
-    Fantasma
+    -  Fantasma
    </ul>
   </ul>
  </li>
