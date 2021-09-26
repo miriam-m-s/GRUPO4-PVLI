@@ -140,10 +140,10 @@ Sprites necesarios
  <li>
   Items
   <ul>
-    Muebles(3 variaciones, 2 direcciones)
+    -  Muebles(3 variaciones, 2 direcciones)
   </ul>
   <ul>
-    Espejo (8 direcciones)
+    -  Espejo (8 direcciones)
   </ul>
  </li>
  <li>
