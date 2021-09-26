@@ -126,13 +126,13 @@ Los nombres de los personajes Estrella y Luna se han elegido porque estos dan en
 
 ## 4 Contenido
 
- <li>
+ <ol>
   - GFX
    <li>
   - SPRITES
   
  </li>
- </li>
+ </ol>
 
 <li>
   Personajes(top-down, animación idle & andar, una dirección)
