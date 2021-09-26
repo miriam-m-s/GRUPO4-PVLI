@@ -144,6 +144,12 @@ Los nombres de los personajes Estrella y Luna se han elegido porque estos dan en
   <ul>
     - Espejo (8 direcciones)
   </ul>
+  <ul>
+    - Vela
+  </ul>
+    <ul>
+    - Rayo de luz (vertical y horizontal)
+  </ul>
  </li>
  <li>
   Fondo (casa antigua, top-down)
