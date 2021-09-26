@@ -23,7 +23,7 @@
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
-  <summary>Tabla de contenidos ![alt text](https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/assetsIcon.png)</summary>
+  <summary>Tabla de contenidos</summary>![alt text](https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/assetsIcon.png)
   <ol>
     <li>
       <a href="#sobre-el-proyecto">Sobre el proyecto</a>
