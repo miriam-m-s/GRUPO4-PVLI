@@ -122,7 +122,7 @@ Se espera que los jugadores identifiquen los elementos que pueden utilizar a su 
 <!-- Créditos/Reconocimientos -->
 ## 3.3 Estética
 
-Los nombres de los personajes Estrella y Luna se han elegido porque estos dan entender la mecánica de cada jugador. Luna que representa la noche, la oscuridad dando a entender que ésta solo puede estar por zonas oscuras.Estrella representa luz ,claridad dando a entender que ésta sólo puede moverse por zonas de luz.
+Los nombres de los personajes Estrella y Luna se han elegido porque estos dan a entender la mecánica de cada jugador. Luna que representa la noche, la oscuridad dando a entender que ésta solo puede estar por zonas oscuras.Estrella representa luz ,claridad, dando a entender que ésta sólo puede moverse por zonas de luz.
 
 ## 4 Contenido
 GFX
