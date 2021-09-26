@@ -59,8 +59,9 @@
 
 
 <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
-    <img align="right" src="images/docuicon.png" alt="Logo" | width=48)>
   ## Sobre el Proyecto
+    <img align="left" src="images/docuicon.png" alt="Logo" | width=30)>
+  
   </a>
   
 Proyecto para PVLI :)
