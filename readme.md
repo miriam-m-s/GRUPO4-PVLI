@@ -88,7 +88,7 @@ Progresiva a ser posible
 Sí
 
 <!-- Mecánicas -->
-## Mecánicas
+## 3.1 Mecánicas
 <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
     <img src="images/mecanIcon.png" alt="Logo" | width=48)>
   </a>
@@ -96,12 +96,12 @@ Sí
   Mecánicas
 
 <!-- Elementos de Juego -->
-## Mecánicas de personajes
+## 3.1.1. Mecánicas de personajes
 <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
     <img src="images/sitemap-64.png" alt="Logo" | width=48)>
   </a>
 
-### Mecánicas de escenario
+### 3.1.2. Mecánicas de escenario
 |      OBJETOS      |  POSEIBLE |    DESCRIPCION     |   
 | ----------------- | --------- | ----------------------------------------------------------------------------------------- |
 |      Muebles      |     SI    | Objeto que ocupa una casilla, bloquea la luz y colisiona con el humano. |
@@ -110,7 +110,7 @@ Sí
 |       Velas       |     SI    | Este objeto tiene dos estados  - Encendido: Existe un círculo de luz alrededor, en este estado no puede ser poseído por el fantasma  - Apagado: No existe ninguna luz alrededor, el objeto, en este estado puede ser poseído por el fantasma  - Al principio de un nivel las velas siempre van a estar en el estado apagado. Y solo cambiaran al estado encendido cuando un rayo de luz entre en contacto con el objeto |
 |Lámpara/Interruptor|     NO    | Este objeto se compone de dos partes:  - Lámpara: que a su vez se divide en dos estados:  - Encendido: Existe un círculo de luz alrededor  - Apagado: No existe un círculo de luz alrededor  - Interruptor: Cada vez que el humano (solo el humano), pase por encima de este componente se alternarán los dos estados de la lámpara.  Visualmente, el interruptor y su lámpara correspondiente tendrán el mismo color. |
 
-### Diseño de nivel
+### 3.2 Dinámica
 Sí, mucho
 
 <!-- Créditos/Reconocimientos -->
