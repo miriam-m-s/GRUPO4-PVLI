@@ -126,24 +126,23 @@ Sí, mucho
 ### Música y Sonido
 
 ### Sprites
-Sprites necesarios
 <li>
   Personajes(top-down, animación idle & andar, una dirección)
   <ul>
-    -  Persona
+    - Persona
     </ul>
    <ul>
-    -  Fantasma
+    - Fantasma
    </ul>
   </ul>
  </li>
  <li>
   Items
   <ul>
-    -  Muebles(3 variaciones, 2 direcciones)
+    - Muebles(3 variaciones, 2 direcciones)
   </ul>
   <ul>
-    -  Espejo (8 direcciones)
+    - Espejo (8 direcciones)
   </ul>
  </li>
  <li>
@@ -153,7 +152,7 @@ Sprites necesarios
 ## Contacto
 <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
     <img src="images/contactIcon.png" alt="Logo" | width=48)>
-  </a>
+ </a>
   
 igdelcas@ucm.es  
 pamorill@ucm.es  
@@ -166,4 +165,8 @@ mirima1010@ucm.es
 
 ## Créditos/Reconocimientos
 
-[Wikipedia Hitchcock](https://es.wikipedia.org/wiki/Alfred_Hitchcock)
+[Wikipedia Hitchcock](https://es.wikipedia.org/wiki/Alfred_Hitchcock) aaaa  
+[Psicosis (1960)](https://en.wikipedia.org/wiki/Psychosis)bbbb  
+[Fireboy y Lavagirl](https://fireboyand-watergirl.co/) acacasc  
+[Binding of Isaac](https://store.steampowered.com/app/113200/The_Binding_of_Isaac/) aca acas  
+[Binding of Isaac](https://store.steampowered.com/app/113200/The_Binding_of_Isaac/)asaf  
