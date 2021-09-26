@@ -157,14 +157,14 @@ GFX
     - Interruptor (on/off)
   </ul>
  </li>
- <li>
-  
    <li>
   FONDO
   <ul>
     - Tiles de paredes de casa antigua con diagonales
   </ul>
+    <ul>
     - Tiles de tablas de madera
+        </ul>
  </li>
  
     AUDIO
