@@ -58,9 +58,8 @@
 <!-- Sobre-el-Proyecto -->
 
 ## Sobre el Proyecto 
-  //![alt-text-1](image1.png "images/docuicon")<a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
 <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
-    <img src="images/docuicon.png" alt="Logo" | width=48)>
+    <img src="images/gameIcon.png" alt="Logo" | width=48)>
   </a>
   
 Proyecto para PVLI :)
