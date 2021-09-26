@@ -127,14 +127,13 @@ Los nombres de los personajes Estrella y Luna se han elegido porque estos dan en
 ## 4 Contenido
 
  <li>
+  - GFX
+   <li>
+  - SPRITES
   
-      FONDO
-  Tiles de paredes de casa antigua con diagonales
-  Tiles de tablas de madera
+ </li>
  </li>
 
-    GFX
-      SPRITES
 <li>
   Personajes(top-down, animación idle & andar, una dirección)
   <ul>
