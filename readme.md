@@ -5,9 +5,6 @@
 *** Thanks again! Now go create something AMAZING! :D
 -->
 
-
-<h1 align="center">Proyecto PVLI</h1>
-  
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
@@ -18,6 +15,10 @@
     <b>Juego de Alfred Hitchcock</b>
   </p>
 </p>
+
+<h1 align="center">Proyecto PVLI</h1>
+  
+
 
 
 <!-- TABLE OF CONTENTS -->
