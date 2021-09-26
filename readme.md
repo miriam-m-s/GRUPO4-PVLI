@@ -121,6 +121,30 @@ Se espera que los jugadores identifiquen los elementos que pueden utilizar a su 
 
 
 <!-- Créditos/Reconocimientos -->
+## 3.3 Estética
+
+Los nombres de los personajes Estrella y Luna se han elegido porque estos dan entender la mecánica de cada jugador. Luna que representa la noche, la oscuridad dando a entender que ésta solo puede estar por zonas oscuras.Estrella representa luz ,claridad dando a entender que ésta sólo puede moverse por zonas de luz.
+
+## 4 Contenido
+GFX
+Sprites:
+Personajes(top-down, animación idle & andar, una dirección)
+Persona
+Fantasma
+Items
+Muebles(3 variaciones, 2 direcciones)
+Espejo (8 direcciones)
+Fondo (casa antigua, top-down)
+
+	AUDIO
+Efectos de sonido:
+Sonido navegación/interacción UI
+Recoger/poseer objetos
+Ambientales(pasos,atravesar paredes, etc.)
+Música:
+Menú principal (loop corto)
+Gameplay
+
 
 ## Assets
 <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
