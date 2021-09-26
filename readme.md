@@ -119,7 +119,6 @@ Sin embargo si se comete algún error a la hora de resolver el puzzle, el jugado
 
 Se espera que los jugadores identifiquen los elementos que pueden utilizar a su favor a la hora de resolver los diferentes puzzles (Ej: Si identifica una lámpara que puede abrir camino al humano, que la encienda) así como que reflexionen sobre las posibles formas de resolver cada nivel.
 
-
 <!-- Créditos/Reconocimientos -->
 ## 3.3 Estética
 
@@ -128,9 +127,7 @@ Los nombres de los personajes Estrella y Luna se han elegido porque estos dan en
 ## 4 Contenido
 
     GFX
-    <ul>
-    SPRITES
-    </ul>
+      SPRITES
 <li>
   Personajes(top-down, animación idle & andar, una dirección)
   <ul>
@@ -163,9 +160,13 @@ Los nombres de los personajes Estrella y Luna se han elegido porque estos dan en
   </ul>
  </li>
  <li>
-  Fondo (casa antigua, top-down)
+  
+      FONDO
+  Tiles de paredes de casa antigua con diagonales
+  Tiles de tablas de madera
  </li>
-
+ 
+    AUDIO
 
 ## Assets
 <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
