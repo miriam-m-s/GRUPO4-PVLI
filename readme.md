@@ -107,8 +107,14 @@ Sí
 |      Muebles      |     SI    | Objeto que ocupa una casilla, bloquea la luz y colisiona con el humano. |
 |    Rayo de luz    |     NO    | Líneas con dirección que salen de las paredes y solo se mueven en las 4 direcciones básicas. Su rumbo puede ser alterado por espejos. |
 |       Espejo      |     SI    | Modifican la dirección de los rayos de luz cuando estos entran en contacto. |
-|       Velas       |     SI    |  Este objeto tiene dos estados  - Encendido: Existe un círculo de luz alrededor, en este estado no puede ser poseído por el fantasma  - Apagado: No existe ninguna luz alrededor, el objeto, en este estado puede ser poseído por el fantasma  - Al principio de un nivel las velas siempre van a estar en el estado apagado. Y solo cambiaran al estado encendido cuando un rayo de luz entre en contacto con el objeto |
-|Lámpara/Interruptor|     NO    |       No      | Produce un círculo de luz a su alrededor mientras está encendida  |
+|       Velas       |     SI    | Este objeto tiene dos estados  - Encendido: Existe un círculo de luz alrededor, en este estado no puede ser poseído por el fantasma  - Apagado: No existe ninguna luz alrededor, el objeto, en este estado puede ser poseído por el fantasma  - Al principio de un nivel las velas siempre van a estar en el estado apagado. Y solo cambiaran al estado encendido cuando un rayo de luz entre en contacto con el objeto |
+|Lámpara/Interruptor|     NO    | Este objeto se compone de dos partes: 
+Lámpara: que a su vez se divide en dos estados: 
+Encendido: Existe un círculo de luz alrededor
+Apagado: No existe un círculo de luz alrededor
+Interruptor: Cada vez que el humano (solo el humano), pase por encima de este componente se alternarán los dos estados de la lámpara.
+Visualmente, el interruptor y su lámpara correspondiente tendrán el mismo color.
+ |
 
 ### Personajes
 El hombre y la muerta
