@@ -104,10 +104,11 @@ Sí
 |               |    Humano     |   Fantasma    |    Efecto     |   
 | ------------- | ------------- | ------------- | ------------------------------------------------------------------------------ |
 |    Espejo     |      No       |       Sí      | Se puede rotar y redireccionar un rayo de luz incidente en otras 7 direcciones |
-|    Velas      |      No       |       Sí      | Dos estados: encendido/apagado. Produce un círculo de luz a su alrededoral estar encendida cuando incide un rayo de luz |
+|    Velas      |      No       |       Sí      | Dos estados: encendido/apagado. Produce un círculo de luz a su alrededor al estar encendida cuando incide un rayo de luz |
 |    Muebles    |      No       |       Sí      | Pueden ser desplazados para bloquear luz |
 |     Nacho     |      Mal      |  Coming Soon  | Salta de puentes |
-| Content Cell  | Content Cell  | Content Cell  | Content Cell  |
+|    Lámpara    |      No       |       No      | Produce un círculo de luz a su alrededor mientras está encendida  |
+|  Interruptor  |      Sí       |       No      | Está asociado a una lámpara del nivel. Alterna el estado de la lámpara al interaccionar con él |
 
 ### Personajes
 El hombre y la muerta
