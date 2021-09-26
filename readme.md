@@ -155,10 +155,10 @@ Sprites necesarios
     <img src="images/contactIcon.png" alt="Logo" | width=48)>
   </a>
   
-igdelcas@ucm.es
-pamorill@ucm.es
-jacoboal@ucm.es
-mirima1010@ucm.es
+igdelcas@ucm.es  
+pamorill@ucm.es  
+jacoboal@ucm.es  
+mirima1010@ucm.es  
 
 
 
