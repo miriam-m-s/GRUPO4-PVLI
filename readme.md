@@ -18,12 +18,12 @@
 
 <h1 align="center">Proyecto PVLI</h1>
   
+
+
+
 <!-- TABLE OF CONTENTS -->
-
-
-
 <details open="open">
-  ![alt text](https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/assetsIcon.png) <summary>Tabla de contenidos</summary> 
+  <summary>Tabla de contenidos</summary>
   <ol>
     <li>
       <a href="#sobre-el-proyecto">Sobre el proyecto</a>
@@ -102,14 +102,13 @@ Sí
   </a>
 
 ### Items/Interaccionables
-|               |    Humano     |   Fantasma    |    Efecto     |   
-| ------------- | ------------- | ------------- | ------------------------------------------------------------------------------ |
-|    Espejo     |      No       |       Sí      | Se puede rotar y redireccionar un rayo de luz incidente en otras 7 direcciones |
-|    Velas      |      No       |       Sí      | Dos estados: encendido/apagado. Produce un círculo de luz a su alrededor al estar encendida cuando incide un rayo de luz |
-|    Muebles    |      No       |       Sí      | Pueden ser desplazados para bloquear luz |
-|     Nacho     |      Mal      |  Coming Soon  | Salta de puentes |
-|    Lámpara    |      No       |       No      | Produce un círculo de luz a su alrededor mientras está encendida  |
-|  Interruptor  |      Sí       |       No      | Está asociado a una lámpara del nivel. Alterna el estado de la lámpara al interaccionar con él |
+|      OBJETOS      |  POSEIBLE |    DESCRIPCION     |   
+| ----------------- | --------- | ----------------------------------------------------------------------------------------- |
+|      Muebles      |     SI    |  Objeto que ocupa una casilla, bloquea la luz y colisiona con el humano. |
+|    Rayo de luz    |     NO    |       Sí      | Dos estados: encendido/apagado. Produce un círculo de luz a su alrededor al estar encendida cuando incide un rayo de luz |
+|       Espejo      |     SI    |       Sí      | Pueden ser desplazados para bloquear luz |
+|       Velas       |     SI    |  Coming Soon  | Salta de puentes |
+|Lámpara/Interruptor|     NO    |       No      | Produce un círculo de luz a su alrededor mientras está encendida  |
 
 ### Personajes
 El hombre y la muerta
