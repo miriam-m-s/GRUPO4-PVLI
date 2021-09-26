@@ -116,9 +116,6 @@ Interruptor: Cada vez que el humano (solo el humano), pase por encima de este co
 Visualmente, el interruptor y su lámpara correspondiente tendrán el mismo color.
  |
 
-### Personajes
-El hombre y la muerta
-
 ### Diseño de nivel
 Sí, mucho
 
