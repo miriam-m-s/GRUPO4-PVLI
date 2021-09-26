@@ -167,8 +167,25 @@ GFX
         </ul>
  </li>
  
-    AUDIO
+AUDIO
 
+<li>
+  SFX
+  <ul>
+    - Sonido navegación/interacción UI
+    </ul>
+   <ul>
+    - Al poseer un objeto
+   </ul>
+     <ul>
+       <li>
+    - Ambientales
+            <ul>
+             Pasos
+                  </ul>
+       </li>
+   </ul>
+ </li>
 ## Assets
 <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
     <img src="images/assetsIcon.png" alt="Logo" | width=48)>
