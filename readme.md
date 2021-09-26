@@ -104,9 +104,9 @@ Sí
 |               |    Humano     |   Fantasma    |    Efecto     |   
 | ------------- | ------------- | ------------- | ------------------------------------------------------------------------------ |
 |    Espejo     |      No       |       Sí      | Se puede rotar y redireccionar un rayo de luz incidente en otras 7 direcciones |
-|    Velas      |      No       |       Sí      | Produce un círculo de luz a su alrededor cuando |
-|    Muebles    |      No       |       Sí      | Se puede rotar y redireccionar un rayo de luz incidente en otras 7 direcciones |
-|     Nacho     |      Mal      |       Sí      | Se puede rotar y redireccionar un rayo de luz incidente en otras 7 direcciones |
+|    Velas      |      No       |       Sí      | Dos estados: encendido/apagado. Produce un círculo de luz a su alrededoral estar encendida cuando incide un rayo de luz |
+|    Muebles    |      No       |       Sí      | Pueden ser desplazados para bloquear luz |
+|     Nacho     |      Mal      |  Coming Soon  | Salta de puentes |
 | Content Cell  | Content Cell  | Content Cell  | Content Cell  |
 
 ### Personajes
