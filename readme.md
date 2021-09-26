@@ -126,6 +126,22 @@ Sí, mucho
 ### Música y Sonido
 
 ### Sprites
+Sprites necesarios
+<li>
+  Personajes(top-down, animación idle & andar, una dirección)
+  <ul>
+    Persona
+    Fantasma
+  </ul>
+  Items
+  <ul>
+    Muebles(3 variaciones, 2 direcciones)
+    Espejo (8 direcciones)
+  </ul>
+  <ul>
+  Fondo (casa antigua, top-down)
+  </ul>
+ </li>
 
 ## Contacto
 <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
