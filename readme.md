@@ -67,10 +67,7 @@ Proyecto para PVLI :)
 
 ### Concepto/Pitch
 
-"Eclipse" se trata de un juego de estilo cooperativo top-down donde dos jugadores adoptarán los personajes de Estrella, una niña humana, y Luna, su hermana fantasma. La historia del juego toma su origen en una adaptación de la película "Psicosis" de Alfred Hitchcock. 
-
-El objetivo del juego es que la niña, Estrella, encuentre el cadáver de su hermana muerta Luna, con la ayuda del fantasma que ésta ha dejado atrás. Para ello Luna la ayuda a avanzar por las diferentes salas resolviendo distintos puzzles.
-
+El juego va sobre un hombre y su mujer que está muerta. Hay puzzles o algo así
 
 <!-- Gameplay -->
 
@@ -206,18 +203,10 @@ El juego está ambientado en la película “Psicosis”, del director Alfred Hi
 ## 4.2 Niveles
 
 ## Referencias
-<li>
-  <ul>
-    - Psicosis (1960)
-    </ul
-      <ul>
-    - Fireboy and Watergirl
-    </ul
-      <ul>
-    - Crepúsculo (2008)
-    </ul
-  </li>
-
+- Psicosis (1960)  
+- Fireboy and Watergirl
+- Crepúsculo (2008)
+- 
 ## Assets
 <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
     <img src="images/assetsIcon.png" alt="Logo" | width=48)>
