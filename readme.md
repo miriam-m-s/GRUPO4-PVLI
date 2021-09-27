@@ -42,10 +42,10 @@
       </ul>
     </li>
     <li>
-      <a href="#Gameplay">Gameplay</a>
+      <a href="#Jugabilidad">Jugabilidad</a>
       <ul>
-        <li><a href="#General">Objetivos</a></li>
-        <li><a href="#Interfaz y control">Interfaz/GUI</a></li>
+        <li><a href="#Mecánicas">Mecánicas</a></li>
+        <li><a href="#Dinámicas y control">Dinámicas</a></li>
       </ul>
     </li>
     <li><a href="#usage">Mecánicas</a></li>
