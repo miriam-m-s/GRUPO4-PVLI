@@ -67,7 +67,10 @@ Proyecto para PVLI :)
 
 ### Concepto/Pitch
 
-El juego va sobre un hombre y su mujer que está muerta. Hay puzzles o algo así
+"Eclipse" se trata de un juego de estilo cooperativo top-down donde dos jugadores adoptarán los personajes de Estrella, una niña humana, y Luna, su hermana fantasma. La historia del juego toma su origen en una adaptación de la película "Psicosis" de Alfred Hitchcock. 
+
+El objetivo del juego es que la niña, Estrella, encuentre el cadáver de su hermana muerta Luna, con la ayuda del fantasma que ésta ha dejado atrás. Para ello Luna la ayuda a avanzar por las diferentes salas resolviendo distintos puzzles.
+
 
 <!-- Gameplay -->
 
