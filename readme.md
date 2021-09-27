@@ -155,6 +155,20 @@ Progresiva a ser posible
 <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
     <img src="images/sitemap-64.png" alt="Logo" | width=48)>
   </a>
+  Al ser un juego cooperativo existen dos personajes: La hermana menor (humano), y la hermana mayor (fantasma). cada uno con diferentes propiedades.
+Los dos personajes se mueven en las 8 direcciones.
+
+El fantasma tiene la mecánica de poseer objetos, habilidad que le permite modificar la posición de elementos del escenario. A continuación se explica cómo se realizaría dicha mecánica:
+Los objetos poseibles tienen dos estados: 
+    -No poseídos: Son estáticos, el humano no puede atravesarlos mientras que el fantasma si.
+    -Poseídos: En este estado el fantasma desaparece de la pantalla y el jugador que lo controlaba pasa a controlar al objeto, moviéndolo como si fuese otro personaje en las 8       direcciones.
+Cada vez que el fantasma se posiciona encima de un objeto poseible en estado no poseído, una barra vacía aparecerá encima del objeto y se empezará a rellenar. Si el fantasma se aleja de dicho objeto, la barra desaparece. Por otro lado, si la barra se llena completamente, el fantasma desaparece y el objeto pasa al estado poseído. Si el objeto poseído se queda completamente quieto durante 1 segundo, la barra reaparece y se empezará a rellenar. Si el objeto poseído se mueve lo más mínimo, la barra desaparece. Por otro lado, si la barra se llena completamente el fantasma aparece de nuevo y el objeto pasa al estado no poseído.
+
+<p align="center">
+  <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
+    <img src="images/barracargando.JPG" alt="Logo" | width=300)>
+  </a>
+
 
 ### 3.1.2 Mecánicas de escenario
 |      OBJETOS      |  POSEIBLE |    DESCRIPCION     |   
