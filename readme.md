@@ -209,17 +209,9 @@ El juego está ambientado en la película “Psicosis”, del director Alfred Hi
 ## 4.2 Niveles
 
 ## Referencias
-<li>
-  <ul>
-    Psicosis (1960)
-    </ul
-      <ul>
-    Fireboy and Watergirl
-    </ul
-      <ul>
-    Crepúsculo (2008)
-    </ul
-  </li>
+- Psicosis (1960)
+- Fireboy and Watergirl
+- Crepúsculo (2008)
 
 ## Assets
 <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
