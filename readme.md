@@ -34,6 +34,14 @@
       </ul>
     </li>
     <li>
+      <a href="#Menús_y_modos_de_juego">Menús y modos de juego</a>
+      <ul>
+        <li><a href="#Concepto/Pitch">Concepto/Pitch</a></li>
+        <li><a href="#Aspectos_Generales">Aspectos generales</a></li>
+        <li><a href="#Partida típica">Partida típica</a></li>
+      </ul>
+    </li>
+    <li>
       <a href="#Gameplay">Gameplay</a>
       <ul>
         <li><a href="#Objetivos">Objetivos</a></li>
@@ -74,6 +82,10 @@ El juego va sobre un hombre y su mujer que está muerta. Hay puzzles o algo así
 ### Aspectos Generales
 
 ### Partida típica
+
+<!-- Menus/Modos -->
+
+## Menús y modos de juego
 
 <!-- Gameplay -->
 
@@ -209,9 +221,17 @@ El juego está ambientado en la película “Psicosis”, del director Alfred Hi
 ## 4.2 Niveles
 
 ## Referencias
-- Psicosis (1960)
-- Fireboy and Watergirl
-- Crepúsculo (2008)
+<li>
+  <ul>
+    Psicosis (1960)
+    </ul
+      <ul>
+    Fireboy and Watergirl
+    </ul
+      <ul>
+    Crepúsculo (2008)
+    </ul
+  </li>
 
 ## Assets
 <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
