@@ -257,6 +257,9 @@ Nivel 5
     <img src="images/DisNiv.png" alt="Logo" | width=48)>
   </a>
 
+## Referencias
+- Psicosis (1960) : 
+- Fireboy and Watergirl : La idea de que dos jugadores utilicen el mismo teclado para controlar al mismo tiempo a dos personajes antonimos el uno del otro (Fuego/Agua, Luz/Oscuridad)
 
 ## Assets
 <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
