@@ -114,6 +114,9 @@ La historia está ambientada en una mansión, allí Estrella y Luna en forma de 
   <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
     <img src="niveles.jpg" alt="Logo" | width=300)>
   </a>
+<p><b>Modos de juego: </b>este será multijugador y no podrá cambiarse, por
+lo que no aparecerá la opción para seleccionar
+entre modos de juego.</p>
 
 <!-- Gameplay -->
 
