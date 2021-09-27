@@ -90,9 +90,10 @@ La historia está ambientada en una mansión, allí Estrella y Luna en forma de 
   <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
     <img src="images/vistageneral.jpg" alt="Logo" | width=300)>
   </a>
+  </p>
 
 
-## Relato breve y parcial de una partida típica 
+## 1.1 Relato breve y parcial de una partida típica 
   <p align="center">
   <img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/descripcionpartidatipica.jpg" width="400"/>
 <p>El juego comenzará en una habitación, en ella están Estrella (niña humana) en la zona iluminada y Luna (el fantasma) en la zona oscura. En la parte izquierda de la habitación hay una ventana (1), que refracta un rayo de sol que atraviesa toda la habitación horizontalmente. Este rayo no puede ser tocado por el fantasma, por lo que ahora su movimiento es limitado. En la parte iluminada se encuentra la niña, ésta atravesará la habitación hasta encontrarse con el rayo(1). A continuación se pondrá en frente de este para bloquearlo y que no pase la luz. En consecuencia el movimiento del fantasma ya no se verá limitado y por lo tanto podrá poseer la vela que se halla en la parte inferior (2). La vela se pondrá en la zona donde acababa el rayo de luz (3). Para encender esta vela Estrella deberá apartarse dejando pasar de nuevo el rayo de luz, y la vela se encenderá. Finalmente Estrella podrá acceder a la trampilla y Luna al pentagrama terminando así el nivel.</p>
@@ -148,6 +149,7 @@ Cada vez que el fantasma se posiciona encima de un objeto poseible en estado no 
   <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
     <img src="images/barracargando.JPG" alt="Logo" | width=300)>
   </a>
+  </p>
 
 
 ### 3.1.2 Mecánicas de escenario
