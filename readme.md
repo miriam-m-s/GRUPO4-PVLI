@@ -19,7 +19,7 @@
 <h1 align="center">Proyecto PVLI</h1>
   
 
-![](.images/menuprincipals.jpg =250x)  
+![](.images/menuprincipals.jpg)  
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
