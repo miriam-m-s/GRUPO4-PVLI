@@ -105,7 +105,7 @@ La historia está ambientada en una mansión, allí Estrella y Luna en forma de 
 <p><b>Menú Inicial del juego:</b> este tendrá una imagen relacionada con el juego , aparecerá el título del juego y tendrá una música de fondo ambientada al juego. También tendrá un botón de play, este al ser presionado reproducirá un sonido y llevará al menú de niveles. 
  <p align="center">
   <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
-    <img src="menuprincipal (2).jpg" alt="Logo" | width=300)>
+    <img src="menuprincipal(2).jpg" alt="Logo" | width=300)>
   </a>
 
 
