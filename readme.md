@@ -44,9 +44,9 @@
     <li>
       <a href="#Gameplay">Gameplay</a>
       <ul>
-        <li><a href="#Objetivos">Objetivos</a></li>
-        <li><a href="#Progresión">Progresión</a></li>
-        <li><a href="#Interfaz">Interfaz/GUI</a></li>
+        <li><a href="#General">Objetivos</a></li>
+        <li><a href="#Confiuración">Progresión</a></li>
+        <li><a href="#Interfaz y control">Interfaz/GUI</a></li>
       </ul>
     </li>
     <li><a href="#usage">Mecánicas</a></li>
