@@ -42,10 +42,10 @@
       </ul>
     </li>
     <li>
-      <a href="#Jugabilidad">Jugabilidad</a>
+      <a href="#Gameplay">Gameplay</a>
       <ul>
-        <li><a href="#Mecánicas">Mecánicas</a></li>
-        <li><a href="#Dinámicas y control">Dinámicas</a></li>
+        <li><a href="#General">Objetivos</a></li>
+        <li><a href="#Interfaz y control">Interfaz/GUI</a></li>
       </ul>
     </li>
     <li><a href="#usage">Mecánicas</a></li>
@@ -100,6 +100,13 @@ La historia está ambientada en una mansión, allí Estrella y Luna en forma de 
 <!-- Menus/Modos -->
 
 ## Menús y modos de juego
+<p><b>Menú Inicial del juego:</b> este tendrá una imagen relacionada con el juego , aparecerá el título del juego y tendrá una música de fondo ambientada al juego. También tendrá un botón de play, este al ser presionado reproducirá un sonido y llevará al menú de niveles. </p>
+
+<p><b>Menú de niveles:</b> en este aparecerán los niveles del juego.Los que están marcados con estrellas representan los niveles ya superados.Este menú también tendrá una música de fondo. Los que aparecen con candados son los que no han sido superados. El nivel que aparece sin estrellas y candado es el nivel desbloqueado que no ha sido jugado. Al posicionar el ratón y al hacer click sobre el botón que aparece con estrellas o sin ellas  reproducirá un sonido y empezará el juego.</p>
+
+<p><b>Modos de juego:</b> este será multijugador y no podrá cambiarse, por
+lo que no aparecerá la opción para seleccionar
+entre modos de juego.</p>
 
 <!-- Gameplay -->
 
