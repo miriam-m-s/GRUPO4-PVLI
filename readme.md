@@ -118,6 +118,12 @@ Progresiva a ser posible
 
 ### Interfaz
 Los personajes se controlarán utilizando las teclas WASD (fantasma) o las flechas de dirección (humano) según el jugador. Para realizar acciones como la posesión de objetos del fantasma será necesario posicionarse en el rango de activación del objeto y esperar a que se rellene la barra que aparecerá sobre el objeto, indicando que está siendo poseído. En cuanto a la activación de lámparas por parte del humano se logrará de forma automática cuando el jugador se posicione sobre alguna de ellas.
+    <p align="center">
+  <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
+    <img src="images/MENUDEPAUSA.jpg" alt="Logo" | width=300)>
+  </a>
+      
+ El menú de pausa se activará haciendo click izquierdo sobre un botón situado en la esquina superior izquierda que ofrecerá las opciones de: reanudar, reiniciar el nivel, y salir del juego.
 
 
 <!-- Mecánicas -->
