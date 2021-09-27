@@ -67,10 +67,7 @@ Proyecto para PVLI :)
 
 ### Concepto/Pitch
 
-"Eclipse" se trata de un juego de estilo cooperativo top-down donde dos jugadores adoptarán los personajes de Estrella, una niña humana, y Luna, su hermana fantasma. La historia del juego toma su origen en una adaptación de la película "Psicosis" de Alfred Hitchcock. 
-
-El objetivo del juego es que la niña, Estrella, encuentre el cadáver de su hermana muerta Luna, con la ayuda del fantasma que ésta ha dejado atrás. Para ello Luna la ayuda a avanzar por las diferentes salas resolviendo distintos puzzles.
-
+El juego va sobre un hombre y su mujer que está muerta. Hay puzzles o algo así
 
 <!-- Gameplay -->
 
@@ -99,12 +96,12 @@ Sí
   Mecánicas
 
 <!-- Elementos de Juego -->
-## 3.1.1. Mecánicas de personajes
+## 3.1.1 Mecánicas de personajes
 <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
     <img src="images/sitemap-64.png" alt="Logo" | width=48)>
   </a>
 
-### 3.1.2. Mecánicas de escenario
+### 3.1.2 Mecánicas de escenario
 |      OBJETOS      |  POSEIBLE |    DESCRIPCION     |   
 | ----------------- | --------- | ----------------------------------------------------------------------------------------- |
 |      Muebles      |     SI    | Objeto que ocupa una casilla, bloquea la luz y colisiona con el humano. |
@@ -199,6 +196,25 @@ AUDIO
      </ul>
        </li>
        
+       
+## 4.1 Historia
+El juego está ambientado en la película “Psicosis”, del director Alfred Hitchcock. La historia comienza tras la muerte de Marion Crane (“Luna” en el juego) y gira en torno a la búsqueda que emprende junto a su hermana, Lila Crane (“Estrella” en el juego), con el objetivo de encontrar su cadáver en la casa de los Bates. En esta adaptación Estrella es una niña pequeña, de manera que le teme a la oscuridad y por ello no puede pasar por zonas que no están bien iluminadas, mientras que Luna al ser un fantasma, no puede atravesar la luz.
+
+## 4.2 Niveles
+
+## Referencias
+<li>
+  <ul>
+    Psicosis (1960)
+    </ul
+      <ul>
+    Fireboy and Watergirl
+    </ul
+      <ul>
+    Crepúsculo (2008)
+    </ul
+  </li>
+
 ## Assets
 <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
     <img src="images/assetsIcon.png" alt="Logo" | width=48)>
