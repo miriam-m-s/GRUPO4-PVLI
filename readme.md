@@ -19,7 +19,7 @@
 <h1 align="center">Proyecto PVLI</h1>
   
 
-![](.images/menuprincipals.jpg)  
+![](.images/moonIcon.png)  
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
