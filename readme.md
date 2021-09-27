@@ -101,7 +101,7 @@ La historia está ambientada en una mansión, allí Estrella y Luna en forma de 
 <!-- Menus/Modos -->
 
 ## Menús y modos de juego
-![alt text](https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/menuprincipals.jpg =150x)
+![alt text](https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/menuprincipals.jpg)
 <p><b>Menú Inicial del juego:</b> este tendrá una imagen relacionada con el juego , aparecerá el título del juego y tendrá una música de fondo ambientada al juego. También tendrá un botón de play, este al ser presionado reproducirá un sonido y llevará al menú de niveles. 
 </p>
 
@@ -268,8 +268,11 @@ AUDIO
 El juego está ambientado en la película “Psicosis”, del director Alfred Hitchcock. La historia comienza tras la muerte de Marion Crane (“Luna” en el juego) y gira en torno a la búsqueda que emprende junto a su hermana, Lila Crane (“Estrella” en el juego), con el objetivo de encontrar su cadáver en la casa de los Bates. En esta adaptación Estrella es una niña pequeña, de manera que le teme a la oscuridad y por ello no puede pasar por zonas que no están bien iluminadas, mientras que Luna al ser un fantasma, no puede atravesar la luz.
 
 ## 4.2 Niveles
-
-
+Nivel 5
+<a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
+    <img src="images/DisNiv.png" alt="Logo" | width=600)>
+  </a>
+  
 ## Assets
 <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
     <img src="images/assetsIcon.png" alt="Logo" | width=48)>
