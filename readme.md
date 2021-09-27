@@ -71,6 +71,10 @@ Proyecto para PVLI :)
 
 El juego va sobre un hombre y su mujer que está muerta. Hay puzzles o algo así
 
+### Aspectos Generales
+
+### Partida típica
+
 <!-- Gameplay -->
 
 ## Gameplay
