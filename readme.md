@@ -19,7 +19,7 @@
 <h1 align="center">Proyecto PVLI</h1>
   
 
-![](https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/menuprincipals.jpg =250x)
+![](https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/menuprincipals.jpg=250x)
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
