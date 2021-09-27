@@ -106,10 +106,8 @@ La historia está ambientada en una mansión, allí Estrella y Luna en forma de 
 
 
 <p><b>Menú de niveles:</b> en este aparecerán los niveles del juego.Los que están marcados con estrellas representan los niveles ya superados.Este menú también tendrá una música de fondo. Los que aparecen con candados son los que no han sido superados. El nivel que aparece sin estrellas y candado es el nivel desbloqueado que no ha sido jugado. Al posicionar el ratón y al hacer click sobre el botón que aparece con estrellas o sin ellas  reproducirá un sonido y empezará el juego.</p>
-<p align="center">
-  <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
-    <img src="niveles.jpg" alt="Logo" | width=300)>
-  </a>
+<p align="left">
+  <img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/niveles.jpg" width="200"/>
 <p><b>Modos de juego: </b>este será multijugador y no podrá cambiarse, por
 lo que no aparecerá la opción para seleccionar
 entre modos de juego.</p>
