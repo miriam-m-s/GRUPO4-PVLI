@@ -270,8 +270,8 @@ El juego está ambientado en la película “Psicosis”, del director Alfred Hi
 ## 4.2 Niveles
 Nivel 5
 <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
-    <img src="images/DisNiv.png" alt="Logo" | width=500)>
- </a>
+    <img src="images/DisNiv.png" alt="Logo" | width=48)>
+  </a>
 
 
 ## Assets
