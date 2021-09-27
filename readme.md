@@ -204,6 +204,7 @@ El juego está ambientado en la película “Psicosis”, del director Alfred Hi
 
 ## Referencias
 <li>
+  odvbjr
   <ul>
     Psicosis (1960)
     </ul
