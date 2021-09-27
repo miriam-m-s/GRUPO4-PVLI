@@ -19,7 +19,7 @@
 <h1 align="center">Proyecto PVLI</h1>
   
 
-![](.images/moonIcon.png)  
+![](https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/menuprincipals.jpg)  
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
