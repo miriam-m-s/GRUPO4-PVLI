@@ -82,7 +82,7 @@ Proyecto para PVLI :)
 El objetivo del juego es que la niña, Estrella, encuentre el cadáver de su hermana muerta Luna, con la ayuda del fantasma que ésta ha dejado atrás. Para ello Luna la ayuda a avanzar por las diferentes salas resolviendo distintos puzzles.
 
 
-### Aspectos Generales
+### 1 Aspectos Generales
 Eclipse busca ofrecer una experiencia de corta duración que le resulte al jugador satisfactoria y divertida al resolver los  puzzles de los distintos niveles. Tendrá una tonalidad oscura que se adecua a la fría historia del juego. Aunque se mostrarán tonalidades más claras para representar la luz, un elemento importante del juego. 
 La historia está ambientada en una mansión, allí Estrella y Luna en forma de fantasma tendrán que superar las distintas pruebas hasta llegar a encontrar el cadáver de Luna. Para ello los jugadores tendrán que dominar las distintas mecánicas de cada personaje. El jugador que controle a Luna tendrá que aprender la mecánica de la posesión de objetos y el que controle a Estrella tendrá que apagar las luces o ponerse en medio de ellas para dar sombra.
 ### Vista general
@@ -92,7 +92,7 @@ La historia está ambientada en una mansión, allí Estrella y Luna en forma de 
   </a>
 
 
-### Partida típica
+## Partida tipica
   <p align="center">
   <img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/descripcionpartidatipica.jpg" width="200"/>
 <p>El juego comenzará en una habitación, en ella están Estrella (niña humana) en la zona iluminada y Luna (el fantasma) en la zona oscura. En la parte izquierda de la habitación hay una ventana (1), que refracta un rayo de sol que atraviesa toda la habitación horizontalmente. Este rayo no puede ser tocado por el fantasma, por lo que ahora su movimiento es limitado. En la parte iluminada se encuentra la niña, ésta atravesará la habitación hasta encontrarse con el rayo(1). A continuación se pondrá en frente de este para bloquearlo y que no pase la luz. En consecuencia el movimiento del fantasma ya no se verá limitado y por lo tanto podrá poseer la vela que se halla en la parte inferior (2). La vela se pondrá en la zona donde acababa el rayo de luz (3). Para encender esta vela Estrella deberá apartarse dejando pasar de nuevo el rayo de luz, y la vela se encenderá. Finalmente Estrella podrá acceder a la trampilla y Luna al pentagrama terminando así el nivel.</p>
