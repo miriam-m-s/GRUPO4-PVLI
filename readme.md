@@ -204,15 +204,14 @@ El juego está ambientado en la película “Psicosis”, del director Alfred Hi
 
 ## Referencias
 <li>
-  odvbjr
   <ul>
-    Psicosis (1960)
+    - Psicosis (1960)
     </ul
       <ul>
-    Fireboy and Watergirl
+    - Fireboy and Watergirl
     </ul
       <ul>
-    Crepúsculo (2008)
+    - Crepúsculo (2008)
     </ul
   </li>
 
