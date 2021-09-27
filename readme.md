@@ -112,7 +112,8 @@ Muchos
 Progresiva a ser posible
 
 ### Interfaz
-Sí
+Los personajes se controlarán utilizando las teclas WASD (fantasma) o las flechas de dirección (humano) según el jugador. Para realizar acciones como la posesión de objetos del fantasma será necesario posicionarse en el rango de activación del objeto y esperar a que se rellene la barra que aparecerá sobre el objeto, indicando que está siendo poseído. En cuanto a la activación de lámparas por parte del humano se logrará de forma automática cuando el jugador se posicione sobre alguna de ellas.
+
 
 <!-- Mecánicas -->
 ## 3.1 Mecánicas
