@@ -86,7 +86,7 @@ Eclipse busca ofrecer una experiencia de corta duración que le resulte al jugad
 La historia está ambientada en una mansión, allí Estrella y Luna en forma de fantasma tendrán que superar las distintas pruebas hasta llegar a encontrar el cadáver de Luna. Para ello los jugadores tendrán que dominar las distintas mecánicas de cada personaje. El jugador que controle a Luna tendrá que aprender la mecánica de la posesión de objetos y el que controle a Estrella tendrá que apagar las luces o ponerse en medio de ellas para dar sombra.
 <p align="center">
   <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
-    <img src="images/vistageneral.png" alt="Logo" | width=124)>
+    <img src="images/vistageneral.jpg" alt="Logo" | width=124)>
   </a>
 
 
