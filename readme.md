@@ -47,13 +47,14 @@
     <li>
       <a href="#Estética">Estética</a>  
     </li>
+    <i>
     <a href="#elementos-de-juego">Elementos de Juego</a>
       <ul>
         <li><a href="#assets">Assets</a></li>
         <li><a href="#historia">Historia</a></li>
         <li><a href="#niveles">Niveles</a></li>
       </ul>
-    
+    </i>
     <li><a href="#contacto">Contacto/Desarrolladores</a></li>
     <li><a href="#créditosreconocimientos">Agradecimientos y créditos</a></li>
   </ol>
