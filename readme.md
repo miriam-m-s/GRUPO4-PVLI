@@ -26,7 +26,7 @@
       <a href="#sobre-el-proyecto">Sobre el proyecto</a>
       <ul>
         <li><a href="#ConceptoPitch">Concepto/Pitch</a></li>
-        <li><a href="#1-aspectos-generales">Aspectos generales</a></li>
+        <li><a href="#aspectos-generales">Aspectos generales</a></li>
         <li><a href="#Partida%20típica">Partida típica</a></li>
       </ul>
     </li>
@@ -77,7 +77,7 @@ Proyecto para PVLI :)
 El objetivo del juego es que la niña, Estrella, encuentre el cadáver de su hermana muerta Luna, con la ayuda del fantasma que ésta ha dejado atrás. Para ello Luna la ayuda a avanzar por las diferentes salas resolviendo distintos puzzles.
 
 
-### 1 Aspectos Generales
+### Aspectos Generales
 Eclipse busca ofrecer una experiencia de corta duración que le resulte al jugador satisfactoria y divertida al resolver los  puzzles de los distintos niveles. Tendrá una tonalidad oscura que se adecua a la fría historia del juego. Aunque se mostrarán tonalidades más claras para representar la luz, un elemento importante del juego. 
 La historia está ambientada en una mansión, allí Estrella y Luna en forma de fantasma tendrán que superar las distintas pruebas hasta llegar a encontrar el cadáver de Luna. Para ello los jugadores tendrán que dominar las distintas mecánicas de cada personaje. El jugador que controle a Luna tendrá que aprender la mecánica de la posesión de objetos y el que controle a Estrella tendrá que apagar las luces o ponerse en medio de ellas para dar sombra.
 ### Vista general
