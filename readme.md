@@ -53,7 +53,6 @@
         <li><a href="#historia">Historia</a></li>
         <li><a href="#niveles">Niveles</a></li>
       </ul>
-    </li>
     
     <li><a href="#contacto">Contacto/Desarrolladores</a></li>
     <li><a href="#créditosreconocimientos">Agradecimientos y créditos</a></li>
