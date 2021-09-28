@@ -68,7 +68,7 @@
     <img align="left" src="images/docuicon.png" alt="Logo" | width=30)>
   </a>
   
-Proyecto para PVLI :) AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+Proyecto para PVLI :)
 
 ### Concepto/Pitch
 
@@ -117,7 +117,6 @@ entre modos de juego.</p>
 
 ## Jugabilidad
 <img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/mecanIcon.png" width="48"/>
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
 <!-- Elementos de Juego -->
 ### Mecánicas de personajes
