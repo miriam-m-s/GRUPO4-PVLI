@@ -85,13 +85,13 @@ La historia está ambientada en una mansión, allí Estrella y Luna en forma de 
 </p>
 
 
-## 1.1 Relato breve y parcial de una partida típica 
+## Relato breve y parcial de una partida típica 
   <p align="center">
   <img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/descripcionpartidatipica.jpg" width="400"/>
 <p>El juego comenzará en una habitación, en ella están Estrella (niña humana) en la zona iluminada y Luna (el fantasma) en la zona oscura. En la parte izquierda de la habitación hay una ventana (1), que refracta un rayo de sol que atraviesa toda la habitación horizontalmente. Este rayo no puede ser tocado por el fantasma, por lo que ahora su movimiento es limitado. En la parte iluminada se encuentra la niña, ésta atravesará la habitación hasta encontrarse con el rayo(1). A continuación se pondrá en frente de este para bloquearlo y que no pase la luz. En consecuencia el movimiento del fantasma ya no se verá limitado y por lo tanto podrá poseer la vela que se halla en la parte inferior (2). La vela se pondrá en la zona donde acababa el rayo de luz (3). Para encender esta vela Estrella deberá apartarse dejando pasar de nuevo el rayo de luz, y la vela se encenderá. Finalmente Estrella podrá acceder a la trampilla y Luna al pentagrama terminando así el nivel.</p>
 <!-- Menus/Modos -->
 
-## 2 Menús y modos de juego
+## Menús y modos de juego
 <img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/menuprincipals.jpg" width="300"/>
 <p><b>Menú Inicial del juego:</b> este tendrá una imagen relacionada con el juego , aparecerá el título del juego y tendrá una música de fondo ambientada al juego. También tendrá un botón de play, este al ser presionado reproducirá un sonido y llevará al menú de niveles. 
 </p>
@@ -105,22 +105,22 @@ La historia está ambientada en una mansión, allí Estrella y Luna en forma de 
 lo que no aparecerá la opción para seleccionar
 entre modos de juego.</p>
 
-### 2.1 Interfaz y control  
+### Interfaz y control  
 <p>Los personajes se controlarán utilizando las teclas WASD (fantasma) o las flechas de dirección (humano) según el jugador. Para realizar acciones como la posesión de objetos del fantasma será necesario posicionarse en el rango de activación del objeto y esperar a que se rellene la barra que aparecerá sobre el objeto, indicando que está siendo poseído. En cuanto a la activación de lámparas por parte del humano se logrará de forma automática cuando el jugador se posicione sobre alguna de ellas.</p>
    <p align="center">
   <img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/MENUDEPAUSA.jpg" width="400"/>
 <p> El menú de pausa se activará haciendo click izquierdo sobre un botón situado en la esquina superior izquierda que ofrecerá las opciones de: reanudar, reiniciar el nivel, y salir del juego.</p>
 
-## 3 Jugabilidad
+## Jugabilidad
 
 <!-- Mecánicas -->
-## 3.1 Mecánicas
+## Mecánicas
 <img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/mecanIcon.png" width="48"/>
   
   Mecánicas
 
 <!-- Elementos de Juego -->
-## 3.1.1 Mecánicas de personajes
+## Mecánicas de personajes
 <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
     <img src="images/sitemap-64.png" alt="Logo" | width=48)>
   </a>
@@ -140,7 +140,7 @@ Cada vez que el fantasma se posiciona encima de un objeto poseible en estado no 
   </p>
 
 
-### 3.1.2 Mecánicas de escenario
+### Mecánicas de escenario
 |      OBJETOS      |  POSEIBLE |    DESCRIPCION     |   
 | ----------------- | --------- | ----------------------------------------------------------------------------------------- |
 |      Muebles      |     SI    | Objeto que ocupa una casilla, bloquea la luz y colisiona con el humano. |
