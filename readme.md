@@ -170,6 +170,7 @@ Se espera que los jugadores identifiquen los elementos que pueden utilizar a su 
 Los nombres de los personajes Estrella y Luna se han elegido porque estos dan a entender la mecánica de cada jugador. Luna que representa la noche, la oscuridad dando a entender que ésta solo puede estar por zonas oscuras.Estrella representa luz ,claridad, dando a entender que ésta sólo puede moverse por zonas de luz.
 
 ## 4 Contenido
+<img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/DisNiv.png" width="48"/>
 GFX
 <li>
   PERSONAJES(top-down, animación idle & andar, una dirección)
@@ -252,11 +253,6 @@ Nivel 5
 ## Referencias
 - Psicosis (1960) : 
 - Fireboy and Watergirl : La idea de que dos jugadores utilicen el mismo teclado para controlar al mismo tiempo a dos personajes antonimos el uno del otro (Fuego/Agua, Luz/Oscuridad)
-
-## Assets
-<a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
-    <img src="images/assetsIcon.png" alt="Logo" | width=48)>
-  </a>
 
 ## Contacto
 <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
