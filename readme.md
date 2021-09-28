@@ -115,8 +115,9 @@ entre modos de juego.</p>
 <!-- Jugabilidad -->
 
 ## Jugabilidad
-<img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/mecanIcon.png" width="48"/>  
+<img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/mecanIcon.png" width="48"/>
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
 <!-- Elementos de Juego -->
 ### Mecánicas de personajes
 
