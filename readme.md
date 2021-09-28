@@ -44,17 +44,11 @@
         <li><a href="#dinámica">Dinámicas</a></li>
       </ul>
     </li>
-    <li><a href="#Elementos_de_juego">Elementos de juego</a></li>
-    <ul>
-        <li><a href="#prerequisites">Items/Interaccionables</a></li>
-        <li><a href="#installation">Personajes</a></li>
-        <li><a href="#installation">Diseño de nivel</a></li>
-      </ul>
-    <li><a href="#contributing">Assets</a></li>
-    <ul>
-        <li><a href="#prerequisites">Música y sonido</a></li>
-        <li><a href="#installation">Sprites</a></li>
-      </ul>
+    <li>
+      <a href="#Estética">Estética</a>  
+    </li>
+    <li><a href="#Elementos_de_juego">Elementos de juego</a></li>  
+    <li><a href="#historia">Historia</a></li>
     <li><a href="#contacto">Contacto/Desarrolladores</a></li>
     <li><a href="#créditosreconocimientos">Agradecimientos y créditos</a></li>
   </ol>
