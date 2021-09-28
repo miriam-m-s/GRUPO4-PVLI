@@ -121,7 +121,7 @@ entre modos de juego.</p>
 
 <!-- Mecánicas -->
 ## 3.1 Mecánicas
-<img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/mecanIcon.png" width="400"/>
+<img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/mecanIcon.png" width="48"/>
   
   Mecánicas
 
