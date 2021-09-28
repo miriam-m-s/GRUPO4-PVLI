@@ -49,6 +49,7 @@
     </li>
     <li><a href="#Elementos_de_juego">Elementos de juego</a></li>  
     <li><a href="#historia">Historia</a></li>
+    <li><a href="#niveles">Niveles</a></li>
     <li><a href="#contacto">Contacto/Desarrolladores</a></li>
     <li><a href="#créditosreconocimientos">Agradecimientos y créditos</a></li>
   </ol>
