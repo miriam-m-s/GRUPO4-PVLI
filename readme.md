@@ -33,9 +33,8 @@
     <li>
       <a href="#Menús_y_modos_de_juego">Menús y modos de juego</a>
       <ul>
-        <li><a href="#ConceptoPitch">Concepto/Pitch</a></li>
-        <li><a href="#Aspectos_Generales">Aspectos generales</a></li>
-        <li><a href="#Partida_típica">Partida típica</a></li>
+        <li><a href="#Diseño">Diseño</a></li>
+        <li><a href="#Interfaz_y_Control">Interfaz y Control</a></li>
       </ul>
     </li>
     <li>
@@ -92,7 +91,10 @@ La historia está ambientada en una mansión, allí Estrella y Luna en forma de 
 <!-- Menus/Modos -->
 
 ## Menús y modos de juego
+<p align="center>
 <img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/menuprincipals.jpg" width="300"/>
+</p>
+### Diseño                                                                                                    
 <p><b>Menú Inicial del juego:</b> este tendrá una imagen relacionada con el juego , aparecerá el título del juego y tendrá una música de fondo ambientada al juego. También tendrá un botón de play, este al ser presionado reproducirá un sonido y llevará al menú de niveles. 
 </p>
 
