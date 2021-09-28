@@ -115,14 +115,10 @@ entre modos de juego.</p>
 <!-- Jugabilidad -->
 
 ## Jugabilidad
-
-### Mecánicas
-<img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/mecanIcon.png" width="48"/>
-  
-  Mecánicas
+<img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/mecanIcon.png" width="48"/>  
 
 <!-- Elementos de Juego -->
-#### Mecánicas de personajes
+### Mecánicas de personajes
 <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
     <img src="images/sitemap-64.png" alt="Logo" | width=48)>
   </a>
