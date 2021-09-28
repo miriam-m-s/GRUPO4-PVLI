@@ -140,10 +140,10 @@ Cada vez que el fantasma se posiciona encima de un objeto poseible en estado no 
 ### Mecánicas de escenario
 |      OBJETOS      |  POSEIBLE |    DESCRIPCION     |   
 | ----------------- | --------- | ----------------------------------------------------------------------------------------- |
-|      Muebles      |     SI    | Objeto que ocupa una casilla, bloquea la luz y colisiona con el humano. |
+|       Mueble      |     SI    | Objeto que ocupa una casilla, bloquea la luz y colisiona con el humano. |
 |    Rayo de luz    |     NO    | Líneas con dirección que salen de las paredes y solo se mueven en las 4 direcciones básicas. Su rumbo puede ser alterado por espejos. |
 |       Espejo      |     SI    | Modifican la dirección de los rayos de luz cuando estos entran en contacto. |
-|       Velas       |     SI    | Este objeto tiene dos estados  - Encendido: Existe un círculo de luz alrededor, en este estado no puede ser poseído por el fantasma  - Apagado: No existe ninguna luz alrededor, el objeto, en este estado puede ser poseído por el fantasma  - Al principio de un nivel las velas siempre van a estar en el estado apagado. Y solo cambiaran al estado encendido cuando un rayo de luz entre en contacto con el objeto |
+|       Velas       |     SI    | Crea un <b>círculo de luz</b> alrededor al estar encendida, o nada al estar apagada. Comienza siempre estando apagada, y se enciende cuando ntra en contacto con un <b>rayo de luz</b>|
 |       Lámpara     |     NO    | Crea un <b>círculo de luz</b> alrededor al estar encendida, o nada al estar apagada. Comparte color con su interruptor asociado  |
 |     Interruptor   |     NO    | Asociado a una lámpara por nivel. Alterna su estado al interaccionar con él. Comparte color con su lámpara asociada |
 
