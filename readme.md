@@ -42,7 +42,7 @@
       <a href="#Jugabilidad">Jugabilidad</a>
       <ul>
         <li><a href="#Mecánicas">Mecánicas</a></li>
-        <li><a href="#Dinámicas_y_control">Dinámicas</a></li>
+        <li><a href="#dinámica">Dinámicas</a></li>
       </ul>
     </li>
     <li><a href="#Elementos_de_juego">Elementos de juego</a></li>
@@ -163,7 +163,7 @@ Se espera que los jugadores identifiquen los elementos que pueden utilizar a su 
 
 Los nombres de los personajes Estrella y Luna se han elegido porque estos dan a entender la mecánica de cada jugador. Luna que representa la noche, la oscuridad dando a entender que ésta solo puede estar por zonas oscuras.Estrella representa luz ,claridad, dando a entender que ésta sólo puede moverse por zonas de luz.
 
-## Contenido
+## Elementos de Juego
 <img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/assetsIcon.png" width="48"/>
 GFX
 <li>
