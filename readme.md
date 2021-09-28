@@ -33,7 +33,7 @@
     <li>
       <a href="#Menús_y_modos_de_juego">Menús y modos de juego</a>
       <ul>
-        <li><a href="#Concepto/Pitch">Concepto/Pitch</a></li>
+        <li><a href="#ConceptoPitch">Concepto/Pitch</a></li>
         <li><a href="#Aspectos_Generales">Aspectos generales</a></li>
         <li><a href="#Partida_típica">Partida típica</a></li>
       </ul>
