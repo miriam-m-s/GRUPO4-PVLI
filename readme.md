@@ -40,7 +40,7 @@
     <li>
       <a href="#Jugabilidad">Jugabilidad</a>
       <ul>
-        <li><a href="#mecánicas-de-personaje>Mecánicas de Personaje</a></li>
+        <li><a href="#mecánicas-de-personaje">Mecánicas de Personaje</a></li>
         <li><a href="#mecánicas-de-escenario">Mecánicas de Escenario</a></li>
         <li><a href="#dinámicas">Dinámicas</a></li>
       </ul>
