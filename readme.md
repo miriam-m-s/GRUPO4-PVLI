@@ -286,4 +286,4 @@ mirima10@ucm.es
 [[Psicosis (1960)]](https://en.wikipedia.org/wiki/Psychosis) Inspiración principal del juego  
 [[Fireboy y Lavagirl]](https://fireboyand-watergirl.co/) Mecánicas y estilo de juego similares  
 [[Binding of Isaac]](https://store.steampowered.com/app/113200/The_Binding_of_Isaac/)  
-[[Crepusculo]](https://www.casadellibro.com/libro-luna-nueva/9788420471136/1121515) Yo que se lo ha dicho Paula  
+[[Crepusculo]](https://google.com) Yo que se lo ha dicho Paula  
