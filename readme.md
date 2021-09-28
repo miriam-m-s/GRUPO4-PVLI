@@ -27,7 +27,7 @@
       <ul>
         <li><a href="#ConceptoPitch">Concepto/Pitch</a></li>
         <li><a href="#aspectos-generales">Aspectos generales</a></li>
-        <li><a href="#Partid-Típica">Partida típica</a></li>
+        <li><a href="#partida-típica">Partida típica</a></li>
       </ul>
     </li>
     <li>
@@ -149,7 +149,7 @@ Cada vez que el fantasma se posiciona encima de un objeto poseible en estado no 
 |       Velas       |     SI    | Este objeto tiene dos estados  - Encendido: Existe un círculo de luz alrededor, en este estado no puede ser poseído por el fantasma  - Apagado: No existe ninguna luz alrededor, el objeto, en este estado puede ser poseído por el fantasma  - Al principio de un nivel las velas siempre van a estar en el estado apagado. Y solo cambiaran al estado encendido cuando un rayo de luz entre en contacto con el objeto |
 |Lámpara/Interruptor|     NO    | Este objeto se compone de dos partes:  - Lámpara: que a su vez se divide en dos estados:  - Encendido: Existe un círculo de luz alrededor  - Apagado: No existe un círculo de luz alrededor  - Interruptor: Cada vez que el humano (solo el humano), pase por encima de este componente se alternarán los dos estados de la lámpara.  Visualmente, el interruptor y su lámpara correspondiente tendrán el mismo color. |
 
-### 3.2 Dinámica
+### Dinámica
 El objetivo final del juego es encontrar el cuerpo del fantasma que se sitúa en el último nivel. Para ello es necesario superar todos los niveles anteriores logrando que tanto el humano como el fantasma lleguen a sus diferentes bases (una puerta para el humano y un pentagrama para el fantasma).
 
 Los niveles serán puntuados mediante un sistema de logros basado en el tiempo que el jugador tarda en resolver los rompecabezas. Así cada nivel se puntúa con una, dos, o incluso tres estrellas si el jugador ha resuelto el puzzle a una gran velocidad.
@@ -159,11 +159,11 @@ Sin embargo si se comete algún error a la hora de resolver el puzzle, el jugado
 Se espera que los jugadores identifiquen los elementos que pueden utilizar a su favor a la hora de resolver los diferentes puzzles (Ej: Si identifica una lámpara que puede abrir camino al humano, que la encienda) así como que reflexionen sobre las posibles formas de resolver cada nivel.
 
 <!-- Créditos/Reconocimientos -->
-## 3.3 Estética
+## Estética
 
 Los nombres de los personajes Estrella y Luna se han elegido porque estos dan a entender la mecánica de cada jugador. Luna que representa la noche, la oscuridad dando a entender que ésta solo puede estar por zonas oscuras.Estrella representa luz ,claridad, dando a entender que ésta sólo puede moverse por zonas de luz.
 
-## 4 Contenido
+## Contenido
 <img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/assetsIcon.png" width="48"/>
 GFX
 <li>
@@ -237,10 +237,10 @@ AUDIO
        </li>
        
        
-## 4.1 Historia
+## Historia
 El juego está ambientado en la película “Psicosis”, del director Alfred Hitchcock. La historia comienza tras la muerte de Marion Crane (“Luna” en el juego) y gira en torno a la búsqueda que emprende junto a su hermana, Lila Crane (“Estrella” en el juego), con el objetivo de encontrar su cadáver en la casa de los Bates. En esta adaptación Estrella es una niña pequeña, de manera que le teme a la oscuridad y por ello no puede pasar por zonas que no están bien iluminadas, mientras que Luna al ser un fantasma, no puede atravesar la luz.
 
-## 4.2 Niveles
+## Niveles
 Nivel 5
 <img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/DisNiv.png" width="400"/>
 
