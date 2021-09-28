@@ -55,8 +55,8 @@
         <li><a href="#prerequisites">Música y sonido</a></li>
         <li><a href="#installation">Sprites</a></li>
       </ul>
-    <li><a href="#contact">Contacto/Desarrolladores</a></li>
-    <li><a href="#Créditos/Reconocimientos">Agradecimientos y créditos</a></li>
+    <li><a href="#contacto">Contacto/Desarrolladores</a></li>
+    <li><a href="#créditosreconocimientos">Agradecimientos y créditos</a></li>
   </ol>
 </details>
 
@@ -244,10 +244,6 @@ El juego está ambientado en la película “Psicosis”, del director Alfred Hi
 ## Niveles
 Nivel 5
 <img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/DisNiv.png" width="400"/>
-
-## Referencias
-- Psicosis (1960) : 
-- Fireboy and Watergirl : La idea de que dos jugadores utilicen el mismo teclado para controlar al mismo tiempo a dos personajes antonimos el uno del otro (Fuego/Agua, Luz/Oscuridad)
 
 ## Contacto
 <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
