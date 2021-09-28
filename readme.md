@@ -116,13 +116,11 @@ entre modos de juego.</p>
 
 ## Jugabilidad
 <img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/mecanIcon.png" width="48"/>  
-
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 <!-- Elementos de Juego -->
 ### Mecánicas de personajes
-<a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
-    <img src="images/sitemap-64.png" alt="Logo" | width=48)>
-  </a>
-  Al ser un juego cooperativo existen dos personajes: La hermana menor (humano), y la hermana mayor (fantasma). cada uno con diferentes propiedades.
+
+Al ser un juego cooperativo existen dos personajes: La hermana menor (humano), y la hermana mayor (fantasma). cada uno con diferentes propiedades.
 Los dos personajes se mueven en las 8 direcciones.
 
 El fantasma tiene la mecánica de poseer objetos, habilidad que le permite modificar la posición de elementos del escenario. A continuación se explica cómo se realizaría dicha mecánica:
