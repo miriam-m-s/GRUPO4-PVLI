@@ -26,8 +26,8 @@
       <a href="#sobre-el-proyecto">Sobre el proyecto</a>
       <ul>
         <li><a href="#ConceptoPitch">Concepto/Pitch</a></li>
-        <li><a href="#Aspectos_Generales">Aspectos generales</a></li>
-        <li><a href="#Partida típica">Partida típica</a></li>
+        <li><a href="#1-aspectos-generales">Aspectos generales</a></li>
+        <li><a href="#Partida%20típica">Partida típica</a></li>
       </ul>
     </li>
     <li>
