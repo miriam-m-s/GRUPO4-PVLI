@@ -276,6 +276,6 @@ mirima10@ucm.es
 
 [[Wikipedia Hitchcock]](https://es.wikipedia.org/wiki/Alfred_Hitchcock) Tema del proyecto, vida y obra  
 [[Psicosis (1960)]](https://en.wikipedia.org/wiki/Psychosis) Inspiración principal del juego  
-[[Fireboy y Lavagirl]](https://fireboyand-watergirl.co/) Mecánicas y estilo de juego similares  
+[[Fireboy y WaterGirl]](https://fireboyand-watergirl.co/) La idea de que dos jugadores utilicen el mismo teclado para controlar al mismo tiempo a dos personajes antonimos el uno del otro (Fuego/Agua, Luz/Oscuridad)  
 [[Binding of Isaac]](https://store.steampowered.com/app/113200/The_Binding_of_Isaac/)  
 [[Crepusculo]](https://google.com) Yo que se lo ha dicho Paula  
