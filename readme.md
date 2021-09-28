@@ -265,4 +265,3 @@ mirima10@ucm.es
 [[Psicosis (1960)]](https://en.wikipedia.org/wiki/Psychosis) Inspiración principal del juego  
 [[Fireboy y WaterGirl]](https://fireboyand-watergirl.co/) La idea de que dos jugadores utilicen el mismo teclado para controlar al mismo tiempo a dos personajes antonimos el uno del otro (Fuego/Agua, Luz/Oscuridad)  
 [[Binding of Isaac]](https://store.steampowered.com/app/113200/The_Binding_of_Isaac/)  
-[[Crepusculo]](https://google.com) Yo que se lo ha dicho Paula  
