@@ -40,7 +40,7 @@
     <li>
       <a href="#Jugabilidad">Jugabilidad</a>
       <ul>
-        <li><a href="#mecánicas-de-personaje">Mecánicas de Personaje</a></li>
+        <li><a href="#mecánicas-de-personaje>Mecánicas de Personaje</a></li>
         <li><a href="#mecánicas-de-escenario">Mecánicas de Escenario</a></li>
         <li><a href="#dinámicas">Dinámicas</a></li>
       </ul>
@@ -119,7 +119,7 @@ entre modos de juego.</p>
 <img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/mecanIcon.png" width="48"/>
 
 <!-- Elementos de Juego -->
-### Mecánicas de personajes
+### Mecánicas de personaje
 
 Al ser un juego cooperativo existen dos personajes: La hermana menor (humano), y la hermana mayor (fantasma). cada uno con diferentes propiedades.
 Los dos personajes se mueven en las 8 direcciones.
