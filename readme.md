@@ -42,7 +42,7 @@
       <a href="#Jugabilidad">Jugabilidad</a>
       <ul>
         <li><a href="#Mecánicas">Mecánicas</a></li>
-          <ul> - Mecánicas de personaje  </ul>
+          * Mecánicas de personaje  </ul>
         <ul> - Mecánicas de entorno  </ul>
         <li><a href="#Dinámicas y control">Dinámicas</a></li>
       </ul>
