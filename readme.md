@@ -87,9 +87,7 @@ Eclipse busca ofrecer una experiencia de corta duración que le resulte al jugad
 La historia está ambientada en una mansión, allí Estrella y Luna en forma de fantasma tendrán que superar las distintas pruebas hasta llegar a encontrar el cadáver de Luna. Para ello los jugadores tendrán que dominar las distintas mecánicas de cada personaje. El jugador que controle a Luna tendrá que aprender la mecánica de la posesión de objetos y el que controle a Estrella tendrá que apagar las luces o ponerse en medio de ellas para dar sombra.
 ### Vista general
 <p align="center">
-  <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
-    <img src="images/vistageneral.jpg" alt="Logo" | width=300)>
-  </a>
+  <img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/vistageneral.jpg" width="400"/>
   </p>
 
 
@@ -116,18 +114,14 @@ entre modos de juego.</p>
 ### 2.1 Interfaz y control  
 <p>Los personajes se controlarán utilizando las teclas WASD (fantasma) o las flechas de dirección (humano) según el jugador. Para realizar acciones como la posesión de objetos del fantasma será necesario posicionarse en el rango de activación del objeto y esperar a que se rellene la barra que aparecerá sobre el objeto, indicando que está siendo poseído. En cuanto a la activación de lámparas por parte del humano se logrará de forma automática cuando el jugador se posicione sobre alguna de ellas.</p>
    <p align="center">
-  <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
-    <img src="images/MENUDEPAUSA.jpg" alt="Logo" | width=300)>
-  </a>
+  <img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/MENUDEPAUSA.jpg" width="400"/>
 <p> El menú de pausa se activará haciendo click izquierdo sobre un botón situado en la esquina superior izquierda que ofrecerá las opciones de: reanudar, reiniciar el nivel, y salir del juego.</p>
 
 ## 3 Jugabilidad
 
 <!-- Mecánicas -->
 ## 3.1 Mecánicas
-<a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
-    <img src="images/mecanIcon.png" alt="Logo" | width=48)>
-  </a>
+<img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/mecanIcon.png" width="400"/>
   
   Mecánicas
 
