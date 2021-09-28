@@ -67,7 +67,7 @@
     <img align="left" src="images/docuicon.png" alt="Logo" | width=30)>
   </a>
   
-Proyecto para PVLI :)
+Proyecto para PVLI :) AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
 ### Concepto/Pitch
 
@@ -112,16 +112,17 @@ entre modos de juego.</p>
   <img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/MENUDEPAUSA.jpg" width="400"/>
 <p> El menú de pausa se activará haciendo click izquierdo sobre un botón situado en la esquina superior izquierda que ofrecerá las opciones de: reanudar, reiniciar el nivel, y salir del juego.</p>
 
+<!-- Jugabilidad -->
+
 ## Jugabilidad
 
-<!-- Mecánicas -->
-## Mecánicas
+### Mecánicas
 <img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/mecanIcon.png" width="48"/>
   
   Mecánicas
 
 <!-- Elementos de Juego -->
-## Mecánicas de personajes
+#### Mecánicas de personajes
 <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
     <img src="images/sitemap-64.png" alt="Logo" | width=48)>
   </a>
