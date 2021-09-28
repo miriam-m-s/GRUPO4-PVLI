@@ -34,7 +34,7 @@
       <a href="#Menús_y_modos_de_juego">Menús y modos de juego</a>
       <ul>
         <li><a href="#Diseño">Diseño</a></li>
-        <li><a href="#Interfaz_y_Control">Interfaz y Control</a></li>
+        <li><a href="#interfaz-y-control">Interfaz y Control</a></li>
       </ul>
     </li>
     <li>
@@ -91,7 +91,7 @@ La historia está ambientada en una mansión, allí Estrella y Luna en forma de 
 <!-- Menus/Modos -->
 
 ## Menús y modos de juego
-<p align="center>
+<p align="center">
 <img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/menuprincipals.jpg" width="300"/>
 </p>
 ### Diseño                                                                                                    
