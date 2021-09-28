@@ -25,7 +25,7 @@
     <li>
       <a href="#sobre-el-proyecto">Sobre el proyecto</a>
       <ul>
-        <li><a href="#Concepto/Pitch">Concepto/Pitch</a></li>
+        <li><a href="#ConceptoPitch">Concepto/Pitch</a></li>
         <li><a href="#Aspectos_Generales">Aspectos generales</a></li>
         <li><a href="#Partida típica">Partida típica</a></li>
       </ul>
@@ -35,15 +35,13 @@
       <ul>
         <li><a href="#Concepto/Pitch">Concepto/Pitch</a></li>
         <li><a href="#Aspectos_Generales">Aspectos generales</a></li>
-        <li><a href="#Partida típica">Partida típica</a></li>
+        <li><a href="#Partida_típica">Partida típica</a></li>
       </ul>
     </li>
     <li>
       <a href="#Jugabilidad">Jugabilidad</a>
       <ul>
         <li><a href="#Mecánicas">Mecánicas</a></li>
-          * Mecánicas de personaje  </ul>
-        <ul> - Mecánicas de entorno  </ul>
         <li><a href="#Dinámicas y control">Dinámicas</a></li>
       </ul>
     </li>
