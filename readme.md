@@ -247,9 +247,7 @@ El juego está ambientado en la película “Psicosis”, del director Alfred Hi
 
 ## 4.2 Niveles
 Nivel 5
-<a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
-    <img src="images/DisNiv.png" alt="Logo" | width=48)>
-  </a>
+<img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/DisNiv.png" width="400"/>
 
 ## Referencias
 - Psicosis (1960) : 
