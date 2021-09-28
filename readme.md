@@ -48,8 +48,17 @@
       <a href="#Estética">Estética</a>  
     </li>
     <li><a href="#Elementos_de_juego">Elementos de juego</a></li>  
-    <li><a href="#historia">Historia</a></li>
-    <li><a href="#niveles">Niveles</a></li>
+      <lu>
+        <li><a href="#assets">Assets</a></li>
+      </lu>
+    <lu>
+      <li><a href="#historia">Historia</a></li>
+      </lu>
+    <lu>
+      <li><a href="#niveles">Niveles</a></li>
+      </lu>
+    
+    
     <li><a href="#contacto">Contacto/Desarrolladores</a></li>
     <li><a href="#créditosreconocimientos">Agradecimientos y créditos</a></li>
   </ol>
@@ -160,6 +169,8 @@ Se espera que los jugadores identifiquen los elementos que pueden utilizar a su 
 Los nombres de los personajes Estrella y Luna se han elegido porque estos dan a entender la mecánica de cada jugador. Luna que representa la noche, la oscuridad dando a entender que ésta solo puede estar por zonas oscuras.Estrella representa luz ,claridad, dando a entender que ésta sólo puede moverse por zonas de luz.
 
 ## Elementos de Juego
+
+### Assets
 <img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/assetsIcon.png" width="48"/>
 GFX
 <li>
@@ -233,10 +244,10 @@ AUDIO
        </li>
        
        
-## Historia
+### Historia
 El juego está ambientado en la película “Psicosis”, del director Alfred Hitchcock. La historia comienza tras la muerte de Marion Crane (“Luna” en el juego) y gira en torno a la búsqueda que emprende junto a su hermana, Lila Crane (“Estrella” en el juego), con el objetivo de encontrar su cadáver en la casa de los Bates. En esta adaptación Estrella es una niña pequeña, de manera que le teme a la oscuridad y por ello no puede pasar por zonas que no están bien iluminadas, mientras que Luna al ser un fantasma, no puede atravesar la luz.
 
-## Niveles
+### Niveles
 Nivel 5
 <img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/DisNiv.png" width="400"/>
 
