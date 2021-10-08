@@ -16,7 +16,7 @@
   </p>
 </p>
 
-<h1 align="center">Proyecto PVLI :D</h1>
+<h1 align="center">Proyecto para la asignatura de programación en lenguajes interpretados</h1>
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
