@@ -88,7 +88,7 @@ La historia está ambientada en una mansión, allí Estrella y Luna en forma de 
 ## Partida Típica
   <p align="center">
   <img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/descripcionpartidatipica.jpg" width="400"/>
-<p>El juego comenzará en una habitación, en ella están Estrella (niña humana) en la zona iluminada y Luna (el fantasma) en la zona oscura. En la parte izquierda de la habitación hay una ventana (1), que refracta un rayo de sol que atraviesa toda la habitación horizontalmente. Este rayo no puede ser tocado por el fantasma, por lo que ahora su movimiento es limitado. En la parte iluminada se encuentra la niña, ésta atravesará la habitación hasta encontrarse con el rayo(1). A continuación se pondrá en frente de este para bloquearlo y que no pase la luz. En consecuencia el movimiento del fantasma ya no se verá limitado y por lo tanto podrá poseer la vela que se halla en la parte inferior (2). La vela se pondrá en la zona donde acababa el rayo de luz (3). Para encender esta vela Estrella deberá apartarse dejando pasar de nuevo el rayo de luz, y la vela se encenderá. Finalmente Estrella podrá acceder a la trampilla y Luna al pentagrama terminando así el nivel.</p>
+<p>El juego comenzará en una habitación, en ella están Estrella (niña humana) en la zona iluminada y Luna (el fantasma) en la zona oscura. En la parte izquierda de la habitación hay una ventana (1), que refracta un rayo de sol que atraviesa toda la habitación horizontalmente. El fantasma no puede atrvesar la zona con luz, por lo que ahora su movimiento es limitado. En la parte iluminada se encuentra la niña, ésta atravesará la habitación hasta encontrarse con el rayo(1). A continuación se pondrá en frente de este para bloquearlo y que no pase la luz. En consecuencia el movimiento del fantasma ya no se verá limitado y por lo tanto podrá poseer la vela que se halla en la parte inferior (2). La vela se pondrá en la zona donde acababa el rayo de luz (3). Para encender esta vela Estrella deberá apartarse dejando pasar de nuevo el rayo de luz, y la vela se encenderá. Finalmente Estrella podrá acceder a la trampilla y Luna al pentagrama terminando así el nivel.</p>
 <!-- Menus/Modos -->
 
 ## Menús y modos de juego
@@ -108,7 +108,7 @@ lo que no aparecerá la opción para seleccionar
 entre modos de juego.</p>
 
 ### Interfaz y control  
-<p>Los personajes se controlarán utilizando las teclas WASD (fantasma) o las flechas de dirección (humano) según el jugador. Para realizar acciones como la posesión de objetos del fantasma será necesario posicionarse en el rango de activación del objeto y esperar a que se rellene la barra que aparecerá sobre el objeto, indicando que está siendo poseído. En cuanto a la activación de lámparas por parte del humano se logrará de forma automática cuando el jugador se posicione sobre alguna de ellas.</p>
+<p>Los personajes se controlarán utilizando las teclas WASD (fantasma) y la barra espaciadora para cambiar de personaje. Para realizar acciones como la posesión de objetos del fantasma la tecla "p" En cuanto a la activación de lámparas por parte del humano se logrará de forma automática cuando el jugador se posicione sobre alguna de ellas.</p>
    <p align="center">
   <img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/MENUDEPAUSA.jpg" width="400"/>
 <p> El menú de pausa se activará haciendo click izquierdo sobre un botón situado en la esquina superior izquierda que ofrecerá las opciones de: reanudar, reiniciar el nivel, y salir del juego.</p>
