@@ -103,15 +103,14 @@ La historia está ambientada en una mansión, allí Estrella y Luna en forma de 
 <p><b>Menú de niveles:</b> en este aparecerán los niveles del juego.Los que están marcados con estrellas representan los niveles ya superados.Este menú también tendrá una música de fondo. Los que aparecen con candados son los que no han sido superados. El nivel que aparece sin estrellas y candado es el nivel desbloqueado que no ha sido jugado. Al posicionar el ratón y al hacer click sobre el botón que aparece con estrellas o sin ellas  reproducirá un sonido y empezará el juego.</p>
 <p align="left">
   <img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/niveles.jpg" width="200"/>
-<p><b>Modos de juego: </b>este será multijugador y no podrá cambiarse, por
-lo que no aparecerá la opción para seleccionar
+<p><b>Modos de juego: </b> solo existira el modo 1 jugador, el cual ira alternando entre los dos personajes
 entre modos de juego.</p>
 
 ### Interfaz y control  
-<p>Los personajes se controlarán utilizando las teclas WASD (fantasma) y la barra espaciadora para cambiar de personaje. Para realizar acciones como la posesión de objetos del fantasma la tecla "p" En cuanto a la activación de lámparas por parte del humano se logrará de forma automática cuando el jugador se posicione sobre alguna de ellas.</p>
+<p>Los personajes se controlarán utilizando las teclas WASD (fantasma) y la barra espaciadora para cambiar de personaje. Para realizar acciones como la posesión de objetos del fantasma la tecla "p". En cuanto a la activación de lámparas por parte del humano serra con la misma "p".</p>
    <p align="center">
   <img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/MENUDEPAUSA.jpg" width="400"/>
-<p> El menú de pausa se activará haciendo click izquierdo sobre un botón situado en la esquina superior izquierda que ofrecerá las opciones de: reanudar, reiniciar el nivel, y salir del juego.</p>
+<p> El menú de pausa se activará haciendo click izquierdo sobre un botón situado en la esquina superior izquierda o presionando la tecla escape que ofrecerá las opciones de: reanudar, reiniciar el nivel, y salir del juego.</p>
 
 <!-- Jugabilidad -->
 
@@ -128,7 +127,7 @@ El fantasma tiene la mecánica de poseer objetos, habilidad que le permite modif
 Los objetos poseibles tienen dos estados: 
     -No poseídos: Son estáticos, el humano no puede atravesarlos mientras que el fantasma si.
     -Poseídos: En este estado el fantasma desaparece de la pantalla y el jugador que lo controlaba pasa a controlar al objeto, moviéndolo como si fuese otro personaje en las 8       direcciones.
-Cada vez que el fantasma se posiciona encima de un objeto poseible en estado no poseído, una barra vacía aparecerá encima del objeto y se empezará a rellenar. Si el fantasma se aleja de dicho objeto, la barra desaparece. Por otro lado, si la barra se llena completamente, el fantasma desaparece y el objeto pasa al estado poseído. Si el objeto poseído se queda completamente quieto durante 1 segundo, la barra reaparece y se empezará a rellenar. Si el objeto poseído se mueve lo más mínimo, la barra desaparece. Por otro lado, si la barra se llena completamente el fantasma aparece de nuevo y el objeto pasa al estado no poseído.
+Cada vez que el fantasma presiona la tecla "p" encima de un objeto poseible en estado no poseído, el objeto pasa al estado poseído. Si se vuelve a presionar la tecla "p", el fantasma aparece de nuevo y el objeto pasa al estado no poseído.
 
 <p align="center">
   <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
@@ -150,7 +149,7 @@ Cada vez que el fantasma se posiciona encima de un objeto poseible en estado no 
 ### Dinámica
 El objetivo final del juego es encontrar el cuerpo del fantasma que se sitúa en el último nivel. Para ello es necesario superar todos los niveles anteriores logrando que tanto el humano como el fantasma lleguen a sus diferentes bases (una puerta para el humano y un pentagrama para el fantasma).
 
-Los niveles serán puntuados mediante un sistema de logros basado en el tiempo que el jugador tarda en resolver los rompecabezas. Así cada nivel se puntúa con una, dos, o incluso tres estrellas si el jugador ha resuelto el puzzle a una gran velocidad.
+Existira un temporizador global que iniciara al principio de la partida y terminara al finalizar el ultimo nivel. El juego mostrara entonces otros tiempos almacenados en local.
 
 Sin embargo si se comete algún error a la hora de resolver el puzzle, el jugador deberá reiniciar el nivel hasta resolverlo. Lo mismo sucederá si el fantasma entra en contacto con la luz durante el desarrollo de la partida.
 
