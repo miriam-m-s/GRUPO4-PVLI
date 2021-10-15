@@ -72,7 +72,7 @@ Proyecto para PVLI :)
 
 ### Concepto/Pitch
 
-"Eclipse" se trata de un juego de estilo cooperativo top-down donde dos jugadores adoptarán los personajes de Estrella, una niña humana, y Luna, su hermana fantasma. La historia del juego toma su origen en una adaptación de la película "Psicosis" de Alfred Hitchcock. 
+"Eclipse" se trata de un juego de estilo cooperativo top-down de 1 jugador, el cual controlara a los personajes de Estrella, una niña humana, y Luna, su hermana fantasma. La historia del juego toma su origen en una adaptación de la película "Psicosis" de Alfred Hitchcock. 
 
 El objetivo del juego es que la niña, Estrella, encuentre el cadáver de su hermana muerta Luna, con la ayuda del fantasma que ésta ha dejado atrás. Para ello Luna la ayuda a avanzar por las diferentes salas resolviendo distintos puzzles.
 
@@ -107,7 +107,7 @@ La historia está ambientada en una mansión, allí Estrella y Luna en forma de 
 entre modos de juego.</p>
 
 ### Interfaz y control  
-<p>Los personajes se controlarán utilizando las teclas WASD (fantasma) y la barra espaciadora para cambiar de personaje. Para realizar acciones como la posesión de objetos del fantasma la tecla "p". En cuanto a la activación de lámparas por parte del humano serra con la misma "p".</p>
+<p>Los personajes se controlarán utilizando las teclas WASD (fantasma), se empezara controlando a estrella, y se utilizará la barra espaciadora para cambiar de personaje. Para realizar acciones como la posesión de objetos del fantasma la tecla "p". En cuanto a la activación de lámparas por parte del humano sera con la misma tecla "p".</p>
    <p align="center">
   <img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/MENUDEPAUSA.jpg" width="400"/>
 <p> El menú de pausa se activará haciendo click izquierdo sobre un botón situado en la esquina superior izquierda o presionando la tecla escape que ofrecerá las opciones de: reanudar, reiniciar el nivel, y salir del juego.</p>
@@ -168,10 +168,10 @@ GFX
 <li>
   PERSONAJES(top-down, animación idle & andar, una dirección)
   <ul>
-    - Persona
+    - Niña pequeña (hermana menor / humana)
     </ul>
    <ul>
-    - Fantasma
+    - Adolescente de 19 años (hermana mayor/ fantasma)
    </ul>
   </ul>
  </li>
