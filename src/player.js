@@ -55,11 +55,11 @@ export default class Player extends Phaser.GameObjects.Sprite {
     }
     if (this.cursors.left.isDown) {
       this.body.setVelocityX(-this.speed);
-      player.flipX=true;
+      this.player.flipX=true;
     }
     else if (this.cursors.right.isDown) {
       this.body.setVelocityX(this.speed);
-      player.flipX=false;
+      this.player.flipX=false;
     }
     else {
       this.body.setVelocityX(0);
