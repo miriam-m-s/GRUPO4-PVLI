@@ -10,9 +10,10 @@ export default class Player extends Phaser.GameObjects.Sprite {
    * @param {Phaser.Scene} scene Escena a la que pertenece el jugador
    * @param {number} x Coordenada X
    * @param {number} y Coordenada Y
+    * @param {string} player
    */
-  constructor(scene, x, y) {
-    super(scene, x, y, 'player');
+   constructor(scene, x, y, player) {
+    super(scene, x, y, player);
     this.score = 0;
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
