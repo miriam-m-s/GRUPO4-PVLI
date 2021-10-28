@@ -11,9 +11,12 @@ export default class Player extends Phaser.GameObjects.Sprite {
    * @param {number} x Coordenada X
    * @param {number} y Coordenada Y
     * @param {string} player
+    * @param {boolean} beingControlled
+
    */
-   constructor(scene, x, y, player) {
+   constructor(scene, x, y, player, beingControlled) {
     super(scene, x, y, player);
+    this.beingControlled = beingControlled;
     this.score = 0;
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
@@ -24,7 +27,16 @@ export default class Player extends Phaser.GameObjects.Sprite {
     // Esta label es la UI en la que pondremos la puntuación del jugador
     this.label = this.scene.add.text(10, 10, "");
     this.cursors = this.scene.input.keyboard.createCursorKeys();
+
+    this.cursors = this.scene.input.keyboard.createCursorKeys();
+
+    //spaceBar = this.scene.input.keyboard.addKey(Phaser.keycode.SPACEBAR);
+
     this.updateScore();
+  }
+
+  setBeingControlled() {
+    this.beingControlled = !this.beingControlled;
   }
 
   /**
@@ -51,22 +63,36 @@ export default class Player extends Phaser.GameObjects.Sprite {
    */
   preUpdate(t,dt) {
     super.preUpdate(t,dt);
-    if (this.cursors.left.isDown) {
-      this.body.flipX=true;
-      this.body.setVelocityX(-this.speed);
-    }
-    else if (this.cursors.right.isDown) {
-      this.body.setVelocityX(this.speed);
-    }
-    else if(this.cursors.up.isDown){
-      this.body.setVelocityY(-this.speed);
-    }
-    else if(this.cursors.down.isDown){
-      this.body.setVelocityY(this.speed);
-    }
-    else {
-      this.body.setVelocityX(0);
-      this.body.setVelocityY(0);
+
+    if(this.cursors.down.isDown){
+
+      this.beingControlled = !this.beingControlled;
+      // if (beingControlled)
+      // this.beingControlled = false;
+      // else this.beingControlled = true;
+     }
+
+    if (this.beingControlled) {
+      if (this.cursors.left.isDown) {
+        this.body.flipX=true;
+        this.body.setVelocityX(-this.speed);
+      }
+      else if (this.cursors.right.isDown) {
+        this.body.setVelocityX(this.speed);
+      }
+      else if(this.cursors.up.isDown){
+        this.body.setVelocityY(-this.speed);
+      }
+      else if(this.cursors.down.isDown){
+        this.body.setVelocityY(this.speed);
+      }
+      else {
+        this.body.setVelocityX(0);
+        this.body.setVelocityY(0);
+      }
+
+     // if (this.spaceKey.isDown)
+
     }
   }
   
