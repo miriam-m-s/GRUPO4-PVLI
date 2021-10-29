@@ -3,6 +3,7 @@ import Star from './star.js';
  * Clase que representa el jugador del juego. El jugador se mueve por el mundo usando los cursores.
  * También almacena la puntuación o número de estrellas que ha recogido hasta el momento.
  */
+
 export default class Player extends Phaser.GameObjects.Sprite {
   
   /**
@@ -12,9 +13,10 @@ export default class Player extends Phaser.GameObjects.Sprite {
    * @param {number} y Coordenada Y
     * @param {string} player
     * @param {boolean} beingControlled
-
    */
-   constructor(scene, x, y, player, beingControlled) {
+  
+   constructor(scene, x, y, player, beingControlled) 
+   {
     super(scene, x, y, player);
     this.beingControlled = beingControlled;
     this.score = 0;
@@ -29,10 +31,9 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.cursors = this.scene.input.keyboard.createCursorKeys();
 
     this.cursors = this.scene.input.keyboard.createCursorKeys();
-
-    //spaceBar = this.scene.input.keyboard.addKey(Phaser.keycode.SPACEBAR);
-
-    this.updateScore();
+    this.space = scene.input.keyboard.addKey('SPACE')
+    
+    this.updateScore();    
   }
 
   setBeingControlled() {
@@ -47,6 +48,11 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.score++;
     this.updateScore();
   }
+
+  ChangePlayer()
+  {
+    this.beingControlled = !this.beingControlled;
+  }
   
   /**
    * Actualiza la UI con la puntuación actual
@@ -55,22 +61,24 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.label.text = 'Score: ' + this.score;
   }
 
+  
   /**
    * Métodos preUpdate de Phaser. En este caso solo se encarga del movimiento del jugador.
    * Como se puede ver, no se tratan las colisiones con las estrellas, ya que estas colisiones 
    * ya son gestionadas por la estrella (no gestionar las colisiones dos veces)
    * @override
    */
-  preUpdate(t,dt) {
+  preUpdate(t,dt) 
+  {
     super.preUpdate(t,dt);
-
-    if(this.cursors.down.isDown){
-
-      this.beingControlled = !this.beingControlled;
-      // if (beingControlled)
-      // this.beingControlled = false;
-      // else this.beingControlled = true;
-     }
+    
+    this.space.on('down', () =>
+     {     
+      this.body.setVelocityX(0);
+      this.body.setVelocityY(0);
+      this.ChangePlayer();
+    }); 
+    
 
     if (this.beingControlled) {
       if (this.cursors.left.isDown) {
@@ -90,9 +98,6 @@ export default class Player extends Phaser.GameObjects.Sprite {
         this.body.setVelocityX(0);
         this.body.setVelocityY(0);
       }
-
-     // if (this.spaceKey.isDown)
-
     }
   }
   
