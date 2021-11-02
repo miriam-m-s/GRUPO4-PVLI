@@ -13,6 +13,11 @@ export default class Player extends Phaser.GameObjects.Sprite {
    * @param {number} y Coordenada Y
     * @param {string} player
     * @param {boolean} beingControlled
+    * @param {number} secCounter
+    * @param {number} saveX Coordenada X
+   * @param {number} saveY Coordenada Y
+   * 
+   * @param {number} startTime Coordenada Y
    */
   
    constructor(scene, x, y, player, beingControlled) 
@@ -33,8 +38,15 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.cursors = this.scene.input.keyboard.createCursorKeys();
     this.space = scene.input.keyboard.addKey('SPACE')
     
-    this.updateScore();    
+    this.updateScore();   
+    
+    //scene.game.time.events.loop(Phaser.Timer.SECOND, updateCounter, this);
+
   }
+
+  // updateCounter() {
+
+  // }
 
   setBeingControlled() {
     this.beingControlled = !this.beingControlled;
@@ -71,6 +83,9 @@ export default class Player extends Phaser.GameObjects.Sprite {
   preUpdate(t,dt) 
   {
     super.preUpdate(t,dt);
+
+
+    //this.startTime = this.getTime();
     
     this.space.on('down', () =>
      {     
@@ -100,5 +115,4 @@ export default class Player extends Phaser.GameObjects.Sprite {
       }
     }
   }
-  
 }

@@ -25,15 +25,15 @@ export default class Star extends Phaser.GameObjects.Sprite {
    * Redefinición del preUpdate de Phaser
    * @override
    */
-  preUpdate() {
-    // IMPORTANTE: Si no ponemos esta instrucción y el sprite está animado
-    // no se podrá ejecutar la animación del sprite. 
-    super.preUpdate();
-    if (this.scene.physics.overlap(this.scene.player, this)) {
-        // Delegamos en la escena para decidir qué hacer al 
-        // haber cogido una estrella
-        this.scene.starPickt(this.base);
-        this.destroy();
-    }
-  }
+  // preUpdate() {
+  //   // IMPORTANTE: Si no ponemos esta instrucción y el sprite está animado
+  //   // no se podrá ejecutar la animación del sprite. 
+  //   super.preUpdate();
+  //   if (this.scene.physics.overlap(this.scene.player, this)) {
+  //       // Delegamos en la escena para decidir qué hacer al 
+  //       // haber cogido una estrella
+  //       this.scene.starPickt(this.base);
+  //       this.destroy();
+  //   }
+  // }
 }

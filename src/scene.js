@@ -1,5 +1,7 @@
 import Player from './player.js';
 import Platform from './platform.js';
+import Lights from './lights.js';
+
 
 /**
  * Escena principal del juego. La escena se compone de una serie de plataformas 
@@ -25,20 +27,27 @@ export default class Level extends Phaser.Scene {
   create() {
     this.stars = 10;
     this.bases = this.add.group();
-    this.player = new Player(this, 200, 300,'player1', true);
+    this.player = new Player(this, 700, 300,'player1', true);
     this.player2 = new Player(this, 300, 300,'player2', false);
 
     new Platform(this, this.player, this.bases, 150, 350);
     new Platform(this, this.player, this.bases, 850, 350);
-    new Platform(this, this.player, this.bases, 500, 200);
-    new Platform(this, this.player, this.bases, 150, 100);
-    new Platform(this, this.player, this.bases, 850, 100);
+    // new Platform(this, this.player, this.bases, 500, 200);
+    // new Platform(this, this.player, this.bases, 150, 100);
+    // new Platform(this, this.player, this.bases, 850, 100);
 
     new Platform(this, this.player2, this.bases, 150, 350);
-    new Platform(this, this.player2, this.bases, 850, 350);
-    new Platform(this, this.player2, this.bases, 500, 200);
-    new Platform(this, this.player2, this.bases, 150, 100);
-    new Platform(this, this.player2, this.bases, 850, 100);
+    // new Platform(this, this.player2, this.bases, 850, 350);
+    // new Platform(this, this.player2, this.bases, 500, 200);
+    // new Platform(this, this.player2, this.bases, 150, 100);
+    // new Platform(this, this.player2, this.bases, 850, 100);
+
+    
+   // this.add.image(400, 300, 'light');
+
+    this.lights = this.add.group();
+
+    new Lights(this, this.player, this.player2, this.lights, 150, 350, 0.25);
 
 
     this.spawn();
