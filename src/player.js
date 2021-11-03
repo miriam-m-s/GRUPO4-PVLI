@@ -52,19 +52,16 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
   // }
  start(){
-  /*let timer = this.time.addEvent( {
+ this.scene.time.addEvent( {
   delay: 3000, 
-  callback: saveposition(),
-  callbackScope: this,
+  callback: this.saveposition,
+  callbackScope: false,
   loop: true
-  });*/
+  });
   //let timedEvent = this.time.delayedCall(3000, onEvent, [], this);
  // scene.time.events.add(Phaser.Timer.SECOND * 4, this.onEvent, scene);
  }
- onEvent ()
-{
-   console.log("hola");
-}
+
 
  saveposition()
  {
