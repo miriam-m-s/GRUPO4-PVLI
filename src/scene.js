@@ -25,6 +25,7 @@ export default class Level extends Phaser.Scene {
    * Creación de los elementos de la escena principal de juego
    */
   create() {
+    this.clock=new Phaser.Time.Clock(this);
     this.stars = 10;
     this.bases = this.add.group();
     this.player = new Player(this, 700, 300,'player1', true);
@@ -37,7 +38,7 @@ export default class Level extends Phaser.Scene {
     // new Platform(this, this.player, this.bases, 850, 100);
 
     new Platform(this, this.player2, this.bases, 150, 350);
-    // new Platform(this, this.player2, this.bases, 850, 350);
+     new Platform(this, this.player2, this.bases, 850, 350);
     // new Platform(this, this.player2, this.bases, 500, 200);
     // new Platform(this, this.player2, this.bases, 150, 100);
     // new Platform(this, this.player2, this.bases, 850, 100);

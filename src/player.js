@@ -36,8 +36,8 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.cursors = this.scene.input.keyboard.createCursorKeys();
 
     this.cursors = this.scene.input.keyboard.createCursorKeys();
-    this.space = scene.input.keyboard.addKey('SPACE')
-    
+    this.space = scene.input.keyboard.addKey('SPACE');
+    this.start();
     this.updateScore();    
 
     this.space.on('down', () =>
@@ -51,7 +51,25 @@ export default class Player extends Phaser.GameObjects.Sprite {
   // updateCounter() {
 
   // }
+ start(){
+  /*let timer = this.time.addEvent( {
+  delay: 3000, 
+  callback: saveposition(),
+  callbackScope: this,
+  loop: true
+  });*/
+  //let timedEvent = this.time.delayedCall(3000, onEvent, [], this);
+ // scene.time.events.add(Phaser.Timer.SECOND * 4, this.onEvent, scene);
+ }
+ onEvent ()
+{
+   console.log("hola");
+}
 
+ saveposition()
+ {
+     console.log("hey");
+ }
   setBeingControlled() {
     this.beingControlled = !this.beingControlled;
   }
@@ -77,7 +95,9 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.label.text = 'Score: ' + this.score;
   }
 
-  
+  SavePositiom(){
+    
+  }
   /**
    * Métodos preUpdate de Phaser. En este caso solo se encarga del movimiento del jugador.
    * Como se puede ver, no se tratan las colisiones con las estrellas, ya que estas colisiones 
@@ -87,10 +107,10 @@ export default class Player extends Phaser.GameObjects.Sprite {
   preUpdate(t,dt) 
   {
     super.preUpdate(t,dt);
-
-
-    //this.startTime = this.getTime();
+   
     
+   // this.startTime = this.getTime();
+    //console.log(this.startTime);
     
     
 
