@@ -38,12 +38,6 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.cursors = this.scene.input.keyboard.createCursorKeys();
     this.space = scene.input.keyboard.addKey('SPACE')
     
-<<<<<<< Updated upstream
-    this.updateScore();   
-    
-    //scene.game.time.events.loop(Phaser.Timer.SECOND, updateCounter, this);
-
-=======
     this.updateScore();    
 
     this.space.on('down', () =>
@@ -52,7 +46,6 @@ export default class Player extends Phaser.GameObjects.Sprite {
       this.body.setVelocityY(0);
       this.ChangePlayer();
     }); 
->>>>>>> Stashed changes
   }
 
   // updateCounter() {
