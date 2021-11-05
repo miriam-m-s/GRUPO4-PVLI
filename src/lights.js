@@ -16,9 +16,7 @@ export default class Lights extends Phaser.GameObjects.Sprite {
     super(scene, x, y, 'light', radius);
     this.depth = -1;
     this.setAlpha(.5);
-
-    //this.setCircle(radius);
-    //this.body.setCircle(45);
+    
     this.scale = radius;
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this, true);

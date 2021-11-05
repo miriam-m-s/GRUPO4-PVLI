@@ -147,8 +147,6 @@ Cada vez que el fantasma presiona la tecla "p" encima de un objeto poseible en e
 ### Dinámica
 El objetivo final del juego es encontrar el cuerpo del fantasma que se sitúa en el último nivel. Para ello es necesario superar todos los niveles anteriores logrando que tanto el humano como el fantasma lleguen a sus diferentes bases (una puerta para el humano y un pentagrama para el fantasma).
 
-Existira un temporizador global que iniciara al principio de la partida y terminara al finalizar el ultimo nivel. El juego mostrara entonces otros tiempos almacenados en local.
-
 Sin embargo si se comete algún error a la hora de resolver el puzzle, el jugador deberá reiniciar el nivel hasta resolverlo. Lo mismo sucederá si el fantasma entra en contacto con la luz durante el desarrollo de la partida.
 
 Se espera que los jugadores identifiquen los elementos que pueden utilizar a su favor a la hora de resolver los diferentes puzzles (Ej: Si identifica una lámpara que puede abrir camino al humano, que la encienda) así como que reflexionen sobre las posibles formas de resolver cada nivel.
