@@ -23,6 +23,9 @@ export default class Player extends Phaser.GameObjects.Sprite {
    constructor(scene, x, y, player, beingControlled) 
    {
     super(scene, x, y, player);
+    this.playerName = player;
+    this.coord = this.scene.add.text(200, 10, "")
+
     this.beingControlled = beingControlled;
     this.score = 0;
     this.scene.add.existing(this);
@@ -38,7 +41,8 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.cursors = this.scene.input.keyboard.createCursorKeys();
     this.space = scene.input.keyboard.addKey('SPACE');
     this.start();
-    this.updateScore();    
+    this.updateScore();
+    this.updateCoord();     
 
     this.space.on('down', () =>
      {     
@@ -80,6 +84,18 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.updateScore();
   }
 
+  setPlayerState(state) {
+    this.playerState = state;
+  }
+
+  updateCoord() {
+    this.coord.text = 'Player at base: ' + this.playerState;
+  }
+
+  updateCoordEmpty(){
+    this.coord.text = 'Player at base:                                                 ';
+  }
+
   ChangePlayer()
   {
     this.beingControlled = !this.beingControlled;
@@ -110,7 +126,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     //console.log(this.startTime);
     
     
-
+    this.updateCoordEmpty();
     if (this.beingControlled) {
       if (this.cursors.left.isDown) {
         this.body.flipX=true;
@@ -129,6 +145,17 @@ export default class Player extends Phaser.GameObjects.Sprite {
         this.body.setVelocityX(0);
         this.body.setVelocityY(0);
       }
+      this.updateCoord();
+      if (this.playerName == 'player1' && this.body.x >=440 && this.body.x <= 501 && this.body.y >= 398 && this.body.y <= 438) {
+        this.setPlayerState(true);
+      }
+      else if(this.playerName == 'player2' && this.body.x >= 57 && this.body.x <= 127 && this.body.y >= 104 && this.body.y <= 114){
+        this.setPlayerState(true);
+      }
+      else{
+        this.setPlayerState(false);
+      }
+      this.scene.checkEnd();
     }
   }
 }
