@@ -244,7 +244,7 @@ El juego está ambientado en la película “Psicosis”, del director Alfred Hi
 
 ## Arquitectura
 <p align="center">
-  <img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/UML.png" width="400"/>
+  <img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/UML.png" width="700"/>
 </p>
 ## Contacto
 <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
