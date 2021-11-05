@@ -25,11 +25,16 @@ export default class Level extends Phaser.Scene {
    * Creación de los elementos de la escena principal de juego
    */
   create() {
+    this.clock=new Phaser.Time.Clock(this);
     this.stars = 10;
     this.bases = this.add.group();
+    this.firstPlayer = false;
+    this.secondPlayer = false;
     this.player = new Player(this, 700, 300,'player1', true);
     this.player2 = new Player(this, 300, 300,'player2', false);
-
+    this.add.text(475, 435, "Fantasma");
+    this.add.text(80, 135, "Estrella");
+    //this.add.
     new Platform(this, this.player, this.bases, 150, 350);
     new Platform(this, this.player, this.bases, 850, 350);
     // new Platform(this, this.player, this.bases, 500, 200);
@@ -37,7 +42,7 @@ export default class Level extends Phaser.Scene {
     // new Platform(this, this.player, this.bases, 850, 100);
 
     new Platform(this, this.player2, this.bases, 150, 350);
-    // new Platform(this, this.player2, this.bases, 850, 350);
+     new Platform(this, this.player2, this.bases, 850, 350);
     // new Platform(this, this.player2, this.bases, 500, 200);
     // new Platform(this, this.player2, this.bases, 150, 100);
     // new Platform(this, this.player2, this.bases, 850, 100);
@@ -50,7 +55,8 @@ export default class Level extends Phaser.Scene {
     new Lights(this, this.player, this.player2, this.lights, 150, 350, 0.25);
 
 
-    this.spawn();
+    //this.spawn();
+    this.checkEnd();
   }
 
   /**
@@ -78,4 +84,10 @@ export default class Level extends Phaser.Scene {
 
       }
   }
+
+  checkEnd(){
+    if(this.player.playerState && this.player2.playerState){
+        this.scene.start('end');
+      }
+    }
 }

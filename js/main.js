@@ -180,7 +180,7 @@
 	
 
 	// Document on load.
-	$(function(){
+	(function(){
 		mainMenu();
 		offcanvas();
 		mobileMenuOutsideClick();
@@ -190,6 +190,4 @@
 		
 
 	});
-
-
 }());
