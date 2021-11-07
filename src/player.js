@@ -13,11 +13,19 @@ export default class Player extends Phaser.GameObjects.Sprite {
    * @param {number} y Coordenada Y
     * @param {string} player
     * @param {boolean} beingControlled
+    * @param {number} secCounter
+    * @param {number} saveX Coordenada X
+   * @param {number} saveY Coordenada Y
+   * 
+   * @param {number} startTime Coordenada Y
    */
   
    constructor(scene, x, y, player, beingControlled) 
    {
     super(scene, x, y, player);
+    this.playerName = player;
+    this.coord = this.scene.add.text(200, 10, "")
+
     this.beingControlled = beingControlled;
     this.score = 0;
     this.scene.add.existing(this);
@@ -31,11 +39,38 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.cursors = this.scene.input.keyboard.createCursorKeys();
 
     this.cursors = this.scene.input.keyboard.createCursorKeys();
-    this.space = scene.input.keyboard.addKey('SPACE')
-    
-    this.updateScore();    
+    this.space = scene.input.keyboard.addKey('SPACE');
+    this.start();
+    this.updateScore();
+    this.updateCoord();     
+
+    this.space.on('down', () =>
+     {     
+      this.body.setVelocityX(0);
+      this.body.setVelocityY(0);
+      this.ChangePlayer();
+    }); 
   }
 
+  // updateCounter() {
+
+  // }
+ start(){
+ this.scene.time.addEvent( {
+  delay: 3000, 
+  callback: this.saveposition,
+  callbackScope: false,
+  loop: true
+  });
+  //let timedEvent = this.time.delayedCall(3000, onEvent, [], this);
+ // scene.time.events.add(Phaser.Timer.SECOND * 4, this.onEvent, scene);
+ }
+
+
+ saveposition()
+ {
+     console.log("hey");
+ }
   setBeingControlled() {
     this.beingControlled = !this.beingControlled;
   }
@@ -47,6 +82,18 @@ export default class Player extends Phaser.GameObjects.Sprite {
   point() {
     this.score++;
     this.updateScore();
+  }
+
+  setPlayerState(state) {
+    this.playerState = state;
+  }
+
+  updateCoord() {
+    this.coord.text = 'Player at base: ' + this.playerState;
+  }
+
+  updateCoordEmpty(){
+    this.coord.text = 'Player at base:                                                 ';
   }
 
   ChangePlayer()
@@ -61,7 +108,9 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.label.text = 'Score: ' + this.score;
   }
 
-  
+  SavePositiom(){
+    
+  }
   /**
    * Métodos preUpdate de Phaser. En este caso solo se encarga del movimiento del jugador.
    * Como se puede ver, no se tratan las colisiones con las estrellas, ya que estas colisiones 
@@ -71,15 +120,13 @@ export default class Player extends Phaser.GameObjects.Sprite {
   preUpdate(t,dt) 
   {
     super.preUpdate(t,dt);
+   
     
-    this.space.on('down', () =>
-     {     
-      this.body.setVelocityX(0);
-      this.body.setVelocityY(0);
-      this.ChangePlayer();
-    }); 
+   // this.startTime = this.getTime();
+    //console.log(this.startTime);
     
-
+    
+    this.updateCoordEmpty();
     if (this.beingControlled) {
       if (this.cursors.left.isDown) {
         this.body.flipX=true;
@@ -98,7 +145,17 @@ export default class Player extends Phaser.GameObjects.Sprite {
         this.body.setVelocityX(0);
         this.body.setVelocityY(0);
       }
+      this.updateCoord();
+      if (this.playerName == 'player1' && this.body.x >=440 && this.body.x <= 501 && this.body.y >= 398 && this.body.y <= 438) {
+        this.setPlayerState(true);
+      }
+      else if(this.playerName == 'player2' && this.body.x >= 57 && this.body.x <= 127 && this.body.y >= 104 && this.body.y <= 114){
+        this.setPlayerState(true);
+      }
+      else{
+        this.setPlayerState(false);
+      }
+      this.scene.checkEnd();
     }
   }
-  
 }
