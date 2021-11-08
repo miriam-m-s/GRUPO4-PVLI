@@ -1,4 +1,5 @@
 import Star from './star.js';
+import Platform from './platform.js';
 /**
  * Clase que representa el jugador del juego. El jugador se mueve por el mundo usando los cursores.
  * También almacena la puntuación o número de estrellas que ha recogido hasta el momento.
@@ -16,10 +17,10 @@ export default class Player extends Phaser.GameObjects.Sprite {
     * @param {number} secCounter
     * @param {number} saveX Coordenada X
    * @param {number} saveY Coordenada Y
-   * 
+   * @param {Phaser.GameObjects.Group} grupo de plataformas
    * @param {number} startTime Coordenada Y
    */
-  
+  grupo=this.scene.bases;
    constructor(scene, x, y, player, beingControlled) 
    {
     super(scene, x, y, player);
@@ -120,14 +121,12 @@ export default class Player extends Phaser.GameObjects.Sprite {
   preUpdate(t,dt) 
   {
     super.preUpdate(t,dt);
-    
-    //CheckForNearestObject();
-    console.log(this.scene.paula);
+   
     
    // this.startTime = this.getTime();
     //console.log(this.startTime);
-    
-    
+    //this.CheckForNearestObject();
+    console.log(this.grupo);
     this.updateCoordEmpty();
     if (this.beingControlled) {
       if (this.cursors.left.isDown) {
@@ -161,25 +160,25 @@ export default class Player extends Phaser.GameObjects.Sprite {
     }
   }
 
-  /*CheckForNearestObject()
-  {
-    var playerPos = new Vector2(this.x, this.y);
-    var minDistance = new Vector2(Mathf.Infinity);
-    var nearestObj = null;
-    var disOffset = 5.0;
+  // CheckForNearestObject()
+  // {
+  //   var playerPos = new Vector2(this.x, this.y);
+  //   var minDistance = new Vector2(Mathf.Infinity);
+  //   var nearestObj = null;
+  //   var disOffset = 5.0;
 
-    objectsInLevel = [];//Get from scene
-    
-    Compueba la distancia de cada objeto al jugador, y se queda con el mas cercano si
-    esta dentro del offset
-    foreach(item in objectsInLevel)
-    {
-      var distanceBetween = new Vector2(item.x, item.y) - playerPos;
-      if(distanceBetween < minDistance && distanceBetween > disOffset)
-      {
-        minDistance = distanceBetween;
-        nearestObj = item;
-      }
-    }
-  }*/
+  //   objectsInLevel = [];//Get from scene
+
+  //   /*Compueba la distancia de cada objeto al jugador, y se queda con el mas cercano si
+  //   esta dentro del offset*/
+  //   foreach(item in objectsInLevel)
+  //   {
+  //     var distanceBetween = new Vector2(item.x, item.y) - playerPos;
+  //     if(distanceBetween < minDistance && distanceBetween > disOffset)
+  //     {
+  //       minDistance = distanceBetween;
+  //       nearestObj = item;
+  //     }
+  //   }
+  // }
 }
