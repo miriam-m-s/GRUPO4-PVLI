@@ -120,7 +120,9 @@ export default class Player extends Phaser.GameObjects.Sprite {
   preUpdate(t,dt) 
   {
     super.preUpdate(t,dt);
-   
+    
+    //CheckForNearestObject();
+    console.log(this.scene.paula);
     
    // this.startTime = this.getTime();
     //console.log(this.startTime);
@@ -158,4 +160,26 @@ export default class Player extends Phaser.GameObjects.Sprite {
       this.scene.checkEnd();
     }
   }
+
+  /*CheckForNearestObject()
+  {
+    var playerPos = new Vector2(this.x, this.y);
+    var minDistance = new Vector2(Mathf.Infinity);
+    var nearestObj = null;
+    var disOffset = 5.0;
+
+    objectsInLevel = [];//Get from scene
+    
+    Compueba la distancia de cada objeto al jugador, y se queda con el mas cercano si
+    esta dentro del offset
+    foreach(item in objectsInLevel)
+    {
+      var distanceBetween = new Vector2(item.x, item.y) - playerPos;
+      if(distanceBetween < minDistance && distanceBetween > disOffset)
+      {
+        minDistance = distanceBetween;
+        nearestObj = item;
+      }
+    }
+  }*/
 }

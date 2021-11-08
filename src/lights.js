@@ -37,7 +37,6 @@ export default class Lights extends Phaser.GameObjects.Sprite {
     if (this.scene.physics.overlap(this.scene.player2, this)) {
         // Delegamos en la escena para decidir qué hacer al 
         // haber cogido una estrella
-        console.log("human touxing");
     }
   }
 }

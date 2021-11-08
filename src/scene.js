@@ -10,16 +10,18 @@ import Lights from './lights.js';
  * Cada vez que el jugador recoge la estrella, aparece una nueva en otra base.
  * El juego termina cuando el jugador ha recogido 10 estrellas.
  * @extends Phaser.Scene
+ * * @param {number} paula Coordenada X
  */
 export default class Level extends Phaser.Scene {
   /**
    * Constructor de la escena
    */
-  constructor() {
-    super({ key: 'level' });
- 
-   }
+  paula = 8;
 
+  constructor() 
+  {
+    super({ key: 'level' });
+   }
 
   /**
    * Creación de los elementos de la escena principal de juego
