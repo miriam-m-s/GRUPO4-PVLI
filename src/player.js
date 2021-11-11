@@ -1,4 +1,4 @@
-import Star from './star.js';
+//import Star from './star.js';
 /**
  * Clase que representa el jugador del juego. El jugador se mueve por el mundo usando los cursores.
  * También almacena la puntuación o número de estrellas que ha recogido hasta el momento.
@@ -17,14 +17,16 @@ export default class Player extends Phaser.GameObjects.Sprite {
     * @param {number} saveX Coordenada X
    * @param {number} saveY Coordenada Y
    * 
-   * @param {number} startTime Coordenada Y
+   * @param {boolean} onLight Indica si el personaje esta en la luz o no
    */
-  
-   constructor(scene, x, y, player, beingControlled) 
+
+   constructor(scene, x, y, player, beingControlled)
    {
     super(scene, x, y, player);
     this.playerName = player;
     this.coord = this.scene.add.text(200, 10, "")
+
+    this.onLight = true;
 
     this.beingControlled = beingControlled;
     this.score = 0;
@@ -38,47 +40,73 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.label = this.scene.add.text(10, 10, "");
     this.cursors = this.scene.input.keyboard.createCursorKeys();
 
+
     this.cursors = this.scene.input.keyboard.createCursorKeys();
     this.space = scene.input.keyboard.addKey('SPACE');
-    this.start();
     this.updateScore();
-    this.updateCoord();     
+    this.updateCoord();
+
+
+    this.saveX = x;
+    this.saveY = y;
+
+    this.start(this.positionX ,this.positionY);
 
     this.space.on('down', () =>
      {     
       this.body.setVelocityX(0);
       this.body.setVelocityY(0);
       this.ChangePlayer();
-    }); 
+    });
+
+
+    this.startTime = this.getTime();
   }
+
+
+  getTime() {
+    //make a new date object
+    let d = new Date();
+
+    //return the number of milliseconds since 1 January 1970 00:00:00.
+    return d.getTime();
+}
+
+  saveposition = function(posX){
+    console.log("posX = " + posX);
+   // console.log("posY = " + posY);
+  }
+
+  // saveposition(posX, posY)
+  // {
+  //  console.log("saveposition");
+ 
+  //  this.saveX = posX;
+  //  this.saveY = posY;
+ 
+  //   console.log("saveX = " + this.saveX);
+  //   console.log("saveY = " +this.saveY);
+  // }
 
   // updateCounter() {
 
   // }
  start(){
+   
  this.scene.time.addEvent( {
-  delay: 3000, 
+  delay: 1000, 
   callback: this.saveposition,
+  args: [this.body.x],
   callbackScope: false,
   loop: true
   });
   //let timedEvent = this.time.delayedCall(3000, onEvent, [], this);
  // scene.time.events.add(Phaser.Timer.SECOND * 4, this.onEvent, scene);
  }
-
-
- saveposition()
- {
-     console.log("hey");
- }
+ 
   setBeingControlled() {
     this.beingControlled = !this.beingControlled;
   }
-
-  /**
-   * El jugador ha recogido una estrella por lo que este método añade un punto y
-   * actualiza la UI con la puntuación actual.
-   */
   point() {
     this.score++;
     this.updateScore();
@@ -111,20 +139,44 @@ export default class Player extends Phaser.GameObjects.Sprite {
   SavePositiom(){
     
   }
+
+onLightFunction() {
+  this.onLight = true;
+}
+
   /**
    * Métodos preUpdate de Phaser. En este caso solo se encarga del movimiento del jugador.
    * Como se puede ver, no se tratan las colisiones con las estrellas, ya que estas colisiones 
    * ya son gestionadas por la estrella (no gestionar las colisiones dos veces)
    * @override
    */
-  preUpdate(t,dt) 
+  preUpdate(t,dt)
   {
     super.preUpdate(t,dt);
-   
-    
-   // this.startTime = this.getTime();
-    //console.log(this.startTime);
-    
+
+    // TIMER para guardar la posicion
+    if (this.getTime() > (this.startTime + 1000))
+    {
+      this.startTime = this.getTime();
+
+      this.saveX = this.body.x + 28;
+      this.saveY = this.body.y + 32;
+
+      console.log("saveX = " + this.saveX);
+      console.log("saveY = " + this.saveY);
+    }
+
+
+    if ( this.playerName === 'player1' && this.onLight) 
+    {
+      this.setPosition(this.saveX, this.saveY);
+    }
+    else if ( this.playerName === 'player2' && !this.onLight) 
+    {
+      this.setPosition(this.saveX, this.saveY);
+    }
+
+    this.onLight = false;
     
     this.updateCoordEmpty();
     if (this.beingControlled) {
@@ -155,7 +207,17 @@ export default class Player extends Phaser.GameObjects.Sprite {
       else{
         this.setPlayerState(false);
       }
-      this.scene.checkEnd();
     }
   }
+
+  // saveposition()
+  // {
+  //  console.log("saveposition");
+ 
+  //   //this.saveX = this.positionX;
+  //   //this.saveY = this.positionY;
+ 
+  //   console.log("positionX = " + this.x);
+  //   console.log("positionY = " + this.y);
+  // }
 }
