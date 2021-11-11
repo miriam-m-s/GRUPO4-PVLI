@@ -14,16 +14,20 @@ import Lights from './lights.js';
 export default class Level extends Phaser.Scene {
   /**
    * Constructor de la escena
+   * @param {Player} player Coordenada X
+
    */
+
+  
+
   constructor() {
     super({ key: 'level' });
- 
    }
-
 
   /**
    * Creación de los elementos de la escena principal de juego
    */
+
   create() {
     this.clock=new Phaser.Time.Clock(this);
     this.stars = 10;
@@ -37,57 +41,27 @@ export default class Level extends Phaser.Scene {
     //this.add.
     new Platform(this, this.player, this.bases, 150, 350);
     new Platform(this, this.player, this.bases, 850, 350);
-    // new Platform(this, this.player, this.bases, 500, 200);
-    // new Platform(this, this.player, this.bases, 150, 100);
-    // new Platform(this, this.player, this.bases, 850, 100);
 
     new Platform(this, this.player2, this.bases, 150, 350);
      new Platform(this, this.player2, this.bases, 850, 350);
-    // new Platform(this, this.player2, this.bases, 500, 200);
-    // new Platform(this, this.player2, this.bases, 150, 100);
-    // new Platform(this, this.player2, this.bases, 850, 100);
 
-    
    // this.add.image(400, 300, 'light');
 
     this.lights = this.add.group();
 
     new Lights(this, this.player, this.player2, this.lights, 150, 350, 0.25);
-
-
-    //this.spawn();
-    this.checkEnd();
   }
-
+   
   /**
    * Genera una estrella en una de las bases del escenario
    * @param {Array<Base>} from Lista de bases sobre las que se puede crear una estrella
    * Si es null, entonces se crea aleatoriamente sobre cualquiera de las bases existentes
    */
-  spawn(from = null) {
-    Phaser.Math.RND.pick(from || this.bases.children.entries).spawn();
-  }
 
   /**
    * Método que se ejecuta al coger una estrella. Se pasa la base
    * sobre la que estaba la estrella cogida para evitar repeticiones
    * @param {Base} base La base sobre la que estaba la estrella que se ha cogido
    */
-  starPickt (base) {
-    this.player.point();
-      if (this.player.score == this.stars) {
-        this.scene.start('end');
-      }
-      else {
-        let s = this.bases.children.entries;
-        this.spawn(s.filter(o => o !== base));
 
-      }
-  }
-
-  checkEnd(){
-    if(this.player.playerState && this.player2.playerState){
-        this.scene.start('end');
-      }
-    }
 }
