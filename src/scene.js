@@ -50,8 +50,15 @@ export default class Level extends Phaser.Scene {
     this.lights = this.add.group();
 
     new Lights(this, this.player, this.player2, this.lights, 150, 350, 0.25);
+    this.checkEnd();
   }
-   
+  
+  checkEnd(){
+    console.log("hol");
+    if(this.player.playerState && this.player2.playerState){
+        this.scene.start('end');
+      }
+    }
   /**
    * Genera una estrella en una de las bases del escenario
    * @param {Array<Base>} from Lista de bases sobre las que se puede crear una estrella

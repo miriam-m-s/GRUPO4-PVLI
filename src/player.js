@@ -50,7 +50,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.saveX = x;
     this.saveY = y;
 
-    this.start(this.positionX ,this.positionY);
+    //this.start(this.positionX ,this.positionY);
 
     this.space.on('down', () =>
      {     
@@ -72,10 +72,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     return d.getTime();
 }
 
-  saveposition = function(posX){
-    console.log("posX = " + posX);
-   // console.log("posY = " + posY);
-  }
+
 
   // saveposition(posX, posY)
   // {
@@ -91,18 +88,18 @@ export default class Player extends Phaser.GameObjects.Sprite {
   // updateCounter() {
 
   // }
- start(){
+//  start(){
    
- this.scene.time.addEvent( {
-  delay: 1000, 
-  callback: this.saveposition,
-  args: [this.body.x],
-  callbackScope: false,
-  loop: true
-  });
-  //let timedEvent = this.time.delayedCall(3000, onEvent, [], this);
- // scene.time.events.add(Phaser.Timer.SECOND * 4, this.onEvent, scene);
- }
+//  this.scene.time.addEvent( {
+//   delay: 1000, 
+//   callback: this.saveposition,
+//   args: [this.body.x],
+//   callbackScope: false,
+//   loop: true
+//   });
+//   //let timedEvent = this.time.delayedCall(3000, onEvent, [], this);
+//  // scene.time.events.add(Phaser.Timer.SECOND * 4, this.onEvent, scene);
+//  }
  
   setBeingControlled() {
     this.beingControlled = !this.beingControlled;
@@ -162,8 +159,7 @@ onLightFunction() {
       this.saveX = this.body.x + 28;
       this.saveY = this.body.y + 32;
 
-      console.log("saveX = " + this.saveX);
-      console.log("saveY = " + this.saveY);
+   
     }
 
 
@@ -207,6 +203,7 @@ onLightFunction() {
       else{
         this.setPlayerState(false);
       }
+      this.scene.checkEnd();
     }
   }
 
