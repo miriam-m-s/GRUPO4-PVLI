@@ -44,7 +44,7 @@ export default class Lights extends Phaser.GameObjects.Sprite {
       // haber cogido una estrella
       //console.log("human touxing");
 
-      console.log("HOLA MIRI PUTa");
+     
       this.scene.player.onLightFunction();
     }
 
@@ -54,5 +54,10 @@ export default class Lights extends Phaser.GameObjects.Sprite {
         //console.log("human touxing");
         this.scene.player2.onLightFunction();
     }
+    let bodies = this.scene.physics.overlapCirc(this.x, this.y, this.radius, true,false);
+    var out = Phaser.Utils.Array.Range(bodies);
+    out.forEach(function (e) {
+      console.log(e.bodies);
+  });
   }
 }
