@@ -37,22 +37,25 @@ export default class Lights extends Phaser.GameObjects.Sprite {
 
     //Array<Phaser.Physics.Arcade.Body> aray = overlapCirc(x, y, true, false);
 
-    // overlapCirc(x, y, true, false);
+    //overlapCirc(x, y, true, false);
 
-    if (this.scene.physics.overlap(this.scene.player, this)) {
+     if (this.scene.physics.overlap(this.scene.player, this)) {
       // Delegamos en la escena para decidir qué hacer al 
-      // haber cogido una estrella
-      //console.log("human touxing");
+       // haber cogido una estrella
+     //console.log("human touxing");
 
-      console.log("HOLA MIRI PUTa");
-      this.scene.player.onLightFunction();
-    }
+     
+       this.scene.player.onLightFunction();
+     }
 
-    if (this.scene.physics.overlap(this.scene.player2, this)) {
-        // Delegamos en la escena para decidir qué hacer al 
-        // haber cogido una estrella
-        //console.log("human touxing");
+     if (this.scene.physics.overlap(this.scene.player2, this)) {
+       // Delegamos en la escena para decidir qué hacer al 
+       // haber cogido una estrella
+       //console.log("human touxing");
         this.scene.player2.onLightFunction();
-    }
+     }
+  
+   
+
   }
 }
