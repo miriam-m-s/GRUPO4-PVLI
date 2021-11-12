@@ -5,11 +5,11 @@ import Lamp from './lamp.js';
  * Clase que representa el jugador del juego. El jugador se mueve por el mundo usando los cursores.
  * También almacena la puntuación o número de estrellas que ha recogido hasta el momento.
  */
- let itemList;
 export default class Player extends Phaser.GameObjects.Sprite {
   
   /**
    * Constructor del jugador
+   * @param {Array<Lamp>} itemList la lista de lamparas
    * @param {Phaser.Scene} scene Escena a la que pertenece el jugador
    * @param {number} x Coordenada X
    * @param {number} y Coordenada Y
@@ -51,8 +51,6 @@ export default class Player extends Phaser.GameObjects.Sprite {
       this.body.setVelocityY(0);
       this.ChangePlayer();
     }); 
-    this.itemList = this.scene.lampList;
-    console.log(this.scene.lampList);
   }
 
   // updateCounter() {
@@ -165,26 +163,23 @@ export default class Player extends Phaser.GameObjects.Sprite {
   }
 
   CheckForNearestObject()
-  {
-    
-    /*if( this.itemList === undefined) {return};
-    var itemsInLevel = this.scene.lampList; //[new Lamp(this.scene,600,200), new Lamp(this.scene,500,200), new Lamp(this.scene,400,200)];
-    
+  {    
+    console.log(this.itemList);
+    return;
     let playerPos = new Phaser.Math.Vector2(this.body.position.x, this.body.position.y);
     let minDistance = 9999;
     var disOffset = 50;
     
     for(let i = 0; i < 3; i++)
     {
+      let distanceBetween = Phaser.Math.Distance.Between(this.body.x,this.body.y, this.itemList[i].body.x, this.itemList[i].body.y);
       
-     let distanceBetween = Phaser.Math.Distance.Between(this.body.x,this.body.y, this.itemList[i].body.x, this.itemList[i].body.y);
-      
-    if(distanceBetween < disOffset)
-    {
-      // minDistance = distanceBetween;
-      console.log("Item mas cercano: " + this.scene.lampList[i].name);
-      itemsInLevel[i].scale = 2;
+      if(distanceBetween < disOffset)
+      {
+        // minDistance = distanceBetween;
+        console.log("Item mas cercano: " + itemList[i].name);
+        itemList[i].scale = 2;
+      }
     }
-    }*/
-   }
+  }
 }

@@ -12,7 +12,6 @@ let lampList;
  * Cada vez que el jugador recoge la estrella, aparece una nueva en otra base.
  * El juego termina cuando el jugador ha recogido 10 estrellas.
  * @extends Phaser.Scene
- * * @param {Array<Item>} from array de items
  */
 export default class Level extends Phaser.Scene {
   /**
@@ -28,7 +27,7 @@ export default class Level extends Phaser.Scene {
    * Creación de los elementos de la escena principal de juego
    */
   create() {
-    this.clock=new Phaser.Time.Clock(this);
+    this.clock = new Phaser.Time.Clock(this);
     this.stars = 10;
     this.bases = this.add.group();
     this.lampGroup = this.add.group();
@@ -55,7 +54,7 @@ export default class Level extends Phaser.Scene {
       lampList[i].name = "Lampara 0" + i;
     }    
     this.player.itemList = lampList;
-    
+    console.log(this.player.itemList[0].name);
     this.checkEnd();
   }
 
