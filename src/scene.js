@@ -48,14 +48,15 @@ export default class Level extends Phaser.Scene {
     this.lights = this.add.group();
 
     new Lights(this, this.player, this.player2, this.lights, 150, 350, 0.25);
-    lampList = [new Lamp(this, this.player2, this.lampGroup, 400, 200), new Lamp(this, this.player2, this.lampGroup, 500, 200), new Lamp(this, this.player2, this.lampGroup, 600, 200)];
+    lampList = [new Lamp(this, this.player2, this.lampGroup, 400, 200), 
+      new Lamp(this, this.player2, this.lampGroup, 500, 200), 
+      new Lamp(this, this.player2, this.lampGroup, 600, 200)];
     for(let i = 0; i<3;i++)
     {
       lampList[i].name = "Lampara 0" + i;
     }    
     this.player.itemList = lampList;
     this.player2.itemList = lampList;
-    console.log(this.player.itemList[0].name);
     this.checkEnd();
   }
 

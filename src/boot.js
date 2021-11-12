@@ -25,7 +25,9 @@ export default class Boot extends Phaser.Scene {
     this.load.image('player1', 'fantasmacolor.png');
     this.load.image('player2', 'coloreada.png');
     this.load.image('light', 'light.png');
-    this.load.image('lamp','lampara.png');
+    this.load.image('lampAct','lamparaSelected.png');
+    this.load.image('lampDesact','lampara.png');
+    this.load.image('lampEnc','lamparaEncendida.png');
   }
 
   /**

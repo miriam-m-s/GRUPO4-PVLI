@@ -10,6 +10,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
   /**
    * Constructor del jugador
    * @param {Array<Lamp>} itemList la lista de lamparas
+   * @param {GameObject} selectedObject el objeto mas cercano seleccionable
    * @param {Phaser.Scene} scene Escena a la que pertenece el jugador
    * @param {number} x Coordenada X
    * @param {number} y Coordenada Y
@@ -25,6 +26,8 @@ export default class Player extends Phaser.GameObjects.Sprite {
    constructor(scene, x, y, player, beingControlled) 
    {
     super(scene, x, y, player);
+    //Parametros
+    this.selectedObject = null;
     this.playerName = player;
     this.coord = this.scene.add.text(200, 10, "")
     this.beingControlled = beingControlled;
@@ -45,14 +48,22 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.updateScore();
     this.updateCoord();     
 
+      //Cambiar personajes con Espacio
     this.space.on('down', () =>
      {     
       this.body.setVelocityX(0);
       this.body.setVelocityY(0);
       this.ChangePlayer();
     }); 
+    //Interaaccionar con objetos con la E
+    var eKey = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
+    eKey.on('down', function (key, event) 
+    {
+      console.log(this.selectedObject);
+      //this.selectedObject.UseLamp();
+    });
   }
-
+  
   // updateCounter() {
 
   // }
@@ -124,42 +135,38 @@ export default class Player extends Phaser.GameObjects.Sprite {
    
     
    // this.startTime = this.getTime();
-    //console.log(this.startTime);
-    if(this.beingControlled) this.CheckForNearestObject();
-
     this.updateCoordEmpty();
-    if (this.beingControlled) {
-      if (this.cursors.left.isDown) {
-        this.body.flipX=true;
-        this.body.setVelocityX(-this.speed);
-      }
-      else if (this.cursors.right.isDown) {
+    if(!this.beingControlled) return;
+    this.CheckForNearestObject();
+    if (this.cursors.left.isDown) 
+    {
+      this.body.flipX=true;
+      this.body.setVelocityX(-this.speed);
+    }
+    else if (this.cursors.right.isDown) {
         this.body.setVelocityX(this.speed);
       }
-      else if(this.cursors.up.isDown){
+    else if(this.cursors.up.isDown){
         this.body.setVelocityY(-this.speed);
       }
-      else if(this.cursors.down.isDown){
+    else if(this.cursors.down.isDown){
         this.body.setVelocityY(this.speed);
       }
-      else {
+    else {
         this.body.setVelocityX(0);
         this.body.setVelocityY(0);
       }
-      this.updateCoord();
-      if (this.playerName == 'player1' && this.body.x >=440 && this.body.x <= 501 && this.body.y >= 398 && this.body.y <= 438) {
+    this.updateCoord();
+    if (this.playerName == 'player1' && this.body.x >=440 && this.body.x <= 501 && this.body.y >= 398 && this.body.y <= 438) {
         this.setPlayerState(true);
-      }
-      else if(this.playerName == 'player2' && this.body.x >= 57 && this.body.x <= 127 && this.body.y >= 104 && this.body.y <= 114){
-        this.setPlayerState(true);
-      }
-      else{
-        this.setPlayerState(false);
-      }
-      this.scene.checkEnd();
     }
-
-    
+    else if(this.playerName == 'player2' && this.body.x >= 57 && this.body.x <= 127 && this.body.y >= 104 && this.body.y <= 114){
+        this.setPlayerState(true);
+    }
+    else{
+        this.setPlayerState(false);
+    }
+    this.scene.checkEnd();
   }
 
   CheckForNearestObject()
@@ -167,19 +174,30 @@ export default class Player extends Phaser.GameObjects.Sprite {
     //console.log(this.itemList);
     //return;
     let playerPos = new Phaser.Math.Vector2(this.body.position.x, this.body.position.y);
-    let minDistance = 9999;
-    var disOffset = 50;
+    var disOffset = 100;
     
+    //Checkeo si sigo suficietemente cerca del objeto que estaba seleccionando anteriormente
+    if(this.selectedObject !=  null)
+    {
+      let distanceBetween = Phaser.Math.Distance.Between(this.body.x,this.body.y, this.selectedObject.body.x, this.selectedObject.body.y);
+      if(distanceBetween > disOffset)
+      {
+        this.selectedObject.DeselectLamp();
+        this.selectedObject = null;
+      }
+    }
+    
+    //Para cada objeto interaccionable en la escena, compruebo la distancia al jugador
     for(let i = 0; i < 3; i++)
     {
-      this.itemList[i].scale = 1;
       let distanceBetween = Phaser.Math.Distance.Between(this.body.x,this.body.y, this.itemList[i].body.x, this.itemList[i].body.y);
-      
-      if(distanceBetween < disOffset)
+      if(distanceBetween < disOffset) //el objeto se encuentra en rango
       {
-        // minDistance = distanceBetween;
-        console.log("Item mas cercano: " + this.itemList[i].name);
-        this.itemList[i].scale = 2;
+        //Se deselecciona el objeto anterior
+        if(this.selectedObject != null) this.selectedObject.DeselectLamp();
+        //Se asigna el nuevo objeto mas cercano posible
+        this.selectedObject = this.itemList[i];
+        this.selectedObject.SelectLamp();
       }
     }
   }
