@@ -2,6 +2,7 @@ import Player from './player.js';
 import Platform from './platform.js';
 import Item from './item.js';
 import Lights from './lights.js';
+import Lamp from './lamp.js';
 
 
 /**
@@ -58,7 +59,11 @@ export default class Level extends Phaser.Scene {
 
     new Lights(this, this.player, this.player2, this.lights, 150, 350, 0.25);
 
-
+    /*let groupObjects=this.add.group()
+    // groupObjects.add(new Object(this,600,200));
+      // console.log(groupObjects.children.entries[0].x);*/ 
+      
+    
     //this.spawn();
     this.checkEnd();
   }
