@@ -5,7 +5,7 @@ import Lamp from './lamp.js';
  * Clase que representa el jugador del juego. El jugador se mueve por el mundo usando los cursores.
  * También almacena la puntuación o número de estrellas que ha recogido hasta el momento.
  */
-
+ let itemList;
 export default class Player extends Phaser.GameObjects.Sprite {
   
   /**
@@ -19,16 +19,14 @@ export default class Player extends Phaser.GameObjects.Sprite {
     * @param {number} saveX Coordenada X
    * @param {number} saveY Coordenada Y
    * @param {number} startTime Coordenada Y
-   * @param {Phaser.GameObjects.Group} grupo
-   * @param {Lamp} lampara
    */
+  
   
    constructor(scene, x, y, player, beingControlled) 
    {
     super(scene, x, y, player);
     this.playerName = player;
     this.coord = this.scene.add.text(200, 10, "")
-
     this.beingControlled = beingControlled;
     this.score = 0;
     this.scene.add.existing(this);
@@ -53,6 +51,8 @@ export default class Player extends Phaser.GameObjects.Sprite {
       this.body.setVelocityY(0);
       this.ChangePlayer();
     }); 
+    this.itemList = this.scene.lampList;
+    console.log(this.scene.lampList);
   }
 
   // updateCounter() {
@@ -166,43 +166,25 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
   CheckForNearestObject()
   {
-    // var playerPos = new Phaser.Math.Vector2(this.body.position.x, this.body.position.y);
-    //var minDistance = 999;
-    //let distanceBetweenX = Phaser.Math.Distance.BetweenPoints(nearestObj.body.x,this.body.x);
-    //let distanceBetweenY=Phaser.Math.Distance.BetweenPoints(nearestObj.body.y,this.body.y)
-    var itemsInLevel = [new Lamp(this.scene,600,200), new Lamp(this.scene,500,200), new Lamp(this.scene,400,200)];
-    for(let i = 0; i<3;i++)
-    {
-      itemsInLevel[i].name = "Lampara" + i;
-    }
-
+    
+    /*if( this.itemList === undefined) {return};
+    var itemsInLevel = this.scene.lampList; //[new Lamp(this.scene,600,200), new Lamp(this.scene,500,200), new Lamp(this.scene,400,200)];
+    
     let playerPos = new Phaser.Math.Vector2(this.body.position.x, this.body.position.y);
     let minDistance = 9999;
-     var disOffset = 50;
+    var disOffset = 50;
     
     for(let i = 0; i < 3; i++)
     {
       
-     let distanceBetween=Phaser.Math.Distance.Between(this.body.x,this.body.y,itemsInLevel[i].body.x,itemsInLevel[i].body.y)
+     let distanceBetween = Phaser.Math.Distance.Between(this.body.x,this.body.y, this.itemList[i].body.x, this.itemList[i].body.y);
       
-          if(distanceBetween < disOffset)
-          {
-           // minDistance = distanceBetween;
-            console.log("Item mas cercano: " + itemsInLevel[i].name);
-         }
-
+    if(distanceBetween < disOffset)
+    {
+      // minDistance = distanceBetween;
+      console.log("Item mas cercano: " + this.scene.lampList[i].name);
+      itemsInLevel[i].scale = 2;
     }
-    
-    //  /*Compueba la distancia de cada objeto al jugador, y se queda con el mas cercano si
-    //  esta dentro del offset*/
-    //  foreach(item in this.grupo)
-    //  {
-    //    var distanceBetween = new Vector2(item.x, item.y) - playerPos;
-    //    if(distanceBetween < minDistance && distanceBetween > disOffset)
-    //    {
-    //      minDistance = distanceBetween;
-    //      nearestObj = item;
-    //    }
-    //  }
+    }*/
    }
 }

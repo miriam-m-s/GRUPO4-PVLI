@@ -1,9 +1,9 @@
 import Player from './player.js';
 import Platform from './platform.js';
-import Item from './item.js';
 import Lights from './lights.js';
 import Lamp from './lamp.js';
 
+let lampList;
 
 /**
  * Escena principal del juego. La escena se compone de una serie de plataformas 
@@ -18,11 +18,7 @@ export default class Level extends Phaser.Scene {
   /**
    * Constructor de la escena
    */
-  preUpdate(t,dt) 
-  {
-    super.preUpdate(t,dt);
-    //console.log(this.bases);
-  }
+  
   constructor() 
   {
     super({ key: 'level' });
@@ -35,7 +31,7 @@ export default class Level extends Phaser.Scene {
     this.clock=new Phaser.Time.Clock(this);
     this.stars = 10;
     this.bases = this.add.group();
-    this.items = this.add.group();
+    this.lampGroup = this.add.group();
     this.firstPlayer = false;
     this.secondPlayer = false;
     this.player = new Player(this, 700, 300,'player1', true);
@@ -49,22 +45,17 @@ export default class Level extends Phaser.Scene {
 
     new Platform(this, this.player2, this.bases, 150, 350);
     new Platform(this, this.player2, this.bases, 850, 350);
-    
-    
-    var abc = new Item(this, this.player2, this.items, 550, 350);
-    console.log(abc);
-
-    
+            
     this.lights = this.add.group();
 
     new Lights(this, this.player, this.player2, this.lights, 150, 350, 0.25);
-
-    /*let groupObjects=this.add.group()
-    // groupObjects.add(new Object(this,600,200));
-      // console.log(groupObjects.children.entries[0].x);*/ 
-      
+    lampList = [new Lamp(this, this.player2, this.lampGroup, 400, 200), new Lamp(this, this.player2, this.lampGroup, 500, 200), new Lamp(this, this.player2, this.lampGroup, 600, 200)];
+    for(let i = 0; i<3;i++)
+    {
+      lampList[i].name = "Lampara 0" + i;
+    }    
+    this.player.itemList = lampList;
     
-    //this.spawn();
     this.checkEnd();
   }
 
