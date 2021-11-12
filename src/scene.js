@@ -54,6 +54,7 @@ export default class Level extends Phaser.Scene {
       lampList[i].name = "Lampara 0" + i;
     }    
     this.player.itemList = lampList;
+    this.player2.itemList = lampList;
     console.log(this.player.itemList[0].name);
     this.checkEnd();
   }

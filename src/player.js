@@ -125,7 +125,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     
    // this.startTime = this.getTime();
     //console.log(this.startTime);
-    this.CheckForNearestObject();
+    if(this.beingControlled) this.CheckForNearestObject();
 
     this.updateCoordEmpty();
     if (this.beingControlled) {
@@ -164,21 +164,22 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
   CheckForNearestObject()
   {    
-    console.log(this.itemList);
-    return;
+    //console.log(this.itemList);
+    //return;
     let playerPos = new Phaser.Math.Vector2(this.body.position.x, this.body.position.y);
     let minDistance = 9999;
     var disOffset = 50;
     
     for(let i = 0; i < 3; i++)
     {
+      this.itemList[i].scale = 1;
       let distanceBetween = Phaser.Math.Distance.Between(this.body.x,this.body.y, this.itemList[i].body.x, this.itemList[i].body.y);
       
       if(distanceBetween < disOffset)
       {
         // minDistance = distanceBetween;
-        console.log("Item mas cercano: " + itemList[i].name);
-        itemList[i].scale = 2;
+        console.log("Item mas cercano: " + this.itemList[i].name);
+        this.itemList[i].scale = 2;
       }
     }
   }
