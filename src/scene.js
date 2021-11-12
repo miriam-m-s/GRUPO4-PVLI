@@ -12,7 +12,7 @@ import Lamp from './lamp.js';
  * Cada vez que el jugador recoge la estrella, aparece una nueva en otra base.
  * El juego termina cuando el jugador ha recogido 10 estrellas.
  * @extends Phaser.Scene
- * * @param {GameObject} abc Coordenada X
+ * * @param {Array<Item>} from array de items
  */
 export default class Level extends Phaser.Scene {
   /**

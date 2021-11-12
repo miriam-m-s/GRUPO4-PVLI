@@ -165,29 +165,38 @@ export default class Player extends Phaser.GameObjects.Sprite {
   }
 
   CheckForNearestObject()
-   {
-    
+  {
+    // var playerPos = new Phaser.Math.Vector2(this.body.position.x, this.body.position.y);
+    //var minDistance = 999;
+    //let distanceBetweenX = Phaser.Math.Distance.BetweenPoints(nearestObj.body.x,this.body.x);
+    //let distanceBetweenY=Phaser.Math.Distance.BetweenPoints(nearestObj.body.y,this.body.y)
+    var itemsInLevel = [new Lamp(this.scene,600,200), new Lamp(this.scene,500,200), new Lamp(this.scene,400,200)];
+    for(let i = 0; i<3;i++)
+    {
+      itemsInLevel[i].name = "Lampara" + i;
+    }
 
-      // var playerPos = new Phaser.Math.Vector2(this.body.position.x, this.body.position.y);
-      //var minDistance = 999;
-      var nearestObj = new Lamp(this.scene,600,200);
-     
+    let playerPos = new Phaser.Math.Vector2(this.body.position.x, this.body.position.y);
+    let minDistance = 9999;
      var disOffset = 100;
-    //  let distanceBetweenX = Phaser.Math.Distance.BetweenPoints(nearestObj.body.x,this.body.x);
-    //   let distanceBetweenY=Phaser.Math.Distance.BetweenPoints(nearestObj.body.y,this.body.y)
-    let distanceBetweenX;
-    if(nearestObj.body.x>this.body.x) distanceBetweenX=nearestObj.body.x-this.body.x;
-    else if(nearestObj.body.x<this.body.x) distanceBetweenX=this.body.x-nearestObj.body.x;
-    let distanceBetweenY;
-    if(nearestObj.body.y>this.body.y) distanceBetweenY=nearestObj.body.y-this.body.y;
-    else if(nearestObj.body.y<this.body.y) distanceBetweenY=this.body.y-nearestObj.body.y;
     
-        if(distanceBetweenX < disOffset || distanceBetweenY < disOffset)
-        {
-         // minDistance = distanceBetween;
-          console.log("Objeto cercano!");
-       }
+    let distanceBetweenX;
+    for(let i = 0; i < 3; i++)
+    {
+      if(itemsInLevel[i].body.x>this.body.x) distanceBetweenX=itemsInLevel[i].body.x-this.body.x;
+      else if(itemsInLevel[i].body.x<this.body.x) distanceBetweenX=this.body.x-itemsInLevel[i].body.x;
+      let distanceBetweenY;
+      if(itemsInLevel[i].body.y>this.body.y) distanceBetweenY=itemsInLevel[i].body.y-this.body.y;
+      else if(itemsInLevel[i].body.y<this.body.y) distanceBetweenY=this.body.y-itemsInLevel[i].body.y;
+      
+          if(distanceBetweenX < disOffset || distanceBetweenY < disOffset)
+          {
+           // minDistance = distanceBetween;
+            console.log("Item mas cercano: " + itemsInLevel[i].name);
+         }
 
+    }
+    
     //  /*Compueba la distancia de cada objeto al jugador, y se queda con el mas cercano si
     //  esta dentro del offset*/
     //  foreach(item in this.grupo)
