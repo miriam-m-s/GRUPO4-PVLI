@@ -178,18 +178,14 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
     let playerPos = new Phaser.Math.Vector2(this.body.position.x, this.body.position.y);
     let minDistance = 9999;
-     var disOffset = 100;
+     var disOffset = 50;
     
-    let distanceBetweenX;
     for(let i = 0; i < 3; i++)
     {
-      if(itemsInLevel[i].body.x>this.body.x) distanceBetweenX=itemsInLevel[i].body.x-this.body.x;
-      else if(itemsInLevel[i].body.x<this.body.x) distanceBetweenX=this.body.x-itemsInLevel[i].body.x;
-      let distanceBetweenY;
-      if(itemsInLevel[i].body.y>this.body.y) distanceBetweenY=itemsInLevel[i].body.y-this.body.y;
-      else if(itemsInLevel[i].body.y<this.body.y) distanceBetweenY=this.body.y-itemsInLevel[i].body.y;
       
-          if(distanceBetweenX < disOffset || distanceBetweenY < disOffset)
+     let distanceBetween=Phaser.Math.Distance.Between(this.body.x,this.body.y,itemsInLevel[i].body.x,itemsInLevel[i].body.y)
+      
+          if(distanceBetween < disOffset)
           {
            // minDistance = distanceBetween;
             console.log("Item mas cercano: " + itemsInLevel[i].name);
