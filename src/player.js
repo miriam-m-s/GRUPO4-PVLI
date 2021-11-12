@@ -70,7 +70,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
  saveposition()
  {
-     console.log("hey");
+     //console.log("hey");
  }
   setBeingControlled() {
     this.beingControlled = !this.beingControlled;
@@ -126,7 +126,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
    // this.startTime = this.getTime();
     //console.log(this.startTime);
     //this.CheckForNearestObject();
-    console.log(this.grupo);
+    //console.log(this.scene.abc);
     this.updateCoordEmpty();
     if (this.beingControlled) {
       if (this.cursors.left.isDown) {
