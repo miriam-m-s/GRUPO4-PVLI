@@ -156,16 +156,14 @@ onLightFunction() {
     {
       this.startTime = this.getTime();
 
+      
       this.saveX = this.body.x + 28;
       this.saveY = this.body.y + 32;
-
-   
     }
-
 
     if ( this.playerName === 'player1' && this.onLight) 
     {
-      this.setPosition(this.saveX, this.saveY);
+      //this.setPosition(this.saveX, this.saveY);
     }
     else if ( this.playerName === 'player2' && !this.onLight) 
     {
@@ -206,15 +204,4 @@ onLightFunction() {
       this.scene.checkEnd();
     }
   }
-
-  // saveposition()
-  // {
-  //  console.log("saveposition");
- 
-  //   //this.saveX = this.positionX;
-  //   //this.saveY = this.positionY;
- 
-  //   console.log("positionX = " + this.x);
-  //   console.log("positionY = " + this.y);
-  // }
 }

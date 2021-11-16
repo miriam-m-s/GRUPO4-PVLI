@@ -14,15 +14,19 @@ export default class Lights extends Phaser.GameObjects.Sprite {
    */
   constructor(scene, player, player2, baseGroup, x, y, radius) {
     super(scene, x, y, 'light', radius);
-    this.depth = -1;
-    this.setAlpha(.5);
-    
-    this.scale = radius;
+    // this.depth = -1;
+    // this.setAlpha(.5);
+
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this, true);
+    this.body.setCircle(100);
+    //new Base(scene, this, x, y, baseGroup);
+    this.scene.physics.add.collider(this, player);
 
-    this.scene.physics.add.overlap(this, player);
-    this.scene.physics.add.overlap(this, player2);
+    this.scale = radius;
+
+    // this.scene.physics.add.overlap(this, player);
+    // this.scene.physics.add.overlap(this, player2);
   }
 
 
@@ -44,15 +48,14 @@ export default class Lights extends Phaser.GameObjects.Sprite {
        // haber cogido una estrella
      //console.log("human touxing");
 
-     
-       this.scene.player.onLightFunction();
+       //this.scene.player.onLightFunction();
      }
 
      if (this.scene.physics.overlap(this.scene.player2, this)) {
        // Delegamos en la escena para decidir qué hacer al 
        // haber cogido una estrella
        //console.log("human touxing");
-        this.scene.player2.onLightFunction();
+        //this.scene.player2.onLightFunction();
      }
   
    

@@ -1,6 +1,6 @@
 import Boot from './boot.js';
 import End from './end.js';
-import Platform from './platform.js';
+import LightXD from './platform.js';
 import Level from './scene.js';
 
 /**
@@ -18,10 +18,10 @@ let config = {
     pixelArt: true,
     scene: [Boot, Level, End],
     physics: { 
-        default: 'arcade', 
+        default: 'arcade',
         arcade: { 
      
-            debug: false 
+            debug: true 
         } 
     }
 };

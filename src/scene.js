@@ -1,5 +1,5 @@
 import Player from './player.js';
-import Platform from './platform.js';
+import LightXD from './platform.js';
 import Lights from './lights.js';
 
 
@@ -38,18 +38,18 @@ export default class Level extends Phaser.Scene {
     this.player2 = new Player(this, 300, 300,'player2', false);
     this.add.text(475, 435, "Fantasma");
     this.add.text(80, 135, "Estrella");
-    //this.add.
-    new Platform(this, this.player, this.bases, 150, 350);
-    new Platform(this, this.player, this.bases, 850, 350);
 
-    new Platform(this, this.player2, this.bases, 150, 350);
-     new Platform(this, this.player2, this.bases, 850, 350);
+    ///new LightXD(this, this.player, this.bases, 150, 350);
+    new LightXD(this, this.player, this.player2, this.bases, 200, 200, 250);
+
+   // new LightXD(this, this.player2, this.bases, 150, 350);
+   // new LightXD(this, this.player2, this.bases, 500, 350);
 
    // this.add.image(400, 300, 'light');
 
-    this.lights = this.add.group();
+   // this.lights = this.add.group();
 
-    new Lights(this, this.player, this.player2, this.lights, 150, 350, 0.25);
+   // new Lights(this, this.player, this.player2, this.lights, 500, 350, 0.25);
     this.checkEnd();
   }
   
