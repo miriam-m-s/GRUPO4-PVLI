@@ -44,6 +44,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
     this.cursors = this.scene.input.keyboard.createCursorKeys();
     this.space = scene.input.keyboard.addKey('SPACE');
+    this.eKey = scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
     this.start();
     this.updateScore();
     this.updateCoord();     
@@ -55,13 +56,15 @@ export default class Player extends Phaser.GameObjects.Sprite {
       this.body.setVelocityY(0);
       this.ChangePlayer();
     }); 
-    //Interaaccionar con objetos con la E
-    var eKey = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
-    eKey.on('down', function (key, event) 
-    {
-      console.log(this.selectedObject);
-      //this.selectedObject.UseLamp();
-    });
+
+    this.eKey.on('down', () =>
+     {     
+       if(!this.beingControlled) return;
+       console.log(this.selectedObject.name);
+       if(this.selectedObject != null)
+       {}
+        this.selectedObject.UseLamp();
+    }); 
   }
   
   // updateCounter() {
@@ -196,6 +199,8 @@ export default class Player extends Phaser.GameObjects.Sprite {
         //Se deselecciona el objeto anterior
         if(this.selectedObject != null) this.selectedObject.DeselectLamp();
         //Se asigna el nuevo objeto mas cercano posible
+        //if(this.selectedObject != this.itemList[i])
+        
         this.selectedObject = this.itemList[i];
         this.selectedObject.SelectLamp();
       }

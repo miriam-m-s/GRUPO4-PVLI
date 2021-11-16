@@ -19,23 +19,27 @@
     this.scene.physics.add.collider(this, player);
     //SelectLamp();
   }
+  
 
   SelectLamp()
   {
+    if(encend) return;
     this.scale = 1.05;
-    this.setTexture('lampAct');
+    //this.setTexture('lampAct');
   }
-  DeselectLamp()
+  DeselectLamp() 
   {
+    if(encend) return;
     this.setTexture('lampDesact');
     this.scale = 1;
   }
 
   UseLamp()
   {
-    console.log("CLICK!");
+    encend = !encend;
     this.setTexture('lampEnc');
+    console.log("CLICK!");
   }
-   
 }
+let encend = false;
   
