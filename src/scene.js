@@ -1,6 +1,7 @@
 import Player from './player.js';
-import LightXD from './platform.js';
-import Lights from './lights.js';
+// import LightXD from './platform.js';
+// import Lights from './lights.js';
+import Light from './light.js';
 
 
 /**
@@ -40,7 +41,9 @@ export default class Level extends Phaser.Scene {
     this.add.text(80, 135, "Estrella");
 
     ///new LightXD(this, this.player, this.bases, 150, 350);
-    new LightXD(this, this.player, this.player2, this.bases, 200, 200, 250);
+    new Light(this, this.player, this.player2, this.bases, 50, 50, 200);
+    new Light(this, this.player, this.player2, this.bases, 350, 200, 100);
+
 
    // new LightXD(this, this.player2, this.bases, 150, 350);
    // new LightXD(this, this.player2, this.bases, 500, 350);
@@ -54,7 +57,7 @@ export default class Level extends Phaser.Scene {
   }
   
   checkEnd(){
-    console.log("hol");
+
     if(this.player.playerState && this.player2.playerState){
         this.scene.start('end');
       }

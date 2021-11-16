@@ -133,12 +133,12 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.label.text = 'Score: ' + this.score;
   }
 
-  SavePositiom(){
-    
-  }
+onLightFunction(x, y) {
 
-onLightFunction() {
   this.onLight = true;
+
+  this.saveX = x;
+  this.saveY = y;
 }
 
   /**
@@ -152,14 +152,13 @@ onLightFunction() {
     super.preUpdate(t,dt);
 
     // TIMER para guardar la posicion
-    if (this.getTime() > (this.startTime + 1000))
-    {
-      this.startTime = this.getTime();
-
+    // if (this.getTime() > (this.startTime + 1000))
+    // {
+    //   this.startTime = this.getTime();
       
-      this.saveX = this.body.x + 28;
-      this.saveY = this.body.y + 32;
-    }
+    //   this.saveX = this.body.x + 28;
+    //   this.saveY = this.body.y + 32;
+    // }
 
     if ( this.playerName === 'player1' && this.onLight) 
     {
@@ -191,7 +190,9 @@ onLightFunction() {
         this.body.setVelocityX(0);
         this.body.setVelocityY(0);
       }
+
       this.updateCoord();
+      
       if (this.playerName == 'player1' && this.body.x >=440 && this.body.x <= 501 && this.body.y >= 398 && this.body.y <= 438) {
         this.setPlayerState(true);
       }
@@ -201,6 +202,8 @@ onLightFunction() {
       else{
         this.setPlayerState(false);
       }
+
+
       this.scene.checkEnd();
     }
   }
