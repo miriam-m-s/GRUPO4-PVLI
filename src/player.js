@@ -25,9 +25,6 @@ export default class Player extends Phaser.GameObjects.Sprite {
     super(scene, x, y, player);
     this.playerName = player;
     this.coord = this.scene.add.text(200, 10, "")
-
-    this.onLight = true;
-
     this.beingControlled = beingControlled;
     this.score = 0;
     this.scene.add.existing(this);
@@ -37,14 +34,11 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.speed = 300;
     this.jumpSpeed = -400;
     // Esta label es la UI en la que pondremos la puntuación del jugador
-    this.label = this.scene.add.text(10, 10, "");
-    this.cursors = this.scene.input.keyboard.createCursorKeys();
-
-
+    //this.label = this.scene.add.text(10, 10, "");
     this.cursors = this.scene.input.keyboard.createCursorKeys();
     this.space = scene.input.keyboard.addKey('SPACE');
-    this.updateScore();
-    this.updateCoord();
+  
+   // this.updateCoord();
 
 
     this.saveX = x;
@@ -60,17 +54,17 @@ export default class Player extends Phaser.GameObjects.Sprite {
     });
 
 
-    this.startTime = this.getTime();
+    // this.startTime = this.getTime();
   }
 
 
-  getTime() {
-    //make a new date object
-    let d = new Date();
+//   getTime() {
+//     //make a new date object
+//     let d = new Date();
 
-    //return the number of milliseconds since 1 January 1970 00:00:00.
-    return d.getTime();
-}
+//     //return the number of milliseconds since 1 January 1970 00:00:00.
+//     return d.getTime();
+// }
 
 
 
@@ -104,10 +98,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
   setBeingControlled() {
     this.beingControlled = !this.beingControlled;
   }
-  point() {
-    this.score++;
-    this.updateScore();
-  }
+
 
   setPlayerState(state) {
     this.playerState = state;
@@ -133,14 +124,6 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.label.text = 'Score: ' + this.score;
   }
 
-onLightFunction(x, y) {
-
-  this.onLight = true;
-
-  this.saveX = x;
-  this.saveY = y;
-}
-
   /**
    * Métodos preUpdate de Phaser. En este caso solo se encarga del movimiento del jugador.
    * Como se puede ver, no se tratan las colisiones con las estrellas, ya que estas colisiones 
@@ -150,28 +133,8 @@ onLightFunction(x, y) {
   preUpdate(t,dt)
   {
     super.preUpdate(t,dt);
-
-    // TIMER para guardar la posicion
-    // if (this.getTime() > (this.startTime + 1000))
-    // {
-    //   this.startTime = this.getTime();
-      
-    //   this.saveX = this.body.x + 28;
-    //   this.saveY = this.body.y + 32;
-    // }
-
-    if ( this.playerName === 'player1' && this.onLight) 
-    {
-      //this.setPosition(this.saveX, this.saveY);
-    }
-    else if ( this.playerName === 'player2' && !this.onLight) 
-    {
-      this.setPosition(this.saveX, this.saveY);
-    }
-
-    this.onLight = false;
     
-    this.updateCoordEmpty();
+   // this.updateCoordEmpty();
     if (this.beingControlled) {
       if (this.cursors.left.isDown) {
         this.body.flipX=true;
@@ -191,20 +154,20 @@ onLightFunction(x, y) {
         this.body.setVelocityY(0);
       }
 
-      this.updateCoord();
+      // this.updateCoord();
       
-      if (this.playerName == 'player1' && this.body.x >=440 && this.body.x <= 501 && this.body.y >= 398 && this.body.y <= 438) {
-        this.setPlayerState(true);
-      }
-      else if(this.playerName == 'player2' && this.body.x >= 57 && this.body.x <= 127 && this.body.y >= 104 && this.body.y <= 114){
-        this.setPlayerState(true);
-      }
-      else{
-        this.setPlayerState(false);
-      }
+      // if (this.playerName == 'player1' && this.body.x >=440 && this.body.x <= 501 && this.body.y >= 398 && this.body.y <= 438) {
+      //   this.setPlayerState(true);
+      // }
+      // else if(this.playerName == 'player2' && this.body.x >= 57 && this.body.x <= 127 && this.body.y >= 104 && this.body.y <= 114){
+      //   this.setPlayerState(true);
+      // }
+      // else{
+      //   this.setPlayerState(false);
+      // }
 
 
-      this.scene.checkEnd();
+      // this.scene.checkEnd();
     }
   }
 }
