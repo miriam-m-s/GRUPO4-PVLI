@@ -3,12 +3,14 @@ import Lamp from './lamp.js';
  * Clase que representa el jugador del juego. El jugador se mueve por el mundo usando los cursores.
  * También almacena la puntuación o número de estrellas que ha recogido hasta el momento.
  */
+ var objectTween;
 export default class Player extends Phaser.GameObjects.Sprite {
   
   /**
    * Constructor del jugador
    * @param {Array<Lamp>} itemList la lista de lamparas
    * @param {GameObject} selectedObject el objeto mas cercano seleccionable
+   * @param {GameObject} activeObject el objeto mas cercano seleccionable
    * @param {Phaser.Scene} scene Escena a la que pertenece el jugador
    * @param {number} x Coordenada X
    * @param {number} y Coordenada Y
@@ -26,6 +28,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
    {
     super(scene, x, y, player);
     //Parametros
+
     this.selectedObject = null;
     this.playerName = player;
     this.coord = this.scene.add.text(200, 10, "")
@@ -59,20 +62,12 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.eKey.on('down', () =>
      {     
        if(!this.beingControlled) return;
-       
-       if(this.selectedObject != null)
-      { 
-        console.log(this.selectedObject.name);
-        this.selectedObject.UseLamp();
-      }
-        
+       this.activeObject = this.selectedObject;
     }); 
   }
-  
-  // updateCounter() {
 
-  // }
- start(){
+
+  start(){
  this.scene.time.addEvent( {
   delay: 3000, 
   callback: this.saveposition,
@@ -82,7 +77,6 @@ export default class Player extends Phaser.GameObjects.Sprite {
   //let timedEvent = this.time.delayedCall(3000, onEvent, [], this);
  // scene.time.events.add(Phaser.Timer.SECOND * 4, this.onEvent, scene);
  }
-
 
  saveposition()
  {
@@ -134,15 +128,23 @@ export default class Player extends Phaser.GameObjects.Sprite {
    * ya son gestionadas por la estrella (no gestionar las colisiones dos veces)
    * @override
    */
+  
   preUpdate(t,dt) 
   {
     super.preUpdate(t,dt);
-   
     
+    let playerPos = new Phaser.Math.Vector2(this.body.position.x, this.body.position.y);
    // this.startTime = this.getTime();
     this.updateCoordEmpty();
     if(!this.beingControlled) return;
     this.CheckForNearestObject();
+    if(this.activeObject != null)
+    {
+      this.activeObject.body.position = this.body.position * dt;
+      this.activeObject.setX(this.x) * dt;
+      this.activeObject.setY(this.y) * dt;
+    }
+
     if (this.cursors.left.isDown) 
     {
       this.body.flipX=true;
