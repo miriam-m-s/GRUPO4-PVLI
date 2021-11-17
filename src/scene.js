@@ -59,12 +59,13 @@ export default class Level extends Phaser.Scene {
     }    
 
     posesibleList = [new Furniture(this, this.player2, this.furnitureGroup, 800, 100), 
-      new Furniture(this, this.player2, this.furnitureGroup, 800, 300)];
+      new Furniture(this, this.player2, this.furnitureGroup, 800, 250),
+      new Furniture(this, this.player2, this.furnitureGroup, 650, 400)];
 
     this.player.itemList = nonPosesibleList;
     this.player2.itemList = nonPosesibleList;
-    this.player.posesibleList= posesibleList;
-    this.player2.posesibleList=posesibleList;
+    this.player.mueblesList= posesibleList;
+    this.player2.mueblesList=posesibleList;
     this.checkEnd();
   }
 

@@ -21,20 +21,20 @@
   }
   
 
-  SelectLamp()
+  SelectObject()
   {
     if(encend) return;
     this.scale = 1.05;
     //this.setTexture('lampAct');
   }
-  DeselectLamp() 
+  DeselectObject() 
   {
     if(encend) return;
     this.setTexture('lampDesact');
     this.scale = 1;
   }
 
-  UseLamp()
+  Interact()
   {
     encend = !encend;
     this.setTexture('lampEnc');
