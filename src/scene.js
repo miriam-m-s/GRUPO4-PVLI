@@ -4,8 +4,8 @@ import Lights from './lights.js';
 import Lamp from './lamp.js';
 import Furniture from './furniture.js';
 
-let lampList;
-let furnitureList;
+let nonPosesibleList;
+let posesibleList;
 /**
  * Escena principal del juego. La escena se compone de una serie de plataformas 
  * sobre las que se sitúan las bases en las podrán aparecer las estrellas. 
@@ -50,26 +50,21 @@ export default class Level extends Phaser.Scene {
     this.lights = this.add.group();
 
     new Lights(this, this.player, this.player2, this.lights, 150, 350, 0.25);
-    lampList = [new Lamp(this, this.player2, this.lampGroup, 500, 200), 
+    nonPosesibleList = [new Lamp(this, this.player2, this.lampGroup, 500, 200), 
       new Lamp(this, this.player2, this.lampGroup, 600, 200), 
       new Lamp(this, this.player2, this.lampGroup, 700, 200)];
     for(let i = 0; i<3;i++)
     {
-      lampList[i].name = "Lampara 0" + i;
+      nonPosesibleList[i].name = "Lampara 0" + i;
     }    
 
-    furnitureList = [new Furniture(this, this.player2, this.furnitureGroup, 800, 100), 
+    posesibleList = [new Furniture(this, this.player2, this.furnitureGroup, 800, 100), 
       new Furniture(this, this.player2, this.furnitureGroup, 800, 300)];
 
-    // for(let i = 0; i<3;i++)
-    // {
-    //   furnitureList[i].name = "Mueble 0" + i;
-    // }
-
-    this.player.itemList = lampList;
-    this.player2.itemList = lampList;
-    this.player.posesibleList= furnitureList;
-    this.player2.posesibleList=furnitureList;
+    this.player.itemList = nonPosesibleList;
+    this.player2.itemList = nonPosesibleList;
+    this.player.posesibleList= posesibleList;
+    this.player2.posesibleList=posesibleList;
     this.checkEnd();
   }
 

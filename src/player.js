@@ -1,5 +1,3 @@
-import Star from './star.js';
-import Platform from './platform.js';
 import Lamp from './lamp.js';
 /**
  * Clase que representa el jugador del juego. El jugador se mueve por el mundo usando los cursores.
@@ -176,10 +174,8 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.scene.checkEnd();
   }
 
-  CheckForNearestObject()
-  {    
-    //console.log(this.itemList);
-    //return;
+  CheckForNearestObject(objectList)
+  { 
     let playerPos = new Phaser.Math.Vector2(this.body.position.x, this.body.position.y);
     var disOffset = 100;
     
