@@ -38,7 +38,6 @@
   {
     encend = !encend;
     this.setTexture('lampEnc');
-    console.log("CLICK!");
   }
 }
 let encend = false;
