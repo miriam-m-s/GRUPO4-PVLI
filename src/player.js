@@ -20,6 +20,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     * @param {number} saveX Coordenada X
    * @param {number} saveY Coordenada Y
    * @param {number} startTime Coordenada Y
+   * @param {Array<Furniture>} posesibleList lista de muebles
    */
   
   
@@ -60,10 +61,13 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.eKey.on('down', () =>
      {     
        if(!this.beingControlled) return;
-       console.log(this.selectedObject.name);
+       
        if(this.selectedObject != null)
-       {}
+      { 
+        console.log(this.selectedObject.name);
         this.selectedObject.UseLamp();
+      }
+        
     }); 
   }
   

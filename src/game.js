@@ -21,7 +21,7 @@ let config = {
         default: 'arcade', 
         arcade: { 
      
-            debug: false 
+            debug: true 
         } 
     }
 };

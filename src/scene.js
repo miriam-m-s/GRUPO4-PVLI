@@ -2,9 +2,10 @@ import Player from './player.js';
 import Platform from './platform.js';
 import Lights from './lights.js';
 import Lamp from './lamp.js';
+import Furniture from './furniture.js';
 
 let lampList;
-
+let furnitureList;
 /**
  * Escena principal del juego. La escena se compone de una serie de plataformas 
  * sobre las que se sitúan las bases en las podrán aparecer las estrellas. 
@@ -31,6 +32,7 @@ export default class Level extends Phaser.Scene {
     this.stars = 10;
     this.bases = this.add.group();
     this.lampGroup = this.add.group();
+    this.furnitureGroup=this.add.group();
     this.firstPlayer = false;
     this.secondPlayer = false;
     this.player = new Player(this, 700, 300,'player1', true);
@@ -55,8 +57,19 @@ export default class Level extends Phaser.Scene {
     {
       lampList[i].name = "Lampara 0" + i;
     }    
+
+    furnitureList = [new Furniture(this, this.player2, this.furnitureGroup, 800, 100), 
+      new Furniture(this, this.player2, this.furnitureGroup, 800, 300)];
+
+    // for(let i = 0; i<3;i++)
+    // {
+    //   furnitureList[i].name = "Mueble 0" + i;
+    // }
+
     this.player.itemList = lampList;
     this.player2.itemList = lampList;
+    this.player.posesibleList= furnitureList;
+    this.player2.posesibleList=furnitureList;
     this.checkEnd();
   }
 
