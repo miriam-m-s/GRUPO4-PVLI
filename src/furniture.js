@@ -17,19 +17,19 @@ export default class Furniture extends Phaser.GameObjects.Sprite {
   }
   
 
-  SelectFurniture()
+  SelectObject()
   {
     if(active) return;
     this.scale = 1.05;
     //this.setTexture('lampAct');
   }
-  DeselectFurniture() 
+  DeselectObject() 
   {
     if(active) return;
     this.scale = 1;
   }
 
-  UseLamp()
+  Interact()
   {
     active = !active;
     console.log("Move");

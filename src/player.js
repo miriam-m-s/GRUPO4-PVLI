@@ -1,4 +1,5 @@
 import Lamp from './lamp.js';
+import Furniture from './furniture.js';
 /**
  * Clase que representa el jugador del juego. El jugador se mueve por el mundo usando los cursores.
  * También almacena la puntuación o número de estrellas que ha recogido hasta el momento.
@@ -18,7 +19,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     * @param {number} saveX Coordenada X
    * @param {number} saveY Coordenada Y
    * @param {number} startTime Coordenada Y
-   * @param {Array<Furniture>} posesibleList lista de muebles
+   * @param {Array<Furniture>} mueblesList lista de muebles
    */
   
   
@@ -63,7 +64,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
        if(this.selectedObject != null)
       { 
         console.log(this.selectedObject.name);
-        this.selectedObject.UseLamp();
+        this.selectedObject.Interact();
       }
         
     }); 
@@ -174,7 +175,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.scene.checkEnd();
   }
 
-  CheckForNearestObject(objectList)
+  CheckForNearestObject()
   { 
     let playerPos = new Phaser.Math.Vector2(this.body.position.x, this.body.position.y);
     var disOffset = 100;
@@ -185,7 +186,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
       let distanceBetween = Phaser.Math.Distance.Between(this.body.x,this.body.y, this.selectedObject.body.x, this.selectedObject.body.y);
       if(distanceBetween > disOffset)
       {
-        this.selectedObject.DeselectLamp();
+        this.selectedObject.DeselectObject();
         this.selectedObject = null;
       }
     }
@@ -193,16 +194,29 @@ export default class Player extends Phaser.GameObjects.Sprite {
     //Para cada objeto interaccionable en la escena, compruebo la distancia al jugador
     for(let i = 0; i < 3; i++)
     {
-      let distanceBetween = Phaser.Math.Distance.Between(this.body.x,this.body.y, this.itemList[i].body.x, this.itemList[i].body.y);
-      if(distanceBetween < disOffset) //el objeto se encuentra en rango
+
+      let distanceBetweenLamps = Phaser.Math.Distance.Between(this.body.x,this.body.y, this.itemList[i].body.x, this.itemList[i].body.y);
+      let distanceBetweenFurniture = Phaser.Math.Distance.Between(this.body.x,this.body.y, this.mueblesList[i].body.x, this.mueblesList[i].body.y);
+      if(distanceBetweenLamps < disOffset ) //el objeto se encuentra en rango
       {
         //Se deselecciona el objeto anterior
-        if(this.selectedObject != null) this.selectedObject.DeselectLamp();
+        if(this.selectedObject != null) this.selectedObject.DeselectObject();
         //Se asigna el nuevo objeto mas cercano posible
         //if(this.selectedObject != this.itemList[i])
         
         this.selectedObject = this.itemList[i];
-        this.selectedObject.SelectLamp();
+        this.selectedObject.SelectObject();
+      }
+      else if(distanceBetweenFurniture < disOffset)
+      {
+        if(this.selectedObject != null) this.selectedObject.DeselectObject();
+        //Se asigna el nuevo objeto mas cercano posible
+        //if(this.selectedObject != this.itemList[i])
+        
+        this.selectedObject = this.mueblesList[i];
+        this.selectedObject.SelectObject();
+
+
       }
     }
   }
