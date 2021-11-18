@@ -36,16 +36,16 @@ export default class Person extends Player {
     super.preUpdate(t,dt);
     if(this.beingControlled)
     {
-        //this.CheckForNearestObject(this.humanItems);
+        this.CheckForNearestObject(this.humanItems);
 
     }
    
-    if (!this.onLight) 
+    /*if (!this.onLight) 
     {
       this.setPosition(this.saveX, this.saveY);
    
     }
     this.onLight = false;
-    
+    */
   }
 }

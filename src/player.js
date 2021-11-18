@@ -140,6 +140,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
   {
     super.preUpdate(t,dt);
     
+    if(!this.beingControlled) return;
     let playerPos = new Phaser.Math.Vector2(this.body.position.x, this.body.position.y);
    // this.startTime = this.getTime();
     this.updateCoordEmpty();
@@ -183,36 +184,36 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.scene.checkEnd();
   }
 
-  // CheckForNearestObject(objetos)
-  // { 
-  //   this.objectList=objetos;
-  //   //let playerPos = new Phaser.Math.Vector2(this.body.position.x, this.body.position.y);
-  //   var disOffset = 100;
-  //   //Checkeo si sigo suficietemente cerca del objeto que estaba seleccionando anteriormente
-  //   if(this.selectedObject !=  null)
-  //   {
-  //     let distanceBetween = Phaser.Math.Distance.Between(this.body.x,this.body.y, this.selectedObject.body.x, this.selectedObject.body.y);
-  //     if(distanceBetween > disOffset)
-  //     {
-  //       this.selectedObject.DeselectObject();
-  //       this.selectedObject = null;
-  //     }
-  //   }
-    
-  //   //Para cada objeto interaccionable en la escena, compruebo la distancia al jugador
-  //   for(let i = 0; i < this.objectList.length; i++)
-  //   {
-  //     let distanceBetween = Phaser.Math.Distance.Between(this.body.x,this.body.y, this.objectList[i].body.x, this.objectList[i].body.y);
-  //     if(distanceBetween < disOffset) //el objeto se encuentra en rango
-  //     {
-  //       //Se deselecciona el objeto anterior
-  //       if(this.selectedObject != null) this.selectedObject.DeselectObject();
-  //       //Se asigna el nuevo objeto mas cercano posible
-  //       //if(this.selectedObject != this.humanItems[i])
-        
-  //       this.selectedObject = this.objectList[i];
-  //       this.selectedObject.SelectObject();
-  //     }
-  //   }
-  // }
+   CheckForNearestObject(objetos)
+   { 
+     this.objectList=objetos;
+     //let playerPos = new Phaser.Math.Vector2(this.body.position.x, this.body.position.y);
+     var disOffset = 100;
+     //Checkeo si sigo suficietemente cerca del objeto que estaba seleccionando anteriormente
+     if(this.selectedObject !=  null)
+     {
+       let distanceBetween = Phaser.Math.Distance.Between(this.body.x,this.body.y, this.selectedObject.body.x, this.selectedObject.body.y);
+       if(distanceBetween > disOffset)
+       {
+         this.selectedObject.DeselectObject();
+         this.selectedObject = null;
+       }
+     }
+  
+     //Para cada objeto interaccionable en la escena, compruebo la distancia al jugador
+     for(let i = 0; i < this.objectList.length; i++)
+     {
+       let distanceBetween = Phaser.Math.Distance.Between(this.body.x,this.body.y, this.objectList[i].body.x, this.objectList[i].body.y);
+       if(distanceBetween < disOffset) //el objeto se encuentra en rango
+       {
+         //Se deselecciona el objeto anterior
+         if(this.selectedObject != null) this.selectedObject.DeselectObject();
+         //Se asigna el nuevo objeto mas cercano posible
+         //if(this.selectedObject != this.humanItems[i])
+      
+         this.selectedObject = this.objectList[i];
+         this.selectedObject.SelectObject();
+       }
+     }
+   }
 }

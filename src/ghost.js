@@ -23,7 +23,7 @@ export default class Ghost extends Player {
     super.preUpdate(t,dt);
     if(this.beingControlled)
     {
-        //this.CheckForNearestObject(this.ghostItems);
+        this.CheckForNearestObject(this.ghostItems);
     }
     
   }

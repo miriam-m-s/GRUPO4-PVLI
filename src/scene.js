@@ -30,8 +30,8 @@ export default class Level extends Phaser.Scene {
     this.lampGroup = this.add.group();
     this.furnitureGroup=this.add.group();
     //Jugadores
-    this.humanPlayer = new Human(this, 700, 300);
-    this.ghostPlayer = new Ghost(this, 300, 300);
+    this.humanPlayer = new Human(this, 300, 300);//right
+    this.ghostPlayer = new Ghost(this, 700, 300);//left
     //Texto bases (TEMPORAL)
     this.add.text(475, 435, "Fantasma");
     this.add.text(80, 135, "Estrella");
