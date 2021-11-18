@@ -36,7 +36,7 @@ export default class Person extends Player {
     super.preUpdate(t,dt);
     if(this.beingControlled)
     {
-        this.CheckForNearestObject(this.humanItems);
+        //this.CheckForNearestObject(this.humanItems);
 
     }
    
