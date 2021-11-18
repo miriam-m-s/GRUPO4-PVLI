@@ -8,7 +8,8 @@ export default class Player extends Phaser.GameObjects.Sprite {
   
   /**
    * Constructor del jugador
-   * @param {Array<Lamp>} itemList la lista de lamparas
+   * @param {Array<Lamp>} humanItems la lista de lamparas
+   * * @param {Array<Furniture>} ghostItems lista de muebles
    * @param {GameObject} selectedObject el objeto mas cercano seleccionable
    * @param {GameObject} activeObject el objeto mas cercano seleccionable
    * @param {Phaser.Scene} scene Escena a la que pertenece el jugador
@@ -20,7 +21,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     * @param {number} saveX Coordenada X
    * @param {number} saveY Coordenada Y
    * @param {number} startTime Coordenada Y
-   * @param {Array<Furniture>} posesibleList lista de muebles
+   
    */
   
   
@@ -200,15 +201,15 @@ export default class Player extends Phaser.GameObjects.Sprite {
     //Para cada objeto interaccionable en la escena, compruebo la distancia al jugador
     for(let i = 0; i < 3; i++)
     {
-      let distanceBetween = Phaser.Math.Distance.Between(this.body.x,this.body.y, this.itemList[i].body.x, this.itemList[i].body.y);
+      let distanceBetween = Phaser.Math.Distance.Between(this.body.x,this.body.y, this.humanItems[i].body.x, this.humanItems[i].body.y);
       if(distanceBetween < disOffset) //el objeto se encuentra en rango
       {
         //Se deselecciona el objeto anterior
         if(this.selectedObject != null) this.selectedObject.DeselectObject();
         //Se asigna el nuevo objeto mas cercano posible
-        //if(this.selectedObject != this.itemList[i])
+        //if(this.selectedObject != this.humanItems[i])
         
-        this.selectedObject = this.itemList[i];
+        this.selectedObject = this.humanItems[i];
         this.selectedObject.SelectObject();
       }
     }
