@@ -62,7 +62,12 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.eKey.on('down', () =>
      {     
        if(!this.beingControlled) return;
-       this.activeObject = this.selectedObject;
+       
+       if(this.selectedObject != null)
+       {
+        this.activeObject = this.selectedObject;
+        this.activeObject.Interact();
+       }
     }); 
   }
 
@@ -138,12 +143,12 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.updateCoordEmpty();
     if(!this.beingControlled) return;
     this.CheckForNearestObject();
-    if(this.activeObject != null)
+    /*if(this.activeObject != null)
     {
       this.activeObject.body.position = this.body.position * dt;
       this.activeObject.setX(this.x) * dt;
       this.activeObject.setY(this.y) * dt;
-    }
+    }*/
 
     if (this.cursors.left.isDown) 
     {
@@ -187,7 +192,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
       let distanceBetween = Phaser.Math.Distance.Between(this.body.x,this.body.y, this.selectedObject.body.x, this.selectedObject.body.y);
       if(distanceBetween > disOffset)
       {
-        this.selectedObject.DeselectLamp();
+        this.selectedObject.DeselectObject();
         this.selectedObject = null;
       }
     }
@@ -199,12 +204,12 @@ export default class Player extends Phaser.GameObjects.Sprite {
       if(distanceBetween < disOffset) //el objeto se encuentra en rango
       {
         //Se deselecciona el objeto anterior
-        if(this.selectedObject != null) this.selectedObject.DeselectLamp();
+        if(this.selectedObject != null) this.selectedObject.DeselectObject();
         //Se asigna el nuevo objeto mas cercano posible
         //if(this.selectedObject != this.itemList[i])
         
         this.selectedObject = this.itemList[i];
-        this.selectedObject.SelectLamp();
+        this.selectedObject.SelectObject();
       }
     }
   }
