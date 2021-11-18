@@ -12,7 +12,7 @@ export default class Lights extends Phaser.GameObjects.Sprite {
    * @param {number} y Coordenada y
    * @param {number} radius Coordenada y
    */
-  constructor(scene, player, player2, baseGroup, x, y, radius) {
+  constructor(scene, humanPlayer, ghostPlayer, baseGroup, x, y, radius) {
     super(scene, x, y, 'light', radius);
     this.depth = -1;
     this.setAlpha(.5);
@@ -21,8 +21,8 @@ export default class Lights extends Phaser.GameObjects.Sprite {
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this, true);
 
-    this.scene.physics.add.collider(this, player);
-    this.scene.physics.add.overlap(this, player2);
+    this.scene.physics.add.collider(this, humanPlayer);
+    this.scene.physics.add.overlap(this, ghostPlayer);
   }
 
 
@@ -34,7 +34,7 @@ export default class Lights extends Phaser.GameObjects.Sprite {
     // IMPORTANTE: Si no ponemos esta instrucción y el sprite está animado
     // no se podrá ejecutar la animación del sprite. 
     super.preUpdate();
-    if (this.scene.physics.overlap(this.scene.player2, this)) {
+    if (this.scene.physics.overlap(this.scene.ghostPlayer, this)) {
         // Delegamos en la escena para decidir qué hacer al 
         // haber cogido una estrella
     }

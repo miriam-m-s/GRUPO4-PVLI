@@ -7,7 +7,7 @@ import Human from './Human.js';
 import Ghost from './Ghost.js'
 
 let humanList; //lista de objetos humanos
-let ghostPlayerList; //lista de objetos poseibles
+let ghostList; //lista de objetos poseibles
 
 /**
  * @extends Phaser.Scene
@@ -58,12 +58,12 @@ export default class Level extends Phaser.Scene {
       }    
       
       //Objetos Fantasma(muebles/espejo)
-      ghostPlayerList = [new Furniture(this, this.ghostPlayer, this.furnitureGroup, 800, 100), 
+      ghostList = [new Furniture(this, this.ghostPlayer, this.furnitureGroup, 800, 100), 
         new Furniture(this, this.ghostPlayer, this.furnitureGroup, 800, 250),
         new Furniture(this, this.ghostPlayer, this.furnitureGroup, 650, 400)];
         for(let i = 0; i<3;i++)
       {
-        ghostPlayerList[i].name = "Mueble 0" + i;
+        ghostList[i].name = "Mueble 0" + i;
       } 
 
     //CAMBIAR ESTO EN FANTASMA / HUMANO
