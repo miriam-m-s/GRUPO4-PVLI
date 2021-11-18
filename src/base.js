@@ -1,5 +1,3 @@
-import Star from './star.js';
-
 /**
  * Clase que representa la base sobre la que se sitúan las estrellas que aparecen en el juego
  */
