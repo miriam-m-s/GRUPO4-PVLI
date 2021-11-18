@@ -32,7 +32,8 @@ export default class Furniture extends Phaser.GameObjects.Sprite {
   Interact()
   {
     active = !active;
-    console.log("Move");
+    if(active) console.log("Activo");
+    else console.log("Inactivo");
   }
 }
 let active = false;

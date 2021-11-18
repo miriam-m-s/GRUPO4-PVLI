@@ -3,14 +3,14 @@ import Lamp from './lamp.js';
  * Clase que representa el jugador del juego. El jugador se mueve por el mundo usando los cursores.
  * También almacena la puntuación o número de estrellas que ha recogido hasta el momento.
  */
- var objectTween;
+
 export default class Player extends Phaser.GameObjects.Sprite {
   
-  /**
+  /** 
    * Constructor del jugador
-   * @param {Array<Lamp>} humanItems la lista de lamparas
-   * * @param {Array<Furniture>} ghostItems lista de muebles
+   * 
    * @param {GameObject} selectedObject el objeto mas cercano seleccionable
+   * @param {Array<GameObject>} objectList lista de objetos
    * @param {GameObject} activeObject el objeto mas cercano seleccionable
    * @param {Phaser.Scene} scene Escena a la que pertenece el jugador
    * @param {number} x Coordenada X
@@ -29,7 +29,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
    {
     super(scene, x, y, player);
     //Parametros
-
+    this.objectList= null;
     this.selectedObject = null;
     this.playerName = player;
     this.coord = this.scene.add.text(200, 10, "")
@@ -67,6 +67,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
        if(this.selectedObject != null)
        {
         this.activeObject = this.selectedObject;
+        console.log(this.selectedObject.name);
         this.activeObject.Interact();
        }
     }); 
@@ -142,8 +143,8 @@ export default class Player extends Phaser.GameObjects.Sprite {
     let playerPos = new Phaser.Math.Vector2(this.body.position.x, this.body.position.y);
    // this.startTime = this.getTime();
     this.updateCoordEmpty();
-    if(!this.beingControlled) return;
-    this.CheckForNearestObject();
+    // if(!this.beingControlled) return;
+    // this.CheckForNearestObject();
     /*if(this.activeObject != null)
     {
       this.activeObject.body.position = this.body.position * dt;
@@ -182,11 +183,11 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.scene.checkEnd();
   }
 
-  CheckForNearestObject(objectList)
+  CheckForNearestObject(objetos)
   { 
-    let playerPos = new Phaser.Math.Vector2(this.body.position.x, this.body.position.y);
+    this.objectList=objetos;
+    //let playerPos = new Phaser.Math.Vector2(this.body.position.x, this.body.position.y);
     var disOffset = 100;
-    
     //Checkeo si sigo suficietemente cerca del objeto que estaba seleccionando anteriormente
     if(this.selectedObject !=  null)
     {
@@ -199,9 +200,9 @@ export default class Player extends Phaser.GameObjects.Sprite {
     }
     
     //Para cada objeto interaccionable en la escena, compruebo la distancia al jugador
-    for(let i = 0; i < 3; i++)
+    for(let i = 0; i < this.objectList.length; i++)
     {
-      let distanceBetween = Phaser.Math.Distance.Between(this.body.x,this.body.y, this.humanItems[i].body.x, this.humanItems[i].body.y);
+      let distanceBetween = Phaser.Math.Distance.Between(this.body.x,this.body.y, this.objectList[i].body.x, this.objectList[i].body.y);
       if(distanceBetween < disOffset) //el objeto se encuentra en rango
       {
         //Se deselecciona el objeto anterior
@@ -209,7 +210,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
         //Se asigna el nuevo objeto mas cercano posible
         //if(this.selectedObject != this.humanItems[i])
         
-        this.selectedObject = this.humanItems[i];
+        this.selectedObject = this.objectList[i];
         this.selectedObject.SelectObject();
       }
     }

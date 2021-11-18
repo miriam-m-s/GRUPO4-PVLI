@@ -38,6 +38,8 @@
   {
     encend = !encend;
     this.setTexture('lampEnc');
+    if(encend) console.log("Activo");
+    else console.log("Inactivo");
   }
 }
 let encend = false;

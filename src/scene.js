@@ -3,6 +3,8 @@ import Platform from './platform.js';
 import Lights from './lights.js';
 import Lamp from './lamp.js';
 import Furniture from './furniture.js';
+import Person from './person.js';
+import Ghost from './ghost.js'
 
 let humanList; //lista de objetos humanos
 let ghostList; //lista de objetos poseibles
@@ -27,8 +29,8 @@ export default class Level extends Phaser.Scene {
     this.lampGroup = this.add.group();
     this.furnitureGroup=this.add.group();
     //Jugadores
-    this.player = new Player(this, 700, 300,'player1', true);
-    this.player2 = new Player(this, 300, 300,'player2', false);
+    this.person = new Person(this, 700, 300);
+    this.ghost = new Ghost(this, 300, 300);
     //Texto bases (TEMPORAL)
     this.add.text(475, 435, "Fantasma");
     this.add.text(80, 135, "Estrella");
@@ -46,36 +48,36 @@ export default class Level extends Phaser.Scene {
       new Lights(this, this.player, this.player2, this.lights, 150, 350, 0.25);
 
       //Objetos Humano(lamparas/interruptores)
-      humanList = [new Lamp(this, this.player2, this.lampGroup, 500, 200), 
-        new Lamp(this, this.player2, this.lampGroup, 600, 200), 
-        new Lamp(this, this.player2, this.lampGroup, 700, 200)];
+      humanList = [new Lamp(this, this.person, this.lampGroup, 500, 200), 
+        new Lamp(this, this.person, this.lampGroup, 600, 200), 
+        new Lamp(this, this.person, this.lampGroup, 700, 200)];
       for(let i = 0; i<3;i++)
       {
         humanList[i].name = "Lampara 0" + i;
       }    
       
       //Objetos Fantasma(muebles/espejo)
-      ghostList = [new Furniture(this, this.player2, this.furnitureGroup, 800, 100), 
-        new Furniture(this, this.player2, this.furnitureGroup, 800, 250),
-        new Furniture(this, this.player2, this.furnitureGroup, 650, 400)];
+      ghostList = [new Furniture(this, this.ghost, this.furnitureGroup, 800, 100), 
+        new Furniture(this, this.ghost, this.furnitureGroup, 800, 250),
+        new Furniture(this, this.ghost, this.furnitureGroup, 650, 400)];
         for(let i = 0; i<3;i++)
       {
-        humanList[i].name = "Mueble 0" + i;
+        ghostList[i].name = "Mueble 0" + i;
       } 
 
     //CAMBIAR ESTO EN FANTASMA / HUMANO
-    this.player.humanItems = humanList;
-    this.player.mueblesList = ghostList;
+    this.person.humanItems = humanList;
+    this.ghost.ghostItems = ghostList;
 
-    this.player2.humanItems = humanList;
-    this.player2.mueblesList = ghostList;
+    // this.player2.humanItems = humanList;
+    // this.player2.mueblesList = ghostList;
 
     this.checkEnd();
   }
 
   //Check de final de nivel para ambos jugadores
   checkEnd(){
-    if(this.player.playerState && this.player2.playerState){
+    if(this.person.playerState && this.ghost.playerState){
         this.scene.start('end');
       }
     }
