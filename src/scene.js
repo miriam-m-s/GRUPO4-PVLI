@@ -6,8 +6,7 @@ import Furniture from './furniture.js';
 import Human from './Human.js';
 import Ghost from './Ghost.js'
 
-let humanList; //lista de objetos humanos
-let ghostList; //lista de objetos poseibles
+
 
 /**
  * @extends Phaser.Scene
@@ -47,7 +46,9 @@ export default class Level extends Phaser.Scene {
       //Luces
       this.lights = this.add.group();
       new Lights(this, this.humanPlayer, this.ghostPlayer, this.lights, 150, 350, 0.25);
-
+      
+      let humanList; //lista de objetos humanos
+      let ghostList; //lista de objetos poseibles
       //Objetos Humano(lamparas/interruptores)
       humanList = [new Lamp(this, this.humanPlayer, this.lampGroup, 500, 200), 
         new Lamp(this, this.humanPlayer, this.lampGroup, 600, 200), 
