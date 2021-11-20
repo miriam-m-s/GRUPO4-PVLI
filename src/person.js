@@ -28,7 +28,7 @@ export default class Person extends Player {
   }
   preUpdate(t,dt)
   {
-    console.log(this.saveX,this.saveY)
+  
     super.preUpdate(t,dt);
     if (!this.onLight) 
     {
