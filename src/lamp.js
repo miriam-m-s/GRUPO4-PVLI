@@ -17,30 +17,28 @@
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this, true);
     this.scene.physics.add.collider(this, player);
+    this.isOn = false;
     //SelectLamp();
   }
   
 
   SelectObject()
   {
-    if(encend) return;
-    this.scale = 1.05;
-    //this.setTexture('lampAct');
+    if(this.isOn) return;
+    //this.scale = 1.085;
+    this.setTexture('lampAct');
   }
   DeselectObject() 
   {
-    if(encend) return;
+    if(this.isOn) return;
     this.setTexture('lampDesact');
     this.scale = 1;
   }
 
   Interact()
   {
-    encend = !encend;
+    this.isOn = true;
+    this.scale = 1;
     this.setTexture('lampEnc');
-    if(encend) console.log("Activo");
-    else console.log("Inactivo");
   }
-}
-let encend = false;
-  
+}  
