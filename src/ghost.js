@@ -12,6 +12,7 @@ export default class Ghost extends Player {
    * @param {number} x Coordenada X
    * @param {number} y Coordenada Y
    * @param {Array<Furniture>} ghostItems lista de muebles
+   * @param {Object} itemPossesed objeto que se esta poseyendo
    * * 
    */
   constructor(scene, x, y) {
@@ -25,6 +26,29 @@ export default class Ghost extends Player {
     {
         this.CheckForNearestObject(this.ghostItems);
     }
-    
+    if(this.itemPossesed != null)
+    {
+      this.itemPossesed.body.position = this.body.position;
+      this.itemPossesed.setPosition(this.body.position);
+    }
+  }
+  
+  PossessObject(objectToPossess)
+  {
+    var tween = this.scene.tweens.add({
+      targets: this,
+      x: objectToPossess.x,
+      y: objectToPossess.y,
+      ease: 'Cubic',       // 'Cubic', 'Elastic', 'Bounce', 'Back'
+      totalDuration: 500,
+      repeat: 0,            // -1: infinity
+      yoyo: false,
+      onComplete: this.AssignObject(objectToPossess)
+  });
+  }
+
+  AssignObject(objectToPossess)
+  {
+    console.log("FINISHED");
   }
 }

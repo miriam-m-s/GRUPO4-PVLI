@@ -41,11 +41,11 @@ export default class Player extends Phaser.GameObjects.Sprite {
     // Queremos que el jugador no se salga de los límites del mundo
     this.body.setCollideWorldBounds();
     this.speed = 300;
-    this.jumpSpeed = -400;
     // Esta label es la UI en la que pondremos la puntuación del jugador
     this.label = this.scene.add.text(10, 10, "");
     this.cursors = this.scene.input.keyboard.createCursorKeys();
 
+    //Cursores
     this.cursors = this.scene.input.keyboard.createCursorKeys();
     this.space = scene.input.keyboard.addKey('SPACE');
     this.eKey = scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
@@ -53,7 +53,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.updateScore();
     this.updateCoord();     
 
-      //Cambiar personajes con Espacio
+  //Cambiar personajes con Espacio
     this.space.on('down', () =>
      {     
       this.body.setVelocityX(0);
@@ -67,7 +67,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
       //Llama al metodo Interact del objeto seleccionado
        if(this.selectedObject != null)
        {
-        this.selectedObject.Interact();
+        this.selectedObject.Interact(this.body);
        }
     }); 
   }

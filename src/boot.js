@@ -28,6 +28,8 @@ export default class Boot extends Phaser.Scene {
     this.load.image('lampDesact','lampara.png');
     this.load.image('lampEnc','lamparaEncendida.png');
     this.load.image('furniture','mueble.png');
+    this.load.image('furnitureSelected','muebleSelected.png');
+    this.load.image('furniturePossesed','mueblePoseido.png');
   }
 
   /**
