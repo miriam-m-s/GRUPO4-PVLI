@@ -33,6 +33,7 @@
       this.scene.physics.add.collider(this, player);
       
       this.scene.physics.add.overlap(this, player2);
+      this.body.scale *= 0.5;
       //this.scene.physics.add.overlap(this, player, () => { console.log("colision"); });
     }
       /**
