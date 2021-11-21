@@ -14,6 +14,7 @@ import Ghost from './Ghost.js'
 
 export default class Level extends Phaser.Scene {
 
+  static TILE_SIZE = 16;//tamano de tiles de los tilemaps
   constructor() 
   {
     super({ key: 'level' });
@@ -23,20 +24,36 @@ export default class Level extends Phaser.Scene {
   
   create() 
   {
-    this.clock = new Phaser.Time.Clock(this);
-    this.bases = this.add.group();
-    //Grupos de objetos
-    this.lampGroup = this.add.group();
-    this.furnitureGroup=this.add.group();
-    //Jugadores
-    this.humanPlayer = new Human(this, 300, 300);//right
-    this.ghostPlayer = new Ghost(this, 700, 300);//left
-    //Texto bases (TEMPORAL)
-    this.add.text(475, 435, "Fantasma");
-    this.add.text(80, 135, "Estrella");
+    //MAPA TILESET
+      //creacion del tilemap
+      this.map = this.make.tilemap({ 
+        key: 'tilemap01', 
+        tileWidth: 8, 
+        tileHeight: 8 
+      });
+
+      this.map.x = 50;
+
+      const tileset1 = this.map.addTilesetImage('MansionTileset01', 'mapSpriteSheet');
+
+      this.backgroundLayer = this.map.createLayer('Tile Layer 1', [tileset1]);
+      this.groundLayer  = this.map.createLayer('Tile Layer 2', [tileset1]);
+
+    //OBJETOS DE LA ESCENA
+      this.clock = new Phaser.Time.Clock(this);
+      this.bases = this.add.group();
+      //Grupos de objetos
+      this.lampGroup = this.add.group();
+      this.furnitureGroup=this.add.group();
+      //Jugadores
+      this.humanPlayer = new Human(this, 130, 100);//right
+      this.ghostPlayer = new Ghost(this, 180, 100);//left
+      //Texto bases (TEMPORAL)
+      this.add.text(475, 435, "Fantasma");
+      this.add.text(80, 135, "Estrella");
     
     //Creacion de Nivel Temporal
-
+    /*
       //Plataformas
       new Platform(this, this.humanPlayer, this.bases, 150, 350);
       new Platform(this, this.humanPlayer, this.bases, 850, 350);
@@ -46,7 +63,7 @@ export default class Level extends Phaser.Scene {
       //Luces
       this.lights = this.add.group();
       new Lights(this, this.humanPlayer, this.ghostPlayer, this.lights, 150, 350, 0.25);
-      
+    */
       let humanList; //lista de objetos humanos
       let ghostList; //lista de objetos poseibles
 

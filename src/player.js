@@ -40,7 +40,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.scene.physics.add.existing(this);
     // Queremos que el jugador no se salga de los límites del mundo
     this.body.setCollideWorldBounds();
-    this.speed = 300;
+    this.speed = 110;
     // Esta label es la UI en la que pondremos la puntuación del jugador
     this.label = this.scene.add.text(10, 10, "");
     this.cursors = this.scene.input.keyboard.createCursorKeys();
@@ -144,24 +144,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
     this.updateCoordEmpty();
     
-    if (this.cursors.left.isDown) 
-    {
-      this.body.flipX=true;
-      this.body.setVelocityX(-this.speed);
-    }
-    else if (this.cursors.right.isDown) {
-        this.body.setVelocityX(this.speed);
-      }
-    else if(this.cursors.up.isDown){
-        this.body.setVelocityY(-this.speed);
-      }
-    else if(this.cursors.down.isDown){
-        this.body.setVelocityY(this.speed);
-      }
-    else {
-        this.body.setVelocityX(0);
-        this.body.setVelocityY(0);
-      }
+    
     this.updateCoord();
     if (this.playerName == 'player1' && this.body.x >=440 && this.body.x <= 501 && this.body.y >= 398 && this.body.y <= 438) {
         this.setPlayerState(true);
@@ -178,7 +161,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
    CheckForNearestObject(objetos)
    { 
      this.objectList = objetos;
-     var disOffset = 100;
+     var disOffset = 60;
     
      //Checkeo si sigo suficietemente cerca del objeto que estaba seleccionando anteriormente
      if(this.selectedObject != null)

@@ -16,13 +16,16 @@ export default class Boot extends Phaser.Scene {
   /**
    * Carga de los assets del juego
    */
-  preload() {
-    // Con setPath podemos establecer el prefijo que se añadirá a todos los load que aparecen a continuación
+  preload() 
+  {
     this.load.setPath('assets/sprites/');
     this.load.image('platform', 'platform.png');
     this.load.image('base', 'base.png');
-    this.load.image('player1', 'fantasmacolor.png');
-    this.load.image('player2', 'coloreada.png');
+    //Players
+    this.load.spritesheet('ghostSpriteSheet', 'ghostSpriteSheet.png',{frameWidth: 16, frameHeight: 16});
+    this.load.image('player1', 'ghostSprite.png');
+    this.load.image('player2', 'humanSprite.png');
+    //Objects/Enviroment
     this.load.image('light', 'light.png');
     this.load.image('lampAct','lamparaSelected.png');
     this.load.image('lampDesact','lampara.png');
@@ -30,13 +33,34 @@ export default class Boot extends Phaser.Scene {
     this.load.image('furniture','mueble.png');
     this.load.image('furnitureSelected','muebleSelected.png');
     this.load.image('furniturePossesed','mueblePoseido.png');
+
+    this.load.setPath('assets/maps/');
+    //Carga de Tilemap
+    this.load.tilemapTiledJSON('tilemap01', 'Map01.json');
+    //Carga de spritesheet
+    this.load.image('mapSpriteSheet', 'spritesheets/mansionNes.png');
   }
 
   /**
    * Creación de la escena. En este caso, solo cambiamos a la escena que representa el
    * nivel del juego
    */
-  create() {
+  
+  create() 
+  {
+    //Animations
+    this.anims.create({
+      key: "ghostUp",
+      frameRate: 2,
+      frames: this.anims.generateFrameNumbers("ghostSpriteSheet", {start: 0, end:2}),
+      repeat: -1
+    });
+
     this.scene.start('level');
+  }
+
+  createScene() 
+  {
+      console.log("pinis");
   }
 }
