@@ -17,8 +17,6 @@ export default class Ghost extends Player {
   {
     super(scene, x, y, 'ghostPlayer',false);
     this.anims.play("_idleGhost");
-    this.speed = 50;
-
     //Keyboard Input
     this.cursorsPlayer = this.scene.input.keyboard.createCursorKeys();
   }

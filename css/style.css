@@ -1,9 +1,13 @@
 
-@font-face {
+@font-face 
+{
   font-family: 'RetroFont'; /*a name to be used later*/
-  src: (".\assets\fonts\retroFont.ttf"); /*URL to font*/
+  src: url(../assets/fonts/retroFont.ttf);
 }
-p.ex1 {
-  margin-top: 25px;
+
+.baseHTML
+{
+  margin-top: 100px;
+  cursor: url("../images/pixelCursor.png"), auto;
 }
 body {background-color: coral;}

@@ -21,7 +21,6 @@ export default class Human extends Player {
     this.onLight = true;
     this.saveX = x;
     this.saveY = y;
-     
   }
   onLightFunction(x, y) {
 
