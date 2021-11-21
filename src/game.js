@@ -12,7 +12,7 @@ let config =
     roundPixels: true,
     scale: {
         //mode: Phaser.Scale.FIT,  
-        autoCenter: Phaser.Scale.CENTER_BOTH,
+        //autoCenter: Phaser.Scale.CENTER_BOTH,
         
     },
     zoom: 2.1,
@@ -21,8 +21,11 @@ let config =
     physics: { 
         default: 'arcade', 
         arcade: { 
-            debug: false
+            debug: true
         } 
+    },
+    audio: {
+        disableWebAudio: true
     }
 };
 

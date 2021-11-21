@@ -20,6 +20,9 @@ export default class Boot extends Phaser.Scene {
    */
   preload() 
   {
+     //MUSIC
+     this.load.audio('bckMusic', [
+      './assets/audio/music/bckMusic.mp3']);
     this.load.setPath('assets/sprites/');
     this.load.image('platform', 'platform.png');
     this.load.image('base', 'base.png');
@@ -40,6 +43,8 @@ export default class Boot extends Phaser.Scene {
     this.load.tilemapTiledJSON('tilemap01', 'Map01.json');
     //Carga de spritesheet
     this.load.image('mapSpriteSheet', 'spritesheets/mansionNes.png');
+
+   
   }
 
   /**
@@ -49,6 +54,20 @@ export default class Boot extends Phaser.Scene {
   
   create() 
   {
+
+    //MUSIC
+    const audioConfig = {
+      mute: false,
+      volume: 1,
+      rate: 1,
+      detune: 0,
+      seek: 0,
+      loop: true,
+      delay: 0,
+    }; // config es opcional
+    var music = this.sound.add('bckMusic', audioConfig);
+    music.play();
+
     //GHOST ANIMATIONS 
       this.anims.create({
         key: "_idleGhost",
