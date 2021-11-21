@@ -47,10 +47,13 @@ export default class Level extends Phaser.Scene {
       this.furnitureGroup=this.add.group();
       //Jugadores
       this.humanPlayer = new Human(this, 130, 100);//right
+      this.humanPlayer.playerName = "Human";
+      this.humanPlayer.beingControlled = false;
       this.ghostPlayer = new Ghost(this, 180, 100);//left
+      this.ghostPlayer.playerName = "Ghost";
       //Texto bases (TEMPORAL)
-      this.add.text(475, 435, "Fantasma");
-      this.add.text(80, 135, "Estrella");
+      //this.add.text(475, 435, "Fantasma");
+      //this.add.text(80, 135, "Estrella");
     
     //Creacion de Nivel Temporal
     /*
@@ -77,9 +80,9 @@ export default class Level extends Phaser.Scene {
       }    
 
       //Objetos Fantasma(muebles/espejo)
-      ghostList = [new Furniture(this, this.ghostPlayer, this.furnitureGroup, 800, 100), 
-        new Furniture(this, this.ghostPlayer, this.furnitureGroup, 800, 250),
-        new Furniture(this, this.ghostPlayer, this.furnitureGroup, 650, 400)];
+      ghostList = [new Furniture(this, this.ghostPlayer, this.furnitureGroup, 130, 135), 
+        new Furniture(this, this.ghostPlayer, this.furnitureGroup, 150, 135),
+        new Furniture(this, this.ghostPlayer, this.furnitureGroup, 170, 135)];
         for(let i = 0; i<3;i++)
       {
         ghostList[i].name = "Mueble 0" + i;

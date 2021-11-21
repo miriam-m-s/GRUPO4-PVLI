@@ -10,7 +10,9 @@ export default class Boot extends Phaser.Scene {
    * Constructor de la escena
    */
   constructor() {
+    
     super({ key: 'boot' });
+    this.animationFrameRate = 3;
   }
 
   /**
@@ -23,8 +25,7 @@ export default class Boot extends Phaser.Scene {
     this.load.image('base', 'base.png');
     //Players
     this.load.spritesheet('ghostSpriteSheet', 'ghostSpriteSheet.png',{frameWidth: 16, frameHeight: 16});
-    this.load.image('player1', 'ghostSprite.png');
-    this.load.image('player2', 'humanSprite.png');
+    this.load.spritesheet('humanSpriteSheet', 'humanSpriteSheet.png',{frameWidth: 16, frameHeight: 16});
     //Objects/Enviroment
     this.load.image('light', 'light.png');
     this.load.image('lampAct','lamparaSelected.png');
@@ -48,19 +49,71 @@ export default class Boot extends Phaser.Scene {
   
   create() 
   {
-    //Animations
-    this.anims.create({
-      key: "ghostUp",
-      frameRate: 2,
-      frames: this.anims.generateFrameNumbers("ghostSpriteSheet", {start: 0, end:2}),
-      repeat: -1
-    });
+    //GHOST ANIMATIONS 
+      this.anims.create({
+        key: "_idleGhost",
+        frameRate: this.animationFrameRate,
+        frames: this.anims.generateFrameNumbers("ghostSpriteSheet", {start: 0, end:2}),
+        repeat: -1
+      });
+      this.anims.create({
+        key: "_downGhost",
+        frameRate: this.animationFrameRate,
+        frames: this.anims.generateFrameNumbers("ghostSpriteSheet", {start: 3, end:5}),
+        repeat: -1
+      });
+      this.anims.create({
+        key: "_leftGhost",
+        frameRate: this.animationFrameRate,
+        frames: this.anims.generateFrameNumbers("ghostSpriteSheet", {start: 6, end:8}),
+        repeat: -1
+      });
+      this.anims.create({
+        key: "_rightGhost",
+        frameRate: this.animationFrameRate,
+        frames: this.anims.generateFrameNumbers("ghostSpriteSheet", {start: 9, end:11}),
+        repeat: -1
+      });
+      this.anims.create({
+        key: "_upGhost",
+        frameRate: this.animationFrameRate,
+        frames: this.anims.generateFrameNumbers("ghostSpriteSheet", {start: 12, end:14}),
+        repeat: -1
+      });
 
+      //HUMAN ANIMATIONS -------------------------------------------------------------
+      this.anims.create({
+        key: "_idleHuman",
+        frameRate: this.animationFrameRate,
+        frames: this.anims.generateFrameNumbers("humanSpriteSheet", {start: 0, end:2}),
+        repeat: -1
+      });
+      this.anims.create({
+        key: "_downHuman",
+        frameRate: this.animationFrameRate,
+        frames: this.anims.generateFrameNumbers("humanSpriteSheet", {start: 3, end:5}),
+        repeat: -1
+      });
+      this.anims.create({
+        key: "_leftHuman",
+        frameRate: this.animationFrameRate,
+        frames: this.anims.generateFrameNumbers("humanSpriteSheet", {start: 6, end:8}),
+        repeat: -1
+      });
+      this.anims.create({
+        key: "_rightHuman",
+        frameRate: this.animationFrameRate,
+        frames: this.anims.generateFrameNumbers("humanSpriteSheet", {start: 9, end:11}),
+        repeat: -1
+      });
+      this.anims.create({
+        key: "_upHuman",
+        frameRate: this.animationFrameRate,
+        frames: this.anims.generateFrameNumbers("humanSpriteSheet", {start: 12, end:14}),
+        repeat: -1
+      });
+
+    //CREACION DEL NIVEL
     this.scene.start('level');
-  }
-
-  createScene() 
-  {
-      console.log("pinis");
   }
 }
