@@ -8,27 +8,32 @@
 		
 	<meta charset="utf-8">
 
-	<link rel="shortcut icon" href="./assets/sprites/coloreada.png" type="image/png" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	</head>
-	<body>
-	<center><h1 style="color:rgb(255, 255, 255)" { font-family: RetroFont; }>ECLIPSE</h1></center>
-		<h3 style="color:rgb(255, 255, 255)" { font-family: RetroFont, sans-serif; }>Texto prueba PRUEBA</h3>
-	
-	<div id="fh5co-section">	
-			
-		<footer>
-			<div id="footer">
-				<script src="./lib/phaser.min.js" ></script>
-				<script src="./src/game.js"type="module"></script>
-			</div>
-		</footer>
-	
 
-	</div>
+
+	<body>
+		
+	<center><h2 style="color:rgb(255, 255, 255)" { font-family: RetroFont; } >ECLIPSE</h2></center>
+	
+	<script src="./lib/phaser.min.js" ></script>
+	<script src="./src/game.js"type="module"></script>
+
 	<!-- Main JS (Do not remove) -->
 	<script src="js/main.js"></script>
 
-	</body>
+	
+	<!-- partial:index.partial.html -->
+	<main class="scanlines">
+		<div class="screen">
+			<canvas id="canvas" class="picture"></canvas>
+			<div class="overlay">
+				<div class="text">
+					<span>Eclipse</span>
+				</div>
+			</div>
+		</div>
+	</main>
+</body>
 </html>
 

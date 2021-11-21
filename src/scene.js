@@ -32,12 +32,12 @@ export default class Level extends Phaser.Scene {
         tileHeight: 8 
       });
 
-      this.map.x = 50;
+      const tileset1 = this.map.addTilesetImage('mansionNes', 'mapSpriteSheet');
 
-      const tileset1 = this.map.addTilesetImage('MansionTileset01', 'mapSpriteSheet');
-
-      this.backgroundLayer = this.map.createLayer('Tile Layer 1', [tileset1]);
-      this.groundLayer  = this.map.createLayer('Tile Layer 2', [tileset1]);
+      this.backgroundLayer = this.map.createLayer('BackLayer', [tileset1]);
+      this.lightLayer  = this.map.createLayer('LightLayer', [tileset1]);
+      this.frontLayer = this.map.createLayer('FrontLayer', [tileset1]);
+      this.itemLayer = this.map.createLayer('ItemLayer', [tileset1]);
 
     //OBJETOS DE LA ESCENA
       this.clock = new Phaser.Time.Clock(this);

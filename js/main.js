@@ -176,9 +176,6 @@
 
 		} , { offset: '85%' } );
 	};
-
-	
-
 	// Document on load.
 	(function(){
 		mainMenu();
@@ -187,7 +184,6 @@
 		contentWayPoint();
 		sliderMain();
 		fullHeight();
-		
-
 	});
+	
 }());
