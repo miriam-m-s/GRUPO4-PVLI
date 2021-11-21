@@ -15,7 +15,7 @@ let config =
         autoCenter: Phaser.Scale.CENTER_BOTH,
         
     },
-    zoom: 2,
+    zoom: 2.1,
     pixelArt: true,
     scene: [Boot, Level, End],
     physics: { 

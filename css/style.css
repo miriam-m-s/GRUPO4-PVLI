@@ -15,7 +15,6 @@ body {
   font-family: "Sys";
 }
 
-
 .scanlines .overlay {
   height: 100%;
   left: 0;
@@ -33,7 +32,6 @@ body {
   top: 0;
   width: 100%;
   height: 100%;
-  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/86186/crt.png");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   content: "";
@@ -68,7 +66,7 @@ body {
   opacity: 0;
   filter: blur(0.5px);
   font-family: Sys;
-  font-size: 6vmin;
+  font-size: 4vmin;
   left: 5%;
   position: absolute;
   text-shadow: 0 0 3px lime;
@@ -424,5 +422,8 @@ body {
     transform: scale(1, 1);
     transform: skew(0, 0);
   }
+}
+
+etroFont";
 }
 
