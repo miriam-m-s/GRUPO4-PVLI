@@ -33,6 +33,8 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
+    this.body.setSize(16,16);
+    this.body.offset = new Phaser.Math.Vector2(-this.body.size,-this.body.size);
     //this.body.setBodySize(16, 16, true);
 
     // Queremos que el jugador no se salga de los límites del mundo
