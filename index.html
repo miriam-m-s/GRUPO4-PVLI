@@ -4,34 +4,44 @@
  <html class="baseHTML"> 
 	<body style="background-color:rgb(0, 0, 0);">
 	<head>
-		<link rel="stylesheet" href="css\style.css">
-		
-	<meta charset="utf-8">
+		<link rel="stylesheet" href="css\style.css">	
+		<meta charset="utf-8">
 
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	</head>
 	
+
 	<body>	
-	<script src="./lib/phaser.min.js" ></script>
-	<script src="./src/game.js"type="module"></script>
+		<script src="./lib/phaser.min.js" ></script>
+		<script src="./src/game.js"type="module"></script>
+		<script src="js/main.js"></script>
 
-	<!-- Main JS (Do not remove) -->
-	<script src="js/main.js"></script>
-
-	<!-- Scanlines/CRT Efecto -->
-	<main class="scanlines">
-		
-		<div class="screen">
-			<canvas id="canvas"class="picture"></canvas>
-			<div class="overlay">
-				<div class="text">
-					<span>Eclipse-1</span>
-				</div>
-				<div class="menu">
+		<!-- Scanlines/CRT Efecto -->
+		<main class="scanlines">
+			<div class="screen">
+				<div class="overlay">
+					<div class="text">
+						<span>Eclipse-1</span>
+					</div>
 				</div>
 			</div>
-		</div>
-	</main>
-</body>
+		</main>
+		<terminalFont>
+		
+		<table cellspacing="10" cellpadding="10" border="0" >
+			<tbody>
+				<tr>
+					<td style="border: 0">
+					<h2 class="rtecenter"><img src = "./images/keyCursorsIcon.png"> Move character</img></h2>
+					<h2 class="rtecenter"><img src = "./images/keySpaceIcon.png">   Swap Characters</img></h2>
+					<h2 class="rtecenter"><img src = "./images/keyShiftIcon.png">   Sprint</img></h2>
+					<h2 class="rtecenter"><img src = "./images/keyEIcon.png">   Interact</img></h2>
+					</td>
+					<td style="border: 0"><img src="/sites/mydomain.com/files/sample.jpg" alt="" /></td>
+				</tr>
+			</tbody>
+		</table>
+		</terminalFont>
+	</body>
 </html>
 
