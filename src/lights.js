@@ -4,7 +4,7 @@
  * Cada plataforma es responsable de crear la base que aparece sobre ella y en la 
  * que, durante el juego, puede aparecer una estrella
  */
- export default class Base extends Phaser.GameObjects.Sprite {
+ export default class Light extends Phaser.GameObjects.Sprite {
   
   /**
    * Constructor de la Plataforma4
@@ -15,23 +15,26 @@
    * @param {number} y Coordenada y
    */
 
-  constructor(scene, player,texture, x, y) {
-    super(scene,x, y,texture);
-    this.setScale(0.1);
+  constructor(scene, player, player2, baseGroup, x, y, radius) {
+    super(scene,x, y,'light',player,player2);
+
+    this.depth = -1;
+    this.setAlpha(.5);
+
+    this.setOrigin(0);
     this.scene.add.existing(this);
-    this.scene.physics.add.existing(this);
+    this.scene.physics.add.existing(this, true);
+  
+    this.radius = radius;
+    this.person = player2;
+    this.body.setCircle(radius);
 
+    this.scale = ((radius-3)/1000);
+    this.scene.physics.add.collider(this, player);
     
-
-    this.player=player; 
- 
-    this.scene.physics.add.overlap(this, player);
-    this.inbase=false;
+    this.scene.physics.add.overlap(this, player2);
+    this.body.scale *= 0.5;
     //this.scene.physics.add.overlap(this, player, () => { console.log("colision"); });
-    
-  }
- ininbase(){
-      return this.inbase;
   }
     /**
    * Redefinición del preUpdate de Phaser
@@ -39,13 +42,10 @@
    */
      preUpdate() {
       super.preUpdate();
-      this.inbase=false;
-      if (this.scene.physics.overlap(this.player, this)) {
-          this.inbase=true;
+      if (this.scene.physics.overlap(this.scene.person, this)) {
    
-    }
-      
-       
-  
+        this.scene.person.onLightFunction(this.body.x + this.radius,
+                  this.body.y + this.radius);
+       }
     }
 }
