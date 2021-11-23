@@ -13,12 +13,9 @@ export default class Ghost extends Player {
    * * 
    */
   
-  constructor(scene, x, y) 
+  constructor(scene, playerPos, playerName, beingControlled) 
   {
-    super(scene, x, y, 'ghostPlayer',false);
-    this.anims.play("_idleGhost");
-    //Keyboard Input
-    this.cursorsPlayer = this.scene.input.keyboard.createCursorKeys();
+    super(scene, playerPos, playerName, beingControlled);
   }
 
   preUpdate(t,dt)

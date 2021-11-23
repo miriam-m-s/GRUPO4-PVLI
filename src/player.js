@@ -18,31 +18,27 @@ export default class Player extends Phaser.GameObjects.Sprite {
     * @param {number} secCounter
    */
   
-   constructor(scene, x, y, beingControlled) 
+   constructor(scene, initialPos, initialName, startController) 
    {
-    super(scene, x, y);
     
-    //Parametros
-    this.playerPos = new Phaser.Math.Vector2(x,y);
-    this.beingControlled = beingControlled; //comienza el humano
+    super(scene, initialPos, initialName, startController);
+    
+    //Asignar Parametros
+    this.scene = scene;
+    this.playerPos = initialPos; //donde comienza el jugador en la escena
+    this.playerName = initialName; //Ghost / Human
+    this.beingControlled = startController; //comenzamos controlando al fantasma
+ 
+    //Litas/Objetos
     this.objectList = null;
     this.selectedObject = null;
-    //this.coord = this.scene.add.text(200, 10, "")
     
-    this.score = 0;
-
+    
     this.scene.add.existing(this);
-    this.scene.physics.add.existing(this);
-    this.body.setSize(16,16);
-    this.body.offset = new Phaser.Math.Vector2(-this.body.size,-this.body.size);
-    //this.body.setBodySize(16, 16, true);
-
-    // Queremos que el jugador no se salga de los límites del mundo
+    //FISICAS
+    this.body = this.scene.physics.add.sprite(this.playerPos.x, this.playerPos.y, this.playerName + 'SpriteSheet');
     this.body.setCollideWorldBounds();
-    
     this.speed = 50;
-    // Esta label es la UI en la que pondremos la puntuación del jugador
-    //this.label = this.scene.add.text(10, 10, "");
 
     //Cursores
     this.cursorsPlayer = this.scene.input.keyboard.createCursorKeys();
@@ -50,13 +46,11 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.eKey = scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
     this.runKey = scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SHIFT);
     this.start();
-    //this.updateScore();
-    //this.updateCoord();     
 
   //Cambiar personajes con Espacio
     this.space.on('down', () =>
      {     
-      this.body.setVelocityX(0);
+      this.body.setVelocity(0);
       this.body.setVelocityY(0);
       this.ChangePlayer();
     }); 
@@ -82,61 +76,30 @@ export default class Player extends Phaser.GameObjects.Sprite {
   }
 
 
-  start(){
- this.scene.time.addEvent( {
-  delay: 3000, 
-  callback: this.saveposition,
-  callbackScope: false,
-  loop: true
-  });
-  //let timedEvent = this.time.delayedCall(3000, onEvent, [], this);
- // scene.time.events.add(Phaser.Timer.SECOND * 4, this.onEvent, scene);
- }
+  start()
+  {
+    this.scene.time.addEvent( {
+    delay: 3000, 
+    callback: this.saveposition,
+    callbackScope: false,
+    loop: true
+    });
+  }
 
- saveposition()
- {
-     //console.log("hey");
- }
   setBeingControlled() {
     
     this.beingControlled = !this.beingControlled;
   }
 
-  /**
-   * El jugador ha recogido una estrella por lo que este método añade un punto y
-   * actualiza la UI con la puntuación actual.
-   */
-  point() {
-    this.score++;
-    this.updateScore();
-  }
-
-  setPlayerState(state) {
-    this.playerState = state;
-  }
-
-  /*updateCoord() {
-    this.coord.text = 'Player at base: ' + this.playerState;
-  }*/
-
-  /*updateCoordEmpty(){
-    this.coord.text = 'Player at base:                                                 ';
-  }*/
-
   ChangePlayer()
   {
     this.beingControlled = !this.beingControlled;
   }
-
-  /*updateScore() {
-    this.label.text = 'Score: ' + this.score;
-  }*/
   
   preUpdate(t,dt) 
   {
     if(!this.beingControlled) return;
     super.preUpdate(t,dt);
-    
 
     //MOVEMENT
     //Calculamos la velocidad
@@ -148,19 +111,6 @@ export default class Player extends Phaser.GameObjects.Sprite {
     //Reproducimos la animación que corresponda
     this.changeAnims(velX, velY);
 
-    //RESTO
-    //this.updateCoordEmpty();
-    //this.updateCoord();
-
-    if (this.playerName == 'Ghost' && this.body.x >=440 && this.body.x <= 501 && this.body.y >= 398 && this.body.y <= 438) {
-        this.setPlayerState(true);
-    }
-    else if(this.playerName == 'Human' && this.body.x >= 57 && this.body.x <= 127 && this.body.y >= 104 && this.body.y <= 114){
-        this.setPlayerState(true);
-    }
-    else{
-        this.setPlayerState(false);
-    }
     this.scene.checkEnd();
   }
 
@@ -209,35 +159,35 @@ changeAnims(velX, velY)
      this.anims.play('_right' + this.playerName, true);
 }
 
-   CheckForNearestObject(objetos)
-   { 
-     this.objectList = objetos;
-     var disOffset = 60;
-    
-     //Checkeo si sigo suficietemente cerca del objeto que estaba seleccionando anteriormente
-     if(this.selectedObject != null)
-     {
-       let distanceBetween = Phaser.Math.Distance.Between(this.body.x,this.body.y, this.selectedObject.body.x, this.selectedObject.body.y);
-       if(distanceBetween > disOffset)
-       {
-         this.selectedObject.DeselectObject();
-         this.selectedObject = null;
-       }
-     }
+  CheckForNearestObject(objetos)
+  { 
+    this.objectList = objetos;
+    var disOffset = 60;
   
-     //Para cada objeto interaccionable en la escena, compruebo la distancia al jugador
-     for(let i = 0; i < this.objectList.length; i++)
-     {
-       let distanceBetween = Phaser.Math.Distance.Between(this.body.x,this.body.y, this.objectList[i].body.x, this.objectList[i].body.y);
-       if(distanceBetween < disOffset) //el objeto se encuentra en rango
-       {
-         //Se deselecciona el objeto anterior
-         if(this.selectedObject != null) this.selectedObject.DeselectObject();
-         //Se asigna el nuevo objeto mas cercano posible
-         this.selectedObject = this.objectList[i];
-       }
-     }
-     //Se selecciona el objeto mas cercano, si existe
-    if(this.selectedObject != null) this.selectedObject.SelectObject();
-   }
+    //Checkeo si sigo suficietemente cerca del objeto que estaba seleccionando anteriormente
+    if(this.selectedObject != null)
+    {
+      let distanceBetween = Phaser.Math.Distance.Between(this.x,this.y, this.selectedObject.body.x, this.selectedObject.body.y);
+      if(distanceBetween > disOffset)
+      {
+        this.selectedObject.DeselectObject();
+        this.selectedObject = null;
+      }
+    }
+
+    //Para cada objeto interaccionable en la escena, compruebo la distancia al jugador
+    for(let i = 0; i < this.objectList.length; i++)
+    {
+      let distanceBetween = Phaser.Math.Distance.Between(this.body.x,this.body.y, this.objectList[i].body.x, this.objectList[i].body.y);
+      if(distanceBetween < disOffset) //el objeto se encuentra en rango
+      {
+        //Se deselecciona el objeto anterior
+        if(this.selectedObject != null) this.selectedObject.DeselectObject();
+        //Se asigna el nuevo objeto mas cercano posible
+        this.selectedObject = this.objectList[i];
+      }
+    }
+    //Se selecciona el objeto mas cercano, si existe
+   if(this.selectedObject != null) this.selectedObject.SelectObject();
+  }
 }

@@ -46,27 +46,9 @@ export default class Level extends Phaser.Scene {
       this.lampGroup = this.add.group();
       this.furnitureGroup=this.add.group();
       //Jugadores
-      this.humanPlayer = new Human(this, 130, 100);//right
-      this.humanPlayer.playerName = "Human";
-      this.humanPlayer.beingControlled = false;
-      this.ghostPlayer = new Ghost(this, 180, 100);//left
-      this.ghostPlayer.playerName = "Ghost";
-      //Texto bases (TEMPORAL)
-      //this.add.text(475, 435, "Fantasma");
-      //this.add.text(80, 135, "Estrella");
+      this.humanPlayer = new Human(this, new Phaser.Math.Vector2(130, 100), "Human", false);
+      this.ghostPlayer = new Ghost(this, new Phaser.Math.Vector2(180, 100),"Ghost", true);//comienza el fantasma
     
-    //Creacion de Nivel Temporal
-    /*
-      //Plataformas
-      new Platform(this, this.humanPlayer, this.bases, 150, 350);
-      new Platform(this, this.humanPlayer, this.bases, 850, 350);
-      new Platform(this, this.ghostPlayer, this.bases, 150, 350);
-      new Platform(this, this.ghostPlayer, this.bases, 850, 350);
-      
-      //Luces
-      this.lights = this.add.group();
-      new Lights(this, this.humanPlayer, this.ghostPlayer, this.lights, 150, 350, 0.25);
-    */
       let humanList; //lista de objetos humanos
       let ghostList; //lista de objetos poseibles
 

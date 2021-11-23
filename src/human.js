@@ -10,33 +10,17 @@ export default class Human extends Player {
    * Constructor del jugador
    * @param {Phaser.Scene} scene Escena a la que pertenece el jugador
    * @param {Array<Lamp>} humanItems la lista de lamparas
-   *
-   * 
-   *//**
-   * Constructor del jugador
    */
-  constructor(scene, x, y) {
-    super(scene, x, y, 'humanPlayer',true);
-    this.anims.play("_idleHuman");
-    this.onLight = true;
-    this.saveX = x;
-    this.saveY = y;
+  
+  constructor(scene, playerPos, playerName, beingControlled) 
+  {
+    super(scene, playerPos, playerName, beingControlled);
+    //this.position = playerPos;
   }
-  onLightFunction(x, y) {
 
-    this.onLight = true;
-    this.saveX = x;
-    this.saveY = y;
-   
-  }
   preUpdate(t,dt)
   {
     super.preUpdate(t,dt);
-    if(this.beingControlled)
-    {
-      //this.CheckForNearestObject(this.humanItems);
-    }
-   
     /*if (!this.onLight) 
     {
       this.setPosition(this.saveX, this.saveY);
