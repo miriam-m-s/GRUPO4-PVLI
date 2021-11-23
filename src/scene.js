@@ -1,74 +1,89 @@
 import Player from './player.js';
-// import LightXD from './platform.js';
-// import Lights from './lights.js';
-import Light from './light.js';
-import Ghost from './ghost.js'
-import Person from './person.js';
+import Platform from './platform.js';
+import Light from './lights.js';
+import Lamp from './lamp.js';
+import Furniture from './furniture.js';
+import Human from './Human.js';
+import Ghost from './ghost.js';
+import Base from './base.js';
+
 
 
 /**
- * Escena principal del juego. La escena se compone de una serie de plataformas 
- * sobre las que se sitúan las bases en las podrán aparecer las estrellas. 
- * El juego comienza generando aleatoriamente una base sobre la que generar una estrella. 
- * Cada vez que el jugador recoge la estrella, aparece una nueva en otra base.
- * El juego termina cuando el jugador ha recogido 10 estrellas.
  * @extends Phaser.Scene
  */
+
 export default class Level extends Phaser.Scene {
-  /**
-   * Constructor de la escena
-   * @param {Player} player Coordenada X
 
-   */
-
-  
-
-  constructor() {
+  constructor() 
+  {
     super({ key: 'level' });
-   }
+  }
 
-  /**
-   * Creación de los elementos de la escena principal de juego
-   */
-
-  create() {
-    //this.clock=new Phaser.Time.Clock(this);
-    this.stars = 10;
-    this.bases = this.add.group();
-    this.firstPlayer = false;
-    this.secondPlayer = false;
-    //this.player = new Player(this, 700, 300,'player1', true);
-    //this.player2 = new Player(this, 300, 300,'player2', false);
-    this.person=new Person(this,350,300);
-    this.ghost=new Ghost(this,750,350);
-    this.add.text(475, 435, "Fantasma");
-    this.add.text(80, 135, "Estrella");
-
-
-    ///new LightXD(this, this.player, this.bases, 150, 350);
-    new Light(this, this.ghost, this.person, this.bases, 50, 50, 200);
-    new Light(this, this.ghost, this.person, this.bases, 350, 200, 100);
-
-
-   
-   }
+  //Creación de los elementos de la escena principal de juego
   
-  // checkEnd(){
+  create() 
+  {
+    this.clock = new Phaser.Time.Clock(this);
+    this.bases = this.add.group();
+    //Grupos de objetos
+    this.lampGroup = this.add.group();
+    this.furnitureGroup=this.add.group();
+    //Jugadores
+    this.person = new Human(this, 300, 300);//right
+    this.ghost = new Ghost(this, 700, 300);//left
+    
+    //Creacion de Nivel Temporal
 
-  //   if(this.player.playerState && this.player2.playerState){
-  //       this.scene.start('end');
-  //     }
-  //   }
-  /**
-   * Genera una estrella en una de las bases del escenario
-   * @param {Array<Base>} from Lista de bases sobre las que se puede crear una estrella
-   * Si es null, entonces se crea aleatoriamente sobre cualquiera de las bases existentes
-   */
+      //Plataformas
+      new Platform(this, this.person, this.bases, 150, 350);
+      new Platform(this, this.person, this.bases, 850, 350);
+      new Platform(this, this.ghost, this.bases, 150, 350);
+      new Platform(this, this.ghost, this.bases, 850, 350);
 
-  /**
-   * Método que se ejecuta al coger una estrella. Se pasa la base
-   * sobre la que estaba la estrella cogida para evitar repeticiones
-   * @param {Base} base La base sobre la que estaba la estrella que se ha cogido
-   */
+      
+       this.basefant=new Base(this,this.ghost,'basefantas',760,500);
+      this.basepers=new Base(this,this.person,'basepers',350,450);
+      
+      //Luces
+      this.lights = this.add.group();
+      new Light(this, this.ghost, this.person, this.bases, 50, 50, 200);
+      
+      //Objetos Humano(lamparas/interruptores)
+      new Lamp(this, this.person, this.lampGroup, 500, 200);
+      let lampLight;
+      lampLight=new Light(this,this.person,this.ghost,this.lights,500,200,0.10);
+      lampLight.setVisible(false);
+      new Lamp(this, this.person, this.lampGroup, 600, 200); 
+      new Lamp(this, this.person, this.lampGroup, 700, 200);
+      for(let i = 0; i<this.lampGroup.children.entries.length;i++)
+      {
+        this.lampGroup.children.entries[i].name = "Lampara 0" + i;
+      }
 
+      //Objetos Fantasma(muebles/espejo)
+        new Furniture(this, this.ghost, this.furnitureGroup, 800, 100);
+        new Furniture(this, this.ghost, this.furnitureGroup, 800, 250);
+        new Furniture(this, this.ghost, this.furnitureGroup, 650, 400);
+         for(let i = 0; i<this.furnitureGroup.children.entries.length;i++)
+       {
+        this.furnitureGroup.children.entries[i].name= "Mueble 0" + i;
+       } 
+
+    //CAMBIAR ESTO EN FANTASMA / HUMANO
+    this.person.humanItems = this.lampGroup;
+    this.ghost.ghostItems = this.furnitureGroup;
+  }
+  
+  update()
+  {
+    
+    
+   //  console.log(this.basefant.ininbase());
+     if(this.basefant.ininbase()&&this.basepers.ininbase()){
+
+       console.log("cambio");
+      this.scene.start('end');
+     }
+  }
 }

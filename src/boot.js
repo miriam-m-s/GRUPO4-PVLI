@@ -21,10 +21,17 @@ export default class Boot extends Phaser.Scene {
     this.load.setPath('assets/sprites/');
     this.load.image('platform', 'platform.png');
     this.load.image('base', 'base.png');
-    this.load.image('star', 'star.png');
     this.load.image('player1', 'fantasmacolor.png');
     this.load.image('player2', 'coloreada.png');
     this.load.image('light', 'light.png');
+    this.load.image('lampAct','lamparaSelected.png');
+    this.load.image('lampDesact','lampara.png');
+    this.load.image('lampEnc','lamparaEncendida.png');
+    this.load.image('furniture','mueble.png');
+    this.load.image('furnitureSelected','muebleSelected.png');
+    this.load.image('furniturePossesed','mueblePoseido.png');
+    this.load.image('basefantas','basefant.png')
+    this.load.image('basepers','basepers.png')
   }
 
   /**
