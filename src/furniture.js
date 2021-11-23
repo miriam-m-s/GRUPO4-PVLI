@@ -37,7 +37,6 @@ export default class Furniture extends Phaser.GameObjects.Sprite {
     this.isPossesed = !this.isPossesed;
     this.setTexture('furniturePossesed');
     
-
     this.scene.ghostPlayer.PossessObject(this);
   }
 }

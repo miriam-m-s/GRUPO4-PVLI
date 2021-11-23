@@ -30,10 +30,11 @@ export default class Boot extends Phaser.Scene {
     this.load.spritesheet('GhostSpriteSheet', 'ghostSpriteSheet.png',{frameWidth: 16, frameHeight: 16});
     this.load.spritesheet('HumanSpriteSheet', 'humanSpriteSheet.png',{frameWidth: 16, frameHeight: 16});
     //Objects/Enviroment
-    this.load.image('light', 'light.png');
-    this.load.image('lampAct','lamparaSelected.png');
-    this.load.image('lampDesact','lampara.png');
-    this.load.image('lampEnc','lamparaEncendida.png');
+    this.load.image('lightCircleMedium', 'lightCircleMedium.png');
+    this.load.image('lightCircleBig', 'lightCircleBig.png');
+    this.load.image('lamp01','lampSpr01.png');
+    this.load.image('lamp02','lampSpr02.png');
+    this.load.image('lamp03','lampSpr03.png');
     this.load.image('furniture','mueble.png');
     this.load.image('furnitureSelected','muebleSelected.png');
     this.load.image('furniturePossesed','mueblePoseido.png');

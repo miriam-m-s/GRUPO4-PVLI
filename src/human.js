@@ -21,12 +21,9 @@ export default class Human extends Player {
   preUpdate(t,dt)
   {
     super.preUpdate(t,dt);
-    /*if (!this.onLight) 
+    if(this.beingControlled)
     {
-      this.setPosition(this.saveX, this.saveY);
-   
-    }
-    this.onLight = false;
-    */
+      this.CheckForNearestObject(this.humanItems);
+    }   
   }
 }

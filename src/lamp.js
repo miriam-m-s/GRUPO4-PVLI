@@ -6,19 +6,21 @@
   
     /**
    * Constructor de la Plataforma
-   * @param {Phaser.Scene} scene Escena a la que pertenece la plataforma
-   * @param {Player} player Jugador del juego
-   * @param {Phaser.GameObjects.Group} lampGroup Grupo en el que se incluirá la base creada por la plataforma
-   * @param {number} x Coordenada x
-   * @param {number} y Coordenada y
+   * @param {bool} isOn esta encendida? comienza apagada por defecto
+   * @param {Object} lightCircle circulo de luz
    */
-  constructor(scene, player, lampGroup, x, y) {
-    super(scene, x, y, 'lampDesact');
+  
+    constructor(scene, player, lampGroup, lampPos) 
+    {
+    super(scene, player, lampGroup, lampPos);
+    this.scene = scene;
+    this.player = player;
+    this.lampPos = lampPos;
+
     this.scene.add.existing(this);
-    this.scene.physics.add.existing(this, true);
-    this.scene.physics.add.collider(this, player);
+    this.body = this.scene.physics.add.sprite(this.lampPos.x, this.lampPos.y, 'lamp01');
     this.isOn = false;
-    //SelectLamp();
+    this.depth = -5;
   }
   
 
@@ -26,19 +28,36 @@
   {
     if(this.isOn) return;
     //this.scale = 1.085;
-    this.setTexture('lampAct');
+    this.body.setTexture('lamp02');
   }
   DeselectObject() 
   {
     if(this.isOn) return;
-    this.setTexture('lampDesact');
+    this.body.setTexture('lamp01');
     this.scale = 1;
   }
 
   Interact()
   {
-    this.isOn = true;
-    this.scale = 1;
-    this.setTexture('lampEnc');
+    
+    this.body.setTexture('lamp01');
+    if(!this.isOn)//si no esta encendida
+    {
+      if(this.lightCircle == null)
+      {
+        this.lightCircle = this.scene.physics.add.sprite(this.lampPos.x, this.lampPos.y, 'lightCircleBig');
+        this.lightCircle.setCircle(this.lightCircle.width/2);//collider ajustado al sprite
+        this.lightCircle.depth = 2;
+      }
+      else
+      {
+        //this.lightCircle.sprite.setActive(true);
+      }
+    }
+    else //Esta encendida
+    {
+      //this.lightCircle.sprite.setActive(false);
+    }
+    this.isOn = !this.isOn;
   }
 }  

@@ -46,13 +46,14 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.eKey = scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
     this.runKey = scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SHIFT);
     this.start();
+    this.depth = 3;
 
   //Cambiar personajes con Espacio
     this.space.on('down', () =>
      {     
-      this.body.setVelocity(0);
-      this.body.setVelocityY(0);
-      this.ChangePlayer();
+        this.body.stop();//para la animacion actual
+        this.body.setVelocity(0);
+        this.ChangePlayer();
     }); 
 
     this.eKey.on('down', () =>
@@ -99,16 +100,16 @@ export default class Player extends Phaser.GameObjects.Sprite {
   preUpdate(t,dt) 
   {
     if(!this.beingControlled) return;
+
     super.preUpdate(t,dt);
 
-    //MOVEMENT
     //Calculamos la velocidad
     let [velX, velY] = this.calculateVelocity();
 
-    //Aplicamos la velocidad al cuerpo
+    //Movimiento del personaje
     this.body.setVelocity(velX, velY);
 
-    //Reproducimos la animación que corresponda
+    //Animacion de spritesheet para cada personaje
     this.changeAnims(velX, velY);
 
     this.scene.checkEnd();
@@ -141,22 +142,22 @@ export default class Player extends Phaser.GameObjects.Sprite {
     return [velX, velY];
 }
 
-//cambio de animacion con respecto a la velocidad
+//Animacion dependiendo del movimiento/input usuaro
 changeAnims(velX, velY) 
 {
  if (velX === 0) 
  {
      if (velY === 0) //quieto
-         this.anims.play('_idle' + this.playerName, true);
+         this.body.play('_idle' + this.playerName, true);
      else if (velY < 0) //arriba
-         this.anims.play('_up' + this.playerName, true);
+         this.body.play('_up' + this.playerName, true);
      else //abajo
-         this.anims.play('_down' + this.playerName , true);
+         this.body.play('_down' + this.playerName , true);
  }
  else if (velX < 0) //izquierda
-     this.anims.play('_left' + this.playerName, true);
+     this.body.play('_left' + this.playerName, true);
  else //derecha
-     this.anims.play('_right' + this.playerName, true);
+     this.body.play('_right' + this.playerName, true);
 }
 
   CheckForNearestObject(objetos)
@@ -167,7 +168,7 @@ changeAnims(velX, velY)
     //Checkeo si sigo suficietemente cerca del objeto que estaba seleccionando anteriormente
     if(this.selectedObject != null)
     {
-      let distanceBetween = Phaser.Math.Distance.Between(this.x,this.y, this.selectedObject.body.x, this.selectedObject.body.y);
+      let distanceBetween = Phaser.Math.Distance.Between(this.body.x,this.body.y, this.selectedObject.body.x, this.selectedObject.body.y);
       if(distanceBetween > disOffset)
       {
         this.selectedObject.DeselectObject();

@@ -16,6 +16,8 @@ export default class Ghost extends Player {
   constructor(scene, playerPos, playerName, beingControlled) 
   {
     super(scene, playerPos, playerName, beingControlled);
+
+    this.anims.play('_idle' + this.playerName, true);
   }
 
   preUpdate(t,dt)
@@ -29,8 +31,8 @@ export default class Ghost extends Player {
 
     if(this.itemPossesed != null)
     {
-      this.itemPossesed.body.position = this.body.position;
-      this.itemPossesed.setPosition(this.body.position);
+      //this.itemPossesed.body.position = this.body.position;
+      //this.itemPossesed.body.setPosition(this.body.position.x, this.body.position.y);
     }
   }
   
@@ -38,12 +40,11 @@ export default class Ghost extends Player {
   PossessObject(objectToPossess)
   {
     var tween = this.scene.tweens.add({
-      targets: this,
+      targets: this.body,
       x: objectToPossess.x,
       y: objectToPossess.y,
       ease: 'Cubic', 
-      totalDuration: 500,
-      repeat: 0,            // -1: infinity
+      duration: 500,
       yoyo: false,
       onComplete: this.AssignObject(objectToPossess)
   });
@@ -52,5 +53,6 @@ export default class Ghost extends Player {
   AssignObject(objectToPossess)
   {
     console.log("FINISHED");
+    this.itemPossesed = objectToPossess;
   }
 }

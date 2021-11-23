@@ -53,14 +53,11 @@ export default class Level extends Phaser.Scene {
       let ghostList; //lista de objetos poseibles
 
       //Objetos Humano(lamparas/interruptores)
-      humanList = [new Lamp(this, this.humanPlayer, this.lampGroup, 500, 200), 
-        new Lamp(this, this.humanPlayer, this.lampGroup, 600, 200), 
-        new Lamp(this, this.humanPlayer, this.lampGroup, 700, 200)];
-      for(let i = 0; i<3;i++)
-      {
-        humanList[i].name = "Lampara 0" + i;
-      }    
-
+      this.lampCreated01 = 
+      humanList = [
+        new Lamp(this, this.humanPlayer, this.lampGroup, new Phaser.Math.Vector2(190,100)), 
+        new Lamp(this, this.humanPlayer, this.lampGroup, new Phaser.Math.Vector2(190,150))];
+      
       //Objetos Fantasma(muebles/espejo)
       ghostList = [new Furniture(this, this.ghostPlayer, this.furnitureGroup, 130, 135), 
         new Furniture(this, this.ghostPlayer, this.furnitureGroup, 150, 135),
