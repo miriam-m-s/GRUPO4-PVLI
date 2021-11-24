@@ -21,20 +21,16 @@ export default class Human extends Player {
   
     this.saveX = x;
     this.saveY = y;
-     
   }
   
   onLightFunction(x, y) {
-
-    console.log("BRUHH");
     this.onLight = true;
     this.saveX = x;
     this.saveY = y;
-   
   }
+
   preUpdate(t,dt)
   {
-  
     super.preUpdate(t,dt);
     if (!this.onLight) 
     {
