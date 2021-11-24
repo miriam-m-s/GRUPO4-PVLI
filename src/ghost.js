@@ -10,6 +10,7 @@ export default class Ghost extends Player {
    * @param {Phaser.Scene} scene Escena a la que pertenece el jugador
    * @param {Array<Furniture>} ghostItems lista de muebles
    * @param {Object} itemPossesed objeto que se esta poseyendo
+   * @param {bool} shouldMoveItem deberia de mover el objeto poseido
    * * 
    */
   
@@ -17,6 +18,7 @@ export default class Ghost extends Player {
   {
     super(scene, playerPos, playerName, beingControlled, ghostItems);
 
+    this.shouldMoveItem = false;
     this.ghostItems = ghostItems;
     this.anims.play('_idle' + this.playerName, true);
   }
@@ -30,10 +32,9 @@ export default class Ghost extends Player {
       this.CheckForNearestObject(this.ghostItems);
     }
 
-    if(this.itemPossesed != null)
+    if(this.itemPossesed != null && this.shouldMoveItem)
     {
       this.itemPossesed.body.setPosition(this.body.x, this.body.y);
-      console.log("MOVIN");
       //this.itemPossesed.setPosition(this.body.position);
       //this.itemPossesed.body.setPosition(this.body.position.x, this.body.position.y);
     }
@@ -42,25 +43,33 @@ export default class Ghost extends Player {
  
   PossessObject(objectToPossess)
   {
-    this.AssignObject(objectToPossess);
-    return;
-    var tween = this.scene.tweens.add({
-      targets: this.body,
-      x: objectToPossess.x,
-      y: objectToPossess.y,
-      ease: 'Cubic', 
-      duration: 500,
-      yoyo: false,
-      onComplete: this.AssignObject(objectToPossess)
-  });
+    if(this.AssignObject(objectToPossess))
+    {
+      var tween = this.scene.tweens.add({
+        targets: this.body,
+        x:  this.itemPossesed.body.x,
+        y:  this.itemPossesed.body.y,
+        ease: 'Cubic', 
+        duration: 500,
+        yoyo: false,
+        onComplete: this.AllowMovement()
+    });
+    }
+  }
+
+  AllowMovement()
+  {
+    console.log("ALLOW");
+    this.shouldMoveItem = true;
   }
 
   AssignObject(objectToPossess)
   {
     if(this.itemPossesed == null)
     {
-      this.itemPossesed = objectToPossess;
+      this.itemPossesed = objectToPossess; return true;
     }
     else this.itemPossesed = null;
+    return false;
   }
 }
