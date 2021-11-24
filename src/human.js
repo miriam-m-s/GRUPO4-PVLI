@@ -12,9 +12,10 @@ export default class Human extends Player {
    * @param {Array<Lamp>} humanItems la lista de lamparas
    */
   
-  constructor(scene, playerPos, playerName, beingControlled) 
+  constructor(scene, playerPos, playerName, beingControlled,humanItems) 
   {
-    super(scene, playerPos, playerName, beingControlled);
+    super(scene, playerPos, playerName, beingControlled, humanItems);
+    this.humanItems = humanItems;
     //this.position = playerPos;
   }
 

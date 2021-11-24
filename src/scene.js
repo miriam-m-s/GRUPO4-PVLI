@@ -2,6 +2,7 @@ import Player from './player.js';
 import Platform from './platform.js';
 import Lights from './lights.js';
 import Lamp from './lamp.js';
+import Mirror from './mirror.js';
 import Furniture from './furniture.js';
 import Human from './Human.js';
 import Ghost from './Ghost.js'
@@ -37,7 +38,7 @@ export default class Level extends Phaser.Scene {
       this.backgroundLayer = this.map.createLayer('BackLayer', [tileset1]);
       this.lightLayer  = this.map.createLayer('LightLayer', [tileset1]);
       this.frontLayer = this.map.createLayer('FrontLayer', [tileset1]);
-      this.itemLayer = this.map.createLayer('ItemLayer', [tileset1]);
+      this.itemLayer = this.map.createLayer('ItemLayer', [tileset1]); 
 
     //OBJETOS DE LA ESCENA
       this.clock = new Phaser.Time.Clock(this);
@@ -46,8 +47,7 @@ export default class Level extends Phaser.Scene {
       this.lampGroup = this.add.group();
       this.furnitureGroup=this.add.group();
       //Jugadores
-      this.humanPlayer = new Human(this, new Phaser.Math.Vector2(130, 100), "Human", false);
-      this.ghostPlayer = new Ghost(this, new Phaser.Math.Vector2(180, 100),"Ghost", true);//comienza el fantasma
+      
     
       let humanList; //lista de objetos humanos
       let ghostList; //lista de objetos poseibles
@@ -55,21 +55,25 @@ export default class Level extends Phaser.Scene {
       //Objetos Humano(lamparas/interruptores)
       this.lampCreated01 = 
       humanList = [
-        new Lamp(this, this.humanPlayer, this.lampGroup, new Phaser.Math.Vector2(190,100)), 
+        new Lamp(this, this.humanPlayer, this.lampGroup, new Phaser.Math.Vector2(100,100)), 
+        new Mirror(this, this.humanPlayer, this.lampGroup, new Phaser.Math.Vector2(190,70)), 
         new Lamp(this, this.humanPlayer, this.lampGroup, new Phaser.Math.Vector2(190,150))];
       
       //Objetos Fantasma(muebles/espejo)
-      ghostList = [new Furniture(this, this.ghostPlayer, this.furnitureGroup, 130, 135), 
-        new Furniture(this, this.ghostPlayer, this.furnitureGroup, 150, 135),
-        new Furniture(this, this.ghostPlayer, this.furnitureGroup, 170, 135)];
-        for(let i = 0; i<3;i++)
+      ghostList = [new Furniture(this, this.ghostPlayer, this.furnitureGroup, new Phaser.Math.Vector2(130,135)), 
+        new Furniture(this, this.ghostPlayer, this.furnitureGroup, new Phaser.Math.Vector2(150,135)),
+        new Furniture(this, this.ghostPlayer,  this.furnitureGroup, new Phaser.Math.Vector2(170,135))];
+      
+      if(Phaser.Utils.Debug)
       {
-        ghostList[i].name = "Mueble 0" + i;
-      } 
+        this.debugIndicator = this.physics.add.sprite(130, 100, 'debugIndic');
+        this.debugIndicator.depth = 900;
+        console.log(this.debugIndicator.body.center);
+      }
 
     //CAMBIAR ESTO EN FANTASMA / HUMANO
-    this.humanPlayer.humanItems = humanList;
-    this.ghostPlayer.ghostItems = ghostList;
+    this.humanPlayer = new Human(this, new Phaser.Math.Vector2(130, 100), "Human", true, humanList);
+    this.ghostPlayer = new Ghost(this, new Phaser.Math.Vector2(180, 100),"Ghost", false, ghostList);//comienza el fantasma
 
     this.checkEnd();
   }

@@ -18,9 +18,10 @@
     this.lampPos = lampPos;
 
     this.scene.add.existing(this);
-    this.body = this.scene.physics.add.sprite(this.lampPos.x, this.lampPos.y, 'lamp01');
+    this.body = this.scene.physics.add.sprite(this.lampPos.x, this.lampPos.y, 'lampDefault');
     this.isOn = false;
     this.depth = -5;
+    this.lightCircle = null;
   }
   
 
@@ -28,19 +29,19 @@
   {
     if(this.isOn) return;
     //this.scale = 1.085;
-    this.body.setTexture('lamp02');
+    this.body.setTexture('lampSelected');
   }
   DeselectObject() 
   {
     if(this.isOn) return;
-    this.body.setTexture('lamp01');
+    this.body.setTexture('lampDefault');
     this.scale = 1;
   }
 
   Interact()
   {
     
-    this.body.setTexture('lamp01');
+    this.body.setTexture('lampDefault');
     if(!this.isOn)//si no esta encendida
     {
       if(this.lightCircle == null)
@@ -56,7 +57,8 @@
     }
     else //Esta encendida
     {
-      //this.lightCircle.sprite.setActive(false);
+      this.lightCircle.sprite = this.lightCircle.body;
+      //this.body.setActive(false);
     }
     this.isOn = !this.isOn;
   }

@@ -24,20 +24,26 @@ export default class Boot extends Phaser.Scene {
      this.load.audio('bckMusic', [
       './assets/audio/music/bckMusic.mp3']);
     this.load.setPath('assets/sprites/');
-    this.load.image('platform', 'platform.png');
-    this.load.image('base', 'base.png');
     //Players
     this.load.spritesheet('GhostSpriteSheet', 'ghostSpriteSheet.png',{frameWidth: 16, frameHeight: 16});
     this.load.spritesheet('HumanSpriteSheet', 'humanSpriteSheet.png',{frameWidth: 16, frameHeight: 16});
     //Objects/Enviroment
     this.load.image('lightCircleMedium', 'lightCircleMedium.png');
     this.load.image('lightCircleBig', 'lightCircleBig.png');
-    this.load.image('lamp01','lampSpr01.png');
-    this.load.image('lamp02','lampSpr02.png');
-    this.load.image('lamp03','lampSpr03.png');
-    this.load.image('furniture','mueble.png');
-    this.load.image('furnitureSelected','muebleSelected.png');
-    this.load.image('furniturePossesed','mueblePoseido.png');
+    //Lampara
+    this.load.image('lampDefault','lampSpr01.png');
+    this.load.image('lampSelected','lampSpr02.png');
+    //Furniture
+    this.load.image('furniture','furnitureSpr01.png');
+    this.load.image('furnitureSelected','furnitureSpr02.png');
+    this.load.image('furniturePossesed','furnitureSpr03.png');
+    //Mirror
+    this.load.image('mirrorDefault','mirrorSpr01.png');
+    this.load.image('mirrorSelected','mirrorSpr02.png');
+    this.load.image('mirrorPossessed','mirrorSpr03.png');
+
+    //Debug
+    this.load.image('debugIndic','debugIndicator.png');
 
     this.load.setPath('assets/maps/');
     //Carga de Tilemap
@@ -45,7 +51,7 @@ export default class Boot extends Phaser.Scene {
     //Carga de spritesheet
     this.load.image('mapSpriteSheet', 'spritesheets/mansionNes.png');
 
-   
+    
   }
 
   /**

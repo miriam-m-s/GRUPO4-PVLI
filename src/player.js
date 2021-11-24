@@ -164,7 +164,8 @@ changeAnims(velX, velY)
   { 
     this.objectList = objetos;
     var disOffset = 60;
-  
+    let initialDist = 9000;
+    
     //Checkeo si sigo suficietemente cerca del objeto que estaba seleccionando anteriormente
     if(this.selectedObject != null)
     {
@@ -180,15 +181,29 @@ changeAnims(velX, velY)
     for(let i = 0; i < this.objectList.length; i++)
     {
       let distanceBetween = Phaser.Math.Distance.Between(this.body.x,this.body.y, this.objectList[i].body.x, this.objectList[i].body.y);
-      if(distanceBetween < disOffset) //el objeto se encuentra en rango
+
+      if(distanceBetween < initialDist && distanceBetween < disOffset) //el objeto se encuentra en rango, y esta mas cerca que el anterior
       {
-        //Se deselecciona el objeto anterior
-        if(this.selectedObject != null) this.selectedObject.DeselectObject();
+        this.initialDist = distanceBetween;
         //Se asigna el nuevo objeto mas cercano posible
         this.selectedObject = this.objectList[i];
+        //this.AddIndicator(this.objectList[i].body.position);
       }
     }
     //Se selecciona el objeto mas cercano, si existe
-   if(this.selectedObject != null) this.selectedObject.SelectObject();
+    if(this.selectedObject != null)
+    {
+      this.selectedObject.SelectObject();
+    } 
   }
+
+  /*AddIndicator(debugPos)
+  {
+    if(Phaser.Utils.Debug && this.debugIndicator == null)
+    {
+      console.log("ADDIND");
+      this.debugIndicator = this.scene.physics.add.sprite(debugPos.x, debugPos.y, 'debugIndic');
+      this.debugIndicator.depth = 900;
+    }
+  }*/
 }
