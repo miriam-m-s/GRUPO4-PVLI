@@ -53,6 +53,10 @@ export default class Player extends Phaser.GameObjects.Sprite {
      {     
         this.body.stop();//para la animacion actual
         this.body.setVelocity(0);
+        if(this.selectedObject != null)
+        {
+          this.selectedObject.DeselectObject();
+        }
         this.ChangePlayer();
     }); 
 
@@ -186,7 +190,9 @@ changeAnims(velX, velY)
       {
         this.initialDist = distanceBetween;
         //Se asigna el nuevo objeto mas cercano posible
+        if(this.selectedObject != null) this.selectedObject.DeselectObject();
         this.selectedObject = this.objectList[i];
+
         //this.AddIndicator(this.objectList[i].body.position);
       }
     }

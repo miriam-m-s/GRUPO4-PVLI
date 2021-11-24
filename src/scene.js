@@ -60,9 +60,9 @@ export default class Level extends Phaser.Scene {
         new Lamp(this, this.humanPlayer, this.lampGroup, new Phaser.Math.Vector2(190,150))];
       
       //Objetos Fantasma(muebles/espejo)
-      ghostList = [new Furniture(this, this.ghostPlayer, this.furnitureGroup, new Phaser.Math.Vector2(130,135)), 
-        new Furniture(this, this.ghostPlayer, this.furnitureGroup, new Phaser.Math.Vector2(150,135)),
-        new Furniture(this, this.ghostPlayer,  this.furnitureGroup, new Phaser.Math.Vector2(170,135))];
+      ghostList = [new Furniture(this, this.ghostPlayer, this.lampGroup, new Phaser.Math.Vector2(130,135)), 
+        new Furniture(this, this.ghostPlayer, this.lampGroup, new Phaser.Math.Vector2(150,135)),
+        new Furniture(this, this.ghostPlayer,  this.lampGroup, new Phaser.Math.Vector2(170,135))];
       
       if(Phaser.Utils.Debug)
       {
@@ -73,7 +73,7 @@ export default class Level extends Phaser.Scene {
 
     //CAMBIAR ESTO EN FANTASMA / HUMANO
     this.humanPlayer = new Human(this, new Phaser.Math.Vector2(130, 100), "Human", true, humanList);
-    this.ghostPlayer = new Ghost(this, new Phaser.Math.Vector2(180, 100),"Ghost", false, ghostList);//comienza el fantasma
+    this.ghostPlayer = new Ghost(this, new Phaser.Math.Vector2(180, 100),"Ghost", false, humanList);//comienza el fantasma
 
     this.checkEnd();
   }
