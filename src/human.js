@@ -4,7 +4,7 @@ import Lamp from './lamp.js';
  * Clase que representa el jugador del juego. El jugador se mueve por el mundo usando los cursores.
  * También almacena la puntuación o número de estrellas que ha recogido hasta el momento.
  */
-export default class Human extends Player {
+export default class Person extends Player {
   
   /**
    * Constructor del jugador
