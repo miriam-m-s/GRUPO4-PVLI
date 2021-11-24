@@ -4,7 +4,7 @@ import Lamp from './lamp.js';
  * También almacena la puntuación o número de estrellas que ha recogido hasta el momento.
  */
 
-export default class Player extends Phaser.GameObjects.Sprite {
+export default class Human extends Phaser.GameObjects.Sprite {
   
   /** 
    * Constructor del jugador
