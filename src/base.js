@@ -20,11 +20,7 @@
     this.setScale(0.1);
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
-
-    
-
     this.player=player; 
- 
     this.scene.physics.add.overlap(this, player);
     this.inbase=false;
     //this.scene.physics.add.overlap(this, player, () => { console.log("colision"); });
