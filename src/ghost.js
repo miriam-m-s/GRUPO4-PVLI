@@ -59,7 +59,6 @@ export default class Ghost extends Player {
 
   AllowMovement()
   {
-    console.log("ALLOW");
     this.shouldMoveItem = true;
   }
 

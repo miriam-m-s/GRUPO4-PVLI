@@ -48,6 +48,9 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.start();
     this.depth = 3;
 
+    //DEBUG INDICATOR
+    //this.debugIndicator = this.scene.physics.add.sprite(this.body.x, this.body.y, 'debugIndic'); this.debugIndicator.depth = 9999;
+
   //Cambiar personajes con Espacio
     this.space.on('down', () =>
      {     
@@ -117,6 +120,8 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.changeAnims(velX, velY);
 
     this.scene.checkEnd();
+
+    //this.debugIndicator.setPosition(this.body.x, this.body.y);
   }
 
   //Calculo de velocidad con respecto a input

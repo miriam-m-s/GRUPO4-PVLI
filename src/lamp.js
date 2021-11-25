@@ -20,7 +20,7 @@
     this.scene.add.existing(this);
     this.body = this.scene.physics.add.sprite(this.lampPos.x, this.lampPos.y, 'lampDefault');
     this.isOn = false;
-    this.depth = -5;
+    //this.depth = -5;
     this.lightCircle = null;
   }
   
