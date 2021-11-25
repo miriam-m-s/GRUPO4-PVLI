@@ -3,7 +3,7 @@ import Platform from './platform.js';
 import Light from './lights.js';
 import Lamp from './lamp.js';
 import Furniture from './furniture.js';
-import Human from './Human.js';
+import Human from './human.js';
 import Ghost from './ghost.js';
 import Base from './base.js';
 
