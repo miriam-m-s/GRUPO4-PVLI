@@ -31,7 +31,6 @@ export default class Ghost extends Player {
     {
       this.CheckForNearestObject(this.ghostItems);
     }
-
     if(this.itemPossesed != null && this.shouldMoveItem)
     {
       this.itemPossesed.body.setPosition(this.body.x, this.body.y);

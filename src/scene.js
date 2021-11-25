@@ -4,8 +4,8 @@ import Lights from './lights.js';
 import Lamp from './lamp.js';
 import Mirror from './mirror.js';
 import Furniture from './furniture.js';
-import Human from './Human.js';
-import Ghost from './Ghost.js'
+import Human from './human.js';
+import Ghost from './ghost.js'
 
 
 
@@ -61,7 +61,6 @@ export default class Level extends Phaser.Scene {
       
       //Objetos Fantasma(muebles/espejo)
       ghostList = [new Furniture(this, this.ghostPlayer, this.furnitureGroup, new Phaser.Math.Vector2(130,135)), 
-        new Furniture(this, this.ghostPlayer, this.furnitureGroup, new Phaser.Math.Vector2(150,135)),
         new Furniture(this, this.ghostPlayer,  this.furnitureGroup, new Phaser.Math.Vector2(170,135))];
       
       if(Phaser.Utils.Debug)
