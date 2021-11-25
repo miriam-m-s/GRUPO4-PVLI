@@ -41,7 +41,7 @@
   Interact()
   {
     
-    this.body.setTexture('lampDefault');
+    //this.body.setTexture('lampDefault');
     if(!this.isOn)//si no esta encendida
     {
       if(this.lightCircle == null)
@@ -52,12 +52,15 @@
       }
       else
       {
+        this.lightCircle.body.gameObject.alpha = 1;
         //this.lightCircle.sprite.setActive(true);
       }
     }
     else //Esta encendida
     {
       this.lightCircle.sprite = this.lightCircle.body;
+      this.lightCircle.body.enable = false;
+      this.lightCircle.body.gameObject.alpha = 0;
       //this.body.setActive(false);
     }
     this.isOn = !this.isOn;

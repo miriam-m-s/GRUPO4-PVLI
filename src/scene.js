@@ -55,9 +55,7 @@ export default class Level extends Phaser.Scene {
       //Objetos Humano(lamparas/interruptores)
       this.lampCreated01 = 
       humanList = [
-        new Lamp(this, this.humanPlayer, this.lampGroup, new Phaser.Math.Vector2(100,100)), 
-        new Lamp(this, this.humanPlayer, this.lampGroup, new Phaser.Math.Vector2(40,100)), 
-        new Lamp(this, this.humanPlayer, this.lampGroup, new Phaser.Math.Vector2(70,100)), 
+        new Lamp(this, this.humanPlayer, this.lampGroup, new Phaser.Math.Vector2(60,80)), 
         new Mirror(this, this.humanPlayer, this.lampGroup, new Phaser.Math.Vector2(190,70)), 
         new Lamp(this, this.humanPlayer, this.lampGroup, new Phaser.Math.Vector2(190,150))];
       

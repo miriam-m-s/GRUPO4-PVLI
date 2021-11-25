@@ -31,10 +31,9 @@ export default class Ghost extends Player {
     {
       this.CheckForNearestObject(this.ghostItems);
     }
-    console.log(this.shouldMoveItem);
+
     if(this.itemPossesed != null && this.shouldMoveItem)
     {
-      console.log("PENISPENISPENIS");  
       this.itemPossesed.body.setPosition(this.body.x, this.body.y);
       //this.itemPossesed.setPosition(this.body.position);
       //this.itemPossesed.body.setPosition(this.body.position.x, this.body.position.y);
@@ -52,7 +51,7 @@ export default class Ghost extends Player {
         ease: 'Cubic', 
         duration: 500,
         yoyo: false,
-        onComplete: this.AllowMovement
+        onComplete: this.AllowMovement()
     });
     }
   }

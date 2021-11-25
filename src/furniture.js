@@ -17,7 +17,7 @@ export default class Furniture extends Phaser.GameObjects.Sprite {
     this.body = this.scene.physics.add.sprite(this.furniturePos.x, this.furniturePos.y, 'furniture');
     this.isPossesed = false;
 
-    this.debugIndicator = this.scene.physics.add.sprite(this.body.x, this.body.y, 'debugIndic');
+    //this.debugIndicator = this.scene.physics.add.sprite(this.body.x, this.body.y, 'debugIndic');
   }
   
 
