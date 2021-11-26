@@ -17,7 +17,7 @@ terminalFont
   position: relative;
   width: 400px;
   height: 200px;
-  top: 200px;
+  top: 100px;
 }
 
 @font-face {

@@ -47,11 +47,12 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.runKey = scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SHIFT);
     this.start();
     this.depth = 3;
+    
 
     //DEBUG INDICATOR
     //this.debugIndicator = this.scene.physics.add.sprite(this.body.x, this.body.y, 'debugIndic'); this.debugIndicator.depth = 9999;
 
-  //Cambiar personajes con Espacio
+  //Cambiar personajes con Espacio 
     this.space.on('down', () =>
      {     
         this.body.stop();//para la animacion actual
@@ -81,6 +82,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
      {     
       this.speed = 50;
     }); 
+
   }
 
 
@@ -115,6 +117,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
     //Movimiento del personaje
     this.body.setVelocity(velX, velY);
+    
 
     //Animacion de spritesheet para cada personaje
     this.changeAnims(velX, velY);
@@ -197,8 +200,6 @@ changeAnims(velX, velY)
         //Se asigna el nuevo objeto mas cercano posible
         if(this.selectedObject != null) this.selectedObject.DeselectObject();
         this.selectedObject = this.objectList[i];
-
-        //this.AddIndicator(this.objectList[i].body.position);
       }
     }
     //Se selecciona el objeto mas cercano, si existe
@@ -207,14 +208,4 @@ changeAnims(velX, velY)
       this.selectedObject.SelectObject();
     } 
   }
-
-  /*AddIndicator(debugPos)
-  {
-    if(Phaser.Utils.Debug && this.debugIndicator == null)
-    {
-      console.log("ADDIND");
-      this.debugIndicator = this.scene.physics.add.sprite(debugPos.x, debugPos.y, 'debugIndic');
-      this.debugIndicator.depth = 900;
-    }
-  }*/
 }
