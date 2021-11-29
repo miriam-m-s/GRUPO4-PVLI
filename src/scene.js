@@ -74,6 +74,10 @@ export default class Level extends Phaser.Scene {
     this.humanPlayer = new Human(this, new Phaser.Math.Vector2(130, 100), "Human", true, humanList);
     this.ghostPlayer = new Ghost(this, new Phaser.Math.Vector2(180, 100),"Ghost", false, ghostList);//comienza el fantasma
 
+
+    this.lights = this.add.group();
+    new Lights(this, this.humanPlayer, this.ghostPlayer, this.lights, 50, 50, 50);
+
     this.checkEnd();
   }
   

@@ -32,9 +32,12 @@ export default class Player extends Phaser.GameObjects.Sprite {
     //Litas/Objetos
     this.objectList = null;
     this.selectedObject = null;
-    
-    
+
+
     this.scene.add.existing(this);
+    this.scene.physics.add.existing(this);
+    
+    
     //FISICAS
     this.body = this.scene.physics.add.sprite(this.playerPos.x, this.playerPos.y, this.playerName + 'SpriteSheet');
     this.body.setCollideWorldBounds();

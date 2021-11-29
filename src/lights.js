@@ -13,16 +13,24 @@ export default class Lights extends Phaser.GameObjects.Sprite {
    * @param {number} radius Coordenada y
    */
   constructor(scene, humanPlayer, ghostPlayer, baseGroup, x, y, radius) {
-    super(scene, x, y, 'light', radius);
+    super(scene, x, y, 'lightCircleBig', radius);
     this.depth = -1;
     this.setAlpha(.5);
-    
-    this.scale = radius;
+
+    this.setOrigin(0);
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this, true);
+  
+    this.radius = radius;
+    this.human = humanPlayer;
+    this.body.setCircle(radius);
 
-    this.scene.physics.add.collider(this, ghostPlayer);
-    this.scene.physics.add.overlap(this, humanPlayer);
+    this.scale = ((radius-3)/1000);
+
+    this.scene.physics.add.collider(this, ghostPlayer.body);
+    this.scene.physics.add.overlap(this, humanPlayer.body);
+
+    this.body.scale *= 0.5;
   }
 
 
@@ -30,13 +38,11 @@ export default class Lights extends Phaser.GameObjects.Sprite {
    * Redefinición del preUpdate de Phaser
    * @override
    */
-  preUpdate() {
-    // IMPORTANTE: Si no ponemos esta instrucción y el sprite está animado
-    // no se podrá ejecutar la animación del sprite. 
+   preUpdate() {
     super.preUpdate();
-    if (this.scene.physics.overlap(this.scene.ghostPlayer, this)) {
-        // Delegamos en la escena para decidir qué hacer al 
-        // haber cogido una estrella
-    }
+    if (this.scene.physics.overlap(this.scene.humanPlayer.body, this)) {
+      this.scene.humanPlayer.onLightFunction(this.body.x + this.radius,
+                this.body.y + this.radius);
+     }
   }
 }
