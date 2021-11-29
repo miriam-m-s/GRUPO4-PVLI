@@ -42,6 +42,8 @@ export default class Boot extends Phaser.Scene {
     this.load.image('mirrorSelected','mirrorSpr02.png');
     this.load.image('mirrorPossessed','mirrorSpr03.png');
 
+    this.load.image('light','light.png');
+
     //Debug
     this.load.image('debugIndic','debugIndicator.png');
 
