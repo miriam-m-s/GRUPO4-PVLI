@@ -2,28 +2,26 @@
  
  * @extends Phaser.GameObjects.Sprite
  */
- import Light from './lights.js';
  export default class Lamp extends Phaser.GameObjects.Sprite {
   
     /**
    * Constructor de la Plataforma
-   * @param {Phaser.Scene} scene Escena a la que pertenece la plataforma
-   * @param {Player} player Jugador del juego
-   * @param {Phaser.GameObjects.Group} lampGroup Grupo en el que se incluirá la base creada por la plataforma
-   * @param {number} x Coordenada x
-   * @param {number} y Coordenada y
+   * @param {bool} isOn esta encendida? comienza apagada por defecto
+   * @param {Object} lightCircle circulo de luz
    */
-  constructor(scene, player, lampGroup, x, y, canBePossesed) {
-    super(scene, x, y, 'lampDesact');
+  
+    constructor(scene, player, lampGroup, lampPos) 
+    {
+    super(scene, player, lampGroup, lampPos);
+    this.scene = scene;
+    this.player = player;
+    this.lampPos = lampPos;
+
     this.scene.add.existing(this);
-    this.scene.physics.add.existing(this, true);
-    this.scene.physics.add.collider(this, player);
+    this.body = this.scene.physics.add.sprite(this.lampPos.x, this.lampPos.y, 'lampDefault');
     this.isOn = false;
-    this.canBePossesed=false;
-    lampGroup.add(this);
-    let createLight=false;
-    let destroyLight=false;
-    //SelectLamp();
+    //this.depth = -5;
+    this.lightCircle = null;
   }
   
 
@@ -31,35 +29,40 @@
   {
     if(this.isOn) return;
     //this.scale = 1.085;
-    this.setTexture('lampAct');
+    this.body.setTexture('lampSelected');
   }
   DeselectObject() 
   {
     if(this.isOn) return;
-    this.setTexture('lampDesact');
+    this.body.setTexture('lampDefault');
     this.scale = 1;
-    this.destroyLight=true;
   }
 
   Interact()
   {
-    this.isOn = true;
-    this.scale = 1;
-    this.setTexture('lampEnc');
-    this.createLight=true;
-    this.lightUp();
-
-  }
-  lightUp()
-  {
-    if(this.newLight == null)
+    
+    //this.body.setTexture('lampDefault');
+    if(!this.isOn)//si no esta encendida
     {
-      this.newLight = this.scene.physics.add.sprite(this.x, this.y, 'player2');
-      this.newLight.body.setCircle(50);
+      if(this.lightCircle == null)
+      {
+        this.lightCircle = this.scene.physics.add.sprite(this.lampPos.x, this.lampPos.y, 'lightCircleBig');
+        this.lightCircle.setCircle(this.lightCircle.width/2);//collider ajustado al sprite
+        this.lightCircle.depth = 2;
+      }
+      else
+      {
+        this.lightCircle.body.gameObject.alpha = 1;
+        //this.lightCircle.sprite.setActive(true);
+      }
     }
-    else
+    else //Esta encendida
     {
-      //SETACTIVAR Y TAL
+      this.lightCircle.sprite = this.lightCircle.body;
+      this.lightCircle.body.enable = false;
+      this.lightCircle.body.gameObject.alpha = 0;
+      //this.body.setActive(false);
     }
+    this.isOn = !this.isOn;
   }
 }  
