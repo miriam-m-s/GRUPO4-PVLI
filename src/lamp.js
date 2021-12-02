@@ -46,13 +46,11 @@
     {
       if(this.lightCircle == null)
       {
-        this.lightCircle = this.scene.physics.add.sprite(this.lampPos.x, this.lampPos.y, 'lightCircleBig');
-        this.lightCircle.setCircle(this.lightCircle.width/2);//collider ajustado al sprite
-        this.lightCircle.depth = 2;
+        this.lightCircle = this.scene.CreateLight(this.lampPos, 1.2);
       }
       else
       {
-        this.lightCircle.body.gameObject.alpha = 1;
+        this.lightCircle.body.alpha = 1;
         //this.lightCircle.sprite.setActive(true);
       }
     }
@@ -60,7 +58,7 @@
     {
       this.lightCircle.sprite = this.lightCircle.body;
       this.lightCircle.body.enable = false;
-      this.lightCircle.body.gameObject.alpha = 0;
+      this.lightCircle.body.alpha = 0;
       //this.body.setActive(false);
     }
     this.isOn = !this.isOn;

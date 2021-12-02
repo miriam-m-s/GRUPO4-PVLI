@@ -74,6 +74,13 @@ export default class Level extends Phaser.Scene {
     this.humanPlayer = new Human(this, new Phaser.Math.Vector2(130, 100), "Human", true, humanList);
     this.ghostPlayer = new Ghost(this, new Phaser.Math.Vector2(180, 100),"Ghost", false, ghostList);//comienza el fantasma
 
+<<<<<<< Updated upstream
+=======
+
+    this.lights = this.add.group();
+    this.CreateLight(new Phaser.Math.Vector2(100,90), 100);
+
+>>>>>>> Stashed changes
     this.checkEnd();
   }
   
@@ -83,4 +90,11 @@ export default class Level extends Phaser.Scene {
         this.scene.start('end');
       }
     }
+
+  CreateLight(lightPos, lightRadius)//Crea un circulo de luz en una posicion, con un radio de ancho
+  {
+    //(...) Anadir luz al grupo de luces para las colisiones
+    this.newLight = new Lights(this, lightPos, lightRadius);
+    return this.newLight;
+  }
 }

@@ -22,9 +22,33 @@ export default class Human extends Player {
   preUpdate(t,dt)
   {
     super.preUpdate(t,dt);
+<<<<<<< Updated upstream
     if(this.beingControlled)
     {
       this.CheckForNearestObject(this.humanItems);
     }   
+=======
+
+    // Check Lights
+    //console.log(this.onLight);
+    if (!this.onLight) 
+    {
+     // this.body.setPosition(this.saveX, this.saveY);
+
+      // tween animation
+      var tween = this.scene.tweens.add({
+        targets: this.body,
+        x:  this.saveX,
+        y:  this.saveY,
+        ease: 'Cubic', 
+        duration: 1000,
+        yoyo: false,
+        //onComplete: this.AllowMovement()
+    });
+    }
+
+    if(this.beingControlled)
+    this.CheckForNearestObject(this.humanItems);
+>>>>>>> Stashed changes
   }
 }
