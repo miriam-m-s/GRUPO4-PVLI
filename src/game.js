@@ -1,7 +1,7 @@
 import Boot from './boot.js';
 import End from './end.js';
 import Platform from './platform.js';
-import Level from './scene.js';
+import MainMenuScene from './mainMenuScene.js';
 
 let config = 
 {
@@ -11,13 +11,13 @@ let config =
     height: 350,
     roundPixels: true,
     scale: {
-        //mode: Phaser.Scale.NONE,  
+        mode: Phaser.Scale.FIT,  
         autoCenter: Phaser.Scale.CENTER_BOTH,
         
     },
     zoom: 2.1,
     pixelArt: true,
-    scene: [Boot, Level, End],
+    scene: [Boot, MainMenuScene, End],
     physics: { 
         default: 'arcade', 
         arcade: { 

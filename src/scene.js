@@ -82,9 +82,11 @@ export default class Level extends Phaser.Scene {
   }
   
   //Check de final de nivel para ambos jugadores
-  checkEnd(){
-    if(this.humanPlayer.playerState && this.ghostPlayer.playerState){
+  checkEnd()
+  {
+    if(this.humanPlayer.playerState && this.ghostPlayer.playerState)
+    {
         this.scene.start('end');
-      }
     }
+  }
 }
