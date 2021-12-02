@@ -20,6 +20,7 @@ export default class Ghost extends Player {
 
     this.shouldMoveItem = false;
     this.ghostItems = ghostItems;
+    this.possesion= scene.sound.add('possesion');
     this.anims.play('_idle' + this.playerName, true);
   }
 
@@ -33,6 +34,7 @@ export default class Ghost extends Player {
     }
     if(this.itemPossesed != null && this.shouldMoveItem)
     {
+      this.possesion.play();
       this.itemPossesed.body.setPosition(this.body.x, this.body.y);
       //this.itemPossesed.setPosition(this.body.position);
       //this.itemPossesed.body.setPosition(this.body.position.x, this.body.position.y);

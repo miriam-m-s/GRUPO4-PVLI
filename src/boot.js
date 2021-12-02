@@ -23,6 +23,7 @@ export default class Boot extends Phaser.Scene {
      //MUSIC
      this.load.audio('bckMusic', [
       './assets/audio/music/bckMusic.mp3']);
+    this.load.audio('possesion','./assets/audio/music/possesion.mp3');
     this.load.setPath('assets/sprites/');
     //Players
     this.load.spritesheet('GhostSpriteSheet', 'ghostSpriteSheet.png',{frameWidth: 16, frameHeight: 16});
@@ -52,7 +53,8 @@ export default class Boot extends Phaser.Scene {
     this.load.tilemapTiledJSON('tilemap01', 'Map01.json');
     //Carga de spritesheet
     this.load.image('mapSpriteSheet', 'spritesheets/mansionNes.png');
-
+    //AUDIO
+  
     
   }
 
