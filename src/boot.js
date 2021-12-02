@@ -24,6 +24,8 @@ export default class Boot extends Phaser.Scene {
      this.load.audio('bckMusic', [
       './assets/audio/music/bckMusic.mp3']);
     this.load.audio('possesion','./assets/audio/music/possesion.mp3');
+    this.load.audio('changeplayer','./assets/audio/music/bubllepop.mp3');
+    this.load.audio('light','./assets/audio/music/light.mp3');
     this.load.setPath('assets/sprites/');
     //Players
     this.load.spritesheet('GhostSpriteSheet', 'ghostSpriteSheet.png',{frameWidth: 16, frameHeight: 16});

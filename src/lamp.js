@@ -16,7 +16,7 @@
     this.scene = scene;
     this.player = player;
     this.lampPos = lampPos;
-
+    this.soundlight= scene.sound.add('light');
     this.scene.add.existing(this);
     this.body = this.scene.physics.add.sprite(this.lampPos.x, this.lampPos.y, 'lampDefault');
     this.isOn = false;
@@ -29,6 +29,7 @@
   {
     if(this.isOn) return;
     //this.scale = 1.085;
+   
     this.body.setTexture('lampSelected');
   }
   DeselectObject() 
@@ -46,12 +47,14 @@
     {
       if(this.lightCircle == null)
       {
+        this.soundlight.play();
         this.lightCircle = this.scene.physics.add.sprite(this.lampPos.x, this.lampPos.y, 'lightCircleBig');
         this.lightCircle.setCircle(this.lightCircle.width/2);//collider ajustado al sprite
         this.lightCircle.depth = 2;
       }
       else
       {
+        this.soundlight.play();
         this.lightCircle.body.gameObject.alpha = 1;
         //this.lightCircle.sprite.setActive(true);
       }

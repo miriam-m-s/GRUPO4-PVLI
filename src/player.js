@@ -28,7 +28,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.playerPos = initialPos; //donde comienza el jugador en la escena
     this.playerName = initialName; //Ghost / Human
     this.beingControlled = startController; //comenzamos controlando al fantasma
- 
+    this.soundchange= scene.sound.add('changeplayer');
     //Litas/Objetos
     this.objectList = null;
     this.selectedObject = null;
@@ -59,6 +59,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
      {     
         this.body.stop();//para la animacion actual
         this.body.setVelocity(0);
+        this.soundchange.play();
         if(this.selectedObject != null)
         {
           this.selectedObject.DeselectObject();
@@ -72,6 +73,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
       //Llama al metodo Interact del objeto seleccionado
        if(this.selectedObject != null)
        {
+
         this.selectedObject.Interact(this.body);
        }
     }); 
