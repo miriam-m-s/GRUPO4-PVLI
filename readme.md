@@ -124,7 +124,8 @@ El fantasma tiene la mecánica de poseer objetos, habilidad que le permite modif
 Los objetos poseibles tienen dos estados: 
     -No poseídos: Son estáticos, el humano no puede atravesarlos mientras que el fantasma sí.
     -Poseídos: En este estado el fantasma desaparece de la pantalla y el jugador pasa a controlar al objeto, moviéndolo como si fuese otro personaje en las 8 direcciones.
-Cada vez que el fantasma presiona la tecla "p" encima de un objeto poseible en estado no poseído, el objeto pasa al estado poseído. Si se vuelve a presionar la tecla "p", el fantasma aparece de nuevo y el objeto pasa al estado no poseído.
+Cada vez que el fantasma presiona la tecla "e" encima de un objeto poseible en estado no poseído, el objeto pasa al estado poseído. Si se vuelve a presionar la tecla "e", el fantasma aparece de nuevo y el objeto pasa al estado no poseído.El fantasma cuando toca un rayo de luz el juego se reiniciará.
+
 
 <p align="center">
   <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
