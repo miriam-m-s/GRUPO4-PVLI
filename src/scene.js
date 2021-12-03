@@ -1,11 +1,11 @@
-
+import Player from './player.js';
 import Platform from './platform.js';
-import Light from './lights.js';
+import Lights from './lights.js';
 import Lamp from './lamp.js';
+import Mirror from './mirror.js';
 import Furniture from './furniture.js';
 import Human from './human.js';
-import Ghost from './ghost.js';
-import Base from './base.js';
+import Ghost from './ghost.js'
 
 
 
@@ -15,6 +15,7 @@ import Base from './base.js';
 
 export default class Level extends Phaser.Scene {
 
+  static TILE_SIZE = 16;//tamano de tiles de los tilemaps
   constructor() 
   {
     super({ key: 'level' });
@@ -24,66 +25,66 @@ export default class Level extends Phaser.Scene {
   
   create() 
   {
-    this.clock = new Phaser.Time.Clock(this);
-    this.bases = this.add.group();
-    //Grupos de objetos
-    this.lampGroup = this.add.group();
-    this.furnitureGroup=this.add.group();
-    //Jugadores
-    this.person = new Human(this, 300, 300);//right
-    this.ghost = new Ghost(this, 700, 300);//left
+    //MAPA TILESET
+      //creacion del tilemap
+      this.map = this.make.tilemap({ 
+        key: 'tilemap01', 
+        tileWidth: 8, 
+        tileHeight: 8 
+      });
+
+      const tileset1 = this.map.addTilesetImage('mansionNes', 'mapSpriteSheet');
+
+      this.backgroundLayer = this.map.createLayer('BackLayer', [tileset1]);
+      this.lightLayer  = this.map.createLayer('LightLayer', [tileset1]);
+      this.frontLayer = this.map.createLayer('FrontLayer', [tileset1]);
+      this.itemLayer = this.map.createLayer('ItemLayer', [tileset1]); 
+
+    //OBJETOS DE LA ESCENA
+      this.clock = new Phaser.Time.Clock(this);
+      this.bases = this.add.group();
+      //Grupos de objetos
+      this.lampGroup = this.add.group();
+      this.furnitureGroup=this.add.group();
+      //Jugadores
+      
     
-    //Creacion de Nivel Temporal
+      let humanList; //lista de objetos humanos
+      let ghostList; //lista de objetos poseibles
 
-      //Plataformas
-      new Platform(this, this.person, this.bases, 150, 350);
-      new Platform(this, this.person, this.bases, 850, 350);
-      new Platform(this, this.ghost, this.bases, 150, 350);
-      new Platform(this, this.ghost, this.bases, 850, 350);
-
-      
-       this.basefant=new Base(this,this.ghost,'basefantas',760,500);
-      this.basepers=new Base(this,this.person,'basepers',350,450);
-      
-      //Luces
-      this.lights = this.add.group();
-      new Light(this, this.ghost, this.person, this.bases, 50, 50, 200);
-      
       //Objetos Humano(lamparas/interruptores)
-      new Lamp(this, this.person, this.lampGroup, 500, 200);
-      let lampLight;
-      lampLight=new Light(this,this.person,this.ghost,this.lights,500,200,0.10);
-      lampLight.setVisible(false);
-      new Lamp(this, this.person, this.lampGroup, 600, 200); 
-      new Lamp(this, this.person, this.lampGroup, 700, 200);
-      for(let i = 0; i<this.lampGroup.children.entries.length;i++)
+      this.lampCreated01 = 
+      humanList = [
+        new Lamp(this, this.humanPlayer, this.lampGroup, new Phaser.Math.Vector2(60,80)), 
+        new Mirror(this, this.humanPlayer, this.lampGroup, new Phaser.Math.Vector2(190,70)), 
+        new Lamp(this, this.humanPlayer, this.lampGroup, new Phaser.Math.Vector2(190,150))];
+      
+      //Objetos Fantasma(muebles/espejo)
+      ghostList = [new Furniture(this, this.ghostPlayer, this.furnitureGroup, new Phaser.Math.Vector2(130,135)), 
+        new Furniture(this, this.ghostPlayer,  this.furnitureGroup, new Phaser.Math.Vector2(170,135))];
+      
+      if(Phaser.Utils.Debug)
       {
-        this.lampGroup.children.entries[i].name = "Lampara 0" + i;
+        this.debugIndicator = this.physics.add.sprite(130, 100, 'debugIndic');
+        this.debugIndicator.depth = 900;
+        console.log(this.debugIndicator.body.center);
       }
 
-      //Objetos Fantasma(muebles/espejo)
-        new Furniture(this, this.ghost, this.furnitureGroup, 800, 100);
-        new Furniture(this, this.ghost, this.furnitureGroup, 800, 250);
-        new Furniture(this, this.ghost, this.furnitureGroup, 650, 400);
-         for(let i = 0; i<this.furnitureGroup.children.entries.length;i++)
-       {
-        this.furnitureGroup.children.entries[i].name= "Mueble 0" + i;
-       } 
-
     //CAMBIAR ESTO EN FANTASMA / HUMANO
-    this.person.humanItems = this.lampGroup;
-    this.ghost.ghostItems = this.furnitureGroup;
+    this.humanPlayer = new Human(this, new Phaser.Math.Vector2(130, 100), "Human", true, humanList);
+    this.ghostPlayer = new Ghost(this, new Phaser.Math.Vector2(180, 100),"Ghost", false, ghostList);//comienza el fantasma
+
+
+    this.lights = this.add.group();
+    new Lights(this, this.humanPlayer, this.ghostPlayer, this.lights, 50, 50, 50);
+
+    this.checkEnd();
   }
   
-  update()
-  {
-    
-    
-   //  console.log(this.basefant.ininbase());
-     if(this.basefant.ininbase()&&this.basepers.ininbase()){
-
-       console.log("cambio");
-      this.scene.start('end');
-     }
-  }
+  //Check de final de nivel para ambos jugadores
+  checkEnd(){
+    if(this.humanPlayer.playerState && this.ghostPlayer.playerState){
+        this.scene.start('end');
+      }
+    }
 }

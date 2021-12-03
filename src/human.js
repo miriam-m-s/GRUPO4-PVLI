@@ -9,21 +9,24 @@ export default class Human extends Player {
   /**
    * Constructor del jugador
    * @param {Phaser.Scene} scene Escena a la que pertenece el jugador
-   * @param {number} x Coordenada X
-   * @param {number} y Coordenada Y
    * @param {Array<Lamp>} humanItems la lista de lamparas
-   *//**
-   * Constructor del jugador
    */
-   constructor(scene, x, y) {
-    super(scene, x, y, 'player2',true);
+  
+  constructor(scene, playerPos, playerName, beingControlled,humanItems) 
+  {
+    super(scene, playerPos, playerName, beingControlled, humanItems);
+    this.humanItems = humanItems;
+    //this.position = playerPos;
+
     this.onLight = true;
   
-    this.saveX = x;
-    this.saveY = y;
+    this.saveX = 0;
+    this.saveY = 0;
   }
-  
+
+
   onLightFunction(x, y) {
+
     this.onLight = true;
     this.saveX = x;
     this.saveY = y;
@@ -32,17 +35,30 @@ export default class Human extends Player {
   preUpdate(t,dt)
   {
     super.preUpdate(t,dt);
+
+    // Check Lights
     if (!this.onLight) 
     {
-      this.setPosition(this.saveX, this.saveY);
-   
+     // this.body.setPosition(this.saveX, this.saveY);
+
+      // tween animation
+      var tween = this.scene.tweens.add({
+        targets: this.body,
+        x:  this.saveX,
+        y:  this.saveY,
+        ease: 'Cubic', 
+        duration: 1000,
+        yoyo: false,
+        //onComplete: this.AllowMovement()
+    });
     }
+    
     this.onLight = false;
 
     if(this.beingControlled)
-    {
-        this.CheckForNearestObject(this.humanItems);
+    this.CheckForNearestObject(this.humanItems);
 
-    }
+    if(this.beingControlled)
+    this.CheckForNearestObject(this.humanItems); 
   }
 }

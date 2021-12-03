@@ -1,47 +1,29 @@
-
 /**
- * Clase que representa las plataformas que aparecen en el escenario de juego.
- * Cada plataforma es responsable de crear la base que aparece sobre ella y en la 
- * que, durante el juego, puede aparecer una estrella
+ * Clase que representa la base sobre la que se sitúan las estrellas que aparecen en el juego
  */
- export default class Base extends Phaser.GameObjects.Sprite {
+export default class Base extends Phaser.GameObjects.Sprite {
   
   /**
-   * Constructor de la Plataforma4
-   * @param {Phaser.Scene} scene Escena a la que pertenece la plataforma
-   * @param {Player} player Jugador del juego
-   * @param {Phaser.GameObjects.Group} baseGroup Grupo en el que se incluirá la base creada por la plataforma
+   * 
+   * @param {Phaser.Scene} scene Escena a la que pertenece la base
+   * @param {Platform} platform Plataforma sobre la que se sitúa la base
    * @param {number} x Coordenada x
-   * @param {number} y Coordenada y
+   * @param {number} y Coordenada y 
+   * @param { Phaser.GameObjects.Group } baseGroup Grupo en el que se incluirá la base creada
    */
-
-  constructor(scene, player,texture, x, y) {
-    super(scene,x, y,texture);
-    this.setScale(0.1);
+  constructor(scene, platform, x, y, baseGroup) {
+    super(scene, x, y, 'base');
     this.scene.add.existing(this);
-    this.scene.physics.add.existing(this);
-    this.player=player; 
-    this.scene.physics.add.overlap(this, player);
-    this.inbase=false;
-    //this.scene.physics.add.overlap(this, player, () => { console.log("colision"); });
-    
+    this.scene.physics.add.existing(this, true);
+    baseGroup.add(this);
+    this.y -= this.height / 2 + platform.height / 2;
   }
- ininbase(){
-      return this.inbase;
-  }
-    /**
-   * Redefinición del preUpdate de Phaser
-   * @override
+
+  /**
+   * Método para que la base instancie una estrella sobre ella
    */
-     preUpdate() {
-      super.preUpdate();
-      this.inbase=false;
-      if (this.scene.physics.overlap(this.player, this)) {
-          this.inbase=true;
-   
-    }
-      
-       
-  
-    }
+  spawn() {
+    this.scene.add.existing(new Star(this.scene, this, this.x, this.y));
+  }
+
 }
