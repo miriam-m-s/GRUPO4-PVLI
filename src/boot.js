@@ -47,6 +47,10 @@ export default class Boot extends Phaser.Scene {
 
     this.load.image('light','light.png');
 
+    //Bases
+    this.load.image('basefantas','basefant.png')
+    this.load.image('basepers','basepers.png')
+
     //Debug
     this.load.image('debugIndic','debugIndicator.png');
 

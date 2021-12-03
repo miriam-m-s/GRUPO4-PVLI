@@ -1,11 +1,11 @@
-import Player from './player.js';
-import Platform from './platform.js';
+
 import Lights from './lights.js';
 import Lamp from './lamp.js';
 import Mirror from './mirror.js';
 import Furniture from './furniture.js';
 import Human from './human.js';
 import Ghost from './ghost.js'
+import Base from './base.js';
 
 
 
@@ -62,6 +62,8 @@ export default class Level extends Phaser.Scene {
       //Objetos Fantasma(muebles/espejo)
       ghostList = [new Furniture(this, this.ghostPlayer, this.furnitureGroup, new Phaser.Math.Vector2(130,135)), 
         new Furniture(this, this.ghostPlayer,  this.furnitureGroup, new Phaser.Math.Vector2(170,135))];
+        //bases
+       
       
       if(Phaser.Utils.Debug)
       {
@@ -74,17 +76,22 @@ export default class Level extends Phaser.Scene {
     this.humanPlayer = new Human(this, new Phaser.Math.Vector2(130, 100), "Human", true, humanList);
     this.ghostPlayer = new Ghost(this, new Phaser.Math.Vector2(180, 100),"Ghost", false, ghostList);//comienza el fantasma
 
+   
+    this.basepers=new Base(this,this.humanPlayer,'basepers',70,100);
+    this.basefant=new Base(this,this.ghostPlayer,'basefantas',150,50);
 
     this.lights = this.add.group();
     new Lights(this, this.humanPlayer, this.ghostPlayer, this.lights, 50, 50, 50);
 
-    this.checkEnd();
+    
   }
   
   //Check de final de nivel para ambos jugadores
-  checkEnd(){
-    if(this.humanPlayer.playerState && this.ghostPlayer.playerState){
-        this.scene.start('end');
+  update() {   
+  //  console.log(this.basefant.ininbase()+" "+this.basepers.ininbase()) 
+       if(this.basefant.ininbase()&&this.basepers.ininbase()){
+         console.log("NEXT LEVEL");
+          this.scene.start('end');
       }
-    }
+  } 
 }

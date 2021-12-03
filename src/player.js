@@ -124,8 +124,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     //Animacion de spritesheet para cada personaje
     this.changeAnims(velX, velY);
 
-    this.scene.checkEnd();
-
+   
     //this.debugIndicator.setPosition(this.body.x, this.body.y);
   }
 

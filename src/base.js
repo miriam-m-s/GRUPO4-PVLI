@@ -1,29 +1,52 @@
+
 /**
- * Clase que representa la base sobre la que se sitúan las estrellas que aparecen en el juego
+ * Clase que representa las plataformas que aparecen en el escenario de juego.
+ * Cada plataforma es responsable de crear la base que aparece sobre ella y en la 
+ * que, durante el juego, puede aparecer una estrella
  */
-export default class Base extends Phaser.GameObjects.Sprite {
+ export default class Base extends Phaser.GameObjects.Sprite {
   
   /**
-   * 
-   * @param {Phaser.Scene} scene Escena a la que pertenece la base
-   * @param {Platform} platform Plataforma sobre la que se sitúa la base
+   * Constructor de la Plataforma4
+   * @param {Phaser.Scene} scene Escena a la que pertenece la plataforma
+   * @param {Player} player Jugador del juego
+   * @param {Phaser.GameObjects.Group} baseGroup Grupo en el que se incluirá la base creada por la plataforma
    * @param {number} x Coordenada x
-   * @param {number} y Coordenada y 
-   * @param { Phaser.GameObjects.Group } baseGroup Grupo en el que se incluirá la base creada
+   * @param {number} y Coordenada y
    */
-  constructor(scene, platform, x, y, baseGroup) {
-    super(scene, x, y, 'base');
+
+  constructor(scene, player,texture, x, y) {
+    super(scene,x, y,texture);
+    this.setScale(0.03);
     this.scene.add.existing(this);
-    this.scene.physics.add.existing(this, true);
-    baseGroup.add(this);
-    this.y -= this.height / 2 + platform.height / 2;
-  }
+    this.scene.physics.add.existing(this);
 
-  /**
-   * Método para que la base instancie una estrella sobre ella
+    
+
+  
+    this.player=player; 
+    this.scene.physics.add.overlap(this, this.player);
+    
+    this.inbase=false;
+    this.scene.physics.add.overlap(this, player, () => { console.log("colision"); });
+    
+  }
+ ininbase(){
+      return this.inbase;
+  }
+  
+    /**
+   * Redefinición del preUpdate de Phaser
+   * @override
    */
-  spawn() {
-    this.scene.add.existing(new Star(this.scene, this, this.x, this.y));
-  }
-
+     preUpdate() {
+      super.preUpdate();
+      this.inbase=false;
+     
+      if (this.scene.physics.overlap(this.player, this)) {
+        console.log("holi");
+          this.inbase=true;
+   
+      }
+    }
 }
