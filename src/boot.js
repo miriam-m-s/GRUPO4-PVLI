@@ -20,6 +20,8 @@ export default class Boot extends Phaser.Scene {
    */
   preload() 
   {
+    //RAYCAST
+   
      //MUSIC
      this.load.audio('bckMusic', [
       './assets/audio/music/bckMusic.mp3']);
@@ -46,7 +48,8 @@ export default class Boot extends Phaser.Scene {
     this.load.image('mirrorPossessed','mirrorSpr03.png');
 
     this.load.image('light','light.png');
-
+   //WINDOW
+   this.load.image('window','window.png')
     //Bases
     this.load.image('basefantas','basefant.png')
     this.load.image('basepers','basepers.png')
@@ -59,7 +62,7 @@ export default class Boot extends Phaser.Scene {
     this.load.tilemapTiledJSON('tilemap01', 'Map01.json');
     //Carga de spritesheet
     this.load.image('mapSpriteSheet', 'spritesheets/mansionNes.png');
-    //AUDIO
+  
   
     
   }
