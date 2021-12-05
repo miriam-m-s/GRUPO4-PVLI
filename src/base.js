@@ -44,7 +44,6 @@
       this.inbase=false;
      
       if (this.scene.physics.overlap(this.player, this)) {
-        console.log("holi");
           this.inbase=true;
    
       }

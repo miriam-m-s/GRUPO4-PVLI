@@ -6,6 +6,7 @@ import Furniture from './furniture.js';
 import Human from './human.js';
 import Ghost from './ghost.js'
 import Base from './base.js';
+import Pause from './pause.js';
 
 
 
@@ -46,6 +47,25 @@ export default class Level extends Phaser.Scene {
       //Grupos de objetos
       this.lampGroup = this.add.group();
       this.furnitureGroup=this.add.group();
+
+
+      //BOTON DE PAUSA Y ESC
+      this.isPaused=false;
+      this.escape = this.input.keyboard.addKey('ESC');
+      this.escape.on('down', ()=> {
+      this.isPaused=!this.isPaused;
+        this.clickPause();
+      });
+      this.pausa=this.add.image(225,20,'pauseButton').setInteractive();
+      this.pausa.scale=0.05;
+
+       this.pausa.on('pointerdown',function(){
+        //this.scene.scene.pause();
+        this.scene.isPaused=!this.scene.isPaused;
+        this.scene.clickPause();
+        
+       });
+
       //Jugadores
       
     
@@ -94,4 +114,20 @@ export default class Level extends Phaser.Scene {
           this.scene.start('end');
       }
   } 
+
+  clickPause()
+  {
+    if(this.isPaused) //Crea el menu con los botones
+    {
+     
+      this.pauseMenu=new Pause(this,120,130);
+    }
+    else //Lo destruye
+    {
+     
+      this.pauseMenu.destroy();
+
+    }
+
+  }
 }
