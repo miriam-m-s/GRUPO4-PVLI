@@ -29,6 +29,11 @@ export default class Boot extends Phaser.Scene {
     this.load.audio('changeplayer','./assets/audio/music/bubllepop.mp3');
     this.load.audio('light','./assets/audio/music/light.mp3');
     this.load.setPath('assets/sprites/');
+
+     //Boton y menú de pausa
+     this.load.image('pauseButton', 'pausebutton.png');
+     this.load.image('pauseMenu','pausemenu.png');
+     
     //Players
     this.load.spritesheet('GhostSpriteSheet', 'ghostSpriteSheet.png',{frameWidth: 16, frameHeight: 16});
     this.load.spritesheet('HumanSpriteSheet', 'humanSpriteSheet.png',{frameWidth: 16, frameHeight: 16});

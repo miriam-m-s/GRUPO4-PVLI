@@ -34,31 +34,36 @@ export default class Human extends Player {
 
   preUpdate(t,dt)
   {
-    super.preUpdate(t,dt);
-
-    // Check Lights
-    if (!this.onLight) 
-    {
-     // this.body.setPosition(this.saveX, this.saveY);
-
-      // tween animation
-      var tween = this.scene.tweens.add({
-        targets: this.body,
-        x:  this.saveX,
-        y:  this.saveY,
-        ease: 'Cubic', 
-        duration: 1000,
-        yoyo: false,
-        //onComplete: this.AllowMovement()
-    });
-    }
     
-    this.onLight = false;
+      super.preUpdate(t,dt);
 
-    if(this.beingControlled)
-    this.CheckForNearestObject(this.humanItems);
+      // Check Lights
+      if (!this.onLight) 
+      {
+       // this.body.setPosition(this.saveX, this.saveY);
+  
+        // tween animation
+        var tween = this.scene.tweens.add({
+          targets: this.body,
+          x:  this.saveX,
+          y:  this.saveY,
+          ease: 'Cubic', 
+          duration: 1000,
+          yoyo: false,
+          //onComplete: this.AllowMovement()
+      });
+      }
+      
+      this.onLight = false;
+  
+      if(this.beingControlled)
+      this.CheckForNearestObject(this.humanItems);
+  
+      if(this.beingControlled)
+      this.CheckForNearestObject(this.humanItems); 
 
-    if(this.beingControlled)
-    this.CheckForNearestObject(this.humanItems); 
+
+    
+   
   }
 }

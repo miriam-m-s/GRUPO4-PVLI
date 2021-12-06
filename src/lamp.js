@@ -1,6 +1,9 @@
+
 /**
+
  
  * @extends Phaser.GameObjects.Sprite
+
  */
  export default class Lamp extends Phaser.GameObjects.Sprite {
   
@@ -48,6 +51,7 @@
       if(this.lightCircle == null)
       {
         this.soundlight.play();
+
         this.lightCircle = this.scene.physics.add.sprite(this.lampPos.x, this.lampPos.y, 'lightCircleBig');
         this.lightCircle.setCircle(this.lightCircle.width/2);//collider ajustado al sprite
         this.lightCircle.depth = 2;

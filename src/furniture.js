@@ -12,7 +12,7 @@ export default class Furniture extends Phaser.GameObjects.Sprite {
     this.scene = scene;
     this.player = ghostPlayer;
     this.furniturePos = initialPos;
-    this.possesion= scene.sound.add('possesion');
+    
     this.scene.add.existing(this);
     this.body = this.scene.physics.add.sprite(this.furniturePos.x, this.furniturePos.y, 'furniture');
     this.isPossesed = false;
@@ -37,7 +37,7 @@ export default class Furniture extends Phaser.GameObjects.Sprite {
 
   Interact()
   {
-    this.possesion.play();
+   
     this.isPossesed = !this.isPossesed;
     this.body.setTexture('furniturePossesed');
     this.body.depth = 3;
