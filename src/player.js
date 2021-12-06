@@ -68,12 +68,13 @@ export default class Player extends Phaser.GameObjects.Sprite {
     }); 
 
     this.eKey.on('down', () =>
-     {     
+     {   
+     
        if(!this.beingControlled) return;
       //Llama al metodo Interact del objeto seleccionado
        if(this.selectedObject != null)
        {
-
+        
         this.selectedObject.Interact(this.body);
        }
     }); 

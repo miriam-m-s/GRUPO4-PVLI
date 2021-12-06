@@ -61,6 +61,7 @@
     }
     else //Esta encendida
     {
+      this.soundlight.play();
       this.lightCircle.sprite = this.lightCircle.body;
       this.lightCircle.body.enable = false;
       this.lightCircle.body.gameObject.alpha = 0;

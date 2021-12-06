@@ -35,7 +35,19 @@ export default class Level extends Phaser.Scene {
         tileHeight: 8 
       });
       
-   
+      const config = {
+        mute: false,
+        volume: 0.3,
+        rate: 1,
+        detune: 0,
+        seek: 0,
+        loop: true,
+        delay: 0,
+      }; // config es opcional
+      this.music =this.sound.add("bckMusic", config);
+      
+  
+      this.music.play();
       const tileset1 = this.map.addTilesetImage('mansionNes', 'mapSpriteSheet');
 
       this.backgroundLayer = this.map.createLayer('BackLayer', [tileset1]);

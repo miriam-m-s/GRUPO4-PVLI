@@ -36,7 +36,7 @@ export default class Ghost extends Player {
     }
     if(this.itemPossesed != null && this.shouldMoveItem)
     {
-      this.possesion.play();
+      //this.possesion.play();
       this.itemPossesed.body.setPosition(this.body.x, this.body.y);
       //this.itemPossesed.setPosition(this.body.position);
       //this.itemPossesed.body.setPosition(this.body.position.x, this.body.position.y);
@@ -67,6 +67,7 @@ export default class Ghost extends Player {
 
   AllowMovement()
   {
+    
     this.shouldMoveItem = true;
     console.log(this.shouldMoveItem);
   }
@@ -75,10 +76,16 @@ export default class Ghost extends Player {
   {
     if(this.itemPossesed == null)
     {
-     
-      this.itemPossesed = objectToPossess; return true;
+      this.possesion.play();
+      this.itemPossesed = objectToPossess; 
+  
+      return true;
+
     }
-    else this.itemPossesed = null;
+    else{
+      
+      this.itemPossesed = null;
+    } 
     return false;
   }
 }
