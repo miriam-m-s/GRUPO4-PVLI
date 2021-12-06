@@ -28,6 +28,7 @@ export default class Boot extends Phaser.Scene {
     this.load.audio('possesion','./assets/audio/music/possesion.mp3');
     this.load.audio('changeplayer','./assets/audio/music/bubllepop.mp3');
     this.load.audio('light','./assets/audio/music/light.mp3');
+    this.load.audio('exit','./assets/audio/music/exit.mp3')
     this.load.setPath('assets/sprites/');
 
      //Boton y menú de pausa

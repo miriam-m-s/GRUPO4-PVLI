@@ -40,7 +40,7 @@ export default class Level extends Phaser.Scene {
       
       const config = {
         mute: false,
-        volume: 0.3,
+        volume: 0.2,
         rate: 1,
         detune: 0,
         seek: 0,
@@ -48,7 +48,7 @@ export default class Level extends Phaser.Scene {
         delay: 0,
       }; // config es opcional
       this.music =this.sound.add("bckMusic", config);
-      
+      this.exit =this.sound.add('exit')
   
       this.music.play();
       const tileset1 = this.map.addTilesetImage('mansionNes', 'mapSpriteSheet');
@@ -76,6 +76,8 @@ export default class Level extends Phaser.Scene {
       this.isPaused=false;
       this.escape = this.input.keyboard.addKey('ESC');
       this.escape.on('down', ()=> {
+        this.exit.play();
+       this. music.stop();
       this.isPaused=!this.isPaused;
         this.clickPause();
       });
@@ -115,13 +117,16 @@ export default class Level extends Phaser.Scene {
         this.debugIndicator.depth = 900;
         console.log(this.debugIndicator.body.center);
       }
-
+      //RAYLIGHT DETECTOR
+      this.rayLightDetector = this.add.rectangle(0, 100, 600, 30, 0x848484).setOrigin(0, 1);
+      this.physics.add.existing(this.rayLightDetector);
+     
     //CAMBIAR ESTO EN FANTASMA / HUMANO
     this.humanPlayer = new Human(this, new Phaser.Math.Vector2(130, 100), "Human", true, humanList);
     this.ghostPlayer = new Ghost(this, new Phaser.Math.Vector2(180, 100),"Ghost", false, ghostList,  this.rayLightDetector );//comienza el fantasma
 
    
-    this.basepers=new Base(this,this.humanPlayer,'basepers',30,80);
+    this.basepers=new Base(this,this.humanPlayer,'basepers',60,80);
     this.basefant=new Base(this,this.ghostPlayer,'basefantas',150,50);
 
     this.lights = this.add.group();
@@ -151,9 +156,7 @@ export default class Level extends Phaser.Scene {
       .addObstacle(this.staticObstacles)
       .addObstacle(this.dynamicObstacles)
     
-      this.rayLightDetector = this.add.rectangle(0, 100, 600, 30, 0x848484).setOrigin(0, 1);
-      this.physics.add.existing(this.rayLightDetector);
-     
+    
    this.window = new Window(this, this.graphics, 80, 200, this.raycaster, 0, this.rayLightDetector);
   }
   
@@ -175,7 +178,7 @@ ResetLevel() {
   //  console.log(this.basefant.ininbase()+" "+this.basepers.ininbase()) 
        if(this.basefant.ininbase()&&this.basepers.ininbase()){
          console.log("NEXT LEVEL");
-          this.scene.start('end');
+        
       }
       this.raycaster.updateObstacle(this.dynamicObstacles);
   } 
@@ -189,7 +192,7 @@ ResetLevel() {
     }
     else //Lo destruye
     {
-     
+      this.music.play();
       this.pauseMenu.destroy();
 
     }

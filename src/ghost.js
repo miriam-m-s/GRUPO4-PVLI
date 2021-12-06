@@ -42,7 +42,7 @@ export default class Ghost extends Player {
       //this.itemPossesed.body.setPosition(this.body.position.x, this.body.position.y);
     }
     // Touch rayLight
-    if (this.scene.physics.overlap(this, this.mirrorDetector)) {
+    if (this.scene.physics.overlap(this, this.mirrorDetector.BODY)) {
       console.log("RESET LEVEL");
       this.scene.ResetLevel();
       //this.scene.start('level');

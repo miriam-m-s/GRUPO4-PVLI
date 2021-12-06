@@ -42,8 +42,9 @@
      preUpdate() {
       super.preUpdate();
       this.inbase=false;
-     
-      if (this.scene.physics.overlap(this.player, this)) {
+
+      if (this.scene.physics.overlap(this, this.player.body)) {
+        console.log("hey");
           this.inbase=true;
    
       }
