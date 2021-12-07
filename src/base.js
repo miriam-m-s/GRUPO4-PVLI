@@ -23,18 +23,16 @@
 
     
 
-  
     this.player=player; 
-    this.scene.physics.add.overlap(this, this.player);
-    
+ 
+    this.scene.physics.add.overlap(this, player);
     this.inbase=false;
-    this.scene.physics.add.overlap(this, player, () => { console.log("colision"); });
+    //this.scene.physics.add.overlap(this, player, () => { console.log("colision"); });
     
   }
  ininbase(){
       return this.inbase;
   }
-  
     /**
    * Redefinición del preUpdate de Phaser
    * @override
@@ -42,11 +40,12 @@
      preUpdate() {
       super.preUpdate();
       this.inbase=false;
-
-      if (this.scene.physics.overlap(this, this.player.body)) {
-        console.log("hey");
+      if (this.scene.physics.overlap(this.player.body, this)) {
           this.inbase=true;
    
-      }
+    }
+      
+       
+  
     }
 }

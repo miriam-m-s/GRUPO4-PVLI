@@ -178,7 +178,7 @@ ResetLevel() {
   //  console.log(this.basefant.ininbase()+" "+this.basepers.ininbase()) 
        if(this.basefant.ininbase()&&this.basepers.ininbase()){
          console.log("NEXT LEVEL");
-        
+          this.scene.start('end');
       }
       this.raycaster.updateObstacle(this.dynamicObstacles);
   } 
