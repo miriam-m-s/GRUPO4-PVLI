@@ -187,15 +187,21 @@ ResetLevel() {
   {
     if(this.isPaused) //Crea el menu con los botones
     {
-     
+      this.anims.pauseAll(); //Pausa todas las animaciones de la escena
       this.pauseMenu=new Pause(this,120,130);
     }
     else //Lo destruye
     {
+     
       this.music.play();
       this.pauseMenu.destroy();
+      this.anims.resumeAll(); //Reanuda las animaciones que habia activas al pausar la escena
 
     }
+  }
+  levelPaused()
+  {
+    return this.isPaused;
 
   }
 }

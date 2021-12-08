@@ -57,13 +57,9 @@ export default class Human extends Player {
       this.onLight = false;
   
       if(this.beingControlled)
-      this.CheckForNearestObject(this.humanItems);
-  
-      if(this.beingControlled)
-      this.CheckForNearestObject(this.humanItems); 
-
-
-    
-   
+      {
+        this.CheckForNearestObject(this.humanItems); 
+      }
+        
   }
 }

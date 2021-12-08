@@ -33,9 +33,9 @@
         this.quitText=this.scene.add.text(-35,23,"Quit",textConfig).setInteractive();
         this.quitText.scale=0.6;
         this.quitText.on('pointerdown', function()
-         {
-            console.log("Quit game");
+         { 
             //this.scene.scene.start('menu');
+            console.log("Quit game");
          });
         
         this.add([this.fondo,this.pauseText,this.resumeText,this.restartText,this.quitText]);
