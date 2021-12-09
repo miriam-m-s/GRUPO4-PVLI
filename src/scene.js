@@ -126,7 +126,7 @@ export default class Level extends Phaser.Scene {
     this.ghostPlayer = new Ghost(this, new Phaser.Math.Vector2(180, 100),"Ghost", false, ghostList,  this.rayLightDetector );//comienza el fantasma
 
    
-    this.basepers=new Base(this,this.humanPlayer,'basepers',60,80);
+    this.basepers=new Base(this,this.humanPlayer,'basepers',70,110);
     this.basefant=new Base(this,this.ghostPlayer,'basefantas',150,50);
 
     this.lights = this.add.group();
@@ -136,7 +136,7 @@ export default class Level extends Phaser.Scene {
     this.graphics = this.add.graphics();
    
 
-    this.mirror = new Mirror(this, this.ghostPlayer, this.mirrorGroup, 70, 80, 180, this.rayLightDetector);
+    this.mirror = new Mirror(this, this.ghostPlayer, this.mirrorGroup, 20, 80, 180, this.rayLightDetector);
 
     //RAYCAST OBJECTS
     this.staticObstacles = [
