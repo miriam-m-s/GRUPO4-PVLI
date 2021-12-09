@@ -68,12 +68,13 @@ export default class Player extends Phaser.GameObjects.Sprite {
     }); 
 
     this.eKey.on('down', () =>
-     {     
+     {   
+     
        if(!this.beingControlled) return;
-      //Llama al metodo Interact del objeto seleccionado
-       if(this.selectedObject != null)
+      //Llama al metodo Interact del objeto seleccionado si no estamos en pausa
+       if(!this.scene.levelPaused() && this.selectedObject != null)
        {
-
+        
         this.selectedObject.Interact(this.body);
        }
     }); 
@@ -106,7 +107,11 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
   ChangePlayer()
   {
-    this.beingControlled = !this.beingControlled;
+    if(!this.scene.levelPaused())
+    {
+      this.beingControlled = !this.beingControlled;
+    }
+    
   }
   
   preUpdate(t,dt) 
@@ -115,7 +120,9 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
     super.preUpdate(t,dt);
 
-    //Calculamos la velocidad
+    if(!this.scene.levelPaused())
+    {
+       //Calculamos la velocidad
     let [velX, velY] = this.calculateVelocity();
 
     //Movimiento del personaje
@@ -123,10 +130,12 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
     //Animacion de spritesheet para cada personaje
     this.changeAnims(velX, velY);
-
-    this.scene.checkEnd();
-
+    }
+    
+   
     //this.debugIndicator.setPosition(this.body.x, this.body.y);
+  
+   
   }
 
   //Calculo de velocidad con respecto a input
@@ -181,6 +190,7 @@ changeAnims(velX, velY)
     let initialDist = 9000;
     
     //Checkeo si sigo suficietemente cerca del objeto que estaba seleccionando anteriormente
+    
     if(this.selectedObject != null)
     {
       let distanceBetween = Phaser.Math.Distance.Between(this.body.x,this.body.y, this.selectedObject.body.x, this.selectedObject.body.y);

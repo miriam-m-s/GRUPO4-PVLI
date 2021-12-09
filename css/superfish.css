@@ -44,9 +44,9 @@
 	*width: 12em; /* no auto sub width for IE7, see white-space comment below */
 }
 .sf-menu a {
-	border-left: 1px solid #fff;
-	border-top: 1px solid #dFeEFF; /* fallback colour must use full shorthand */
-	border-top: 1px solid rgba(255,255,255,.5);
+	border-left: 1px solid rgb(45, 16, 82);
+	border-top: 1px solid #245083; /* fallback colour must use full shorthand */
+	border-top: 1px solid rgba(57, 38, 145, 0.5);
 	padding: .75em 1em;
 	text-decoration: none;
 	zoom: 1; /* IE7 */

@@ -20,13 +20,21 @@ export default class Boot extends Phaser.Scene {
    */
   preload() 
   {
+    //RAYCAST
+   
      //MUSIC
      this.load.audio('bckMusic', [
       './assets/audio/music/bckMusic.mp3']);
     this.load.audio('possesion','./assets/audio/music/possesion.mp3');
     this.load.audio('changeplayer','./assets/audio/music/bubllepop.mp3');
     this.load.audio('light','./assets/audio/music/light.mp3');
+    this.load.audio('exit','./assets/audio/music/exit.mp3')
     this.load.setPath('assets/sprites/');
+
+     //Boton y menú de pausa
+     this.load.image('pauseButton', 'pausebutton.png');
+     this.load.image('pauseMenu','pausemenu.png');
+     
     //Players
     this.load.spritesheet('GhostSpriteSheet', 'ghostSpriteSheet.png',{frameWidth: 16, frameHeight: 16});
     this.load.spritesheet('HumanSpriteSheet', 'humanSpriteSheet.png',{frameWidth: 16, frameHeight: 16});
@@ -46,6 +54,11 @@ export default class Boot extends Phaser.Scene {
     this.load.image('mirrorPossessed','mirrorSpr03.png');
 
     this.load.image('light','light.png');
+   //WINDOW
+   this.load.image('window','window.png')
+    //Bases
+    this.load.image('basefantas','basefant.png')
+    this.load.image('basepers','basepers.png')
 
     //Debug
     this.load.image('debugIndic','debugIndicator.png');
@@ -55,7 +68,7 @@ export default class Boot extends Phaser.Scene {
     this.load.tilemapTiledJSON('tilemap01', 'Map01.json');
     //Carga de spritesheet
     this.load.image('mapSpriteSheet', 'spritesheets/mansionNes.png');
-    //AUDIO
+  
   
     
   }

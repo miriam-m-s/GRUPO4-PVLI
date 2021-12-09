@@ -1,44 +1,60 @@
-/**
- 
- * @extends Phaser.GameObjects.Sprite
- */
- export default class Mirror extends Phaser.GameObjects.Sprite {
+export default class Mirror extends Phaser.GameObjects.Sprite {
   
     /**
    * Constructor de la Plataforma
-   * @param {Penis} penis penis
+   * @param {Phaser.Scene} scene Escena a la que pertenece la plataforma
+   * @param {Phaser.GameObjects.Group} furnitureGroup Grupo en el que se incluirán los muebles
+   * @param {number} x Coordenada x
+   * @param {number} y Coordenada y
    */
-  
-    constructor(scene, player, lampGroup, lampPos) 
-    {
-    super(scene, player, lampGroup, lampPos);
-    this.scene = scene;
-    this.player = player;
-    this.lampPos = lampPos;
+  constructor(scene, ghostPlayer,furnitureGroup , x, y, dir, mirrorDetector) 
+  {
+    super(scene, x, y, 'mirrorDefault');
+
+ 
 
     this.scene.add.existing(this);
-    this.body = this.scene.physics.add.sprite(this.lampPos.x, this.lampPos.y, 'mirrorDefault');
-    this.isOn = false;
-    this.depth = -5;
+    this.scene.physics.add.existing(this, true);
+    this.scene.physics.add.collider(this, ghostPlayer);
+    //this.canBePossessed=true; OBJETO INTELIGENTE
+    furnitureGroup.add(this);
+
+
+    this.mirrorDetector = mirrorDetector;
+
+    this.scene.physics.add.overlap(this, this.mirrorDetector);
+
+
+    this.xOffset = 0;
+    this.yOffset = 0;
+
+    if (dir == 0) this.xOffset = 50;
+
+    if (dir === 90) {
+        dir = 4.71;
+        this.yOffset = -50;
+    }
+
+    else if (dir === 180) {
+        dir = Math.PI;
+        this.xOffset = -50;
+    }
+
+    else if (dir === 270) {
+        dir = 1.57;
+        this.yOffset = 50;
+    }
+
+    this.dir = dir;
   }
   
 
-  SelectObject()
+  preUpdate(t,dt) 
   {
-    if(this.isOn) return;
-    //this.scale = 1.085;
-    this.body.setTexture('mirrorSelected');
-  }
-  DeselectObject() 
-  {
-    if(this.isOn) return;
-    this.body.setTexture('mirrorDefault');
-    this.scale = 1;
-  }
+    super.preUpdate(t,dt);
 
-  Interact()
-  {
-    this.body.setTexture('mirrorDefault');
-    this.body.rotation += 45;
+    if (this.scene.physics.overlap(this, this.mirrorDetector)) {
+        this.scene.DoRaycast(this.x + this.xOffset, this.y + this.yOffset, this.dir, this.mirrorDetector);
+    }
   }
-}  
+}
