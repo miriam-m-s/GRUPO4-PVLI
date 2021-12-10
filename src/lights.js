@@ -8,34 +8,6 @@ export default class Lights extends Phaser.GameObjects.Sprite {
    * @param {Phaser.Math.Vector2} lightPos Posicion de la luz
    * @param {number} radius Coordenada y
    */
-<<<<<<< Updated upstream
-  constructor(scene, humanPlayer, ghostPlayer, baseGroup, x, y, radius) {
-    super(scene, x, y, 'light', radius);
-    this.depth = -1;
-    this.setAlpha(.5);
-    
-    this.scale = radius;
-    this.scene.add.existing(this);
-    this.scene.physics.add.existing(this, true);
-
-    this.scene.physics.add.collider(this, ghostPlayer);
-    this.scene.physics.add.overlap(this, humanPlayer);
-  }
-
-
-  /**
-   * Redefinición del preUpdate de Phaser
-   * @override
-   */
-  preUpdate() {
-    // IMPORTANTE: Si no ponemos esta instrucción y el sprite está animado
-    // no se podrá ejecutar la animación del sprite. 
-    super.preUpdate();
-    if (this.scene.physics.overlap(this.scene.ghostPlayer, this)) {
-        // Delegamos en la escena para decidir qué hacer al 
-        // haber cogido una estrella
-    }
-=======
 
   constructor(scene, lightPos, radius) 
   {
@@ -67,6 +39,5 @@ export default class Lights extends Phaser.GameObjects.Sprite {
       //this.humanPlayer.onLightFunction(this.body.x + this.radius, this.body.y + this.radius);
     }
     else console.log("NOT OVERLAP");
->>>>>>> Stashed changes
   }
 }
