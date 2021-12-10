@@ -64,11 +64,8 @@ export default class Level extends Phaser.Scene {
       //Grupos de objetos
       this.lampGroup = this.add.group();
       this.furnitureGroup=this.add.group();
-
       
       this.mirrorGroup=this.add.group();
-
-      
 
 
 
@@ -88,7 +85,6 @@ export default class Level extends Phaser.Scene {
         //this.scene.scene.pause();
         this.scene.isPaused=!this.scene.isPaused;
         this.scene.clickPause();
-        
        });
 
       //Jugadores
@@ -109,7 +105,6 @@ export default class Level extends Phaser.Scene {
       ghostList = [new Furniture(this, this.ghostPlayer, this.furnitureGroup, new Phaser.Math.Vector2(130,135)), 
         new Furniture(this, this.ghostPlayer,  this.furnitureGroup, new Phaser.Math.Vector2(170,135))];
         //bases
-       
       
       if(Phaser.Utils.Debug)
       {
@@ -147,15 +142,11 @@ export default class Level extends Phaser.Scene {
       this.dynamicObstacles = [
          this.humanPlayer,
           this.ghostPlayer
-        
       ];
-
-
 
       this.raycaster = this.plugins.get('rexraycasterplugin').add()
       .addObstacle(this.staticObstacles)
       .addObstacle(this.dynamicObstacles)
-    
     
    this.window = new Window(this, this.graphics, 80, 200, this.raycaster, 0, this.rayLightDetector);
   }
