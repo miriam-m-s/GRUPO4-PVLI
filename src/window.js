@@ -1,5 +1,5 @@
 export default class Window extends Phaser.GameObjects.Sprite {
-  
+
     /**
    * Constructor de la Plataforma
    * @param {Phaser.Scene} scene Escena a la que pertenece la plataforma
@@ -7,7 +7,7 @@ export default class Window extends Phaser.GameObjects.Sprite {
    * @param {number} x Coordenada x
    * @param {number} y Coordenada y
    */
-  constructor(scene ,graphics, x, y, raycaster, rayAngle, mirrorDetector) 
+  constructor(scene ,graphics, x, y, raycaster, rayAngle, mirrorDetector) 
   {
     super(scene, x, y, 'window');
     this.setScale(0.19);
@@ -33,15 +33,15 @@ export default class Window extends Phaser.GameObjects.Sprite {
 
 
     this.raycaster = raycaster;
-    
-  
+
+
     this.scene.data
         .set('startX', 500)
         .set('startY', 225)
 
 
         this.x = x; this.y = y;
-       
+
       if (rayAngle === 90) rayAngle = 4.71;
 
        else if (rayAngle === 180) rayAngle = Math.PI;

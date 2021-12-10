@@ -22,8 +22,8 @@ export default class Ghost extends Player {
     this.ghostItems = ghostItems;
     this.possesion= scene.sound.add('possesion');
     this.anims.play('_idle' + this.playerName, true);
-    this.mirrorDetector=mirrorDetector;
-    this.scene.physics.add.overlap(this, mirrorDetector);
+    this.mirrorDetector = mirrorDetector;
+    this.scene.physics.add.overlap(this.body, this.mirrorDetector);
   }
 
   preUpdate(t,dt)
@@ -42,9 +42,9 @@ export default class Ghost extends Player {
       //this.itemPossesed.body.setPosition(this.body.position.x, this.body.position.y);
     }
     // Touch rayLight
-    if (this.scene.physics.overlap(this, this.mirrorDetector.BODY)) {
+    if (this.scene.physics.overlap(this.body, this.mirrorDetector)) {
       console.log("RESET LEVEL");
-      this.scene.ResetLevel();
+     // this.scene.ResetLevel();
       //this.scene.start('level');
     }
   }
@@ -67,7 +67,6 @@ export default class Ghost extends Player {
 
   AllowMovement()
   {
-    
     this.shouldMoveItem = true;
     console.log(this.shouldMoveItem);
   }
