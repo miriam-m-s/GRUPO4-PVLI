@@ -230,6 +230,7 @@ ResetLevel() {
 
   }
 }
+
 let RunRaycaster = function (raycaster, x, y, angle, debugGraphics, mirrorDetector) {
   debugGraphics
       .clear()
@@ -269,10 +270,12 @@ let RunRaycaster = function (raycaster, x, y, angle, debugGraphics, mirrorDetect
       } else {
           break;
       }
-    }
   }
+}
 
 
   
 
+
+  
 
