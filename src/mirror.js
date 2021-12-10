@@ -27,21 +27,21 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
     this.xOffset = 0;
     this.yOffset = 0;
 
-    if (dir == 0) this.xOffset = 50;
+    if (dir == 0) this.xOffset = this.width/2;
 
     if (dir === 90) {
         dir = 4.71;
-        this.yOffset = -50;
+        this.yOffset = -this.height/2;
     }
 
     else if (dir === 180) {
         dir = Math.PI;
-        this.xOffset = -50;
+        this.xOffset = -this.width/2;
     }
 
     else if (dir === 270) {
         dir = 1.57;
-        this.yOffset = 50;
+        this.yOffset = this.height/2;
     }
 
     this.dir = dir;
@@ -60,7 +60,9 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
 
         console.log(this.x + " " + this.y);
 
-        this.scene.DoRaycast(this.x, this.y + 100, 45, this.mirrorDetector);
+        this.scene.DoRaycastMirror(this.x + this.xOffset, this.y + this.yOffset, this.dir, this.mirrorDetector);
+    } else  {
+        this.scene.DoRaycastMirror(this.x + this.xOffset + 1000, this.y + this.yOffset, this.dir, this.mirrorDetector);
     }
   }
 }

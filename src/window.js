@@ -63,6 +63,6 @@ export default class Window extends Phaser.GameObjects.Sprite {
   {
     super.preUpdate(t,dt);
 
-    this.scene.DoRaycast(this.x, this.y, this.rayAngle, this.mirrorDetector);
+    this.scene.DoRaycast(this.x, this.y, this.rayAngle, this.mirrorDetector,this.raycaster);
   }
 }

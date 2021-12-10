@@ -147,13 +147,15 @@ export default class Level extends Phaser.Scene {
     //GRAFICOS
     this.graphics = this.add.graphics();
 
+    this.graphicsMirror = this.add.graphics();
+
 
 
       // this.raycaster = this.plugins.get('rexraycasterplugin').add()
       // .addObstacle(this.staticObstacles)
       // .addObstacle(this.dynamicObstacles)
     
-  
+
 
       this.mirror = new Mirror(this, this.ghostPlayer, this.mirrorGroup, 20, 80, 90, this.mirrorDetector);
 
@@ -172,6 +174,7 @@ this.raycaster = this.plugins.get('rexraycasterplugin').add()
     .addObstacle(this.staticObstacles)
     .addObstacle(this.dynamicObstacles)
 
+
 this.debugGraphics = this.add.graphics();
 this.data
     .set('startX', 20)
@@ -183,17 +186,25 @@ this.data
   //     this.debugGraphics
   // );    
   this.window = new Window(this,this.graphics, 200, 80, this.raycaster, 180, this.mirrorDetector);
-
 }
-
-  DoRaycast(x, y, angle, mirrorDetector, raycaster) {
-
+  DoRaycast(x, y, angle, mirrorDetector) {
 
     RunRaycaster(this.raycaster,
         x, y, angle,
         this.graphics, 
         mirrorDetector
     );
+}
+
+DoRaycastMirror(x, y, angle, mirrorDetector) {
+
+  console.log("MIRROR");
+
+  RunRaycaster(this.raycaster,
+      x, y, angle,
+      this.graphicsMirror,
+      mirrorDetector
+  );
 }
 
 ResetLevel() {
