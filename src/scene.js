@@ -263,3 +263,11 @@ let RunRaycaster = function (raycaster, x, y, angle, debugGraphics, mirrorDetect
   
 
 
+  checkEnd()
+  {
+    if(this.humanPlayer.playerState && this.ghostPlayer.playerState)
+    {
+        this.scene.start('end');
+    }
+  }
+}
