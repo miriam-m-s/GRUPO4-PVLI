@@ -26,7 +26,7 @@ export default class Boot extends Phaser.Scene {
 
     this.load.setPath('assets/sprites/');
     //Cursor
-    this.load.image('CursorSelector','cursorSelector');
+    this.load.image('CursorSelector','cursorSelector.png');
     //Players
     this.load.spritesheet('GhostSpriteSheet', 'ghostSpriteSheet.png',{frameWidth: 16, frameHeight: 16});
     this.load.spritesheet('HumanSpriteSheet', 'humanSpriteSheet.png',{frameWidth: 16, frameHeight: 16});
@@ -145,6 +145,6 @@ export default class Boot extends Phaser.Scene {
       });
 
     //CREACION DEL NIVEL
-    this.scene.start('level');
+    this.scene.start('mainMenu');
   }
 }
