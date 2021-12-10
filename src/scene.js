@@ -56,9 +56,15 @@ export default class Level extends Phaser.Scene {
       this.backgroundLayer = this.map.createLayer('BackLayer', [tileset1]);
       this.lightLayer  = this.map.createLayer('LightLayer', [tileset1]);
       this.frontLayer = this.map.createLayer('FrontLayer', [tileset1]);
-      this.itemLayer = this.map.createLayer('ItemLayer', [tileset1]); 
+      //this.itemLayer = this.map.createLayer('ItemLayer', [tileset1]); 
 
     //OBJETOS DE LA ESCENA
+      this.timer = this.add.text(220,40, "Time: 0", {
+        font: "15px Arial",
+        fill: "#fff",
+        align: "right"
+    });
+     //this.add.text(10, 10, 'Time: ' );
       this.clock = new Phaser.Time.Clock(this);
       this.bases = this.add.group();
       //Grupos de objetos
@@ -77,7 +83,7 @@ export default class Level extends Phaser.Scene {
       this.escape = this.input.keyboard.addKey('ESC');
       this.escape.on('down', ()=> {
         this.exit.play();
-       this. music.stop();
+        this.music.stop();
       this.isPaused=!this.isPaused;
         this.clickPause();
       });
@@ -175,6 +181,7 @@ ResetLevel() {
 }
   //Check de final de nivel para ambos jugadores
   update() {   
+    this.updateTimer();
   //  console.log(this.basefant.ininbase()+" "+this.basepers.ininbase()) 
        if(this.basefant.ininbase()&&this.basepers.ininbase()){
          console.log("NEXT LEVEL");
@@ -182,6 +189,11 @@ ResetLevel() {
       }
       this.raycaster.updateObstacle(this.dynamicObstacles);
   } 
+
+  updateTimer(){
+    let time = Math.floor(this.time.now/1000) ;
+    this.timer.setText("Time: " + time);
+  }
 
   clickPause()
   {
