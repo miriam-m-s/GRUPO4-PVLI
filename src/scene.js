@@ -58,14 +58,18 @@ export default class Level extends Phaser.Scene {
       this.frontLayer = this.map.createLayer('FrontLayer', [tileset1]);
       //this.itemLayer = this.map.createLayer('ItemLayer', [tileset1]); 
 
-    //OBJETOS DE LA ESCENA
-      this.timer = this.add.text(220,40, "Time: 0", {
-        font: "15px Arial",
+    //Timer
+      this.gameTime = this.add.text(205,40, "0s", {
+        font: "15px",
         fill: "#fff",
         align: "right"
     });
-     //this.add.text(10, 10, 'Time: ' );
-      this.clock = new Phaser.Time.Clock(this);
+      this.timer = this.time.addEvent({
+        delay: 999999,
+        paused: false
+      });
+
+      //OBJETOS DE LA ESCENA
       this.bases = this.add.group();
       //Grupos de objetos
       this.lampGroup = this.add.group();
@@ -191,20 +195,29 @@ ResetLevel() {
   } 
 
   updateTimer(){
-    let time = Math.floor(this.time.now/1000) ;
-    this.timer.setText("Time: " + time);
+    let totalSeconds = this.timer.getElapsedSeconds().toFixed(0);
+    this.gameTime.setText(totalSeconds);
+    let minutes = Math.floor(totalSeconds/60);
+    let seconds = totalSeconds - 60 * minutes;
+    if(totalSeconds < 60){
+      this.gameTime.setText(seconds+"s");
+    }
+    else{
+      this.gameTime.setText(minutes + "m"+ seconds+"s");
+    }
   }
 
   clickPause()
   {
     if(this.isPaused) //Crea el menu con los botones
     {
+      this.timer.paused = !this.timer.paused;
       this.anims.pauseAll(); //Pausa todas las animaciones de la escena
       this.pauseMenu=new Pause(this,120,130);
     }
     else //Lo destruye
     {
-     
+      this.timer.paused = !this.timer.paused;
       this.music.play();
       this.pauseMenu.destroy();
       this.anims.resumeAll(); //Reanuda las animaciones que habia activas al pausar la escena
