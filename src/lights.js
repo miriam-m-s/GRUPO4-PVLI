@@ -17,15 +17,15 @@ export default class Lights extends Phaser.GameObjects.Sprite {
     this.depth = 0;
     this.setAlpha(.2);  
 
-    this.setOrigin(0);
+
     this.scene.add.existing(this);
-    this.scene.physics.add.existing(this, true);
+    this.scene.physics.add.existing(this);
   
     this.radius = radius;
     this.human = humanPlayer;
-    this.body.setCircle(radius);
+    this.body.setCircle(radius*20);
 
-    this.scale = ((radius-3)/1000);
+    this.scale = ((radius)/1000);
 
     this.scene.physics.add.collider(this, ghostPlayer);
     this.scene.physics.add.overlap(this, humanPlayer);

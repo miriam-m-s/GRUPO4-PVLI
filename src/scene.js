@@ -142,7 +142,7 @@ export default class Level extends Phaser.Scene {
     this.basefant=new Base(this,this.ghostPlayer,'basefantas',150,50);
 
     this.lights = this.add.group();
-    new Lights(this, this.humanPlayer, this.ghostPlayer, this.lights, 50, 50, 50);
+    new Lights(this, this.humanPlayer, this.ghostPlayer, this.lights, 100, 80, 50);
 
     //GRAFICOS
     this.graphics = this.add.graphics();
