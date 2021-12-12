@@ -7,7 +7,7 @@ export default class Window extends Phaser.GameObjects.Sprite {
    * @param {number} x Coordenada x
    * @param {number} y Coordenada y
    */
-  constructor(scene ,graphics, x, y, raycaster, rayAngle, mirrorDetector) 
+  constructor(scene , x, y, rayAngle, mirrorDetector,d,s) 
   {
     super(scene, x, y, 'window');
     this.setScale(0.19);
@@ -18,9 +18,22 @@ export default class Window extends Phaser.GameObjects.Sprite {
     //furnitureGroup.add(this);
 
    // this.rayLight = new Line(scene, 0, 100, 0, 100);
+ 
+  this.s=s;
+   this.staticObstacles =s;
+    this.d=d;
+this.dynamicObstacles = this.d;
+this.raycaster = this.scene.plugins.get('rexraycasterplugin').add()
+    .addObstacle(this.staticObstacles)
+    .addObstacle(this.dynamicObstacles)
+
+this.debugGraphics = this.scene.add.graphics();
+this.scene.data
+    .set('startX', x)
+    .set('startY', y)
 
 
-   this.graphics = graphics;
+  
 
    this.mirrorDetector = mirrorDetector;
 
@@ -32,12 +45,7 @@ export default class Window extends Phaser.GameObjects.Sprite {
     //this.debugGraphics = this.add.graphics();
 
 
-    this.raycaster = raycaster;
-
-
-    this.scene.data
-        .set('startX', 500)
-        .set('startY', 225)
+   
 
 
         this.x = x; this.y = y;
@@ -52,17 +60,52 @@ export default class Window extends Phaser.GameObjects.Sprite {
         this.rayAngle = rayAngle;
 
         this.scene = scene;
-
-       //this.scene.createLightRay(180, 100, 100);
-
-
-     //scene.createRayLight(this.pivot.x, this.pivot.y);
   }
 
   preUpdate(t,dt) 
   {
     super.preUpdate(t,dt);
+    this.raycaster.updateObstacle(this.dynamicObstacles);
 
-    this.scene.DoRaycast(this.x, this.y, this.rayAngle, this.mirrorDetector,this.raycaster);
+    
+    var x = this.scene.data.get('startX'),
+        y = this.scene.data.get('startY'),
+        angle = this.rayAngle;
+    RunRaycaster(this.raycaster,
+        x, y, angle,
+        this.debugGraphics,this.mirrorDetector
+    );
+
+    //this.scene.DoRaycast(this.x, this.y, this.rayAngle, this.mirrorDetector,this.raycaster);
+  }
+}
+
+var RunRaycaster = function (raycaster, x, y, angle, debugGraphics,mirrorDetector) {
+  debugGraphics
+      .clear()
+      .fillStyle(0xC4C400)
+      .fillCircle(x, y, 10);
+
+  const MaxReflectionCount = 1000;
+  for (var i = 0; i < MaxReflectionCount; i++) {
+      var result = raycaster.rayToward(x, y, angle);
+      debugGraphics
+          .lineStyle(2, 0x840000)
+          .strokeLineShape(raycaster.ray);
+          mirrorDetector.setPosition(result.x, result.y);
+
+          break; 
+
+      if (result) {
+          debugGraphics
+              .fillStyle(0xff0000)
+              .fillPoint(result.x, result.y, 4)
+
+          x = result.x;
+          y = result.y;
+          angle = result.reflectAngle;
+      } else {
+          break;
+      }
   }
 }

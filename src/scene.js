@@ -185,7 +185,7 @@ this.data
   //     100, 100, 80,
   //     this.debugGraphics
   // );    
-  this.window = new Window(this,this.graphics, 200, 80, this.raycaster, 180, this.mirrorDetector);
+  this.window = new Window(this, 200, 80,  180, this.mirrorDetector,this.dynamicObstacles,this.staticObstacles);
 }
   DoRaycast(x, y, angle, mirrorDetector) {
 
