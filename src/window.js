@@ -20,7 +20,7 @@ export default class Window extends Phaser.GameObjects.Sprite {
    // this.rayLight = new Line(scene, 0, 100, 0, 100);
  
   this.s=s;
-   this.staticObstacles =s;
+   this.staticObstacles =this.s;
     this.d=d;
 this.dynamicObstacles = this.d;
 this.raycaster = this.scene.plugins.get('rexraycasterplugin').add()
@@ -95,17 +95,5 @@ var RunRaycaster = function (raycaster, x, y, angle, debugGraphics,mirrorDetecto
           mirrorDetector.setPosition(result.x, result.y);
 
           break; 
-
-      if (result) {
-          debugGraphics
-              .fillStyle(0xff0000)
-              .fillPoint(result.x, result.y, 4)
-
-          x = result.x;
-          y = result.y;
-          angle = result.reflectAngle;
-      } else {
-          break;
-      }
   }
 }

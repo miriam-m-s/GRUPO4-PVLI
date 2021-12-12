@@ -89,7 +89,6 @@ export default class Level extends Phaser.Scene {
       this.escape = this.input.keyboard.addKey('ESC');
       this.escape.on('down', ()=> {
         this.exit.play();
-        this.music.stop();
       this.isPaused=!this.isPaused;
         this.clickPause();
       });
@@ -148,64 +147,36 @@ export default class Level extends Phaser.Scene {
     this.graphics = this.add.graphics();
 
     this.graphicsMirror = this.add.graphics();
+    this.dynamicObstaclesmirror = [
+
+      this.humanPlayer.body,
+      this.ghostPlayer.body
+     
+     
+    ];
+    this.staticObstacles = [
+    ];
+    this.mirror = new Mirror(this, this.mirrorGroup, 20, 80,90, this.mirrorDetector,this.dynamicObstaclesmirror ,this.staticObstacles);
+   
+    this.dynamicObstacles = [
+
+      this.humanPlayer.body,
+      this.ghostPlayer.body,
+      this.mirror
+     
+    ];
+    this.window = new Window(this, 200, 80,  180, this.mirrorDetector,this.dynamicObstacles,this.staticObstacles);
+     
 
 
 
-      // this.raycaster = this.plugins.get('rexraycasterplugin').add()
-      // .addObstacle(this.staticObstacles)
-      // .addObstacle(this.dynamicObstacles)
-    
+ 
 
 
-      this.mirror = new Mirror(this, this.ghostPlayer, this.mirrorGroup, 20, 80, 90, this.mirrorDetector);
-
-
-  this.staticObstacles = [
-]
-this.dynamicObstacles = [
-
-  this.humanPlayer.body,
-  this.ghostPlayer.body,
-  this.mirror
-    // this.add.rectangle(580, 200, 100, 30, 0xC48434),
-    // this.add.rectangle(620, 400, 100, 30, 0xC48434).setAngle(90)
-];
-this.raycaster = this.plugins.get('rexraycasterplugin').add()
-    .addObstacle(this.staticObstacles)
-    .addObstacle(this.dynamicObstacles)
-
-
-this.debugGraphics = this.add.graphics();
-this.data
-    .set('startX', 20)
-    .set('startY', 200);
-
-
-  //   RunRaycaster(this.raycaster,
-  //     100, 100, 80,
-  //     this.debugGraphics
-  // );    
-  this.window = new Window(this, 200, 80,  180, this.mirrorDetector,this.dynamicObstacles,this.staticObstacles);
+ 
+  
 }
-  DoRaycast(x, y, angle, mirrorDetector) {
-
-    RunRaycaster(this.raycaster,
-        x, y, angle,
-        this.graphics, 
-        mirrorDetector
-    );
-}
-
-DoRaycastMirror(x, y, angle, mirrorDetector) {
-
-  console.log("MIRROR");
-
-  RunRaycaster(this.raycaster,
-      x, y, angle,
-      this.graphicsMirror,
-      mirrorDetector
-  );
-}
+ 
 
 ResetLevel() {
   console.log("RESET LEVEL");
@@ -222,14 +193,9 @@ ResetLevel() {
       }
 
 
-      //this.raycaster.updateObstacle(this.dynamicObstacles);
+    
 
-      this.raycaster.updateObstacle(this.dynamicObstacles);
-
-  // var pointer = this.input.activePointer;
-  // var x = this.data.get('startX'),
-  //   y = this.data.get('startY'),
-  //   angle = Phaser.Math.Angle.Between(x, y, pointer.worldX, pointer.worldY);
+    
 
   } 
 
@@ -270,24 +236,3 @@ ResetLevel() {
   }
 }
 
-var RunRaycaster = function (raycaster, x, y, angle, debugGraphics, mirrorDetector) {
-  debugGraphics
-      .clear()
-      .fillStyle(0xC4C400)
-      .fillCircle(x, y, 10);
-
-  const MaxReflectionCount = 1000;
-  for (var i = 0; i < MaxReflectionCount; i++) {
-      var result = raycaster.rayToward(x, y, angle);
-      debugGraphics
-          .lineStyle(2, 0x840000)
-          .strokeLineShape(raycaster.ray);
-
-
-          mirrorDetector.setPosition(result.x, result.y);
-
-          break;
-
-
-  }
-}
