@@ -1,13 +1,14 @@
 
 import Lights from './lights.js';
 import Lamp from './lamp.js';
+import Mirror from './mirror.js';
 import Furniture from './furniture.js';
 import Human from './human.js';
 import Ghost from './ghost.js'
 import Base from './base.js';
+import Window from './window.js'
+
 import Pause from './pause.js';
-import Window from './window.js';
-import Mirror from './mirror.js';
 
 
 
@@ -24,14 +25,11 @@ export default class Level extends Phaser.Scene {
   }
 
   //Creación de los elementos de la escena principal de juego
-  preload() { 
-    this.load.plugin('rexraycasterplugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexraycasterplugin.min.js', true);      
-}
+  preload(){
+    this.load.plugin('rexraycasterplugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexraycasterplugin.min.js', true);  
+  }
   create() 
   {
-    this.mirrorDetector = this.add.rectangle(100, 100, 20, 20, 0x008804).setOrigin(0.5, 0.5);
-    this.physics.add.existing(this.mirrorDetector);
-
     //MAPA TILESET
       //creacion del tilemap
       this.map = this.make.tilemap({ 
@@ -89,6 +87,7 @@ export default class Level extends Phaser.Scene {
       this.escape = this.input.keyboard.addKey('ESC');
       this.escape.on('down', ()=> {
         this.exit.play();
+        this.music.stop();
       this.isPaused=!this.isPaused;
         this.clickPause();
       });
@@ -110,11 +109,12 @@ export default class Level extends Phaser.Scene {
       let ghostList; //lista de objetos poseibles
 
       //Objetos Humano(lamparas/interruptores)
-      this.lampCreated01 = 
+      
       humanList = [
-        new Lamp(this, this.humanPlayer, this.lampGroup, new Phaser.Math.Vector2(60,80)), 
+        new Lamp(this, 60, 80,'lampDefault',this.humanPlayer,this.ghostPlayer, this.lampGroup), 
+        new Lamp(this, 190, 150,'lampDefault',this.humanPlayer,this.ghostPlayer, this.lampGroup)];
        // new Mirror(this, this.humanPlayer, this.lampGroup, new Phaser.Math.Vector2(190,70)), 
-        new Lamp(this, this.humanPlayer, this.lampGroup, new Phaser.Math.Vector2(190,150))];
+        //new Lamp(this, this.humanPlayer, this.lampGroup, new Phaser.Math.Vector2(190,150))];
       
       //Objetos Fantasma(muebles/espejo)
       ghostList = [new Furniture(this, this.ghostPlayer, this.furnitureGroup, new Phaser.Math.Vector2(130,135)), 
@@ -122,20 +122,21 @@ export default class Level extends Phaser.Scene {
         //bases
        
       
-      if(Phaser.Utils.Debug)
-      {
-        this.debugIndicator = this.physics.add.sprite(130, 100, 'debugIndic');
-        this.debugIndicator.depth = 900;
-        console.log(this.debugIndicator.body.center);
-      }
+      // if(Phaser.Utils.Debug)
+      // {
+      //   this.debugIndicator = this.physics.add.sprite(130, 100, 'debugIndic');
+      //   this.debugIndicator.depth = 900;
+      //   console.log(this.debugIndicator.body.center);
+      // }
       //RAYLIGHT DETECTOR
-      // this.rayLightDetector = this.add.rectangle(0, 100, 600, 30, 0x848484).setOrigin(0, 1);
-      // this.physics.add.existing(this.rayLightDetector);
+      this.rayLightDetector = this.add.rectangle(0, 100, 600, 30, 0x848484).setOrigin(0, 1);
+      this.physics.add.existing(this.rayLightDetector);
      
     //CAMBIAR ESTO EN FANTASMA / HUMANO
-    this.humanPlayer = new Human(this, new Phaser.Math.Vector2(130, 100), "Human", true, humanList);
-    this.ghostPlayer = new Ghost(this, new Phaser.Math.Vector2(180, 100),"Ghost", false, ghostList,  this.mirrorDetector);//comienza el fantasma
-
+    //this.humanPlayer = new Human(this, 130, 100, "Human", true, humanList);
+    this.humanPlayer = new Human(this, 130, 100, 'human', true, humanList);
+    //this.ghostPlayer = new Ghost(this, new Phaser.Math.Vector2(180, 100),"Ghost", false, ghostList,  this.rayLightDetector );//comienza el fantasma
+    this.ghostPlayer = new Ghost(this,180, 100,'ghost', false, ghostList,  this.rayLightDetector )
    
     this.basepers=new Base(this,this.humanPlayer,'basepers',70,110);
     this.basefant=new Base(this,this.ghostPlayer,'basefantas',150,50);
@@ -145,58 +146,54 @@ export default class Level extends Phaser.Scene {
 
     //GRAFICOS
     this.graphics = this.add.graphics();
-
-    this.graphicsMirror = this.add.graphics();
-    this.dynamicObstaclesmirror = [
-
-      this.humanPlayer.body,
-      this.ghostPlayer.body
-     
-     
-    ];
-    this.staticObstacles = [
-    ];
-    this.mirror = new Mirror(this, this.mirrorGroup, 20, 80,90, this.mirrorDetector,this.dynamicObstaclesmirror ,this.staticObstacles);
    
-    this.dynamicObstacles = [
 
-      this.humanPlayer.body,
-      this.ghostPlayer.body,
-      this.mirror
+    this.mirror = new Mirror(this, this.ghostPlayer, this.mirrorGroup, 20, 80, 180, this.rayLightDetector);
+
+    //RAYCAST OBJECTS
+    this.staticObstacles = [
      
-    ];
-    this.window = new Window(this, 200, 80,  180, this.mirrorDetector,this.dynamicObstacles,this.staticObstacles);
-     
-
-
-
- 
-
-
- 
+      ];
   
+
+      this.dynamicObstacles = [
+         this.humanPlayer,
+          this.ghostPlayer
+        
+      ];
+
+
+
+      this.raycaster = this.plugins.get('rexraycasterplugin').add()
+      .addObstacle(this.staticObstacles)
+      .addObstacle(this.dynamicObstacles)
+    
+    
+   this.window = new Window(this, this.graphics, 80, 200, this.raycaster, 0, this.rayLightDetector);
+  }
+  
+  DoRaycast(x, y, angle, mirrorDetector) {
+
+    RunRaycaster(this.raycaster,
+        x, y, angle,
+        this.graphics, 
+        mirrorDetector
+    );
 }
- 
 
 ResetLevel() {
   console.log("RESET LEVEL");
- // this.scene.start('end');
+  this.scene.start('end');
 }
-
   //Check de final de nivel para ambos jugadores
   update() {   
     this.updateTimer();
   //  console.log(this.basefant.ininbase()+" "+this.basepers.ininbase()) 
        if(this.basefant.ininbase()&&this.basepers.ininbase()){
          console.log("NEXT LEVEL");
-          this.scene.scene.start('end');
+          this.scene.start('end');
       }
-
-
-    
-
-    
-
+      this.raycaster.updateObstacle(this.dynamicObstacles);
   } 
 
   updateTimer(){
@@ -224,7 +221,7 @@ ResetLevel() {
     {
       this.timer.paused = !this.timer.paused;
       this.music.play();
-      this.pauseMenu.destroy();
+     // this.pauseMenu.destroy();
       this.anims.resumeAll(); //Reanuda las animaciones que habia activas al pausar la escena
 
     }
@@ -235,4 +232,52 @@ ResetLevel() {
 
   }
 }
+
+let RunRaycaster = function (raycaster, x, y, angle, debugGraphics, mirrorDetector) {
+  debugGraphics
+      .clear()
+      .fillStyle(0xC4C400)
+      .fillCircle(x, y, 10);
+
+  const MaxReflectionCount = 1000;
+  for (let i = 0; i < MaxReflectionCount; i++) {
+      let result = raycaster.rayToward(x, y, angle);
+      debugGraphics
+          .lineStyle(1, 0x176711)
+          .strokeLineShape(raycaster.ray);
+
+      
+      mirrorDetector.setPosition(result.x, result.y);
+      console.log(angle);
+   
+ break;
+      if (result) {
+
+// //add overlap collider (require passing ray.processOverlap as process callback)
+// this.physics.add.overlap(this.ray, targets, function(rayFoVCircle, target){
+//     /*
+//     * What to do with game objects in line of sight.
+//     */
+//   }, this.ray.processOverlap.bind(this.ray));
+
+          debugGraphics
+              .fillStyle(0xff0000)
+              .fillPoint(result.x, result.y, 4)
+
+          x = result.x;
+          y = result.y;
+          angle = result.reflectAngle;
+          console.log(angle);
+         
+      } else {
+          break;
+      }
+  }
+}
+
+
+  
+
+
+  
 

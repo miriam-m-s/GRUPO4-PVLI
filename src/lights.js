@@ -13,7 +13,7 @@ export default class Lights extends Phaser.GameObjects.Sprite {
    * @param {number} radius Coordenada y
    */
   constructor(scene, humanPlayer, ghostPlayer, baseGroup, x, y, radius) {
-    super(scene, x, y, 'light', radius);
+    super(scene, x, y, 'light');
     this.depth = 0;
     this.setAlpha(.2);  
 
@@ -27,8 +27,8 @@ export default class Lights extends Phaser.GameObjects.Sprite {
 
     this.scale = ((radius-3)/1000);
 
-    this.scene.physics.add.collider(this, ghostPlayer.body);
-    this.scene.physics.add.overlap(this, humanPlayer.body);
+    this.scene.physics.add.collider(this, ghostPlayer);
+    this.scene.physics.add.overlap(this, humanPlayer);
 
     this.body.scale *= 0.5;
   }
@@ -40,8 +40,8 @@ export default class Lights extends Phaser.GameObjects.Sprite {
    */
    preUpdate() {
     super.preUpdate();
-    if (this.scene.physics.overlap(this.scene.humanPlayer.body, this)) {
-      this.scene.humanPlayer.onLightFunction(this.body.x + this.radius,
+    if (this.scene.physics.overlap(this.human, this)) {
+      this.human.onLightFunction(this.body.x + this.radius,
                 this.body.y + this.radius);
      }
   }

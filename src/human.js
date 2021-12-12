@@ -12,11 +12,11 @@ export default class Human extends Player {
    * @param {Array<Lamp>} humanItems la lista de lamparas
    */
   
-  constructor(scene, playerPos, playerName, beingControlled,humanItems) 
+  constructor(scene, playerPosX,playerPosY, playerName, beingControlled,humanItems) 
   {
-    super(scene, playerPos, playerName, beingControlled, humanItems);
+    super(scene, playerPosX,playerPosY, playerName, beingControlled, humanItems);
     this.humanItems = humanItems;
-    //this.position = playerPos;
+    this.anims.play('_up' + this.playerName,false);
 
     this.onLight = true;
   
@@ -44,7 +44,7 @@ export default class Human extends Player {
   
         // tween animation
         var tween = this.scene.tweens.add({
-          targets: this.body,
+          targets: this,
           x:  this.saveX,
           y:  this.saveY,
           ease: 'Cubic', 

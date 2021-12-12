@@ -5,6 +5,8 @@
  * @extends Phaser.GameObjects.Sprite
 
  */
+
+ import Lights from './lights.js';
  export default class Lamp extends Phaser.GameObjects.Sprite {
   
     /**
@@ -13,54 +15,50 @@
    * @param {Object} lightCircle circulo de luz
    */
   
-    constructor(scene, player, lampGroup, lampPos) 
+    constructor(scene, lampPosX, lampPosY, sprite, human,ghost, lampGroup) 
     {
-    super(scene, player, lampGroup, lampPos);
+    super(scene, lampPosX, lampPosY, sprite );
     this.scene = scene;
-    this.player = player;
-    this.lampPos = lampPos;
+    this.human = human;
+    this.ghost=ghost;
+    this.lampPosX = lampPosX;
+    this.lampPosY=lampPosY;
+    this.lampGroup=lampGroup;
     this.soundlight= scene.sound.add('light');
     this.scene.add.existing(this);
-    this.body = this.scene.physics.add.sprite(this.lampPos.x, this.lampPos.y, 'lampDefault');
+    this.scene.physics.add.existing(this);
     this.isOn = false;
     //this.depth = -5;
-    this.lightCircle = null;
+    this.light=null;
   }
   
 
   SelectObject()
   {
     if(this.isOn) return;
-    //this.scale = 1.085;
-   
-    this.body.setTexture('lampSelected');
+    this.setTexture('lampSelected');
   }
   DeselectObject() 
   {
     if(this.isOn) return;
-    this.body.setTexture('lampDefault');
+    this.setTexture('lampDefault');
     this.scale = 1;
   }
 
   Interact()
   {
     
-    //this.body.setTexture('lampDefault');
     if(!this.isOn)//si no esta encendida
     {
-      if(this.lightCircle == null)
+      if(this.light == null)
       {
         this.soundlight.play();
-
-        this.lightCircle = this.scene.physics.add.sprite(this.lampPos.x, this.lampPos.y, 'lightCircleBig');
-        this.lightCircle.setCircle(this.lightCircle.width/2);//collider ajustado al sprite
-        this.lightCircle.depth = 2;
+        this.light = new Lights(this.scene, this.scene.humanPlayer, this.scene.ghostPlayer, this.scene.lights, this.lampPosX, this.lampPosY, 50);
+        
       }
       else
       {
         this.soundlight.play();
-        this.lightCircle.body.gameObject.alpha = 1;
-        //this.lightCircle.sprite.setActive(true);
       }
     }
     else //Esta encendida

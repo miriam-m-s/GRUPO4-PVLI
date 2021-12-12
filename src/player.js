@@ -18,17 +18,18 @@ export default class Player extends Phaser.GameObjects.Sprite {
     * @param {number} secCounter
    */
   
-   constructor(scene, initialPos, initialName, startController) 
+   constructor(scene, initialPosX, initialPosY, initialName, startController) 
    {
     
-    super(scene, initialPos, initialName, startController);
+    super(scene, initialPosX,initialPosY, initialName);
     
     //Asignar Parametros
     this.scene = scene;
-    this.playerPos = initialPos; //donde comienza el jugador en la escena
+    this.playerPos = new Phaser.Math.Vector2(initialPosX,initialPosY); //donde comienza el jugador en la escena
     this.playerName = initialName; //Ghost / Human
     this.beingControlled = startController; //comenzamos controlando al fantasma
     this.soundchange= scene.sound.add('changeplayer');
+
     //Litas/Objetos
     this.objectList = null;
     this.selectedObject = null;
@@ -39,16 +40,16 @@ export default class Player extends Phaser.GameObjects.Sprite {
     
     
     //FISICAS
-    this.body = this.scene.physics.add.sprite(this.playerPos.x, this.playerPos.y, this.playerName + 'SpriteSheet');
+    // this.body = this.scene.physics.add.sprite(this.playerPos.x, this.playerPos.y, this.playerName + 'SpriteSheet');
     this.body.setCollideWorldBounds();
     this.speed = 50;
 
     //Cursores
-    this.cursorsPlayer = this.scene.input.keyboard.createCursorKeys();
+    this.cursors = this.scene.input.keyboard.createCursorKeys();
     this.space = scene.input.keyboard.addKey('SPACE');
     this.eKey = scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
     this.runKey = scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SHIFT);
-    this.start();
+    //this.start();
     this.depth = 3;
 
     //DEBUG INDICATOR
@@ -57,7 +58,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
   //Cambiar personajes con Espacio
     this.space.on('down', () =>
      {     
-        this.body.stop();//para la animacion actual
+        //this.body.stop();//para la animacion actual
         this.body.setVelocity(0);
         this.soundchange.play();
         if(this.selectedObject != null)
@@ -78,6 +79,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
         this.selectedObject.Interact(this.body);
        }
     }); 
+
     //Correr cuando se mantenga pulsado Shift
     this.runKey.on('down', () =>
      {     
@@ -89,16 +91,6 @@ export default class Player extends Phaser.GameObjects.Sprite {
     }); 
   }
 
-
-  start()
-  {
-    this.scene.time.addEvent( {
-    delay: 3000, 
-    callback: this.saveposition,
-    callbackScope: false,
-    loop: true
-    });
-  }
 
   setBeingControlled() {
     
@@ -123,14 +115,35 @@ export default class Player extends Phaser.GameObjects.Sprite {
     if(!this.scene.levelPaused())
     {
        //Calculamos la velocidad
-    let [velX, velY] = this.calculateVelocity();
+    // let [velX, velY] = this.calculateVelocity();
 
-    //Movimiento del personaje
-    this.body.setVelocity(velX, velY);
+    // //Movimiento del personaje
+    // this.body.setVelocity(velX, velY);
 
-    //Animacion de spritesheet para cada personaje
-    this.changeAnims(velX, velY);
+    // //Animacion de spritesheet para cada personaje
+    // this.changeAnims(velX, velY);
+    if (this.cursors.left.isDown) 
+    {
+      this.body.flipX=true;
+      this.body.setVelocityX(-this.speed);
     }
+    else if (this.cursors.right.isDown) {
+        this.body.setVelocityX(this.speed);
+      }
+    else if(this.cursors.up.isDown){
+        this.body.setVelocityY(-this.speed);
+      }
+    else if(this.cursors.down.isDown){
+        this.body.setVelocityY(this.speed);
+      }
+    else {
+        this.body.setVelocityX(0);
+        this.body.setVelocityY(0);
+
+    }
+  }
+    
+    
     
    
     //this.debugIndicator.setPosition(this.body.x, this.body.y);
@@ -139,35 +152,37 @@ export default class Player extends Phaser.GameObjects.Sprite {
   }
 
   //Calculo de velocidad con respecto a input
-  calculateVelocity() {
-    let [velX, velY] = [0, 0];
+//   calculateVelocity() {
     
-    if (this.cursorsPlayer.up.isDown) { //arriba
-        velY -= this.speed;
-    }
-    if (this.cursorsPlayer.down.isDown) { //abajo
-        velY += this.speed;
-    }
-    if (this.cursorsPlayer.left.isDown) { //izquierda
-        velX -= this.speed;
-    }
-    if (this.cursorsPlayer.right.isDown) { //derecha
-        velX += this.speed;
-    }
+//     let [velX, velY] = [0, 0];
+    
+//     if (this.cursorsPlayer.up.isDown) { //arriba
+//         velY -= this.speed;
+//     }
+//     if (this.cursorsPlayer.down.isDown) { //abajo
+//         velY += this.speed;
+//     }
+//     if (this.cursorsPlayer.left.isDown) { //izquierda
+//         velX -= this.speed;
+//     }
+//     if (this.cursorsPlayer.right.isDown) { //derecha
+//         velX += this.speed;
+//     }
 
-    //Normalizamos el vector
-    if (velX != 0 && velY != 0) {
-        velX /= Math.sqrt(2);
-        velY /= Math.sqrt(2)
-    }
+//     //Normalizamos el vector
+//     if (velX != 0 && velY != 0) {
+//         velX /= Math.sqrt(2);
+//         velY /= Math.sqrt(2)
+//     }
     
-    //devolvemos velocidad
-    return [velX, velY];
-}
+//     //devolvemos velocidad
+//     return [velX, velY];
+// }
 
 //Animacion dependiendo del movimiento/input usuaro
 changeAnims(velX, velY) 
 {
+  
  if (velX === 0) 
  {
      if (velY === 0) //quieto

@@ -14,22 +14,21 @@ export default class Ghost extends Player {
    * * 
    */
   
-  constructor(scene, playerPos, playerName, beingControlled, ghostItems, mirrorDetector) 
+  constructor(scene, playerPosX,playerPosY, playerName, beingControlled, ghostItems, mirrorDetector) 
   {
-    super(scene, playerPos, playerName, beingControlled, ghostItems);
+    super(scene, playerPosX,playerPosY, playerName, beingControlled, ghostItems);
 
     this.shouldMoveItem = false;
     this.ghostItems = ghostItems;
     this.possesion= scene.sound.add('possesion');
-    this.anims.play('_idle' + this.playerName, true);
-    this.mirrorDetector = mirrorDetector;
-    this.scene.physics.add.overlap(this.body, this.mirrorDetector);
+    this.mirrorDetector=mirrorDetector;
+    this.scene.physics.add.overlap(this, mirrorDetector);
+    
   }
 
   preUpdate(t,dt)
   {
     super.preUpdate(t,dt);
-
     if(this.beingControlled)
     {
       this.CheckForNearestObject(this.ghostItems);
@@ -42,9 +41,9 @@ export default class Ghost extends Player {
       //this.itemPossesed.body.setPosition(this.body.position.x, this.body.position.y);
     }
     // Touch rayLight
-    if (this.scene.physics.overlap(this.body, this.mirrorDetector)) {
+    if (this.scene.physics.overlap(this, this.mirrorDetector.BODY)) {
       console.log("RESET LEVEL");
-     // this.scene.ResetLevel();
+      this.scene.ResetLevel();
       //this.scene.start('level');
     }
   }
@@ -67,8 +66,9 @@ export default class Ghost extends Player {
 
   AllowMovement()
   {
+    
     this.shouldMoveItem = true;
-    console.log(this.shouldMoveItem);
+    //console.log(this.shouldMoveItem);
   }
 
   AssignObject(objectToPossess)

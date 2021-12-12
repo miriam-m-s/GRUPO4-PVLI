@@ -34,7 +34,7 @@
         this.quitText.scale=0.6;
         this.quitText.on('pointerdown', function()
          { 
-            //this.scene.scene.start('menu');
+            //this.scene.scene.start('mainMenu');
             console.log("Quit game");
          });
         
