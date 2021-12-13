@@ -7,16 +7,15 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
    * @param {number} x Coordenada x
    * @param {number} y Coordenada y
    */
-  constructor(scene, ghostPlayer,furnitureGroup , x, y, dir, mirrorDetector) 
+  constructor(scene,furnitureGroup , x, y, dir, mirrorDetector) 
   {
     super(scene, x, y, 'mirrorDefault');
 
  
 
     this.scene.add.existing(this);
-    this.scene.physics.add.existing(this, true);
-    this.scene.physics.add.collider(this, ghostPlayer);
-    //this.canBePossessed=true; OBJETO INTELIGENTE
+    this.scene.physics.add.existing(this);
+   
     furnitureGroup.add(this);
 
 
@@ -46,7 +45,29 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
 
     this.dir = dir;
   }
-  
+  SelectObject()
+  {
+    if(this.isPossesed) return;
+    this.scale = 1.05;
+    this.setTexture('mirrorSelected');
+  }
+
+  DeselectObject() 
+  {
+    if(this.isPossesed) return;
+    this.scale = 1;
+    this.setTexture('mirrorDefault');
+  }
+
+  Interact()
+  {
+   
+    this.isPossesed = !this.isPossesed;
+    this.setTexture('mirrorPossessed');
+    this.body.depth = 3;
+    
+    this.scene.ghostPlayer.PossessObject(this);
+  }
 
   preUpdate(t,dt) 
   {

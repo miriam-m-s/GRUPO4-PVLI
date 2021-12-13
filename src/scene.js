@@ -103,7 +103,8 @@ export default class Level extends Phaser.Scene {
 
       //Jugadores
 
-      
+      this.rayLightDetector = this.add.rectangle(200, 200, 10, 10, 0x6666ff);
+      this.physics.add.existing(this.rayLightDetector);
     
       let humanList; //lista de objetos humanos
       let ghostList; //lista de objetos poseibles
@@ -120,6 +121,7 @@ export default class Level extends Phaser.Scene {
       ghostList = [
         this.furniture=new Furniture(this, this.ghostPlayer, this.furnitureGroup, 130,135,'furniture'), 
         this.furniture2= new Furniture(this, this.ghostPlayer, this.furnitureGroup, 170,135,'furniture'), 
+        this.mirror = new Mirror(this, this.mirrorGroup, 20, 80, 0, this.rayLightDetector)
        
       ];
         //bases
@@ -132,8 +134,7 @@ export default class Level extends Phaser.Scene {
       //   console.log(this.debugIndicator.body.center);
       // }
       //RAYLIGHT DETECTOR
-      this.rayLightDetector = this.add.rectangle(200, 200, 10, 10, 0x6666ff);
-      this.physics.add.existing(this.rayLightDetector);
+
      
     //CAMBIAR ESTO EN FANTASMA / HUMANO
 
@@ -151,7 +152,7 @@ export default class Level extends Phaser.Scene {
     this.graphics = this.add.graphics();
    
 
-    this.mirror = new Mirror(this, this.ghostPlayer, this.mirrorGroup, 20, 80, 0, this.rayLightDetector);
+   
 
     //RAYCAST OBJECTS
     this.staticObstacles = [
