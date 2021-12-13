@@ -5,11 +5,17 @@ import Lamp from './lamp.js';
  * También almacena la puntuación o número de estrellas que ha recogido hasta el momento.
  */
 export default class Human extends Player {
+<<<<<<< HEAD
+
+=======
+  
+>>>>>>> VisualsRevamp
   /**
    * Constructor del jugador
    * @param {Phaser.Scene} scene Escena a la que pertenece el jugador
    * @param {Array<Lamp>} humanItems la lista de lamparas
    */
+<<<<<<< HEAD
 
   constructor(scene, playerPosX, playerPosY, beingControlled, humanItems) {
     super(scene, playerPosX, playerPosY, 'Humansel', 'Human', beingControlled, humanItems);
@@ -58,5 +64,22 @@ export default class Human extends Player {
       this.CheckForNearestObject(this.humanItems);
     }
 
+=======
+  
+  constructor(scene, playerPos, playerName, beingControlled,humanItems) 
+  {
+    super(scene, playerPos, playerName, beingControlled, humanItems);
+    this.humanItems = humanItems;
+    //this.position = playerPos;
+  }
+
+  preUpdate(t,dt)
+  {
+    super.preUpdate(t,dt);
+    if(this.beingControlled)
+    {
+      this.CheckForNearestObject(this.humanItems);
+    }   
+>>>>>>> VisualsRevamp
   }
 }

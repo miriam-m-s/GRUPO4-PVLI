@@ -24,6 +24,10 @@ export default class MainMenuScene extends Phaser.Scene {
       this.scene.scene.start('level');
     })
 
+<<<<<<< HEAD
+    this.add.sprite(screenCenterX - 80, screenCenterY, 'CursorSelector');
+=======
     this.add.sprite(screenCenterX - 80, screenCenterY, 'cursorSelector');
+>>>>>>> VisualsRevamp
   }
 }

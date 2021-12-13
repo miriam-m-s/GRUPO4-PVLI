@@ -10,16 +10,22 @@ export default class Boot extends Phaser.Scene {
    * Constructor de la escena
    */
   constructor() {
+<<<<<<< HEAD
 
     super({
       key: 'boot'
     });
+=======
+    
+    super({ key: 'boot' });
+>>>>>>> VisualsRevamp
     this.animationFrameRate = 3;
   }
 
   /**
    * Carga de los assets del juego
    */
+<<<<<<< HEAD
   preload() {
     //RAYCAST
 
@@ -86,6 +92,37 @@ export default class Boot extends Phaser.Scene {
 
     //Debug
     this.load.image('debugIndic', 'debugIndicator.png');
+=======
+  preload() 
+  {
+    
+    
+    //MUSIC
+    this.load.audio('bckMusic', ['./assets/audio/music/bckMusic.mp3']);
+    this.load.setPath('assets/sprites/');
+    //Players
+    this.load.spritesheet('GhostSpriteSheet', 'ghostSpriteSheet.png',{frameWidth: 16, frameHeight: 16});
+    this.load.spritesheet('HumanSpriteSheet', 'humanSpriteSheet.png',{frameWidth: 16, frameHeight: 16});
+    this.load.image('shadowBeneath','shadowBeneath.png');
+    //Objects/Enviroment
+    this.load.image('cursorSelector', 'cursorSelector.png');
+    this.load.image('lightCircleMedium', 'lightCircleMedium.png');
+    this.load.image('lightCircleBig', 'lightCircleBig.png');
+    //Lampara
+    this.load.image('lampDefault','lampSpr01.png');
+    this.load.image('lampSelected','lampSpr02.png');
+    //Furniture
+    this.load.image('furniture','furnitureSpr01.png');
+    this.load.image('furnitureSelected','furnitureSpr02.png');
+    this.load.image('furniturePossesed','furnitureSpr03.png');
+    //Mirror
+    this.load.image('mirrorDefault','mirrorSpr01.png');
+    this.load.image('mirrorSelected','mirrorSpr02.png');
+    this.load.image('mirrorPossessed','mirrorSpr03.png');
+
+    //Debug
+    this.load.image('debugIndic','debugIndicator.png');
+>>>>>>> VisualsRevamp
 
     this.load.setPath('assets/maps/');
     //Carga de Tilemap
@@ -93,16 +130,26 @@ export default class Boot extends Phaser.Scene {
     //Carga de spritesheet
     this.load.image('mapSpriteSheet', 'spritesheets/mansionNes.png');
 
+<<<<<<< HEAD
 
 
+=======
+    
+>>>>>>> VisualsRevamp
   }
 
   /**
    * Creación de la escena. En este caso, solo cambiamos a la escena que representa el
    * nivel del juego
    */
+<<<<<<< HEAD
 
   create() {
+=======
+  
+  create() 
+  {
+>>>>>>> VisualsRevamp
 
     //MUSIC
     const audioConfig = {
@@ -117,6 +164,7 @@ export default class Boot extends Phaser.Scene {
     var music = this.sound.add('bckMusic', audioConfig);
     //music.play();
 
+<<<<<<< HEAD
     //GHOST ANIMATIONS  NO SELECTED
     this.anims.create({
       key: "_idleGhost",
@@ -232,8 +280,73 @@ export default class Boot extends Phaser.Scene {
       }),
       repeat: -1
     });
+=======
+    //GHOST ANIMATIONS 
+      this.anims.create({
+        key: "_idleGhost",
+        frameRate: this.animationFrameRate,
+        frames: this.anims.generateFrameNumbers("GhostSpriteSheet", {start: 0, end:2}),
+        repeat: -1
+      });
+      this.anims.create({
+        key: "_downGhost",
+        frameRate: this.animationFrameRate,
+        frames: this.anims.generateFrameNumbers("GhostSpriteSheet", {start: 3, end:5}),
+        repeat: -1
+      });
+      this.anims.create({
+        key: "_leftGhost",
+        frameRate: this.animationFrameRate,
+        frames: this.anims.generateFrameNumbers("GhostSpriteSheet", {start: 6, end:8}),
+        repeat: -1
+      });
+      this.anims.create({
+        key: "_rightGhost",
+        frameRate: this.animationFrameRate,
+        frames: this.anims.generateFrameNumbers("GhostSpriteSheet", {start: 9, end:11}),
+        repeat: -1
+      });
+      this.anims.create({
+        key: "_upGhost",
+        frameRate: this.animationFrameRate,
+        frames: this.anims.generateFrameNumbers("GhostSpriteSheet", {start: 12, end:14}),
+        repeat: -1
+      });
+
+      //HUMAN ANIMATIONS -------------------------------------------------------------
+      this.anims.create({
+        key: "_idleHuman",
+        frameRate: this.animationFrameRate,
+        frames: this.anims.generateFrameNumbers("HumanSpriteSheet", {start: 0, end:2}),
+        repeat: -1
+      });
+      this.anims.create({
+        key: "_downHuman",
+        frameRate: this.animationFrameRate,
+        frames: this.anims.generateFrameNumbers("HumanSpriteSheet", {start: 3, end:5}),
+        repeat: -1
+      });
+      this.anims.create({
+        key: "_leftHuman",
+        frameRate: this.animationFrameRate,
+        frames: this.anims.generateFrameNumbers("HumanSpriteSheet", {start: 6, end:8}),
+        repeat: -1
+      });
+      this.anims.create({
+        key: "_rightHuman",
+        frameRate: this.animationFrameRate,
+        frames: this.anims.generateFrameNumbers("HumanSpriteSheet", {start: 9, end:11}),
+        repeat: -1
+      });
+      this.anims.create({
+        key: "_upHuman",
+        frameRate: this.animationFrameRate,
+        frames: this.anims.generateFrameNumbers("HumanSpriteSheet", {start: 12, end:14}),
+        repeat: -1
+      });
+>>>>>>> VisualsRevamp
 
     //CREACION DEL NIVEL
-    this.scene.start('level');
+    this.scene.start('mainMenu');
   }
 }
