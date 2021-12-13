@@ -140,9 +140,9 @@ export default class Level extends Phaser.Scene {
      
     //CAMBIAR ESTO EN FANTASMA / HUMANO
 
-    this.humanPlayer = new Human(this, 130, 100, 'human', true, humanList);
+    this.humanPlayer = new Human(this, 130, 100, true, humanList);
    
-    this.ghostPlayer = new Ghost(this,180, 100,'ghost', false, ghostList,  this.rayLightDetector )
+    this.ghostPlayer = new Ghost(this,180, 100, false, ghostList,  this.rayLightDetector )
    
     this.basepers=new Base(this,this.humanPlayer,'basepers',70,110);
     this.basefant=new Base(this,this.ghostPlayer,'basefantas',150,50);
@@ -262,7 +262,7 @@ let RunRaycaster = function (raycaster, x, y, angle, debugGraphics, mirrorDetect
 
       
       mirrorDetector.setPosition(result.x, result.y);
-      console.log(angle);
+   
    
  break;
       if (result) {

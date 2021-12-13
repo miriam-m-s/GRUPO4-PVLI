@@ -14,9 +14,9 @@ export default class Ghost extends Player {
    * * 
    */
   
-  constructor(scene, playerPosX,playerPosY, playerName, beingControlled, ghostItems, mirrorDetector) 
+  constructor(scene, playerPosX,playerPosY, beingControlled, ghostItems, mirrorDetector) 
   {
-    super(scene, playerPosX,playerPosY, playerName, beingControlled, ghostItems);
+    super(scene, playerPosX,playerPosY, 'Ghostsel','Ghost', beingControlled, ghostItems);
 
     this.shouldMoveItem = false;
     this.ghostItems = ghostItems;

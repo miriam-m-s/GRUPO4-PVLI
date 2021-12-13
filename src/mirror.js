@@ -73,7 +73,7 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
     super.preUpdate(t,dt);
 
     if (this.scene.physics.overlap(this, this.mirrorDetector)) {
-      console.log("hey");
+     
         this.scene.DoRaycast(this.x + this.xOffset, this.y + this.yOffset, this.dir, this.mirrorDetector,this.graphic1);
     }
     else{

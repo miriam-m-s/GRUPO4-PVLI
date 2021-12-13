@@ -18,15 +18,18 @@ export default class Player extends Phaser.GameObjects.Sprite {
     * @param {number} secCounter
    */
   
-   constructor(scene, initialPosX, initialPosY, initialName, startController) 
+   constructor(scene, initialPosX, initialPosY, initialName,NoSelectedName, startController) 
    {
     
     super(scene, initialPosX,initialPosY, initialName);
     
     //Asignar Parametros
+    
     this.scene = scene;
     this.playerPos = new Phaser.Math.Vector2(initialPosX,initialPosY); //donde comienza el jugador en la escena
-    this.playerName = initialName; //Ghost / Human
+    this.playerName = initialName; 
+    this.playerNamenoselect=NoSelectedName;
+    //Ghost / Human
     this.beingControlled = startController; //comenzamos controlando al fantasma
     this.soundchange= scene.sound.add('changeplayer');
 
@@ -38,6 +41,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
     
+   
     
     //FISICAS
     // this.body = this.scene.physics.add.sprite(this.playerPos.x, this.playerPos.y, this.playerName + 'SpriteSheet');
@@ -108,7 +112,10 @@ export default class Player extends Phaser.GameObjects.Sprite {
   
   preUpdate(t,dt) 
   {
-    if(!this.beingControlled) return;
+    if(!this.beingControlled) {
+      this.play('_idle' + this.playerNamenoselect, true);
+      return;
+    }
 
     super.preUpdate(t,dt);
 
@@ -124,22 +131,26 @@ export default class Player extends Phaser.GameObjects.Sprite {
     // this.changeAnims(velX, velY);
     if (this.cursors.left.isDown) 
     {
-      this.body.flipX=true;
+     
       this.body.setVelocityX(-this.speed);
+      this.play('_left' + this.playerName, true);
     }
     else if (this.cursors.right.isDown) {
         this.body.setVelocityX(this.speed);
+        this.play('_right' + this.playerName, true);
       }
     else if(this.cursors.up.isDown){
         this.body.setVelocityY(-this.speed);
+        this.play('_up' + this.playerName, true);
       }
     else if(this.cursors.down.isDown){
         this.body.setVelocityY(this.speed);
+        this.play('_down' + this.playerName , true);
       }
     else {
         this.body.setVelocityX(0);
         this.body.setVelocityY(0);
-
+        this.play('_idle' + this.playerName, true);
     }
   }
     
@@ -186,16 +197,16 @@ changeAnims(velX, velY)
  if (velX === 0) 
  {
      if (velY === 0) //quieto
-         this.body.play('_idle' + this.playerName, true);
+         this.play('_idle' + this.playerName, true);
      else if (velY < 0) //arriba
-         this.body.play('_up' + this.playerName, true);
+         this.play('_up' + this.playerName, true);
      else //abajo
-         this.body.play('_down' + this.playerName , true);
+         this.play('_down' + this.playerName , true);
  }
  else if (velX < 0) //izquierda
-     this.body.play('_left' + this.playerName, true);
+     this.play('_left' + this.playerName, true);
  else //derecha
-     this.body.play('_right' + this.playerName, true);
+     this.play('_right' + this.playerName, true);
 }
 
   CheckForNearestObject(objetos)

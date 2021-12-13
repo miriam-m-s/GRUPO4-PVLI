@@ -42,6 +42,8 @@ export default class Boot extends Phaser.Scene {
     //Players
     this.load.spritesheet('GhostSpriteSheet', 'ghostSpriteSheet.png',{frameWidth: 16, frameHeight: 16});
     this.load.spritesheet('HumanSpriteSheet', 'humanSpriteSheet.png',{frameWidth: 16, frameHeight: 16});
+    this.load.spritesheet('GhostSpriteSheetselect', 'ghostSpriteSheetselect.png',{frameWidth: 16, frameHeight: 16});
+    this.load.spritesheet('HumanSpriteSheetselect', 'humanSpriteSheetselect.png',{frameWidth: 16, frameHeight: 16});
     this.load.image('ghost','ghostSprite.png');
     this.load.image('human','humanSprite.png');
     //Objects/Enviroment
@@ -100,38 +102,46 @@ export default class Boot extends Phaser.Scene {
     var music = this.sound.add('bckMusic', audioConfig);
     //music.play();
 
-    //GHOST ANIMATIONS 
+    //GHOST ANIMATIONS  NO SELECTED
       this.anims.create({
         key: "_idleGhost",
         frameRate: this.animationFrameRate,
         frames: this.anims.generateFrameNumbers("GhostSpriteSheet", {start: 0, end:2}),
         repeat: -1
       });
-      this.anims.create({
-        key: "_downGhost",
-        frameRate: this.animationFrameRate,
-        frames: this.anims.generateFrameNumbers("GhostSpriteSheet", {start: 3, end:5}),
-        repeat: -1
-      });
-      this.anims.create({
-        key: "_leftGhost",
-        frameRate: this.animationFrameRate,
-        frames: this.anims.generateFrameNumbers("GhostSpriteSheet", {start: 6, end:8}),
-        repeat: -1
-      });
-      this.anims.create({
-        key: "_rightGhost",
-        frameRate: this.animationFrameRate,
-        frames: this.anims.generateFrameNumbers("GhostSpriteSheet", {start: 9, end:11}),
-        repeat: -1
-      });
-      this.anims.create({
-        key: "_upGhost",
-        frameRate: this.animationFrameRate,
-        frames: this.anims.generateFrameNumbers("GhostSpriteSheet", {start: 12, end:14}),
-        repeat: -1
-      });
+      
+      //GHOST SELECTED ANIMATIONS
 
+      this.anims.create({
+        key: "_idleGhostsel",
+        frameRate: this.animationFrameRate,
+        frames: this.anims.generateFrameNumbers("GhostSpriteSheetselect", {start: 0, end:2}),
+        repeat: -1
+      });
+      this.anims.create({
+        key: "_downGhostsel",
+        frameRate: this.animationFrameRate,
+        frames: this.anims.generateFrameNumbers("GhostSpriteSheetselect", {start: 3, end:5}),
+        repeat: -1
+      });
+      this.anims.create({
+        key: "_leftGhostsel",
+        frameRate: this.animationFrameRate,
+        frames: this.anims.generateFrameNumbers("GhostSpriteSheetselect", {start: 6, end:8}),
+        repeat: -1
+      });
+      this.anims.create({
+        key: "_rightGhostsel",
+        frameRate: this.animationFrameRate,
+        frames: this.anims.generateFrameNumbers("GhostSpriteSheetselect", {start: 9, end:11}),
+        repeat: -1
+      });
+      this.anims.create({
+        key: "_upGhostsel",
+        frameRate: this.animationFrameRate,
+        frames: this.anims.generateFrameNumbers("GhostSpriteSheetselect", {start: 12, end:14}),
+        repeat: -1
+      });
       //HUMAN ANIMATIONS -------------------------------------------------------------
       this.anims.create({
         key: "_idleHuman",
@@ -139,28 +149,36 @@ export default class Boot extends Phaser.Scene {
         frames: this.anims.generateFrameNumbers("HumanSpriteSheet", {start: 0, end:2}),
         repeat: -1
       });
+    
+      //HUMAN ANIMATIONS SELECTED -------------------------------------------------------------
       this.anims.create({
-        key: "_downHuman",
+        key: "_idleHumansel",
         frameRate: this.animationFrameRate,
-        frames: this.anims.generateFrameNumbers("HumanSpriteSheet", {start: 3, end:5}),
+        frames: this.anims.generateFrameNumbers("HumanSpriteSheetselect", {start: 0, end:2}),
         repeat: -1
       });
       this.anims.create({
-        key: "_leftHuman",
+        key: "_downHumansel",
         frameRate: this.animationFrameRate,
-        frames: this.anims.generateFrameNumbers("HumanSpriteSheet", {start: 6, end:8}),
+        frames: this.anims.generateFrameNumbers("HumanSpriteSheetselect", {start: 3, end:5}),
         repeat: -1
       });
       this.anims.create({
-        key: "_rightHuman",
+        key: "_leftHumansel",
         frameRate: this.animationFrameRate,
-        frames: this.anims.generateFrameNumbers("HumanSpriteSheet", {start: 9, end:11}),
+        frames: this.anims.generateFrameNumbers("HumanSpriteSheetselect", {start: 6, end:8}),
         repeat: -1
       });
       this.anims.create({
-        key: "_upHuman",
+        key: "_rightHumansel",
         frameRate: this.animationFrameRate,
-        frames: this.anims.generateFrameNumbers("HumanSpriteSheet", {start: 12, end:14}),
+        frames: this.anims.generateFrameNumbers("HumanSpriteSheetselect", {start: 9, end:11}),
+        repeat: -1
+      });
+      this.anims.create({
+        key: "_upHumansel",
+        frameRate: this.animationFrameRate,
+        frames: this.anims.generateFrameNumbers("HumanSpriteSheetselect", {start: 12, end:14}),
         repeat: -1
       });
 

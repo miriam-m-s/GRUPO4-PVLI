@@ -12,9 +12,9 @@ export default class Human extends Player {
    * @param {Array<Lamp>} humanItems la lista de lamparas
    */
   
-  constructor(scene, playerPosX,playerPosY, playerName, beingControlled,humanItems) 
+  constructor(scene, playerPosX,playerPosY, beingControlled,humanItems) 
   {
-    super(scene, playerPosX,playerPosY, playerName, beingControlled, humanItems);
+    super(scene, playerPosX,playerPosY,'Humansel','Human', beingControlled, humanItems);
     this.humanItems = humanItems;
     this.anims.play('_up' + this.playerName,false);
 
