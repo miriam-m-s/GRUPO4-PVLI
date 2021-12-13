@@ -17,7 +17,7 @@ let config = {
     },
     zoom: 2.1,
     pixelArt: true,
-    scene: [Boot,Nivel , End],
+    scene: [Boot,Level, End],
     physics: {
         default: 'arcade',
         arcade: {

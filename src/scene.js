@@ -6,7 +6,6 @@ import Human from './human.js';
 import Ghost from './ghost.js'
 import Base from './base.js';
 import Window from './window.js'
-
 import Pause from './pause.js';
 
 
@@ -160,29 +159,29 @@ export default class Level extends Phaser.Scene {
     this.staticObstacles = [];
 
 
-    this.dynamicObstacles = [
-      this.humanPlayer,
-      this.ghostPlayer, this.mirror, this.furniture2, this.furniture,this.mirror2
-    ];
+    // this.dynamicObstacles = [
+    //   this.humanPlayer,
+    //   this.ghostPlayer, this.mirror, this.furniture2, this.furniture,this.mirror2
+    // ];
 
 
 
-    this.raycaster = this.plugins.get('rexraycasterplugin').add()
-      .addObstacle(this.staticObstacles)
-      .addObstacle(this.dynamicObstacles)
+    // this.raycaster = this.plugins.get('rexraycasterplugin').add()
+    //   .addObstacle(this.staticObstacles)
+    //   .addObstacle(this.dynamicObstacles)
 
 
-    this.window = new Window(this, this.graphics, 20, 200, this.raycaster, 90);
+    // this.window = new Window(this, this.graphics, 20, 200, this.raycaster, 90);
   }
 
-  DoRaycast(x, y, angle, mirrorDetector, graphic) {
+  // DoRaycast(x, y, angle, mirrorDetector, graphic) {
 
-    RunRaycaster(this.raycaster,
-      x, y, angle,
-      graphic,
-      mirrorDetector
-    );
-  }
+  //   RunRaycaster(this.raycaster,
+  //     x, y, angle,
+  //     graphic,
+  //     mirrorDetector
+  //   );
+  // }
 
   ResetLevel() {
     console.log("RESET LEVEL");
@@ -196,7 +195,7 @@ export default class Level extends Phaser.Scene {
       console.log("NEXT LEVEL");
       this.scene.start('end');
     }
-    this.raycaster.updateObstacle(this.dynamicObstacles);
+   // this.raycaster.updateObstacle(this.dynamicObstacles);
   }
 
   updateTimer() {
@@ -235,24 +234,24 @@ export default class Level extends Phaser.Scene {
   }
 }
 //raycaster calculate positions of rays
-let RunRaycaster = function (raycaster, x, y, angle, debugGraphics, mirrorDetector) {
-  debugGraphics
-    .clear()
-    .fillStyle(0xC4C400)
+// let RunRaycaster = function (raycaster, x, y, angle, debugGraphics, mirrorDetector) {
+//   debugGraphics
+//     .clear()
+//     .fillStyle(0xC4C400)
 
 
-  const MaxReflectionCount = 1000;
-  for (let i = 0; i < MaxReflectionCount; i++) {
-    let result = raycaster.rayToward(x, y, angle);
-    debugGraphics
-      .lineStyle(2, 0xFFFFF)
-      .strokeLineShape(raycaster.ray);
+//   const MaxReflectionCount = 1000;
+//   for (let i = 0; i < MaxReflectionCount; i++) {
+//     let result = raycaster.rayToward(x, y, angle);
+//     debugGraphics
+//       .lineStyle(2, 0xFFFFF)
+//       .strokeLineShape(raycaster.ray);
 
 
-    mirrorDetector.setPosition(result.x, result.y);
+//     mirrorDetector.setPosition(result.x, result.y);
 
 
-    break;
+//     break;
 
-  }
-}
+//   }
+// }
