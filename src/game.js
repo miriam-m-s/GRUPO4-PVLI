@@ -1,8 +1,8 @@
 import Boot from './boot.js';
 import End from './end.js';
-import Platform from './platform.js';
 import MainMenuScene from './mainMenuScene.js';
 import Level from './scene.js';
+import Nivel from './scena1.js'
 
 let config = {
     type: Phaser.WEBGL,
@@ -17,7 +17,7 @@ let config = {
     },
     zoom: 2.1,
     pixelArt: true,
-    scene: [Boot, MainMenuScene, Level, End],
+    scene: [Boot,Nivel , End],
     physics: {
         default: 'arcade',
         arcade: {
