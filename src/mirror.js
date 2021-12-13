@@ -61,7 +61,6 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
 
   Interact()
   {
-   
     this.isPossesed = !this.isPossesed;
     this.setTexture('mirrorPossessed');
     this.body.depth = 3;
