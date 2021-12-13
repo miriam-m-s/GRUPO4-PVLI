@@ -117,8 +117,10 @@ export default class Level extends Phaser.Scene {
         //new Lamp(this, this.humanPlayer, this.lampGroup, new Phaser.Math.Vector2(190,150))];
       
       //Objetos Fantasma(muebles/espejo)
-      ghostList = [new Furniture(this, this.ghostPlayer, this.furnitureGroup, 130,135,'furniture'), 
-       // new Furniture(this, this.ghostPlayer,  this.furnitureGroup, new Phaser.Math.Vector2(170,135))
+      ghostList = [
+        this.furniture=new Furniture(this, this.ghostPlayer, this.furnitureGroup, 130,135,'furniture'), 
+        this.furniture2= new Furniture(this, this.ghostPlayer, this.furnitureGroup, 170,135,'furniture'), 
+       
       ];
         //bases
        
@@ -159,7 +161,7 @@ export default class Level extends Phaser.Scene {
 
       this.dynamicObstacles = [
          this.humanPlayer,
-          this.ghostPlayer,this.mirror
+          this.ghostPlayer,this.mirror, this.furniture2,this.furniture
         
       ];
 

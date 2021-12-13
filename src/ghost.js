@@ -86,6 +86,7 @@ export default class Ghost extends Player {
     }
     else{
       this.possesion.play();
+      this.setAlpha(1); 
       this.itemPossesed = null;
     } 
     return false;

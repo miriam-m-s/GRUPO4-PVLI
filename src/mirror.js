@@ -56,5 +56,8 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
       console.log("hey");
         this.scene.DoRaycast(this.x + this.xOffset, this.y + this.yOffset, this.dir, this.mirrorDetector,this.graphic1);
     }
+    else{
+      this.scene.DoRaycast(1000 + this.xOffset, 1000 + this.yOffset, this.dir, this.mirrorDetector,this.graphic1);
+    }
   }
 }
