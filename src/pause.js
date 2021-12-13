@@ -22,20 +22,20 @@
        this.resumeText = this.scene.add.text(-35, -7, "Resume", textConfig).setInteractive();
        this.resumeText.scale = 0.6;
        this.resumeText.on('pointerdown', function () {
-          console.log("Back to game");
+
           this.scene.isPaused = false;
           this.scene.clickPause();
        });
        this.restartText = this.scene.add.text(-35, 8, "Restart", textConfig).setInteractive();
        this.restartText.scale = 0.6;
        this.restartText.on('pointerdown', function () {
-          console.log("Restart level");
+
+          this.scene.scene.start('level');
        });
        this.quitText = this.scene.add.text(-35, 23, "Quit", textConfig).setInteractive();
        this.quitText.scale = 0.6;
        this.quitText.on('pointerdown', function () {
           this.scene.scene.start('mainMenu');
-          console.log("Quit game");
        });
 
        this.add([this.fondo, this.pauseText, this.resumeText, this.restartText, this.quitText]);
