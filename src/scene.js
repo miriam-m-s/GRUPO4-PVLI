@@ -101,6 +101,8 @@ export default class Level extends Phaser.Scene {
         
        });
 
+       this.pauseMenu=null;
+
       //Jugadores
 
       this.rayLightDetector = this.add.rectangle(200, 200, 10, 10, 0x6666ff);
@@ -217,15 +219,23 @@ ResetLevel() {
   {
     if(this.isPaused) //Crea el menu con los botones
     {
+      if(this.pauseMenu===null)
+      {
+        this.pauseMenu=new Pause(this,120,130);
+
+      }
+      this.pauseMenu.active=true;
+      this.pauseMenu.alpha=1;
       this.timer.paused = !this.timer.paused;
       this.anims.pauseAll(); //Pausa todas las animaciones de la escena
-      this.pauseMenu=new Pause(this,120,130);
+      
     }
     else //Lo destruye
     {
+      this.pauseMenu.active=false;
+      this.pauseMenu.alpha=0;
       this.timer.paused = !this.timer.paused;
       this.music.play();
-     // this.pauseMenu.destroy();
       this.anims.resumeAll(); //Reanuda las animaciones que habia activas al pausar la escena
 
     }
