@@ -20,7 +20,9 @@ export default class Furniture extends Phaser.GameObjects.Sprite {
 
     //this.debugIndicator = this.scene.physics.add.sprite(this.body.x, this.body.y, 'debugIndic');
   }
-  
+  Mirrordetect(){
+    console.log("soy furniture");
+  }
 
   SelectObject()
   {

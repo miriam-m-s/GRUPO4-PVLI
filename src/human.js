@@ -23,7 +23,9 @@ export default class Human extends Player {
     this.saveX = 0;
     this.saveY = 0;
   }
-
+  Mirrordetect(){
+    console.log("soy human");
+  }
 
   onLightFunction(x, y) {
 

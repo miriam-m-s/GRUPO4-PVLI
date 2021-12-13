@@ -1,3 +1,4 @@
+import MirrorDetector from "./mirrordtect.js";
 export default class Window extends Phaser.GameObjects.Sprite {
   
     /**
@@ -7,7 +8,7 @@ export default class Window extends Phaser.GameObjects.Sprite {
    * @param {number} x Coordenada x
    * @param {number} y Coordenada y
    */
-  constructor(scene ,graphics, x, y, raycaster, rayAngle, mirrorDetector) 
+  constructor(scene ,graphics, x, y, raycaster, rayAngle) 
   {
     super(scene, x, y, 'window');
     this.setScale(0.19);
@@ -22,15 +23,14 @@ export default class Window extends Phaser.GameObjects.Sprite {
 
    this.graphics = graphics;
 
-   this.mirrorDetector = mirrorDetector;
+   
 
 
    this.pivot = new Phaser.Geom.Point(this.body.x + this.width/2,
         this.body.y + this.height);
 
 
-    //this.debugGraphics = this.add.graphics();
-
+    this.mirrorDetector = new MirrorDetector(scene,x,y);
 
     this.raycaster = raycaster;
     

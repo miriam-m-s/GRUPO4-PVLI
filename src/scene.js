@@ -105,8 +105,7 @@ export default class Level extends Phaser.Scene {
 
       //Jugadores
 
-      this.rayLightDetector = this.add.rectangle(200, 200, 10, 10, 0x6666ff);
-      this.physics.add.existing(this.rayLightDetector);
+     
     
       let humanList; //lista de objetos humanos
       let ghostList; //lista de objetos poseibles
@@ -142,7 +141,7 @@ export default class Level extends Phaser.Scene {
 
     this.humanPlayer = new Human(this, 130, 100, true, humanList);
    
-    this.ghostPlayer = new Ghost(this,180, 100, false, ghostList,  this.rayLightDetector )
+    this.ghostPlayer = new Ghost(this,180, 100, false, ghostList )
    
     this.basepers=new Base(this,this.humanPlayer,'basepers',70,110);
     this.basefant=new Base(this,this.ghostPlayer,'basefantas',150,50);
@@ -175,7 +174,7 @@ export default class Level extends Phaser.Scene {
       .addObstacle(this.dynamicObstacles)
     
     
-   this.window = new Window(this, this.graphics, 20, 200, this.raycaster, 90, this.rayLightDetector);
+   this.window = new Window(this, this.graphics, 20, 200, this.raycaster, 90);
   }
   
   DoRaycast(x, y, angle, mirrorDetector,graphic) {
@@ -191,10 +190,10 @@ ResetLevel() {
   console.log("RESET LEVEL");
   this.scene.start('end');
 }
-  //Check de final de nivel para ambos jugadores
+  //Check the final de nivel para ambos jugadores
   update() {   
     this.updateTimer();
-  //  console.log(this.basefant.ininbase()+" "+this.basepers.ininbase()) 
+
        if(this.basefant.ininbase()&&this.basepers.ininbase()){
          console.log("NEXT LEVEL");
           this.scene.start('end');
@@ -246,7 +245,7 @@ ResetLevel() {
 
   }
 }
-
+//raycaster calculate positions of rays
 let RunRaycaster = function (raycaster, x, y, angle, debugGraphics, mirrorDetector) {
   debugGraphics
        .clear()
@@ -265,27 +264,7 @@ let RunRaycaster = function (raycaster, x, y, angle, debugGraphics, mirrorDetect
    
    
  break;
-      if (result) {
-
-// //add overlap collider (require passing ray.processOverlap as process callback)
-// this.physics.add.overlap(this.ray, targets, function(rayFoVCircle, target){
-//     /*
-//     * What to do with game objects in line of sight.
-//     */
-//   }, this.ray.processOverlap.bind(this.ray));
-
-          debugGraphics
-              .fillStyle(0xff0000)
-              .fillPoint(result.x, result.y, 4)
-
-          x = result.x;
-          y = result.y;
-          angle = result.reflectAngle;
-          console.log(angle);
-         
-      } else {
-          break;
-      }
+    
   }
 }
 

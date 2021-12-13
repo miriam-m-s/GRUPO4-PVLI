@@ -1,3 +1,4 @@
+import MirrorDetector from "./mirrordtect.js";
 export default class Mirror extends Phaser.GameObjects.Sprite {
   
     /**
@@ -7,7 +8,7 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
    * @param {number} x Coordenada x
    * @param {number} y Coordenada y
    */
-  constructor(scene,furnitureGroup , x, y, dir, mirrorDetector) 
+  constructor(scene,furnitureGroup , x, y, dir) 
   {
     super(scene, x, y, 'mirrorDefault');
 
@@ -18,11 +19,13 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
    
     furnitureGroup.add(this);
 
-
-    this.mirrorDetector = mirrorDetector;
-
-    this.scene.physics.add.overlap(this, this.mirrorDetector);
-
+    this.scene=scene;
+    this.x=x;
+    this.y=y;
+    
+    this.mirrorDetectors = null;
+    
+   this.inLight=false;
     this.graphic1 = this.scene.add.graphics();
     this.xOffset = 0;
     this.yOffset = 0;
@@ -51,7 +54,12 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
     this.scale = 1.05;
     this.setTexture('mirrorSelected');
   }
-
+  Mirrordetect(){
+    console.log("soy espejo");
+    if(this.mirrorDetectors==null)
+    this.mirrorDetectors=new MirrorDetector(this.scene,this.x,this.y);
+    this.inLight=true;
+  }
   DeselectObject() 
   {
     if(this.isPossesed) return;
@@ -71,13 +79,20 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
   preUpdate(t,dt) 
   {
     super.preUpdate(t,dt);
-
-    if (this.scene.physics.overlap(this, this.mirrorDetector)) {
+    if(this.mirrorDetectors!=null)
+     if(this.inLight){
+      this.scene.DoRaycast(this.x + this.xOffset, this.y + this.yOffset, this.dir, this.mirrorDetectors,this.graphic1);
+     }
+     else{
+      this.scene.DoRaycast(1000 + this.xOffset, 1000 + this.yOffset, this.dir, this.mirrorDetectors,this.graphic1);
+     }
+    // if (this.scene.physics.overlap(this, this.mirrorDetector)) {
      
-        this.scene.DoRaycast(this.x + this.xOffset, this.y + this.yOffset, this.dir, this.mirrorDetector,this.graphic1);
-    }
-    else{
-      this.scene.DoRaycast(1000 + this.xOffset, 1000 + this.yOffset, this.dir, this.mirrorDetector,this.graphic1);
-    }
+    //     this.scene.DoRaycast(this.x + this.xOffset, this.y + this.yOffset, this.dir, this.mirrorDetector,this.graphic1);
+    // }
+    // else{
+    //   this.scene.DoRaycast(1000 + this.xOffset, 1000 + this.yOffset, this.dir, this.mirrorDetector,this.graphic1);
+    // }
+    this.inLight=false;
   }
 }

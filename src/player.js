@@ -121,93 +121,43 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
     if(!this.scene.levelPaused())
     {
-       //Calculamos la velocidad
-    // let [velX, velY] = this.calculateVelocity();
-
-    // //Movimiento del personaje
-    // this.body.setVelocity(velX, velY);
-
-    // //Animacion de spritesheet para cada personaje
-    // this.changeAnims(velX, velY);
-    if (this.cursors.left.isDown) 
+    if (this.cursors.left.isDown) //move left
     {
-     
       this.body.setVelocityX(-this.speed);
+       //animation left
       this.play('_left' + this.playerName, true);
     }
-    else if (this.cursors.right.isDown) {
+    else if (this.cursors.right.isDown)//move right
+     {
         this.body.setVelocityX(this.speed);
+        //animation right
         this.play('_right' + this.playerName, true);
       }
-    else if(this.cursors.up.isDown){
+    else if(this.cursors.up.isDown)//move up
+    {
         this.body.setVelocityY(-this.speed);
+        //animation up
         this.play('_up' + this.playerName, true);
       }
-    else if(this.cursors.down.isDown){
+    else if(this.cursors.down.isDown)//move down
+    {
         this.body.setVelocityY(this.speed);
+        //animation down
         this.play('_down' + this.playerName , true);
       }
-    else {
+    else //no movement
+     {
         this.body.setVelocityX(0);
         this.body.setVelocityY(0);
+        //animation stop
         this.play('_idle' + this.playerName, true);
     }
   }
-    
-    
-    
-   
-    //this.debugIndicator.setPosition(this.body.x, this.body.y);
-  
    
   }
 
-  //Calculo de velocidad con respecto a input
-//   calculateVelocity() {
-    
-//     let [velX, velY] = [0, 0];
-    
-//     if (this.cursorsPlayer.up.isDown) { //arriba
-//         velY -= this.speed;
-//     }
-//     if (this.cursorsPlayer.down.isDown) { //abajo
-//         velY += this.speed;
-//     }
-//     if (this.cursorsPlayer.left.isDown) { //izquierda
-//         velX -= this.speed;
-//     }
-//     if (this.cursorsPlayer.right.isDown) { //derecha
-//         velX += this.speed;
-//     }
-
-//     //Normalizamos el vector
-//     if (velX != 0 && velY != 0) {
-//         velX /= Math.sqrt(2);
-//         velY /= Math.sqrt(2)
-//     }
-    
-//     //devolvemos velocidad
-//     return [velX, velY];
-// }
-
-//Animacion dependiendo del movimiento/input usuaro
-changeAnims(velX, velY) 
-{
   
- if (velX === 0) 
- {
-     if (velY === 0) //quieto
-         this.play('_idle' + this.playerName, true);
-     else if (velY < 0) //arriba
-         this.play('_up' + this.playerName, true);
-     else //abajo
-         this.play('_down' + this.playerName , true);
- }
- else if (velX < 0) //izquierda
-     this.play('_left' + this.playerName, true);
- else //derecha
-     this.play('_right' + this.playerName, true);
-}
+
 
   CheckForNearestObject(objetos)
   { 

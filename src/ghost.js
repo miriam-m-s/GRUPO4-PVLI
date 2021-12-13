@@ -14,15 +14,14 @@ export default class Ghost extends Player {
    * * 
    */
   
-  constructor(scene, playerPosX,playerPosY, beingControlled, ghostItems, mirrorDetector) 
+  constructor(scene, playerPosX,playerPosY, beingControlled, ghostItems) 
   {
     super(scene, playerPosX,playerPosY, 'Ghostsel','Ghost', beingControlled, ghostItems);
 
     this.shouldMoveItem = false;
     this.ghostItems = ghostItems;
     this.possesion= scene.sound.add('possesion');
-    this.mirrorDetector=mirrorDetector;
-    this.scene.physics.add.overlap(this, this.mirrorDetector);
+
     
   }
 
@@ -42,13 +41,11 @@ export default class Ghost extends Player {
       //this.itemPossesed.body.setPosition(this.body.position.x, this.body.position.y);
     }
     // Touch rayLight
-    if (this.scene.physics.overlap(this, this.mirrorDetector)) {
-      console.log("RESET LEVEL");
-     // this.scene.ResetLevel();
-      //this.scene.start('level');
-    }
+    
   }
-  
+  Mirrordetect(){
+    console.log("soy fantasma");
+  }
   PossessObject(objectToPossess)
   {
     if(this.AssignObject(objectToPossess))
