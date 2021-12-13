@@ -24,25 +24,25 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
 
     this.scene.physics.add.overlap(this, this.mirrorDetector);
 
-
+    this.graphic1 = this.scene.add.graphics();
     this.xOffset = 0;
     this.yOffset = 0;
 
-    if (dir == 0) this.xOffset = 50;
+    if (dir == 0) this.xOffset = this.widht+2;
 
     if (dir === 90) {
         dir = 4.71;
-        this.yOffset = -50;
+        this.yOffset = -this.height-2;
     }
 
     else if (dir === 180) {
         dir = Math.PI;
-        this.xOffset = -50;
+        this.xOffset = -this.widht-2;
     }
 
     else if (dir === 270) {
         dir = 1.57;
-        this.yOffset = 50;
+        this.yOffset = this.height+2;
     }
 
     this.dir = dir;
@@ -54,7 +54,8 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
     super.preUpdate(t,dt);
 
     if (this.scene.physics.overlap(this, this.mirrorDetector)) {
-        this.scene.DoRaycast(this.x + this.xOffset, this.y + this.yOffset, this.dir, this.mirrorDetector);
+      console.log("hey");
+        this.scene.DoRaycast(this.x + this.xOffset, this.y + this.yOffset, this.dir, this.mirrorDetector,this.graphic1);
     }
   }
 }

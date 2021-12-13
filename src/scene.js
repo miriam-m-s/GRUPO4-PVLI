@@ -129,13 +129,13 @@ export default class Level extends Phaser.Scene {
       //   console.log(this.debugIndicator.body.center);
       // }
       //RAYLIGHT DETECTOR
-      this.rayLightDetector = this.add.rectangle(0, 100, 10, 10, 0x00000).setOrigin(1, 1);
+      this.rayLightDetector = this.add.rectangle(200, 200, 10, 10, 0x6666ff);
       this.physics.add.existing(this.rayLightDetector);
      
     //CAMBIAR ESTO EN FANTASMA / HUMANO
-    //this.humanPlayer = new Human(this, 130, 100, "Human", true, humanList);
+
     this.humanPlayer = new Human(this, 130, 100, 'human', true, humanList);
-    //this.ghostPlayer = new Ghost(this, new Phaser.Math.Vector2(180, 100),"Ghost", false, ghostList,  this.rayLightDetector );//comienza el fantasma
+   
     this.ghostPlayer = new Ghost(this,180, 100,'ghost', false, ghostList,  this.rayLightDetector )
    
     this.basepers=new Base(this,this.humanPlayer,'basepers',70,110);
@@ -148,7 +148,7 @@ export default class Level extends Phaser.Scene {
     this.graphics = this.add.graphics();
    
 
-    this.mirror = new Mirror(this, this.ghostPlayer, this.mirrorGroup, 20, 80, 180, this.rayLightDetector);
+    this.mirror = new Mirror(this, this.ghostPlayer, this.mirrorGroup, 20, 80, 0, this.rayLightDetector);
 
     //RAYCAST OBJECTS
     this.staticObstacles = [
@@ -158,7 +158,7 @@ export default class Level extends Phaser.Scene {
 
       this.dynamicObstacles = [
          this.humanPlayer,
-          this.ghostPlayer
+          this.ghostPlayer,this.mirror
         
       ];
 
@@ -169,14 +169,14 @@ export default class Level extends Phaser.Scene {
       .addObstacle(this.dynamicObstacles)
     
     
-   this.window = new Window(this, this.graphics, 80, 200, this.raycaster, 0, this.rayLightDetector);
+   this.window = new Window(this, this.graphics, 20, 200, this.raycaster, 90, this.rayLightDetector);
   }
   
-  DoRaycast(x, y, angle, mirrorDetector) {
+  DoRaycast(x, y, angle, mirrorDetector,graphic) {
 
     RunRaycaster(this.raycaster,
         x, y, angle,
-        this.graphics, 
+        graphic, 
         mirrorDetector
     );
 }
@@ -234,20 +234,20 @@ ResetLevel() {
 }
 
 let RunRaycaster = function (raycaster, x, y, angle, debugGraphics, mirrorDetector) {
-  debugGraphics
-      .clear()
-      .fillStyle(0xC4C400)
-      .fillCircle(x, y, 10);
+  // debugGraphics
+  //     .clear()
+  //     .fillStyle(0xC4C400)
+
 
   const MaxReflectionCount = 1000;
   for (let i = 0; i < MaxReflectionCount; i++) {
       let result = raycaster.rayToward(x, y, angle);
       debugGraphics
-          .lineStyle(1, 0x176711)
+          .lineStyle(2, 0xFFFFF)
           .strokeLineShape(raycaster.ray);
 
       
-      mirrorDetector.setPosition(result.x, result.y+mirrorDetector.height());
+      mirrorDetector.setPosition(result.x, result.y);
       console.log(angle);
    
  break;

@@ -22,7 +22,7 @@ export default class Ghost extends Player {
     this.ghostItems = ghostItems;
     this.possesion= scene.sound.add('possesion');
     this.mirrorDetector=mirrorDetector;
-    this.scene.physics.add.overlap(this, mirrorDetector);
+    this.scene.physics.add.overlap(this, this.mirrorDetector);
     
   }
 
@@ -43,7 +43,7 @@ export default class Ghost extends Player {
     // Touch rayLight
     if (this.scene.physics.overlap(this, this.mirrorDetector)) {
       console.log("RESET LEVEL");
-      this.scene.ResetLevel();
+     // this.scene.ResetLevel();
       //this.scene.start('level');
     }
   }
