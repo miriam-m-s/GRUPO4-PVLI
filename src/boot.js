@@ -20,15 +20,17 @@ export default class Boot extends Phaser.Scene {
    */
   preload() 
   {
-     //MUSIC
-     this.load.audio('bckMusic', [
-      './assets/audio/music/bckMusic.mp3']);
+    
+    
+    //MUSIC
+    this.load.audio('bckMusic', ['./assets/audio/music/bckMusic.mp3']);
     this.load.setPath('assets/sprites/');
     //Players
     this.load.spritesheet('GhostSpriteSheet', 'ghostSpriteSheet.png',{frameWidth: 16, frameHeight: 16});
     this.load.spritesheet('HumanSpriteSheet', 'humanSpriteSheet.png',{frameWidth: 16, frameHeight: 16});
     this.load.image('shadowBeneath','shadowBeneath.png');
     //Objects/Enviroment
+    this.load.image('cursorSelector', 'cursorSelector.png');
     this.load.image('lightCircleMedium', 'lightCircleMedium.png');
     this.load.image('lightCircleBig', 'lightCircleBig.png');
     //Lampara
@@ -141,6 +143,6 @@ export default class Boot extends Phaser.Scene {
       });
 
     //CREACION DEL NIVEL
-    this.scene.start('level');
+    this.scene.start('mainMenu');
   }
 }
