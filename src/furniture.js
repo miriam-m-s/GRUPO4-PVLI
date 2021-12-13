@@ -5,16 +5,17 @@ export default class Furniture extends Phaser.GameObjects.Sprite {
    * @param {Phaser.Scene} scene Escena a la que pertenece la plataforma
    * @param {Phaser.GameObjects.Group} furnitureGroup Grupo en el que se incluirán los muebles
    */
-  constructor(scene, ghostPlayer, furnitureGroup , initialPos) 
+  constructor(scene, ghostPlayer, furnitureGroup , x,y,sprite) 
   {
-    super(scene, ghostPlayer, furnitureGroup, initialPos);
+    super(scene, x,y,sprite);
     
     this.scene = scene;
     this.player = ghostPlayer;
-    this.furniturePos = initialPos;
+    
     
     this.scene.add.existing(this);
-    this.body = this.scene.physics.add.sprite(this.furniturePos.x, this.furniturePos.y, 'furniture');
+    this.scene.physics.add.existing(this);
+    
     this.isPossesed = false;
 
     //this.debugIndicator = this.scene.physics.add.sprite(this.body.x, this.body.y, 'debugIndic');
@@ -25,21 +26,21 @@ export default class Furniture extends Phaser.GameObjects.Sprite {
   {
     if(this.isPossesed) return;
     this.scale = 1.05;
-    this.body.setTexture('furnitureSelected');
+    this.setTexture('furnitureSelected');
   }
 
   DeselectObject() 
   {
     if(this.isPossesed) return;
     this.scale = 1;
-    this.body.setTexture('furniture');
+    this.setTexture('furniture');
   }
 
   Interact()
   {
    
     this.isPossesed = !this.isPossesed;
-    this.body.setTexture('furniturePossesed');
+    this.setTexture('furniturePossesed');
     this.body.depth = 3;
     
     this.scene.ghostPlayer.PossessObject(this);
