@@ -4,13 +4,10 @@ import Mirror from './mirror.js';
 import Furniture from './furniture.js';
 import Human from './human.js';
 import Ghost from './ghost.js'
-<<<<<<< HEAD
 import Base from './base.js';
 import Window from './window.js'
 
 import Pause from './pause.js';
-=======
->>>>>>> VisualsRevamp
 
 
 
@@ -19,150 +16,6 @@ import Pause from './pause.js';
  */
 
 export default class Level extends Phaser.Scene {
-<<<<<<< HEAD
-
-  static TILE_SIZE = 16; //tamano de tiles de los tilemaps
-  constructor() {
-    super({
-      key: 'level'
-    });
-  }
-
-  //Creación de los elementos de la escena principal de juego
-  preload() {
-    this.load.plugin('rexraycasterplugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexraycasterplugin.min.js', true);
-  }
-  create() {
-    //MAPA TILESET
-    //creacion del tilemap
-    this.map = this.make.tilemap({
-      key: 'tilemap01',
-      tileWidth: 8,
-      tileHeight: 8
-    });
-
-    const config = {
-      mute: false,
-      volume: 0.2,
-      rate: 1,
-      detune: 0,
-      seek: 0,
-      loop: true,
-      delay: 0,
-    }; // config es opcional
-    this.music = this.sound.add("bckMusic", config);
-    this.exit = this.sound.add('exit')
-
-    this.music.play();
-    const tileset1 = this.map.addTilesetImage('mansionNes', 'mapSpriteSheet');
-
-    this.backgroundLayer = this.map.createLayer('BackLayer', [tileset1]);
-    this.lightLayer = this.map.createLayer('LightLayer', [tileset1]);
-    this.frontLayer = this.map.createLayer('FrontLayer', [tileset1]);
-    //this.itemLayer = this.map.createLayer('ItemLayer', [tileset1]); 
-
-    //Timer
-    this.gameTime = this.add.text(205, 40, "0s", {
-      font: "15px",
-      fill: "#fff",
-      align: "right"
-    });
-    this.timer = this.time.addEvent({
-      delay: 999999,
-      paused: false
-    });
-
-    //OBJETOS DE LA ESCENA
-    this.bases = this.add.group();
-    //Grupos de objetos
-    this.lampGroup = this.add.group();
-    this.furnitureGroup = this.add.group();
-
-
-    this.mirrorGroup = this.add.group();
-
-
-
-
-
-    //BOTON DE PAUSA Y ESC
-    this.isPaused = false;
-    this.escape = this.input.keyboard.addKey('ESC');
-    this.escape.on('down', () => {
-      this.exit.play();
-      this.music.stop();
-      this.isPaused = !this.isPaused;
-      this.clickPause();
-    });
-    this.pausa = this.add.image(225, 20, 'pauseButton').setInteractive();
-    this.pausa.scale = 0.05;
-
-    this.pausa.on('pointerdown', function () {
-      //this.scene.scene.pause();
-      this.scene.isPaused = !this.scene.isPaused;
-      this.scene.clickPause();
-
-    });
-
-    this.pauseMenu = null;
-
-    //Jugadores
-
-
-
-    let humanList; //lista de objetos humanos
-    let ghostList; //lista de objetos poseibles
-
-    //Objetos Humano(lamparas/interruptores)
-
-    humanList = [
-      new Lamp(this, 60, 80, 'lampDefault', this.humanPlayer, this.ghostPlayer, this.lampGroup),
-      new Lamp(this, 190, 150, 'lampDefault', this.humanPlayer, this.ghostPlayer, this.lampGroup)
-    ];
-    // new Mirror(this, this.humanPlayer, this.lampGroup, new Phaser.Math.Vector2(190,70)), 
-    //new Lamp(this, this.humanPlayer, this.lampGroup, new Phaser.Math.Vector2(190,150))];
-
-    //Objetos Fantasma(muebles/espejo)
-    ghostList = [
-      this.furniture = new Furniture(this, this.ghostPlayer, this.furnitureGroup, 130, 135, 'furniture'),
-      this.furniture2 = new Furniture(this, this.ghostPlayer, this.furnitureGroup, 170, 135, 'furniture'),
-      this.mirror = new Mirror(this, this.mirrorGroup, 20, 80, 0),
-      this.mirror2 = new Mirror(this, this.mirrorGroup, 120, 80, 270)
-
-    ];
-    //bases
-
-
-    // if(Phaser.Utils.Debug)
-    // {
-    //   this.debugIndicator = this.physics.add.sprite(130, 100, 'debugIndic');
-    //   this.debugIndicator.depth = 900;
-    //   console.log(this.debugIndicator.body.center);
-    // }
-    //RAYLIGHT DETECTOR
-
-
-    //CAMBIAR ESTO EN FANTASMA / HUMANO
-
-    this.humanPlayer = new Human(this, 130, 100, true, humanList);
-
-    this.ghostPlayer = new Ghost(this, 180, 100, false, ghostList)
-
-    this.basepers = new Base(this, this.humanPlayer, 'basepers', 70, 110);
-    this.basefant = new Base(this, this.ghostPlayer, 'basefantas', 150, 50);
-
-    this.lights = this.add.group();
-    new Lights(this, this.humanPlayer, this.ghostPlayer, this.lights, 60, 60, 50);
-
-    //GRAFICOS
-    this.graphics = this.add.graphics();
-
-
-
-
-    //RAYCAST OBJECTS
-    this.staticObstacles = [];
-=======
 
   static TILE_SIZE = 16;//tamano de tiles de los tilemaps
   constructor() 
@@ -218,13 +71,11 @@ export default class Level extends Phaser.Scene {
         this.debugIndicator.depth = 900;
         console.log(this.debugIndicator.body.center);
       }
->>>>>>> VisualsRevamp
 
     //CAMBIAR ESTO EN FANTASMA / HUMANO
     this.humanPlayer = new Human(this, new Phaser.Math.Vector2(130, 100), "Human", true, humanList);
     this.ghostPlayer = new Ghost(this, new Phaser.Math.Vector2(180, 100),"Ghost", false, ghostList);//comienza el fantasma
 
-<<<<<<< HEAD
     this.dynamicObstacles = [
       this.humanPlayer,
       this.ghostPlayer, this.mirror, this.furniture2, this.furniture,this.mirror2
@@ -281,15 +132,6 @@ export default class Level extends Phaser.Scene {
     {
       if (this.pauseMenu === null) {
         this.pauseMenu = new Pause(this, 120, 130);
-=======
-    this.checkEnd();
-  }
-  
-  //Check de final de nivel para ambos jugadores
-  checkEnd(){
-    if(this.humanPlayer.playerState && this.ghostPlayer.playerState){
-        this.scene.start('end');
->>>>>>> VisualsRevamp
       }
       this.pauseMenu.active = true;
       this.pauseMenu.alpha = 1;
@@ -301,7 +143,6 @@ export default class Level extends Phaser.Scene {
       this.music.play();
       this.anims.resumeAll(); //Reanuda las animaciones que habia activas al pausar la escena
     }
-<<<<<<< HEAD
     this.timer.paused = !this.timer.paused;
   }
 
@@ -329,13 +170,5 @@ let RunRaycaster = function (raycaster, x, y, angle, debugGraphics, mirrorDetect
 
     break;
 
-=======
-
-  CreateLight(lightPos, lightRadius)//Crea un circulo de luz en una posicion, con un radio de ancho
-  {
-    //(...) Anadir luz al grupo de luces para las colisiones
-    this.newLight = new Lights(this, lightPos, lightRadius);
-    return this.newLight;
->>>>>>> VisualsRevamp
   }
 }
