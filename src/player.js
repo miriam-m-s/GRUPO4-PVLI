@@ -40,8 +40,8 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
-    
    
+    this.body.setSize(15, 20,false);
     
     //FISICAS
     // this.body = this.scene.physics.add.sprite(this.playerPos.x, this.playerPos.y, this.playerName + 'SpriteSheet');
