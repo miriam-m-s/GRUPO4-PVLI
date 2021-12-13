@@ -5,8 +5,23 @@ body {
   height: 100vh;
   width: 100vw;
   cursor: url("../images/pixelCursor.png"), auto;
-  
 }
+
+mainHeader
+{
+  word-wrap: break-word;
+  width: 70%;
+	margin: 0 auto;
+  font-family: 'Sys', Fallback, sans-serif;
+  font-size: 14px;
+  text-align: center;
+  color:rgb(255, 255, 255);
+  position: absolute; /* or absolute */
+  top: 10%;
+  left: 0px;
+  right: 0px;
+}
+
 
 terminalFont
 {
@@ -14,10 +29,29 @@ terminalFont
   font-size: 10px;
   text-align: left;
   color:rgb(255, 255, 255);
-  position: relative;
-  width: 400px;
-  height: 200px;
-  top: 100px;
+  position:absolute;
+  top:20px;
+  left:20px;
+}
+
+menuwrapper 
+{
+  color:rgb(255, 255, 255);
+  line-height: 40%;
+  text-align: center;
+  position:absolute;
+  top:20px;
+  right:20px;
+  z-index: 0;
+}
+
+canvasGame 
+{
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    right: 50%;
+    bottom: 50%;
 }
 
 @font-face {
@@ -29,6 +63,7 @@ terminalFont
   font-family: "Sys";
 }
 .scanlines .overlay {
+  pointer-events:none;
   height: 100%;
   left: 0;
   position: absolute;
@@ -40,6 +75,7 @@ terminalFont
   justify-content: center;
 }
 .scanlines .overlay::after {
+  pointer-events:none;
   position: absolute;
   left: 0;
   top: 0;

@@ -6,40 +6,72 @@
 	<head>
 		<link rel="stylesheet" href="css\style.css">	
 		<meta charset="utf-8">
-
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
 	</head>
+
+	<mainHeader>
+		<img src="./images/moonIcon02.png" style="width:30px; height:30px; margin: 0px 20px 0px 20px;"></img>
+		<h1>Eclipse</h1>
+		<p>La historia de una mujer que se ha muerto y otra que creo que aun no pero depende porque como que no me he visto la peli entonces a lo mejoro hay spoilers y tal esto debería ser como un resumen de la historia o algo bro yo que se hola Guille
+		</p>
+	</mainHeader>
 	
 
 	<body>	
+		<menuwrapper>
+			<a href="https://twitter.com/gameclipse_">
+				<img src="./images/twitterIcon02.png" style="width:30px; height:30px; margin: 0px 20px 0px 20px;"></img>
+				
+			</a><p>Twitter</p>
+			<a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
+				<img src="./images/githubIcon.png"  style="width:30px; height:30px; margin: 20px 20px 0px 20px;"></img>
+				
+			</a>
+			<p>Github</p>
+			<a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
+				<img src="./images/pivotalIcon.png"  style="width:30px; height:30px; margin: 20px 20px 0px 20px;"></img>
+				
+			</a>
+			<p>Pivotal</p>
+	</menuwrapper>
+			
+	<!-- Scanlines/CRT Efecto -->
+	<main class="scanlines">
+		<div class="screen">
+			<div class="overlay">
+			</div>
+		</div>
+	</main>
+
+	<!--<canvasGame><img src="./images/hitch.png"  style="width:30px; height:30px; margin: 20px 20px 0px 20px;"></img></canvasGame>
+	-->
+	
+	
+	<canvasGame>		
+		<div id='mygame'></div>
 		<script src="./lib/phaser.min.js" ></script>
 		<script src="./src/game.js"type="module"></script>
 		<script src="js/main.js"></script>
+	
+	</canvasGame>
 
-		<!-- Scanlines/CRT Efecto -->
-		<main class="scanlines">
-			<div class="screen">
-				<div class="overlay">
-					<div class="text">
-						<span>Eclipse-1</span>
-					</div>
-				</div>
-			</div>
-		</main>
-		<terminalFont>
-		
-		<table cellspacing="10" cellpadding="10" border="0" >
-			<tbody>
-				<tr>
-					<td style="border: 0">
-					<h2 class="rtecenter"><img src = "./images/keyCursorsIcon.png"> Move character</img></h2>
-					<h2 class="rtecenter"><img src = "./images/keySpaceIcon.png">   Swap Characters</img></h2>
-					<h2 class="rtecenter"><img src = "./images/keyShiftIcon.png">   Sprint</img></h2>
-					<h2 class="rtecenter"><img src = "./images/keyEIcon.png">   Interact</img></h2>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-		</terminalFont>
+	<!--
+	<terminalFont>
+	<table cellspacing="10" cellpadding="10" border="0" >
+		<tbody>
+			<tr>
+				<td style="border: 0">
+				<h2 class="rtecenter"><img src = "./images/keyCursorsIcon.png"> Move character</img></h2>
+				<h2 class="rtecenter"><img src = "./images/keySpaceIcon.png">   Swap Characters</img></h2>
+				<h2 class="rtecenter"><img src = "./images/keyShiftIcon.png">   Sprint</img></h2>
+				<h2 class="rtecenter"><img src = "./images/keyEIcon.png">   Interact</img></h2>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</terminalFont>
+	-->
 	</body>
 </html>

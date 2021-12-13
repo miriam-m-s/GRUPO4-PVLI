@@ -11,11 +11,11 @@ let config =
     height: 350,
     roundPixels: true,
     scale: {
-        //mode: Phaser.Scale.NONE,  
-        autoCenter: Phaser.Scale.CENTER_BOTH,
-        
+        parent: 'mygame',
+        autoCenter: Phaser.Scale.CENTER_BOTH
+        //autoCenter: Phaser.Scale.CENTER_BOTH,
     },
-    zoom: 2.1,
+    zoom: 1.4,
     pixelArt: true,
     scene: [Boot, Level, End],
     physics: { 
