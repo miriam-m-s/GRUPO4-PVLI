@@ -59,6 +59,7 @@
       }
       else
       {
+        this.setTexture('lampSelected');
         this.soundlight.play();
         this.light.body.enable=true;
         this.light.body.gameObject.alpha=0.3;
@@ -66,9 +67,11 @@
     }
     else //Esta encendida
     {
+      
       this.soundlight.play();
       this.light.body.enable=false;
       this.light.body.gameObject.alpha=0;
+      this.setTexture('lampDefault');
       //this.body.setActive(false);
     }
     this.isOn = !this.isOn;
