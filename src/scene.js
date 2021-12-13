@@ -129,7 +129,7 @@ export default class Level extends Phaser.Scene {
       //   console.log(this.debugIndicator.body.center);
       // }
       //RAYLIGHT DETECTOR
-      this.rayLightDetector = this.add.rectangle(0, 100, 600, 30, 0x848484).setOrigin(0, 1);
+      this.rayLightDetector = this.add.rectangle(0, 100, 10, 10, 0x00000).setOrigin(1, 1);
       this.physics.add.existing(this.rayLightDetector);
      
     //CAMBIAR ESTO EN FANTASMA / HUMANO
@@ -142,7 +142,7 @@ export default class Level extends Phaser.Scene {
     this.basefant=new Base(this,this.ghostPlayer,'basefantas',150,50);
 
     this.lights = this.add.group();
-    new Lights(this, this.humanPlayer, this.ghostPlayer, this.lights, 100, 80, 50);
+    new Lights(this, this.humanPlayer, this.ghostPlayer, this.lights, 60, 60, 50);
 
     //GRAFICOS
     this.graphics = this.add.graphics();
@@ -247,7 +247,7 @@ let RunRaycaster = function (raycaster, x, y, angle, debugGraphics, mirrorDetect
           .strokeLineShape(raycaster.ray);
 
       
-      mirrorDetector.setPosition(result.x, result.y);
+      mirrorDetector.setPosition(result.x, result.y+mirrorDetector.height());
       console.log(angle);
    
  break;

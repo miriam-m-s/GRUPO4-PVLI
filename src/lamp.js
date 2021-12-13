@@ -53,20 +53,20 @@
       if(this.light == null)
       {
         this.soundlight.play();
-        this.light = new Lights(this.scene, this.scene.humanPlayer, this.scene.ghostPlayer, this.scene.lights, this.lampPosX, this.lampPosY, 50);
+        let radius=30;
+        this.light = new Lights(this.scene, this.scene.humanPlayer, this.scene.ghostPlayer, this.scene.lights, this.lampPosX-radius, this.lampPosY-radius, radius);
         
       }
       else
       {
         this.soundlight.play();
+        this.light.setActive(false);
       }
     }
     else //Esta encendida
     {
       this.soundlight.play();
-      this.lightCircle.sprite = this.lightCircle.body;
-      this.lightCircle.body.enable = false;
-      this.lightCircle.body.gameObject.alpha = 0;
+      this.light.setActive(true);
       //this.body.setActive(false);
     }
     this.isOn = !this.isOn;
