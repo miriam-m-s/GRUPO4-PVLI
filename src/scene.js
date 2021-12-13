@@ -122,7 +122,8 @@ export default class Level extends Phaser.Scene {
     ghostList = [
       this.furniture = new Furniture(this, this.ghostPlayer, this.furnitureGroup, 130, 135, 'furniture'),
       this.furniture2 = new Furniture(this, this.ghostPlayer, this.furnitureGroup, 170, 135, 'furniture'),
-      this.mirror = new Mirror(this, this.mirrorGroup, 20, 80, 0, this.rayLightDetector)
+      this.mirror = new Mirror(this, this.mirrorGroup, 20, 80, 0),
+      this.mirror2 = new Mirror(this, this.mirrorGroup, 120, 80, 270)
 
     ];
     //bases
@@ -161,7 +162,7 @@ export default class Level extends Phaser.Scene {
 
     this.dynamicObstacles = [
       this.humanPlayer,
-      this.ghostPlayer, this.mirror, this.furniture2, this.furniture
+      this.ghostPlayer, this.mirror, this.furniture2, this.furniture,this.mirror2
     ];
 
 
