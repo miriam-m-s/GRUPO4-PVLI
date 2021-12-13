@@ -234,9 +234,9 @@ ResetLevel() {
 }
 
 let RunRaycaster = function (raycaster, x, y, angle, debugGraphics, mirrorDetector) {
-  // debugGraphics
-  //     .clear()
-  //     .fillStyle(0xC4C400)
+  debugGraphics
+       .clear()
+     .fillStyle(0xC4C400)
 
 
   const MaxReflectionCount = 1000;

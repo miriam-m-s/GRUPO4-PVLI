@@ -52,7 +52,7 @@ export default class Window extends Phaser.GameObjects.Sprite {
         this.rayAngle = rayAngle;
 
         this.scene = scene;
-        this.graphic = this.scene.add.graphics();
+        this.graphi = this.scene.add.graphics();
        //this.scene.createLightRay(180, 100, 100);
 
 
@@ -63,6 +63,6 @@ export default class Window extends Phaser.GameObjects.Sprite {
   {
     super.preUpdate(t,dt);
 
-    this.scene.DoRaycast(this.x, this.y, this.rayAngle, this.mirrorDetector,this.graphic);
+    this.scene.DoRaycast(this.x, this.y, this.rayAngle, this.mirrorDetector,this.graphi);
   }
 }

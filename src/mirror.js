@@ -28,21 +28,20 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
     this.xOffset = 0;
     this.yOffset = 0;
 
-    if (dir == 0) this.xOffset = this.widht+2;
-
-    if (dir === 90) {
+    if (dir == 0) this.xOffset = this.width/2;
+    else if (dir === 90) {
         dir = 4.71;
-        this.yOffset = -this.height-2;
+        this.yOffset = -this.height/2;
     }
 
     else if (dir === 180) {
         dir = Math.PI;
-        this.xOffset = -this.widht-2;
+        this.xOffset = -this.width/2;
     }
 
     else if (dir === 270) {
         dir = 1.57;
-        this.yOffset = this.height+2;
+        this.yOffset = this.height/2;
     }
 
     this.dir = dir;
