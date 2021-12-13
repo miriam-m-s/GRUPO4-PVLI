@@ -34,6 +34,7 @@ export default class Boot extends Phaser.Scene {
     this.load.setPath('assets/sprites/');
 
     //Boton y menú de pausa
+    this.load.image('cursorSelector', 'cursorSelector.png');
     this.load.image('pauseButton', 'pausebutton.png');
     this.load.image('pauseMenu', 'pausemenu.png');
 
@@ -234,6 +235,6 @@ export default class Boot extends Phaser.Scene {
     });
 
     //CREACION DEL NIVEL
-    this.scene.start('level');
+    this.scene.start('mainMenu');
   }
 }
