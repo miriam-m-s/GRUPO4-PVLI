@@ -5,7 +5,7 @@ import Lamp from './lamp.js';
  */
 
 export default class Player extends Phaser.GameObjects.Sprite {
-  
+
   /** 
    * Constructor del jugador
    * 
@@ -13,22 +13,25 @@ export default class Player extends Phaser.GameObjects.Sprite {
    * @param {Array<GameObject>} objectList lista de objetos interactuables
    * @param {Phaser.Scene} scene Escena a la que pertenece el jugador
    * @param {Phaser.Math.Vector2} playerPos vector posicion del jugador
-    * @param {string} playerName nombre del jugador Humano/Ghost
-    * @param {boolean} beingControlled esta siendo controlado?
-    * @param {number} secCounter
+   * @param {string} playerName nombre del jugador Humano/Ghost
+   * @param {boolean} beingControlled esta siendo controlado?
+   * @param {number} secCounter
    */
-  
-   constructor(scene, initialPos, initialName, startController) 
-   {
-    
-    super(scene, initialPos, initialName, startController);
-    
+
+  constructor(scene, initialPosX, initialPosY, initialName, NoSelectedName, startController) {
+
+    super(scene, initialPosX, initialPosY, initialName);
+
     //Asignar Parametros
+
     this.scene = scene;
-    this.playerPos = initialPos; //donde comienza el jugador en la escena
-    this.playerName = initialName; //Ghost / Human
+    this.playerPos = new Phaser.Math.Vector2(initialPosX, initialPosY); //donde comienza el jugador en la escena
+    this.playerName = initialName;
+    this.playerNamenoselect = NoSelectedName;
+    //Ghost / Human
     this.beingControlled = startController; //comenzamos controlando al fantasma
-    this.soundchange= scene.sound.add('changeplayer');
+    this.soundchange = scene.sound.add('changeplayer');
+
     //Litas/Objetos
     this.objectList = null;
     this.selectedObject = null;
@@ -36,191 +39,144 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
-    
-    
+
+    this.body.setSize(15, 20, false);
+
     //FISICAS
-    this.body = this.scene.physics.add.sprite(this.playerPos.x, this.playerPos.y, this.playerName + 'SpriteSheet');
+    // this.body = this.scene.physics.add.sprite(this.playerPos.x, this.playerPos.y, this.playerName + 'SpriteSheet');
     this.body.setCollideWorldBounds();
     this.speed = 50;
 
     //Cursores
-    this.cursorsPlayer = this.scene.input.keyboard.createCursorKeys();
+    this.cursors = this.scene.input.keyboard.createCursorKeys();
     this.space = scene.input.keyboard.addKey('SPACE');
     this.eKey = scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
     this.runKey = scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SHIFT);
-    this.start();
+    //this.start();
     this.depth = 3;
 
     //DEBUG INDICATOR
     //this.debugIndicator = this.scene.physics.add.sprite(this.body.x, this.body.y, 'debugIndic'); this.debugIndicator.depth = 9999;
 
-  //Cambiar personajes con Espacio
-    this.space.on('down', () =>
-     {     
-        this.body.stop();//para la animacion actual
-        this.body.setVelocity(0);
-        this.soundchange.play();
-        if(this.selectedObject != null)
-        {
-          this.selectedObject.DeselectObject();
-        }
-        this.ChangePlayer();
-    }); 
+    //Cambiar personajes con Espacio
+    this.space.on('down', () => {
+      //this.body.stop();//para la animacion actual
+      this.body.setVelocity(0);
+      this.soundchange.play();
+      if (this.selectedObject != null) {
+        this.selectedObject.DeselectObject();
+      }
+      this.ChangePlayer();
+    });
 
-    this.eKey.on('down', () =>
-     {   
-     
-       if(!this.beingControlled) return;
+    this.eKey.on('down', () => {
+
+      if (!this.beingControlled) return;
       //Llama al metodo Interact del objeto seleccionado si no estamos en pausa
-       if(!this.scene.levelPaused() && this.selectedObject != null)
-       {
-        
+      if (!this.scene.levelPaused() && this.selectedObject != null) {
+
         this.selectedObject.Interact(this.body);
-       }
-    }); 
+      }
+    });
+
     //Correr cuando se mantenga pulsado Shift
-    this.runKey.on('down', () =>
-     {     
+    this.runKey.on('down', () => {
       this.speed = 100;
-    }); 
-    this.runKey.on('up', () =>
-     {     
+    });
+    this.runKey.on('up', () => {
       this.speed = 50;
-    }); 
-  }
-
-
-  start()
-  {
-    this.scene.time.addEvent( {
-    delay: 3000, 
-    callback: this.saveposition,
-    callbackScope: false,
-    loop: true
     });
   }
 
+
   setBeingControlled() {
-    
+
     this.beingControlled = !this.beingControlled;
   }
 
-  ChangePlayer()
-  {
-    if(!this.scene.levelPaused())
-    {
+  ChangePlayer() {
+    if (!this.scene.levelPaused()) {
       this.beingControlled = !this.beingControlled;
     }
-    
-  }
-  
-  preUpdate(t,dt) 
-  {
-    if(!this.beingControlled) return;
 
-    super.preUpdate(t,dt);
-
-    if(!this.scene.levelPaused())
-    {
-       //Calculamos la velocidad
-    let [velX, velY] = this.calculateVelocity();
-
-    //Movimiento del personaje
-    this.body.setVelocity(velX, velY);
-
-    //Animacion de spritesheet para cada personaje
-    this.changeAnims(velX, velY);
-    }
-    
-   
-    //this.debugIndicator.setPosition(this.body.x, this.body.y);
-  
-   
   }
 
-  //Calculo de velocidad con respecto a input
-  calculateVelocity() {
-    let [velX, velY] = [0, 0];
-    
-    if (this.cursorsPlayer.up.isDown) { //arriba
-        velY -= this.speed;
-    }
-    if (this.cursorsPlayer.down.isDown) { //abajo
-        velY += this.speed;
-    }
-    if (this.cursorsPlayer.left.isDown) { //izquierda
-        velX -= this.speed;
-    }
-    if (this.cursorsPlayer.right.isDown) { //derecha
-        velX += this.speed;
+  preUpdate(t, dt) {
+    if (!this.beingControlled) {
+      this.play('_idle' + this.playerNamenoselect, true);
+      return;
     }
 
-    //Normalizamos el vector
-    if (velX != 0 && velY != 0) {
-        velX /= Math.sqrt(2);
-        velY /= Math.sqrt(2)
+    super.preUpdate(t, dt);
+
+    if (!this.scene.levelPaused()) {
+      if (this.cursors.left.isDown) //move left
+      {
+        this.body.setVelocityX(-this.speed);
+        //animation left
+        this.play('_left' + this.playerName, true);
+      } else if (this.cursors.right.isDown) //move right
+      {
+        this.body.setVelocityX(this.speed);
+        //animation right
+        this.play('_right' + this.playerName, true);
+      } else if (this.cursors.up.isDown) //move up
+      {
+        this.body.setVelocityY(-this.speed);
+        //animation up
+        this.play('_up' + this.playerName, true);
+      } else if (this.cursors.down.isDown) //move down
+      {
+        this.body.setVelocityY(this.speed);
+        //animation down
+        this.play('_down' + this.playerName, true);
+      } else //no movement
+      {
+        this.body.setVelocityX(0);
+        this.body.setVelocityY(0);
+        //animation stop
+        this.play('_idle' + this.playerName, true);
+      }
     }
-    
-    //devolvemos velocidad
-    return [velX, velY];
-}
 
-//Animacion dependiendo del movimiento/input usuaro
-changeAnims(velX, velY) 
-{
- if (velX === 0) 
- {
-     if (velY === 0) //quieto
-         this.body.play('_idle' + this.playerName, true);
-     else if (velY < 0) //arriba
-         this.body.play('_up' + this.playerName, true);
-     else //abajo
-         this.body.play('_down' + this.playerName , true);
- }
- else if (velX < 0) //izquierda
-     this.body.play('_left' + this.playerName, true);
- else //derecha
-     this.body.play('_right' + this.playerName, true);
-}
+  }
 
-  CheckForNearestObject(objetos)
-  { 
+
+
+
+  CheckForNearestObject(objetos) {
     this.objectList = objetos;
     var disOffset = 60;
     let initialDist = 9000;
-    
+
     //Checkeo si sigo suficietemente cerca del objeto que estaba seleccionando anteriormente
-    
-    if(this.selectedObject != null)
-    {
-      let distanceBetween = Phaser.Math.Distance.Between(this.body.x,this.body.y, this.selectedObject.body.x, this.selectedObject.body.y);
-      if(distanceBetween > disOffset)
-      {
+
+    if (this.selectedObject != null) {
+      let distanceBetween = Phaser.Math.Distance.Between(this.body.x, this.body.y, this.selectedObject.body.x, this.selectedObject.body.y);
+      if (distanceBetween > disOffset) {
         this.selectedObject.DeselectObject();
         this.selectedObject = null;
       }
     }
 
     //Para cada objeto interaccionable en la escena, compruebo la distancia al jugador
-    for(let i = 0; i < this.objectList.length; i++)
-    {
-      let distanceBetween = Phaser.Math.Distance.Between(this.body.x,this.body.y, this.objectList[i].body.x, this.objectList[i].body.y);
+    for (let i = 0; i < this.objectList.length; i++) {
+      let distanceBetween = Phaser.Math.Distance.Between(this.body.x, this.body.y, this.objectList[i].body.x, this.objectList[i].body.y);
 
-      if(distanceBetween < initialDist && distanceBetween < disOffset) //el objeto se encuentra en rango, y esta mas cerca que el anterior
+      if (distanceBetween < initialDist && distanceBetween < disOffset) //el objeto se encuentra en rango, y esta mas cerca que el anterior
       {
         this.initialDist = distanceBetween;
         //Se asigna el nuevo objeto mas cercano posible
-        if(this.selectedObject != null) this.selectedObject.DeselectObject();
+        if (this.selectedObject != null) this.selectedObject.DeselectObject();
         this.selectedObject = this.objectList[i];
 
         //this.AddIndicator(this.objectList[i].body.position);
       }
     }
     //Se selecciona el objeto mas cercano, si existe
-    if(this.selectedObject != null)
-    {
+    if (this.selectedObject != null) {
       this.selectedObject.SelectObject();
-    } 
+    }
   }
 
   /*AddIndicator(debugPos)

@@ -2,6 +2,7 @@ import Boot from './boot.js';
 import End from './end.js';
 import Platform from './platform.js';
 import Level from './scene.js';
+import MainMenuScene from './mainMenuScene.js';
 
 let config = 
 {
@@ -11,18 +12,27 @@ let config =
     height: 350,
     roundPixels: true,
     scale: {
-        //mode: Phaser.Scale.NONE,  
-        autoCenter: Phaser.Scale.CENTER_BOTH,
-        
+        parent: 'mygame',
+        autoCenter: Phaser.Scale.CENTER_BOTH
+        //autoCenter: Phaser.Scale.CENTER_BOTH,
     },
-    zoom: 2.1,
+    zoom: 1.4,
     pixelArt: true,
-    scene: [Boot, Level, End],
+    scene: [Boot, MainMenuScene, Level, End],
     physics: { 
         default: 'arcade', 
         arcade: { 
             debug: false
         } 
+    },
+    plugins: {
+        scene: [
+            {
+                key: 'PhaserRaycaster',
+                plugin: PhaserRaycaster,
+                mapping: 'raycasterPlugin'
+            }
+        ]
     },
     audio: {
         disableWebAudio: true
