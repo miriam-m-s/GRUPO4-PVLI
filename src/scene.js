@@ -78,9 +78,6 @@ export default class Level extends Phaser.Scene {
     this.mirrorGroup = this.add.group();
 
 
-
-
-
     //BOTON DE PAUSA Y ESC
     this.isPaused = false;
     this.escape = this.input.keyboard.addKey('ESC');

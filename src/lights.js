@@ -15,7 +15,11 @@ export default class Lights extends Phaser.GameObjects.Sprite {
   constructor(scene, humanPlayer, ghostPlayer, baseGroup, x, y, radius, isCandleLight) {
     super(scene, x, y, 'light', radius);
 
+    this.posX = x;
+    this.posY = y;
+
     this.setAlpha(.2);
+
 
     this.setOrigin(0);
     this.scene.add.existing(this);
@@ -36,6 +40,11 @@ export default class Lights extends Phaser.GameObjects.Sprite {
       this.body.setCircle(1);
       this.scale = 0;
       this.body.scale = 0;
+
+      // Para que crezca desde el centro
+      this.setOrigin(.5);
+      this.x += this.radius; // Posicionar el sprite del circulo en mitad de la vela
+      this.y += this.radius;
     } else {
       this.body.setCircle(radius);
       this.scale = ((radius - 3) / 1000); 
@@ -61,10 +70,30 @@ export default class Lights extends Phaser.GameObjects.Sprite {
         this.body.y + this.radius);
     }
 
-    // Increase light size
+    // if (this.isCandleLight) {
+    //   this.scene.tweens.add({
+    //     targets     : [ this ],
+    //     scaleX: this.radius/ 100,
+    //     scaleY: this.radius / 100,
+    //     ease        : 'Linear',
+    //     duration    : 100000,
+    //     yoyo        : false,
+    //     repeat      : 0,
+    //     callbackScope   : this
+    //   });
+    // }
+    
+
     if (this.isCandleLight) {
       if (this.lightScale < this.radius) {
-        this.lightScale += .03; // Increase collider
+        // Increase collider
+        this.lightScale += .03;
+        this.scale = ((this.lightScale - 3) / 1000); 
+
+        this.lightVariable = this.lightScale / 100;
+        
+        this.body.x = -this.lightScale + this.posX + this.radius;
+        this.body.y = -this.lightScale + this.posY + this.radius;
       }
       this.body.setCircle(this.lightScale);
     }
