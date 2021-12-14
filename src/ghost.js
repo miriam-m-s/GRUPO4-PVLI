@@ -35,12 +35,11 @@ export default class Ghost extends Player {
       this.setAlpha(0);
      
     }
-
-
   }
+  
   Mirrordetect() {
     console.log("soy fantasma");
-    this.scene.ResetLevel() ;
+    this.scene.ResetLevel();
   }
   PossessObject(objectToPossess) {
     if (this.AssignObject(objectToPossess)) {

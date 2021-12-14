@@ -58,43 +58,48 @@ export default class Boot extends Phaser.Scene {
       frameWidth: 16,
       frameHeight: 18
     });
+    this.load.spritesheet('candleSpriteSheet', 'candleSpriteSheet.png', {
+      frameWidth: 16,
+      frameHeight: 16
+    });
     this.load.image('ghost', 'ghostSprite.png');
     this.load.image('human', 'humanSprite.png');
-    //Objects/Enviroment
+    // Objects/Enviroment
     this.load.image('lightCircleMedium', 'lightCircleMedium.png');
     this.load.image('lightCircleBig', 'lightCircleBig.png');
-    //Lampara
+    // Lampara
     this.load.image('lampDefault', 'lampSpr01.png');
     this.load.image('lampSelected', 'lampSpr02.png');
-    //Furniture
+    // Furniture
     this.load.image('furniture', 'furnitureSpr01.png');
     this.load.image('furnitureSelected', 'furnitureSpr02.png');
     this.load.image('furniturePossesed', 'furnitureSpr03.png');
-    //Mirror
+    // Mirror
     this.load.image('mirrorDefault', 'mirrorSpr01.png');
     this.load.image('mirrorSelected', 'mirrorSpr02.png');
     this.load.image('mirrorPossessed', 'mirrorSpr03.png');
-    //LIGHT
+    // LIGHT
     this.load.image('light', 'light.png');
-    //MIRRORDETECTED
-    this.load.image('mirrordetector', 'mirrordetector.png')
-    //WINDOW
-    this.load.image('window', 'window.png')
-    //Bases
+    // MIRRORDETECTED
+    this.load.image('mirrordetector', 'mirrordetector.png');
+    // WINDOW
+    this.load.image('window', 'window.png');
+    // Candle
+    this.load.image('SelectedCandle', 'SelectedCandle.png');
+    this.load.image('UnselectedCandle', 'UnselectedCandle.png');
+    this.load.image('PossesedCandle', 'PossesedCandle.png');
+    // Bases
     this.load.image('basefantas', 'basefant.png')
     this.load.image('basepers', 'basepers.png')
 
-    //Debug
+    // Debug
     this.load.image('debugIndic', 'debugIndicator.png');
 
     this.load.setPath('assets/maps/');
-    //Carga de Tilemap
+    // Carga de Tilemap
     this.load.tilemapTiledJSON('tilemap01', 'Map01.json');
-    //Carga de spritesheet
+    // Carga de spritesheet
     this.load.image('mapSpriteSheet', 'spritesheets/mansionNes.png');
-
-
-
   }
 
   /**
@@ -229,6 +234,17 @@ export default class Boot extends Phaser.Scene {
       frames: this.anims.generateFrameNumbers("HumanSpriteSheetselect", {
         start: 12,
         end: 14
+      }),
+      repeat: -1
+    });
+
+    //CANDLE ANIMATIONS SELECTED -------------------------------------------------------------
+    this.anims.create({
+      key: "_candleLighted",
+      frameRate: this.animationFrameRate,
+      frames: this.anims.generateFrameNumbers("candleSpriteSheet", {
+        start: 0,
+        end: 1
       }),
       repeat: -1
     });

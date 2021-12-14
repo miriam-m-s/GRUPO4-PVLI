@@ -30,7 +30,14 @@ export default class Lights extends Phaser.GameObjects.Sprite {
     this.scene.physics.add.collider(this, ghostPlayer);
     this.scene.physics.add.overlap(this, this.human);
 
+    this.scene.physics.add.overlap(this, ghostPlayer);
+
     this.body.scale *= 0.5;
+
+    // Si cuando se crea la luz el fantasma esta cerca, reiniciar el fantasma
+    if (this.scene.physics.overlap(ghostPlayer, this)) {
+      this.scene.ResetLevel();
+    }
   }
 
 
