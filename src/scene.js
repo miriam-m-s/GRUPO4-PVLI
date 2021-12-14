@@ -156,14 +156,15 @@ export default class Level extends Phaser.Scene {
 
 
     //RAYCAST OBJECTS
-    this.staticObstacles = [];
 
+ 
+   this.raycaster = this.raycasterPlugin.createRaycaster();
 
-    // this.dynamicObstacles = [
-    //   this.humanPlayer,
-    //   this.ghostPlayer, this.mirror, this.furniture2, this.furniture,this.mirror2
-    // ];
-
+    this.dynamicObstacles = [
+      this.humanPlayer,
+       this.ghostPlayer, this.mirror, this.furniture2, this.furniture,this.mirror2
+    ];
+    this.raycaster.mapGameObjects(this.dynamicObstacles, true);
 
 
     // this.raycaster = this.plugins.get('rexraycasterplugin').add()
@@ -171,7 +172,7 @@ export default class Level extends Phaser.Scene {
     //   .addObstacle(this.dynamicObstacles)
 
 
-    // this.window = new Window(this, this.graphics, 20, 200, this.raycaster, 90);
+     this.window = new Window(this, 20, 200, 90);
   }
 
   // DoRaycast(x, y, angle, mirrorDetector, graphic) {

@@ -25,6 +25,15 @@ let config =
             debug: false
         } 
     },
+    plugins: {
+        scene: [
+            {
+                key: 'PhaserRaycaster',
+                plugin: PhaserRaycaster,
+                mapping: 'raycasterPlugin'
+            }
+        ]
+    },
     audio: {
         disableWebAudio: true
     }

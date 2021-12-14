@@ -8,39 +8,18 @@ export default class Window extends Phaser.GameObjects.Sprite {
    * @param {number} x Coordenada x
    * @param {number} y Coordenada y
    */
-  constructor(scene, graphics, x, y, raycaster, rayAngle) {
+  constructor(scene, x, y, rayAngle) {
     super(scene, x, y, 'window');
     this.setScale(0.19);
     this.scene.add.existing(this);
-    this.scene.physics.add.existing(this, true);
-    //this.scene.physics.add.collider(this, ghostPlayer);
-    //this.canBePossessed=true; OBJETO INTELIGENTE
-    //furnitureGroup.add(this);
-
-    // this.rayLight = new Line(scene, 0, 100, 0, 100);
-
-
-    this.graphics = graphics;
-
-
-
+    this.scene.physics.add.existing(this);
 
     this.pivot = new Phaser.Geom.Point(this.body.x + this.width / 2,
       this.body.y + this.height);
 
 
-    this.mirrorDetector = new MirrorDetector(scene, x, y);
+   
 
-    this.raycaster = raycaster;
-
-
-    this.scene.data
-      .set('startX', 500)
-      .set('startY', 225)
-
-
-    this.x = x;
-    this.y = y;
 
     if (rayAngle === 90) rayAngle = 4.71;
 
@@ -52,16 +31,35 @@ export default class Window extends Phaser.GameObjects.Sprite {
     this.rayAngle = rayAngle;
 
     this.scene = scene;
-    this.graphi = this.scene.add.graphics();
-    //this.scene.createLightRay(180, 100, 100);
+   
+  }
+  createRay(angles){
 
+    let ray = this.scene.raycaster.createRay({
+      origin: {
+        x: this.x,
+        y: this.y
+      },
+      angle: angles,
+      detectionRange: 1000
+    });
 
-    //scene.createRayLight(this.pivot.x, this.pivot.y);
+    return ray
+  }
+  drawRay(ray, intersection){
+
+    this.scene.graphics.clear();
+    this.scene.graphics.lineStyle(1, 0xfffff, 2);
+    let line = new Phaser.Geom.Line(ray.origin.x, ray.origin.y, intersection.x, intersection.y);
+    this.scene.graphics.fillPoint(ray.origin.x, ray.origin.y, 3)
+    this.scene.graphics.strokeLineShape(line);
   }
 
   preUpdate(t, dt) {
     super.preUpdate(t, dt);
-
-    this.scene.DoRaycast(this.x, this.y, this.rayAngle, this.mirrorDetector, this.graphi);
+    this.ray=this.createRay(this.rayAngle);
+    let intersection = this.ray.cast();
+    this.drawRay(this.ray,intersection);
+    
   }
 }
