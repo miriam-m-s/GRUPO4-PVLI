@@ -22,8 +22,6 @@ export default class MirrorDetector extends Phaser.GameObjects.Sprite {
       if (this.scene.physics.overlap(this, this.dynamicobjects[i])) {
 
         this.dynamicobjects[i].Mirrordetect();
-
-
       }
     }
 

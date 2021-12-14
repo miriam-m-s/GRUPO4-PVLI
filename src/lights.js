@@ -12,7 +12,7 @@ export default class Lights extends Phaser.GameObjects.Sprite {
    * @param {number} y Coordenada y
    * @param {number} radius Coordenada y
    */
-  constructor(scene, humanPlayer, ghostPlayer, baseGroup, x, y, radius) {
+  constructor(scene, humanPlayer, ghostPlayer, baseGroup, x, y, radius, isCandleLight) {
     super(scene, x, y, 'light', radius);
 
     this.setAlpha(.2);
@@ -23,16 +23,24 @@ export default class Lights extends Phaser.GameObjects.Sprite {
 
     this.radius = radius;
     this.human = humanPlayer;
-    this.body.setCircle(radius);
-
-    this.scale = ((radius - 3) / 1000);
 
     this.scene.physics.add.collider(this, ghostPlayer);
     this.scene.physics.add.overlap(this, this.human);
 
     this.scene.physics.add.overlap(this, ghostPlayer);
 
-    this.body.scale *= 0.5;
+    this.isCandleLight = isCandleLight;
+
+    // Si es una luz creada por una vela, encenderse lentamente
+    if (isCandleLight) {
+      this.body.setCircle(1);
+      this.scale = 0;
+      this.body.scale = 0;
+    } else {
+      this.body.setCircle(radius);
+      this.scale = ((radius - 3) / 1000); 
+      this.body.scale *= 0.5;
+    }
 
     // Si cuando se crea la luz el fantasma esta cerca, reiniciar el fantasma
     if (this.scene.physics.overlap(ghostPlayer, this)) {
