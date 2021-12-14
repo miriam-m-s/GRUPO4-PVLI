@@ -11,7 +11,6 @@ export default class Ghost extends Player {
    * @param {Array<Furniture>} ghostItems lista de muebles
    * @param {Object} itemPossesed objeto que se esta poseyendo
    * @param {bool} shouldMoveItem deberia de mover el objeto poseido
-   * * 
    */
 
   constructor(scene, playerPosX, playerPosY, beingControlled, ghostItems) {
@@ -20,8 +19,6 @@ export default class Ghost extends Player {
     this.shouldMoveItem = false;
     this.ghostItems = ghostItems;
     this.possesion = scene.sound.add('possesion');
-
-
   }
 
   preUpdate(t, dt) {
@@ -33,7 +30,6 @@ export default class Ghost extends Player {
      
       this.itemPossesed.setPosition(this.body.x, this.body.y);
       this.setAlpha(0);
-     
     }
   }
   
@@ -41,7 +37,9 @@ export default class Ghost extends Player {
     console.log("soy fantasma");
     this.scene.ResetLevel();
   }
+  
   PossessObject(objectToPossess) {
+
     if (this.AssignObject(objectToPossess)) {
       var tween = this.scene.tweens.add({
         targets: this.body,
@@ -56,9 +54,7 @@ export default class Ghost extends Player {
   }
 
   AllowMovement() {
-
     this.shouldMoveItem = true;
-
   }
 
   AssignObject(objectToPossess) {
