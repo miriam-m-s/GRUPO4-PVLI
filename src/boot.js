@@ -50,13 +50,13 @@ export default class Boot extends Phaser.Scene {
       frameWidth: 16,
       frameHeight: 16
     });
-    this.load.spritesheet('GhostSpriteSheetselect', 'ghostSpriteSheetselect.png', {
+    this.load.spritesheet('GhostSpriteSheetselect', 'ghostSpriteSheetselect02.png', {
       frameWidth: 16,
-      frameHeight: 16
+      frameHeight: 19
     });
-    this.load.spritesheet('HumanSpriteSheetselect', 'humanSpriteSheetselect.png', {
+    this.load.spritesheet('HumanSpriteSheetselect', 'humanSpriteSheetselect02.png', {
       frameWidth: 16,
-      frameHeight: 16
+      frameHeight: 18
     });
     this.load.image('ghost', 'ghostSprite.png');
     this.load.image('human', 'humanSprite.png');
