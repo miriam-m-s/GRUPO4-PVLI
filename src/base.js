@@ -16,7 +16,7 @@ export default class Base extends Phaser.GameObjects.Sprite {
 
   constructor(scene, player, texture, x, y) {
     super(scene, x, y, texture);
-    this.setScale(0.03);
+    this.setScale(0.05);
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
 

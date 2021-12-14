@@ -42,11 +42,11 @@ export default class Boot extends Phaser.Scene {
     //Cursor
     this.load.image('CursorSelector', 'cursorSelector.png');
     //Players
-    this.load.spritesheet('GhostSpriteSheet', 'ghostSpriteSheet.png', {
+    this.load.spritesheet('GhostSpriteSheet', 'ghostSpriteSheet02.png', {
       frameWidth: 16,
       frameHeight: 16
     });
-    this.load.spritesheet('HumanSpriteSheet', 'humanSpriteSheet.png', {
+    this.load.spritesheet('HumanSpriteSheet', 'humanSpriteSheet02.png', {
       frameWidth: 16,
       frameHeight: 16
     });
