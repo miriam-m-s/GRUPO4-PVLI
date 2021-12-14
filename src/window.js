@@ -60,6 +60,10 @@ export default class Window extends Phaser.GameObjects.Sprite {
     this.ray=this.createRay(this.rayAngle);
     let intersection = this.ray.cast();
     this.drawRay(this.ray,intersection);
+    if(intersection.object!=null){
+      intersection.object.Mirrordetect();
+    }
+    
     
   }
 }
