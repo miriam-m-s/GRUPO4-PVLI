@@ -29,16 +29,16 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
     this.xOffset = 0;
     this.yOffset = 0;
 
-    if (dir == 0) this.xOffset = this.width / 2;
+    if (dir == 0) this.xOffset =( this.width / 2)+0.5;
     else if (dir === 90) {
       dir = 4.71;
-      this.yOffset = -this.height / 2;
+      this.yOffset = (-this.height / 2)-0.5;
     } else if (dir === 180) {
       dir = Math.PI;
-      this.xOffset = -this.width / 2;
+      this.xOffset = (-this.width / 2)-0.5;
     } else if (dir === 270) {
       dir = 1.57;
-      this.yOffset = this.height / 2;
+      this.yOffset = (this.height / 2)+0.5;
     }
     this.x = x;
     this.y = y;
@@ -68,12 +68,12 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
 
     this.scene.ghostPlayer.PossessObject(this);
   }
-  createRay(angles){
+  createRay(angles,posx,posy){
 
     let ray = this.scene.raycaster.createRay({
       origin: {
-        x: this.x+ this.xOffset+1,
-        y: this.y+this.yOffset+1
+        x: posx,
+        y: posy,
       },
       angle: angles,
       detectionRange: 1000
@@ -86,7 +86,6 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
     this.graphic1.clear();
     this.graphic1.lineStyle(1, 0xfffff, 2);
     let line = new Phaser.Geom.Line(ray.origin.x, ray.origin.y, intersection.x, intersection.y);
-    this.graphic1.fillPoint(ray.origin.x, ray.origin.y, 3)
     this.graphic1.strokeLineShape(line);
   }
   preUpdate(t, dt) {
@@ -94,12 +93,15 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
   
     if(this.inLight){
     
-      this.ray=this.createRay(this.dir);
+      this.ray=this.createRay(this.dir,this.x+this.xOffset,this.y+ this.yOffset);
       let intersection = this.ray.cast();
       this.drawRay(this.ray,intersection);
       if(intersection.object!=null){
         intersection.object.Mirrordetect();
       }
+    }
+    else{
+      this.graphic1.clear();
     }
     this.inLight = false;
   }

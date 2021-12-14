@@ -10,7 +10,7 @@
     constructor(scene, x, y) {
 
        super(scene, x, y);
-
+       this.setDepth(10);
        this.fondo = this.scene.add.image(0, 0, 'pauseMenu');
        this.fondo.scale = 0.3;
        let textConfig = {

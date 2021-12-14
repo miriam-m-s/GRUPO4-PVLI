@@ -13,7 +13,7 @@ export default class Window extends Phaser.GameObjects.Sprite {
     this.setScale(0.19);
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
-
+    this.graphic = this.scene.add.graphics();
     this.pivot = new Phaser.Geom.Point(this.body.x + this.width / 2,
       this.body.y + this.height);
 
@@ -48,11 +48,11 @@ export default class Window extends Phaser.GameObjects.Sprite {
   }
   drawRay(ray, intersection){
 
-    this.scene.graphics.clear();
-    this.scene.graphics.lineStyle(1, 0xfffff, 2);
+    this.graphic.clear();
+    this.graphic.lineStyle(1, 0xfffff, 2);
     let line = new Phaser.Geom.Line(ray.origin.x, ray.origin.y, intersection.x, intersection.y);
-    this.scene.graphics.fillPoint(ray.origin.x, ray.origin.y, 3)
-    this.scene.graphics.strokeLineShape(line);
+   
+    this.graphic.strokeLineShape(line);
   }
 
   preUpdate(t, dt) {

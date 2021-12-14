@@ -30,17 +30,17 @@ export default class Ghost extends Player {
       this.CheckForNearestObject(this.ghostItems);
     }
     if (this.itemPossesed != null && this.shouldMoveItem) {
-      //this.possesion.play();
+     
       this.itemPossesed.setPosition(this.body.x, this.body.y);
       this.setAlpha(0);
-      //this.itemPossesed.setPosition(this.body.position);
-      //this.itemPossesed.body.setPosition(this.body.position.x, this.body.position.y);
+     
     }
-    // Touch rayLight
+
 
   }
   Mirrordetect() {
     console.log("soy fantasma");
+    this.scene.ResetLevel() ;
   }
   PossessObject(objectToPossess) {
     if (this.AssignObject(objectToPossess)) {
@@ -59,7 +59,7 @@ export default class Ghost extends Player {
   AllowMovement() {
 
     this.shouldMoveItem = true;
-    //console.log(this.shouldMoveItem);
+
   }
 
   AssignObject(objectToPossess) {

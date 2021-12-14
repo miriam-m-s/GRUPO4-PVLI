@@ -14,7 +14,7 @@ export default class Lights extends Phaser.GameObjects.Sprite {
    */
   constructor(scene, humanPlayer, ghostPlayer, baseGroup, x, y, radius) {
     super(scene, x, y, 'light', radius);
-    this.depth = 0;
+
     this.setAlpha(.2);
 
     this.setOrigin(0);

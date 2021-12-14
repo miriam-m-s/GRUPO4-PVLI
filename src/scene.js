@@ -149,41 +149,24 @@ export default class Level extends Phaser.Scene {
     this.lights = this.add.group();
     new Lights(this, this.humanPlayer, this.ghostPlayer, this.lights, 60, 60, 50);
 
-    //GRAFICOS
-    this.graphics = this.add.graphics();
+    
 
 
 
 
-    //RAYCAST OBJECTS
-
- 
+    //CREACIÓN DEL RAYCAST
    this.raycaster = this.raycasterPlugin.createRaycaster();
-
+    //objetos que reaccionan al raycast
     this.dynamicObstacles = [
       this.humanPlayer,
        this.ghostPlayer, this.mirror, this.furniture2, this.furniture,this.mirror2
     ];
     this.raycaster.mapGameObjects(this.dynamicObstacles, true);
 
-
-    // this.raycaster = this.plugins.get('rexraycasterplugin').add()
-    //   .addObstacle(this.staticObstacles)
-    //   .addObstacle(this.dynamicObstacles)
-
-
      this.window = new Window(this, 20, 200, 90);
   }
 
-  // DoRaycast(x, y, angle, mirrorDetector, graphic) {
-
-  //   RunRaycaster(this.raycaster,
-  //     x, y, angle,
-  //     graphic,
-  //     mirrorDetector
-  //   );
-  // }
-
+ 
   ResetLevel() {
     console.log("RESET LEVEL");
     this.scene.start('end');
@@ -210,7 +193,6 @@ export default class Level extends Phaser.Scene {
       this.gameTime.setText(minutes + "m" + seconds + "s");
     }
   }
-
   clickPause() {
     if (this.isPaused) //Crea el menu con los botones
     {
@@ -234,25 +216,3 @@ export default class Level extends Phaser.Scene {
     return this.isPaused;
   }
 }
-//raycaster calculate positions of rays
-// let RunRaycaster = function (raycaster, x, y, angle, debugGraphics, mirrorDetector) {
-//   debugGraphics
-//     .clear()
-//     .fillStyle(0xC4C400)
-
-
-//   const MaxReflectionCount = 1000;
-//   for (let i = 0; i < MaxReflectionCount; i++) {
-//     let result = raycaster.rayToward(x, y, angle);
-//     debugGraphics
-//       .lineStyle(2, 0xFFFFF)
-//       .strokeLineShape(raycaster.ray);
-
-
-//     mirrorDetector.setPosition(result.x, result.y);
-
-
-//     break;
-
-//   }
-// }
