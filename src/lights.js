@@ -41,6 +41,7 @@ export default class Lights extends Phaser.GameObjects.Sprite {
       this.scale = ((radius - 3) / 1000); 
       this.body.scale *= 0.5;
     }
+    this.lightScale = 1;
 
     // Si cuando se crea la luz el fantasma esta cerca, reiniciar el fantasma
     if (this.scene.physics.overlap(ghostPlayer, this)) {
@@ -58,6 +59,14 @@ export default class Lights extends Phaser.GameObjects.Sprite {
     if (this.scene.physics.overlap(this.human, this)) {
       this.human.onLightFunction(this.body.x + this.radius,
         this.body.y + this.radius);
+    }
+
+    // Increase light size
+    if (this.isCandleLight) {
+      if (this.lightScale < this.radius) {
+        this.lightScale += .03; // Increase collider
+      }
+      this.body.setCircle(this.lightScale);
     }
   }
 }
