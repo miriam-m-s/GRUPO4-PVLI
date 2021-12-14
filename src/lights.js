@@ -47,7 +47,7 @@ export default class Lights extends Phaser.GameObjects.Sprite {
       this.y += this.radius;
     } else {
       this.body.setCircle(radius);
-      this.scale = ((radius - 3) / 1000); 
+      this.scale = ((radius - 1) / 1000);
       this.body.scale *= 0.5;
     }
     this.lightScale = 1;
@@ -88,7 +88,7 @@ export default class Lights extends Phaser.GameObjects.Sprite {
       if (this.lightScale < this.radius) {
         // Increase collider
         this.lightScale += .03;
-        this.scale = ((this.lightScale - 3) / 1000); 
+        this.scale = ((this.lightScale - 1) / 1000); 
 
         this.lightVariable = this.lightScale / 100;
         

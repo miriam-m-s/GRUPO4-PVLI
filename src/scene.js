@@ -123,8 +123,6 @@ export default class Level extends Phaser.Scene {
       this.mirror = new Mirror(this, this.mirrorGroup, 20, 80, 0),
       this.mirror2 = new Mirror(this, this.mirrorGroup, 120, 80, 270)
     ];
-    //bases
-
 
     // if(Phaser.Utils.Debug)
     // {
