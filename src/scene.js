@@ -82,8 +82,6 @@ export default class Level extends Phaser.Scene {
     this.isPaused = false;
     this.escape = this.input.keyboard.addKey('ESC');
     this.escape.on('down', () => {
-      this.exit.play();
-      this.music.stop();
       this.isPaused = !this.isPaused;
       this.clickPause();
     });
@@ -194,16 +192,27 @@ export default class Level extends Phaser.Scene {
     {
       if (this.pauseMenu === null) {
         this.pauseMenu = new Pause(this, 120, 130);
-      }
+      } 
+      //Visual
+      this.anims.pauseAll(); //Pausa todas las animaciones de la escena
       this.pauseMenu.active = true;
       this.pauseMenu.alpha = 1;
-      this.anims.pauseAll(); //Pausa todas las animaciones de la escena
-    } else //Lo destruye
+
+      //Sonido
+      this.music.stop();
+      this.exit.play();
+      
+    } else //Lo desactiva
     {
+      //Visual
+
       this.pauseMenu.active = false;
       this.pauseMenu.alpha = 0;
-      this.music.play();
       this.anims.resumeAll(); //Reanuda las animaciones que habia activas al pausar la escena
+      
+      //Sonido
+      this.music.play();
+      
     }
     this.timer.paused = !this.timer.paused;
   }
