@@ -12,7 +12,7 @@ export default class Lights extends Phaser.GameObjects.Sprite {
    * @param {number} y Coordenada y
    * @param {number} radius Coordenada y
    */
-  constructor(scene, humanPlayer, ghostPlayer, baseGroup, x, y, radius, isCandleLight) {
+  constructor(scene, humanPlayer, ghostPlayer, baseGroup, x, y, radius, isCandleLight, isLampLight) {
     super(scene, x, y, 'light', radius);
 
     this.posX = x;
@@ -34,9 +34,12 @@ export default class Lights extends Phaser.GameObjects.Sprite {
     this.scene.physics.add.overlap(this, ghostPlayer);
 
     this.isCandleLight = isCandleLight;
+    this.isLampLight = isLampLight;
+
+    this.isLampOn = false;
 
     // Si es una luz creada por una vela, encenderse lentamente
-    if (isCandleLight) {
+    if (isCandleLight || isLampLight) {
       this.body.setCircle(1);
       this.scale = 0;
       this.body.scale = 0;
@@ -45,7 +48,8 @@ export default class Lights extends Phaser.GameObjects.Sprite {
       this.setOrigin(.5);
       this.x += this.radius; // Posicionar el sprite del circulo en mitad de la vela
       this.y += this.radius;
-    } else {
+      } 
+      else {
       this.body.setCircle(radius);
       this.scale = ((radius - 1) / 1000);
       this.body.scale *= 0.5;
@@ -58,6 +62,10 @@ export default class Lights extends Phaser.GameObjects.Sprite {
     }
   }
 
+  LampClicked(newState) {
+    console.log("LampClicked");
+    this.isLampOn = newState;
+  }
 
   /**
    * Redefinición del preUpdate de Phaser
@@ -70,24 +78,33 @@ export default class Lights extends Phaser.GameObjects.Sprite {
         this.body.y + this.radius);
     }
 
-    // if (this.isCandleLight) {
-    //   this.scene.tweens.add({
-    //     targets     : [ this ],
-    //     scaleX: this.radius/ 100,
-    //     scaleY: this.radius / 100,
-    //     ease        : 'Linear',
-    //     duration    : 100000,
-    //     yoyo        : false,
-    //     repeat      : 0,
-    //     callbackScope   : this
-    //   });
-    // }
-    
-
     if (this.isCandleLight) {
       if (this.lightScale < this.radius) {
         // Increase collider
         this.lightScale += .03;
+        this.scale = ((this.lightScale - 1) / 1000); 
+
+        this.lightVariable = this.lightScale / 100;
+        
+        this.body.x = -this.lightScale + this.posX + this.radius;
+        this.body.y = -this.lightScale + this.posY + this.radius;
+      }
+      this.body.setCircle(this.lightScale);
+
+    } else if (this.isLampLight) {
+
+      if (this.isLampOn && this.lightScale < this.radius) {
+        // Increase collider
+        this.lightScale += .2;
+        this.scale = ((this.lightScale - 1) / 1000); 
+
+        this.lightVariable = this.lightScale / 100;
+        
+        this.body.x = -this.lightScale + this.posX + this.radius;
+        this.body.y = -this.lightScale + this.posY + this.radius;
+      } else if (!this.isLampOn && this.lightScale >= 0) {
+        this.lightScale -= .2;
+        if (this.lightScale < 0) this.lightScale
         this.scale = ((this.lightScale - 1) / 1000); 
 
         this.lightVariable = this.lightScale / 100;
