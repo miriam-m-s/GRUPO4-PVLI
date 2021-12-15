@@ -48,8 +48,11 @@ export default class Candle extends Phaser.GameObjects.Sprite {
 
     SelectObject() {
       if (this.isPossesed) return;
-      this.scale = 1.05;
-      this.setTexture('SelectedCandle');
+      if (!this.isOn){
+        this.scale = 1.05;
+        this.setTexture('SelectedCandle');
+      }
+     
     }
   
     DeselectObject() {
@@ -59,11 +62,11 @@ export default class Candle extends Phaser.GameObjects.Sprite {
     }
   
     Interact() {
-  
-      this.isPossesed = !this.isPossesed;
-      this.setTexture('PossesedCandle');
-      this.body.depth = 3;
-  
-      this.scene.ghostPlayer.PossessObject(this);
+      if (!this.isOn){this.isPossesed = !this.isPossesed;
+        this.setTexture('PossesedCandle');
+        this.body.depth = 3;
+    
+        this.scene.ghostPlayer.PossessObject(this);}
+      
     }
   }
