@@ -6,6 +6,7 @@ import Candle from './candle.js';
 import Human from './human.js';
 import Ghost from './ghost.js'
 import Base from './base.js';
+import Switch from './switch.js'
 import Window from './window.js'
 import Pause from './pause.js';
 
@@ -103,12 +104,18 @@ export default class Level extends Phaser.Scene {
 
     let humanList; //lista de objetos humanos
     let ghostList; //lista de objetos poseibles
+    let lampList;
 
+    //Lista de lamparas
+    lampList = [
+      new Lamp(this, 60, 80, 'lampDefault', this.humanPlayer, this.ghostPlayer, this.lampGroup),
+      new Lamp(this, 190, 150, 'lampDefault', this.humanPlayer, this.ghostPlayer, this.lampGroup)
+    ];
     //Objetos Humano(lamparas/interruptores)
 
     humanList = [
-      new Lamp(this, 60, 80, 'lampDefault', this.humanPlayer, this.ghostPlayer, this.lampGroup),
-      new Lamp(this, 190, 150, 'lampDefault', this.humanPlayer, this.ghostPlayer, this.lampGroup)
+      new Switch(this, 60, 95, 'switchDefault', this.humanPlayer, this.ghostPlayer, this.lampGroup, lampList[0]),
+      new Switch(this, 190, 165, 'switchDefault', this.humanPlayer, this.ghostPlayer, this.lampGroup, lampList[1])
     ];
     // new Mirror(this, this.humanPlayer, this.lampGroup, new Phaser.Math.Vector2(190,70)), 
     //new Lamp(this, this.humanPlayer, this.lampGroup, new Phaser.Math.Vector2(190,150))];
