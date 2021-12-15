@@ -49,7 +49,6 @@ export default class Lamp extends Phaser.GameObjects.Sprite {
         this.soundlight.play();
         let radius = 30;
         this.light = new Lights(this.scene, this.scene.humanPlayer, this.scene.ghostPlayer, this.scene.lights, this.lampPosX - radius, this.lampPosY - radius, radius);
-
       } else {
         this.setTexture('lampSelected');
         this.soundlight.play();

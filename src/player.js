@@ -88,9 +88,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     });
   }
 
-
   setBeingControlled() {
-
     this.beingControlled = !this.beingControlled;
   }
 
@@ -98,7 +96,6 @@ export default class Player extends Phaser.GameObjects.Sprite {
     if (!this.scene.levelPaused()) {
       this.beingControlled = !this.beingControlled;
     }
-
   }
 
   preUpdate(t, dt) {
@@ -138,11 +135,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
         this.play('_idle' + this.playerName, true);
       }
     }
-
   }
-
-
-
 
   CheckForNearestObject(objetos) {
     this.objectList = objetos;

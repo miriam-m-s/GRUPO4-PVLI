@@ -2,6 +2,7 @@ import Lights from './lights.js';
 import Lamp from './lamp.js';
 import Mirror from './mirror.js';
 import Furniture from './furniture.js';
+import Candle from './candle.js';
 import Human from './human.js';
 import Ghost from './ghost.js'
 import Base from './base.js';
@@ -77,9 +78,6 @@ export default class Level extends Phaser.Scene {
     this.mirrorGroup = this.add.group();
 
 
-
-
-
     //BOTON DE PAUSA Y ESC
     this.isPaused = false;
     this.escape = this.input.keyboard.addKey('ESC');
@@ -121,12 +119,10 @@ export default class Level extends Phaser.Scene {
     ghostList = [
       this.furniture = new Furniture(this, this.ghostPlayer, this.furnitureGroup, 130, 135, 'furniture'),
       this.furniture2 = new Furniture(this, this.ghostPlayer, this.furnitureGroup, 170, 135, 'furniture'),
+      this.candle = new Candle(this, this.ghostPlayer, this.furnitureGroup, 200, 135, 50, 'UnselectedCandle'),
       this.mirror = new Mirror(this, this.mirrorGroup, 20, 80, 0),
       this.mirror2 = new Mirror(this, this.mirrorGroup, 120, 80, 270)
-
     ];
-    //bases
-
 
     // if(Phaser.Utils.Debug)
     // {
@@ -159,7 +155,7 @@ export default class Level extends Phaser.Scene {
     //objetos que reaccionan al raycast
     this.dynamicObstacles = [
       this.humanPlayer,
-       this.ghostPlayer, this.mirror, this.furniture2, this.furniture,this.mirror2
+       this.ghostPlayer, this.mirror, this.furniture2, this.furniture,this.mirror2, this.candle
     ];
     this.raycaster.mapGameObjects(this.dynamicObstacles, true);
 
