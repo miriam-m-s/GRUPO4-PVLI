@@ -16,11 +16,7 @@ export default class Candle extends Phaser.GameObjects.Sprite {
       this.posX = x;
       this.posY = y;
 
-      this.radius = radius;
-
-      //this.body.setSize(20, 20, false);
-
-  
+      this.radius = radius; 
       this.scene.add.existing(this);
       this.scene.physics.add.existing(this);
   
@@ -35,7 +31,7 @@ export default class Candle extends Phaser.GameObjects.Sprite {
         console.log("light candle");
         this.light = new Lights(this.scene, this.scene.humanPlayer, this.scene.ghostPlayer, this.scene.lights, this.x - this.radius, this.y - this.radius, this.radius, true);
         this.isOn = true;
-
+        
         // Si el fantasma esta dentro de la vela reiniciar el nivel
         if (this.isPossesed) this.scene.ResetLevel();
       }
