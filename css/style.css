@@ -13,53 +13,36 @@ body {
   0% { color: black; }
   100% { color: white; }
 }
-mainHeader
+.mainHeader
 {
+  margin:auto;
   transition-delay: 2s;
   animation: color-change 3s 1;
   word-wrap: break-word;
-  width: 70%;
 	margin: 0 auto;
   font-family: 'Sys', Fallback, sans-serif;
   font-size: 14px;
   text-align: center;
   color:rgb(255, 255, 255);
-  position: absolute; /* or absolute */
-  top: 10%;
-  left: 0px;
-  right: 0px;
+  /*position: absolute; /* or absolute */
 }
 
-
-terminalFont
-{
-  font-family: 'Sys', Fallback, sans-serif;
-  font-size: 10px;
-  text-align: left;
-  color:rgb(255, 255, 255);
-  position:absolute;
-  top:20px;
-  left:20px;
-}
-
-menuwrapper 
+.menuwrapper 
 {
   color:rgb(255, 255, 255);
   line-height: 40%;
   text-align: center;
-  position:absolute;
+  /*position:absolute;*/
   top:20px;
   right:20px;
   z-index: 0;
 }
 
-canvasGame 
+/* .gameContainer
 {
-  position: absolute;
-    top: 40%;
-    right: 30%;
-    bottom: 50%;
-}
+  margin:auto;
+  width:70%;
+} */
 
 @font-face {
   src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/86186/terminal_copy.ttf);

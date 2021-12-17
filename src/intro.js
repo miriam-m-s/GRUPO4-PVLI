@@ -9,7 +9,7 @@ export default class Intro extends Phaser.Scene {
     
 
     create() {
-        this.intro = this.add.video(200, 100, 'vid');
+        this.intro = this.add.video(500, 300, 'vid');
         this.intro.setScale(0.3);
         this.intro.play(true);
     }

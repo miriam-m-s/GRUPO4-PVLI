@@ -7,15 +7,17 @@ import MainMenuScene from './mainMenuScene.js';
 let config = 
 {
     type: Phaser.WEBGL,
-    //NES aspect ratio es 8:7
-    width:  400,
-    height: 220,
+    parent:"mygame",
     roundPixels: true,
     scale: {
-        parent: 'mygame',
-        autoCenter: Phaser.Scale.CENTER_BOTH
+
+        height:300,
+        width:400,
+        //mode:Phaser.Scale.FIT,
+        //autoCenter: Phaser.Scale.CENTER_BOTH,
+        zoom: 2
     },
-    zoom: 1.4,
+  
     pixelArt: true,
     scene: [Boot,Intro, MainMenuScene, Level, End],
     physics: { 
