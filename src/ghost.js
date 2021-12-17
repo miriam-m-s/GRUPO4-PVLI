@@ -28,7 +28,7 @@ export default class Ghost extends Player {
     }
     if (this.itemPossesed != null && this.shouldMoveItem) {
      
-      this.itemPossesed.setPosition(this.body.x, this.body.y);
+      this.itemPossesed.setPosition(this.body.x+this.body.width/2, this.body.y+10+this.body.height/3);
       this.setAlpha(0);
     }
   }
