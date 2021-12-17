@@ -63,7 +63,6 @@ export default class Lights extends Phaser.GameObjects.Sprite {
   }
 
   LampClicked(newState) {
-    console.log("LampClicked");
     this.isLampOn = newState;
   }
 

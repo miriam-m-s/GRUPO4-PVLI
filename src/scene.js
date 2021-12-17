@@ -54,9 +54,12 @@ export default class Level extends Phaser.Scene {
     const tileset1 = this.map.addTilesetImage('mansionNes', 'mapSpriteSheet');
 
     this.backgroundLayer = this.map.createLayer('BackLayer', [tileset1]);
-    this.lightLayer = this.map.createLayer('LightLayer', [tileset1]);
+    this.colLayer = this.map.createLayer('ColLayer', [tileset1]);
+    /*this.lightLayer = this.map.createLayer('LightLayer', [tileset1]);
     this.frontLayer = this.map.createLayer('FrontLayer', [tileset1]);
-    //this.itemLayer = this.map.createLayer('ItemLayer', [tileset1]); 
+    this.itemLayer = this.map.createLayer('ItemLayer', [tileset1]); */
+
+    
 
     //Timer
     this.gameTime = this.add.text(205, 40, "0s", {
@@ -157,8 +160,9 @@ export default class Level extends Phaser.Scene {
 
     
 
-
-
+    this.colLayer.setCollisionByProperty({colisiona: true});
+    this.physics.add.collider(this.ghostPlayer, this.colLayer);
+    
 
     //CREACIÓN DEL RAYCAST
    this.raycaster = this.raycasterPlugin.createRaycaster();
@@ -170,11 +174,12 @@ export default class Level extends Phaser.Scene {
     this.raycaster.mapGameObjects(this.dynamicObstacles, true);
 
      this.window = new Window(this, 20, 200, 90);
+
+     
   }
 
  
   ResetLevel() {
-    console.log("RESET LEVEL");
     this.scene.start('end');
   }
   //Check the final de nivel para ambos jugadores
@@ -182,7 +187,6 @@ export default class Level extends Phaser.Scene {
     this.updateTimer();
 
     if (this.basefant.ininbase() && this.basepers.ininbase()) {
-      console.log("NEXT LEVEL");
       this.scene.start('end');
     }
    // this.raycaster.updateObstacle(this.dynamicObstacles);
