@@ -21,7 +21,8 @@ export default class Boot extends Phaser.Scene {
    * Carga de los assets del juego
    */
   preload() {
-    //RAYCAST
+    //video
+    this.load.video('vid','./assets/video/a.mp4');
 
     //MUSIC
     this.load.audio('bckMusic', [
@@ -252,6 +253,6 @@ export default class Boot extends Phaser.Scene {
     });
 
     //CREACION DEL NIVEL
-    this.scene.start('mainMenu');
+    this.scene.start('intros');
   }
 }

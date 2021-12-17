@@ -1,7 +1,7 @@
 import Boot from './boot.js';
 import End from './end.js';
-import Platform from './platform.js';
 import Level from './scene.js';
+import Intro from './intro.js'; 
 import MainMenuScene from './mainMenuScene.js';
 
 let config = 
@@ -18,7 +18,7 @@ let config =
     },
     zoom: 1.4,
     pixelArt: true,
-    scene: [Boot, MainMenuScene, Level, End],
+    scene: [Boot,Intro, MainMenuScene, Level, End],
     physics: { 
         default: 'arcade', 
         arcade: { 
