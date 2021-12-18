@@ -63,13 +63,15 @@ export default class Ghost extends Player {
   AssignObject(objectToPossess) {
     if (!this.scene.levelPaused()) {
       if (this.itemPossesed == null) {
-        this.possesion.play();
+        if(this.scene.musicOn)
+          this.possesion.play();
         this.itemPossesed = objectToPossess;
 
         return true;
 
       } else {
-        this.possesion.play();
+        if(this.scene.musicOn)
+          this.possesion.play();
         this.setAlpha(1);
         this.itemPossesed = null;
       }

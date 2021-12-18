@@ -47,14 +47,14 @@ export default class Lamp extends Phaser.GameObjects.Sprite {
     if (!this.isOn) //si no esta encendida
     {
       if (this.light == null) {
-        this.soundlight.play();
+        if(this.scene.musicOn) this.soundlight.play();
         let radius = 30;
         this.light = new Lights(this.scene, this.scene.humanPlayer, this.scene.ghostPlayer, this.scene.lights, this.lampPosX - radius, this.lampPosY - radius, radius, false, true);
         // Avisar a la light de esta lampara
         this.light.LampClicked(true);
       } else {
         this.setTexture('lampSelected');
-        this.soundlight.play();
+        if(this.scene.musicOn) this.soundlight.play();
         this.light.body.enable = true;
         this.light.body.gameObject.alpha = 0.3;
 
@@ -63,7 +63,7 @@ export default class Lamp extends Phaser.GameObjects.Sprite {
       }
     } else //Esta encendida
     {
-      this.soundlight.play();
+      if(this.scene.musicOn) this.soundlight.play();
       this.light.body.enable = false;
      // this.light.body.gameObject.alpha = 0;
       this.setTexture('lampDefault');

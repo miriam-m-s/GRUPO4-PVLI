@@ -62,7 +62,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.space.on('down', () => {
       //this.body.stop();//para la animacion actual
       this.body.setVelocity(0);
-      this.soundchange.play();
+      if(this.scene.musicOn)this.soundchange.play();
       if (this.selectedObject != null) {
         this.selectedObject.DeselectObject();
       }
