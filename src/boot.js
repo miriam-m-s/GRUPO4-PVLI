@@ -77,9 +77,26 @@ export default class Boot extends Phaser.Scene {
     this.load.image('furnitureSelected', 'furnitureSpr02.png');
     this.load.image('furniturePossesed', 'furnitureSpr03.png');
     // Mirror
-    this.load.image('mirrorDefault', 'mirrorSpr01.png');
-    this.load.image('mirrorSelected', 'mirrorSpr02.png');
-    this.load.image('mirrorPossessed', 'mirrorSpr03.png');
+    // Unselected
+    this.load.setPath('assets/sprites/Mirrors/');
+    this.load.image('mirror_Unsel_90', 'mirror_Unsel_Up.png');
+    this.load.image('mirror_Unsel_270', 'mirror_Unsel_Down.png');
+    this.load.image('mirror_Unsel_180', 'mirror_Unsel_Left.png');
+    this.load.image('mirror_Unsel_0', 'mirror_Unsel_Right.png');
+    // Selected
+    this.load.image('mirror_Sel_90', 'mirror_Sel_Up.png');
+    this.load.image('mirror_Sel_270', 'mirror_Sel_Down.png');
+    this.load.image('mirror_Sel_180', 'mirror_Sel_Left.png');
+    this.load.image('mirror_Sel_0', 'mirror_Sel_Right.png');
+    // Possesed
+    this.load.image('mirror_Pos_90', 'mirror_Pos_Up.png');
+    this.load.image('mirror_Pos_270', 'mirror_Pos_Down.png');
+    this.load.image('mirror_Pos_180', 'mirror_Pos_Left.png');
+    this.load.image('mirror_Pos_0', 'mirror_Pos_Right.png');
+    // this.load.image('mirrorDefault', 'mirrorSpr01.png');
+    // this.load.image('mirrorSelected', 'mirrorSpr02.png');
+    // this.load.image('mirrorPossessed', 'mirrorSpr03.png');
+    this.load.setPath('assets/sprites/');
     // LIGHT
     this.load.image('light', 'light.png');
     // MIRRORDETECTED

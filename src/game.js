@@ -20,8 +20,8 @@ let config =
     pixelArt: true,
     scene: [Boot, MainMenuScene, Level, End],
     physics: { 
-        default: 'arcade', 
-        arcade: { 
+        default: 'arcade',
+        arcade: {
             debug: true
         } 
     },
