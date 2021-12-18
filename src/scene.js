@@ -10,7 +10,7 @@ import Switch from './switch.js'
 import Window from './window.js'
 import Pause from './pause.js';
 import Music from './music.js';
-
+import Timer from './timer.js'
 
 
 /**
@@ -60,22 +60,8 @@ export default class Level extends Phaser.Scene {
     this.colLayer = this.map.createLayer('ColLayer', [tileset1]); 
     this.extraLayer = this.map.createLayer('ExtraLayer', [tileset1]);
 
-    /*this.lightLayer = this.map.createLayer('LightLayer', [tileset1]);
-    this.frontLayer = this.map.createLayer('FrontLayer', [tileset1]);
-    this.itemLayer = this.map.createLayer('ItemLayer', [tileset1]); */
-
-    
-
     //Timer
-    this.gameTime = this.add.text(205, 40, "0s", {
-      font: "15px",
-      fill: "#fff",
-      align: "right"
-    });
-    this.timer = this.time.addEvent({
-      delay: 999999,
-      paused: false
-    });
+    this.timer = new Timer(this, 205, 40);
 
     //OBJETOS DE LA ESCENA
     this.bases = this.add.group();
@@ -106,6 +92,7 @@ export default class Level extends Phaser.Scene {
 
     this.pauseMenu = null;
     
+    //Music
     this.musicOn = true;
     this.musica = this.add.image(190, 20, 'musicButton').setInteractive();
     this.musica.scale = 0.01;
@@ -200,7 +187,7 @@ export default class Level extends Phaser.Scene {
   }
   //Check the final de nivel para ambos jugadores
   update() {
-    this.updateTimer();
+    this.timer.updateTimer();
 
     if (this.basefant.ininbase() && this.basepers.ininbase()) {
       this.scene.start('end');
@@ -208,17 +195,6 @@ export default class Level extends Phaser.Scene {
    // this.raycaster.updateObstacle(this.dynamicObstacles);
   }
 
-  updateTimer() {
-    let totalSeconds = this.timer.getElapsedSeconds().toFixed(0);
-    this.gameTime.setText(totalSeconds);
-    let minutes = Math.floor(totalSeconds / 60);
-    let seconds = totalSeconds - 60 * minutes;
-    if (totalSeconds < 60) {
-      this.gameTime.setText(seconds + "s");
-    } else {
-      this.gameTime.setText(minutes + "m" + seconds + "s");
-    }
-  }
   clickPause() {
     if (this.isPaused) //Crea el menu con los botones
     {
@@ -232,8 +208,7 @@ export default class Level extends Phaser.Scene {
 
       //Sonido
       this.music.stop();
-      if(this.musicOn)
-        this.exit.play();
+      if(this.musicOn) this.exit.play();
       
     } else //Lo desactiva
     {
@@ -244,11 +219,9 @@ export default class Level extends Phaser.Scene {
       this.anims.resumeAll(); //Reanuda las animaciones que habia activas al pausar la escena
       
       //Sonido
-      if(this.musicOn)
-        this.music.play();
-      
+      if(this.musicOn) this.music.play();
     }
-    this.timer.paused = !this.timer.paused;
+    this.timer.change();
   }
 
 
