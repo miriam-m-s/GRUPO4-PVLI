@@ -13,7 +13,7 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
 
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
-
+    this.body.setSize(20, 25, false);
     furnitureGroup.add(this);
 
     this.scene = scene;
