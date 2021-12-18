@@ -6,17 +6,17 @@ body {
   width: 100vw;
   cursor: url("../images/pixelCursor.png"), auto;
 }
-h1{
+
+h1 {
   font-size: 40px;
 }
 
-@keyframes color-change 
-{
+@keyframes color-change {
   0% { color: black; }
   100% { color: white; }
 }
-.mainHeader
-{
+
+.mainHeader{
   margin:auto;
   transition-delay: 2s;
   animation: color-change 3s 1;
@@ -26,31 +26,25 @@ h1{
   font-size: 14px;
   text-align: center;
   color:rgb(255, 255, 255);
-  /*position: absolute; /* or absolute */
 }
 
-
-.socialwrapper 
-{
+.socialwrapper {
   display: flex;
   flex-direction: column;
   color: white;
   position: relative;
 }
-/* .gameContainer
-{
-  margin:auto;
-  width:70%;
-} */
 
 @font-face {
   src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/86186/terminal_copy.ttf);
   font-family: "Terminal";
 }
+
 @font-face {
   src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/86186/sys.ttf) format("truetype");
   font-family: "Sys";
 }
+
 .scanlines .overlay {
   pointer-events:none;
   height: 100%;
@@ -63,9 +57,11 @@ h1{
   align-items: center;
   justify-content: center;
 }
+
 .juegocanvas{
   z-index: 69;
 }
+
 .scanlines .overlay::after {
   pointer-events:none;
   position: absolute;
@@ -77,6 +73,7 @@ h1{
   background-size: 100% 100%;
   content: "";
 }
+
 .scanlines .overlay::before {
   position: absolute;
   top: 0;
