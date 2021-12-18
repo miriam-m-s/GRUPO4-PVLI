@@ -249,15 +249,6 @@ export default class Level extends Phaser.Scene {
     this.timer.paused = !this.timer.paused;
   }
 
-  // clickMusic() {
-  //   if(!this.isPaused){
-  //     this.musicOn = !this.musicOn;
-  //     if (this.musicOn) 
-  //       this.music.play();
-  //     else 
-  //       this.music.stop();
-  //   } 
-  // }
 
   levelPaused() {
     return this.isPaused;
