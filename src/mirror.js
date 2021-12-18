@@ -13,7 +13,7 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
 
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
-    this.body.setSize(20, 25, false);
+    this.body.setSize(18, 25, false);
     furnitureGroup.add(this);
 
     this.scene = scene;
@@ -29,16 +29,16 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
 
     this.degreeDir = dir;
 
-    if (dir == 0) this.xOffset =( this.width / 2)+0.5;
+    if (dir == 0) this.xOffset =( this.width / 2)-6;
     else if (dir === 90) {
       dir = 4.71;
-      this.yOffset = (-this.height / 2)-0.5;
+      this.yOffset = (-this.height / 2)+3;
     } else if (dir === 180) {
       dir = Math.PI;
-      this.xOffset = (-this.width / 2)-0.5;
+      this.xOffset = (-this.width / 2)+6;
     } else if (dir === 270) {
       dir = 1.57;
-      this.yOffset = (this.height / 2)+0.5;
+      this.yOffset = (this.height / 2)-3;
     }
     this.x = x;
     this.y = y;

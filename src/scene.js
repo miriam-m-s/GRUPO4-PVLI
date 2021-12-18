@@ -161,7 +161,7 @@ export default class Level extends Phaser.Scene {
     this.camera = this.cameras.main;
 
     this.camera.setBounds(0,0,8,8);
-    this.camera.zoom = 3;
+    this.camera.zoom = 2.9;
     this.colLayer.setCollisionByProperty({colisiona: true});
     this.physics.add.collider(this.ghostPlayer, this.colLayer);
 
@@ -174,7 +174,7 @@ export default class Level extends Phaser.Scene {
     //objetos que reaccionan al raycast
     this.dynamicObstacles = [
       this.humanPlayer,
-       this.ghostPlayer, this.mirror, this.furniture2, this.furniture,this.mirror2, this.candle
+       this.ghostPlayer, this.mirror, this.furniture2, this.furniture,this.mirror2, this.candle,
     ];
     this.raycaster.mapGameObjects(this.dynamicObstacles, true);
 
