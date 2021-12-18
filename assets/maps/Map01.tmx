@@ -94,7 +94,7 @@
  </layer>
  <layer id="2" name="ColLayer" width="25" height="40">
   <properties>
-   <property name="Colisiona" type="bool" value="true"/>
+   <property name="colisiona" type="bool" value="true"/>
   </properties>
   <data encoding="csv">
 41,41,41,41,41,41,41,41,41,41,41,41,41,41,41,2684354601,2684354601,2684354601,2684354601,41,41,41,2684354601,2684354601,2684354601,
@@ -141,7 +141,7 @@
  </layer>
  <layer id="4" name="ExtraLayer" width="25" height="40">
   <properties>
-   <property name="Colisiona" type="bool" value="true"/>
+   <property name="colisiona" type="bool" value="true"/>
   </properties>
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
