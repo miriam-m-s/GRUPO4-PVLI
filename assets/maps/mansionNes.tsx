@@ -203,7 +203,7 @@
  </tile>
  <tile id="40">
   <properties>
-   <property name="colisiona" type="bool" value="false"/>
+   <property name="colisiona" type="bool" value="true"/>
   </properties>
  </tile>
  <tile id="41">
@@ -3303,12 +3303,12 @@
  </tile>
  <tile id="660">
   <properties>
-   <property name="colisiona" type="bool" value="true"/>
+   <property name="colisiona" type="bool" value="false"/>
   </properties>
  </tile>
  <tile id="661">
   <properties>
-   <property name="colisiona" type="bool" value="true"/>
+   <property name="colisiona" type="bool" value="false"/>
   </properties>
  </tile>
  <tile id="662">
@@ -4503,7 +4503,7 @@
  </tile>
  <tile id="900">
   <properties>
-   <property name="colisiona" type="bool" value="true"/>
+   <property name="colisiona" type="bool" value="false"/>
   </properties>
  </tile>
  <tile id="901">

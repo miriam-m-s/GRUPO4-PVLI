@@ -175,7 +175,9 @@ export default class Level extends Phaser.Scene {
     
     this.colLayer.setCollisionByProperty({colisiona: true});
     this.physics.add.collider(this.ghostPlayer, this.colLayer);
+
     this.physics.add.collider(this.ghostPlayer, this.extraLayer);
+    this.extraLayer.setCollisionByProperty({colisiona: true});
     
 
     //CREACIÓN DEL RAYCAST
