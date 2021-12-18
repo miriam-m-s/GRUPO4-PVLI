@@ -7,9 +7,11 @@
      * @param {int} y posicion y del menu
      */
 
-    constructor(scene, x, y) {
+    constructor(scene, x, y, alpha) {
 
        super(scene, x, y);
+       this.alpha = alpha;
+       this.scene = scene;
        this.setDepth(10);
        this.fondo = this.scene.add.image(0, 0, 'pauseMenu');
        this.fondo.scale = 0.3;
@@ -40,6 +42,31 @@
 
        this.add([this.fondo, this.pauseText, this.resumeText, this.restartText, this.quitText]);
        this.scene.add.existing(this);
+    }
+
+    clickPause() {
+      this.scene.isPaused = !this.scene.isPaused;
+      if (this.scene.isPaused) //Crea el menu con los botones
+      {
+        this.scene.anims.pauseAll(); //Pausa todas las animaciones de la escena
+        this.active = true;
+        this.alpha = 1;
+  
+        //Sonido
+        this.scene.music.stop();
+        if(this.scene.musicOn) this.scene.exit.play();
+        
+      } else //Lo desactiva
+      {
+        //Visual
+        this.active = false;
+        this.alpha = 0;
+        this.scene.anims.resumeAll(); //Reanuda las animaciones que habia activas al pausar la escena
+        
+        //Sonido
+        if(this.scene.musicOn) this.scene.music.play();
+      }
+      this.scene.timer.change();
     }
 
  }
