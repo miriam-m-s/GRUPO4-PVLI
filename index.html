@@ -1,29 +1,58 @@
-
 <!DOCTYPE html>
+<html lang="es">
 
- <html class="baseHTML"> 
-	<body style="background-color:rgb(255, 0, 0);">
-	<head>
-		<link rel="stylesheet" href="css\style.css">	
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="assets/sprites/player.png" type="image/png" />
+    <meta name="viewport" content="width=device-width, initial-scale=2.0">
+    <link rel="stylesheet" href="./css/game.css">
+    <link rel="stylesheet" href="css\style.css">
+  
+    <script src="./lib/phaser.js"></script>
+	<script src="./lib/phaser-raycaster.js"></script>
 
+    <title>Eclipse</title>
 
-	</head>
-	<div class="fade-in">
+    
+</head>
+<div class="fade-in">
 	<div class="mainHeader">
-		<img src="./images/moonIcon02.png" style="width:30px; height:30px; margin: 0px 20px 0px 20px;"></img>
+    <h1>____________________________________________________________</h1>
+		<img src="./images/moonIcon02.png" style="width:30px; height:30px; margin: 0px 20px 0px 20px;"></img> 
 		<h1>Eclipse</h1>
-		<p> Estrella es una niña pequeña, de manera que teme a la oscuridad y por ello no puede pasar por zonas que no estan
-			  iluminadas, mientras que Luna al ser un fantasma, no puede atravesar la luz. Acompañalas en su viaje para que las dos hermanas puedan 
-			  por fin estar juntas. 
-			</del>
-		</p>
+		
 	</div>
 </div>
-	 <!--
-	<body>	
-		<div class="menuwrapper" >
+
+<body>
+
+<div id= "juego" class="juegocanvas">
+     <div id="GameContainer"></div>
+    <script src="./src/game.js" type="module"></script>
+  </div>
+
+  <div class = "descript"></div>
+
+  
+
+    <div class = "atg">
+    
+      
+        <span class = "text1">
+          Estrella es una niña pequeña, de manera que teme a la oscuridad y por ello no<br> puede pasar por zonas que no estan
+			  iluminadas, mientras que Luna al ser un fantasma, no puede atravesar<br> la luz. Acompañalas en su viaje para que las dos hermanas puedan 
+			  por fin estar juntas. 
+          
+        </span>
+        
+    </div>
+
+
+   
+</body>
+<footer>
+  <div class="footer-container">
+    <div class="menuwrapper" >
 			<a href="https://twitter.com/gameclipse_">
 				<img src="./images/twitterIcon02.png" style="width:30px; height:30px; margin: 0px 20px 0px 20px;"></img>
 				
@@ -38,45 +67,6 @@
 				
 			</a>
 			<p>Pivotal</p>
-	</menuwrapper>-->
-			
-	<!-- Scanlines/CRT Efecto -->
-	<main class="scanlines">
-		<div class="screen">
-			<div class="overlay">
-			</div>
-		</div>
-	</main>
-
-	<!--<canvasGame><img src="./images/hitch.png"  style="width:30px; height:30px; margin: 20px 20px 0px 20px;"></img></canvasGame>
-	-->
-	
-	
-		
-			
-		<div id='mygame'></div>
-		<script src="./lib/phaser.js" ></script>
-		<script src="./lib/phaser-raycaster.js"></script>
-		<script src="./src/game.js"type="module"></script>
-		<script src="js/main.js"></script>
-	
-	
-
-	<!--
-	<terminalFont>
-	<table cellspacing="10" cellpadding="10" border="0" >
-		<tbody>
-			<tr>
-				<td style="border: 0">
-				<h2 class="rtecenter"><img src = "./images/keyCursorsIcon.png"> Move character</img></h2>
-				<h2 class="rtecenter"><img src = "./images/keySpaceIcon.png">   Swap Characters</img></h2>
-				<h2 class="rtecenter"><img src = "./images/keyShiftIcon.png">   Sprint</img></h2>
-				<h2 class="rtecenter"><img src = "./images/keyEIcon.png">   Interact</img></h2>
-				</td>
-			</tr>
-		</tbody>
-	</table>
-	</terminalFont>
-	-->
-	</body>
+  </div>
+</footer>
 </html>

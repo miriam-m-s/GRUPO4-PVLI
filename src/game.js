@@ -11,11 +11,13 @@ let config =
     roundPixels: true,
     scale: {
 
-        height:300,
-        width:400,
-        //mode:Phaser.Scale.FIT,
-        //autoCenter: Phaser.Scale.CENTER_BOTH,
-        zoom: 2
+        mode: Phaser.Scale.FIT,  
+        autoCenter: Phaser.Scale.CENTER_BOTH,
+        parent: 'GameContainer',
+        max:{
+            width: 1400,
+            height: 800,
+          }
     },
   
     pixelArt: true,

@@ -41,7 +41,7 @@ export default class Window extends Phaser.GameObjects.Sprite {
         y: this.y
       },
       angle: angles,
-      detectionRange: 1000
+      detectionRange: 100
     });
 
     return ray

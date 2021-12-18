@@ -158,8 +158,10 @@ export default class Level extends Phaser.Scene {
     this.lights = this.add.group();
     new Lights(this, this.humanPlayer, this.ghostPlayer, this.lights, 60, 60, 50);
 
-    
-    
+    this.camera = this.cameras.main;
+
+    this.camera.setBounds(0,0,8,8);
+    this.camera.zoom = 3;
     this.colLayer.setCollisionByProperty({colisiona: true});
     this.physics.add.collider(this.ghostPlayer, this.colLayer);
 

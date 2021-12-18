@@ -1,12 +1,14 @@
 body {
-  background: #000000 none repeat scroll 0 0;
+  background: #0b0114 none repeat scroll 0 0;
   margin: 0;
   overflow: visible;
   height: 100vh;
   width: 100vw;
   cursor: url("../images/pixelCursor.png"), auto;
 }
-
+h1{
+  font-size: 40px;
+}
 
 @keyframes color-change 
 {
@@ -63,6 +65,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.juegocanvas{
+  z-index: 69;
 }
 .scanlines .overlay::after {
   pointer-events:none;

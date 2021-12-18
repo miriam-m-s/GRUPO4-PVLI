@@ -79,7 +79,7 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
         y: posy,
       },
       angle: angles,
-      detectionRange: 1000
+      detectionRange: 100
     });
 
     return ray
