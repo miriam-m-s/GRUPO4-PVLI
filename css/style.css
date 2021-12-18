@@ -29,17 +29,14 @@ h1{
   /*position: absolute; /* or absolute */
 }
 
-.menuwrapper 
-{
-  color:rgb(255, 255, 255);
-  line-height: 40%;
-  text-align: center;
-  /*position:absolute;*/
-  top:20px;
-  right:20px;
-  z-index: 0;
-}
 
+.socialwrapper 
+{
+  display: flex;
+  flex-direction: column;
+  color: white;
+  position: relative;
+}
 /* .gameContainer
 {
   margin:auto;
