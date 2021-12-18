@@ -38,6 +38,7 @@ export default class Boot extends Phaser.Scene {
     this.load.image('pauseButton', 'pausebutton.png');
     this.load.image('pauseMenu', 'pausemenu.png');
 
+    this.load.image('musicButton', 'music.png');
 
     this.load.setPath('assets/sprites/');
     //Cursor

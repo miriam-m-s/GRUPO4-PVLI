@@ -9,6 +9,7 @@ import Base from './base.js';
 import Switch from './switch.js'
 import Window from './window.js'
 import Pause from './pause.js';
+import Music from './music.js';
 
 
 
@@ -104,7 +105,15 @@ export default class Level extends Phaser.Scene {
     });
 
     this.pauseMenu = null;
+    
+    this.musicOn = true;
+    this.musica = this.add.image(190, 20, 'musicButton').setInteractive();
+    this.musica.scale = 0.01;
+    this.sceneSound = new Music(this, 190, 20);
+    this.musica.on('pointerdown', function () {
+      this.scene.sceneSound.clickMusic();
 
+    });
     //Jugadores
 
 
@@ -223,7 +232,8 @@ export default class Level extends Phaser.Scene {
 
       //Sonido
       this.music.stop();
-      this.exit.play();
+      if(this.musicOn)
+        this.exit.play();
       
     } else //Lo desactiva
     {
@@ -234,11 +244,13 @@ export default class Level extends Phaser.Scene {
       this.anims.resumeAll(); //Reanuda las animaciones que habia activas al pausar la escena
       
       //Sonido
-      this.music.play();
+      if(this.musicOn)
+        this.music.play();
       
     }
     this.timer.paused = !this.timer.paused;
   }
+
 
   levelPaused() {
     return this.isPaused;
