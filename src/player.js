@@ -176,7 +176,6 @@ export default class Player extends Phaser.GameObjects.Sprite {
   {
     if(Phaser.Utils.Debug && this.debugIndicator == null)
     {
-      console.log("ADDIND");
       this.debugIndicator = this.scene.physics.add.sprite(debugPos.x, debugPos.y, 'debugIndic');
       this.debugIndicator.depth = 900;
     }

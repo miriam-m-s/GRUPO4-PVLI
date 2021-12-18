@@ -54,7 +54,6 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
     this.setTexture('mirror_Sel_' + this.degreeDir);
   }
   Mirrordetect() {
-    console.log("soy espejo");
     // if (this.mirrorDetectors == null)
     //   this.mirrorDetectors = new MirrorDetector(this.scene, this.x, this.y);
      this.inLight = true;
