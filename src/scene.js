@@ -54,7 +54,10 @@ export default class Level extends Phaser.Scene {
     const tileset1 = this.map.addTilesetImage('mansionNes', 'mapSpriteSheet');
 
     this.backgroundLayer = this.map.createLayer('BackLayer', [tileset1]);
+    this.lightLayer = this.map.createLayer('LightLayer', [tileset1]);
+    
     this.colLayer = this.map.createLayer('ColLayer', [tileset1]); 
+    this.extraLayer = this.map.createLayer('ExtraLayer', [tileset1]);
 
     /*this.lightLayer = this.map.createLayer('LightLayer', [tileset1]);
     this.frontLayer = this.map.createLayer('FrontLayer', [tileset1]);
@@ -160,9 +163,10 @@ export default class Level extends Phaser.Scene {
     new Lights(this, this.humanPlayer, this.ghostPlayer, this.lights, 60, 60, 50);
 
     
-
+    
     this.colLayer.setCollisionByProperty({colisiona: true});
     this.physics.add.collider(this.ghostPlayer, this.colLayer);
+    this.physics.add.collider(this.ghostPlayer, this.extraLayer);
     
 
     //CREACIÓN DEL RAYCAST
