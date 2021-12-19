@@ -131,7 +131,8 @@ export default class Boot extends Phaser.Scene {
 
     this.load.setPath('assets/maps/'); 
     // Carga de Tilemap
-    this.load.tilemapTiledJSON('tilemap01', 'Map02.json');
+    this.load.tilemapTiledJSON('tilemap01', 'Map01.json');
+    this.load.tilemapTiledJSON('tilemap02', 'Map02.json');
     // Carga de spritesheet
     this.load.image('mapSpriteSheet', 'spritesheets/mansionNes.png');
   }

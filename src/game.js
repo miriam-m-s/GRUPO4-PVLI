@@ -2,6 +2,7 @@ import Boot from './boot.js';
 import End from './end.js';
 import Scene from './scene.js';
 import Intro from './intro.js'; 
+import Level1 from './level1.js';
 import MainMenuScene from './mainMenuScene.js';
 
 let config = 
@@ -21,7 +22,7 @@ let config =
     },
   
     pixelArt: true,
-    scene: [Boot,Intro, MainMenuScene, Scene, End],
+    scene: [Boot,Intro, MainMenuScene, Level1, End],
     physics: { 
         default: 'arcade',
         arcade: {
