@@ -20,6 +20,7 @@
           color: '#ffffff',
           fontFamily: 'Arial'
        };
+       
        this.pauseText = this.scene.add.text(-35, -62, "Paused", textConfig);
        this.resumeText = this.scene.add.text(-25, -7, "Resume", textConfig).setInteractive();
        this.resumeText.scale = 0.6;

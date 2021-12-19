@@ -1,7 +1,6 @@
 import Lights from './lights.js';
 import Lamp from './lamp.js';
 import Mirror from './mirror.js';
-import Furniture from './furniture.js';
 import Candle from './candle.js';
 import Human from './human.js';
 import Ghost from './ghost.js'
@@ -17,22 +16,20 @@ import Timer from './timer.js'
  * @extends Phaser.Scene
  */
 
-export default class Level1 extends Phaser.Scene {
+export default class Level2 extends Phaser.Scene {
 
   static TILE_SIZE = 16; //tamano de tiles de los tilemaps
   constructor() {
     super({
-      key: 'level1'
+      key: 'level2'
     });
   }
 
-  //Creación de los elementos de la escena principal de juego
-  
   create() {
     //MAPA TILESET
     //creacion del tilemap
     this.map = this.make.tilemap({
-      key: 'tilemap01',
+      key: 'tilemap02',
       tileWidth: 8,
       tileHeight: 8
     });
@@ -56,12 +53,11 @@ export default class Level1 extends Phaser.Scene {
     this.lightLayer = this.map.createLayer('LightLayer', [tileset1]);
 
     this.colLayer = this.map.createLayer('ColLayer', [tileset1]);
-    this.extraLayer = this.map.createLayer('ExtraLayer', [tileset1]);
 
     //OBJETOS DE LA ESCENA
     this.bases = this.add.group();
     //Grupos de objetos
-    this.lampGroup = this.add.group();
+
     this.furnitureGroup = this.add.group();
 
 
@@ -87,7 +83,7 @@ export default class Level1 extends Phaser.Scene {
     this.pausa.on('pointerdown', function () {
       this.scene.pauseMenu.clickPause();
     });
-  
+
     //Music
     this.musicOn = true;
     this.musica = this.add.image(this.camera.displayWidth - 40, 20, 'musicButton').setInteractive();
@@ -101,59 +97,60 @@ export default class Level1 extends Phaser.Scene {
     //Jugadores
     let humanList; //lista de objetos humanos
     let ghostList; //lista de objetos poseibles
-    //Objetos Humano(lamparas/interruptores)
-    humanList = [
-    ];
 
- 
+
+    humanList = [];
+
+    //Objetos Fantasma(muebles/espejo)
     ghostList = [
-     
+      this.candle = new Candle(this, this.ghostPlayer, this.furnitureGroup, 300, 120, 50, 'UnselectedCandle'),
+      this.mirror = new Mirror(this, this.mirrorGroup, 250, 120, 0),
     ];
-
-  
     //CAMBIAR ESTO EN FANTASMA / HUMANO
 
-    this.humanPlayer = new Human(this, 50, 50, true, humanList);
+    this.humanPlayer = new Human(this, 60, 70, true, humanList);
 
-    this.ghostPlayer = new Ghost(this, 180, 200, false, ghostList)
+    this.ghostPlayer = new Ghost(this, 65, 140, false, ghostList);
 
-    this.basepers = new Base(this, this.humanPlayer, 'basepers', 170, 150);
-    this.basefant = new Base(this, this.ghostPlayer, 'basefantas', 50, 120);
+    this.basepers = new Base(this, this.humanPlayer, 'basepers', 310, 170);
+    this.basefant = new Base(this, this.ghostPlayer, 'basefantas', 65, 170);
 
     this.lights = this.add.group();
-    new Lights(this, this.humanPlayer, this.ghostPlayer, this.lights, 0, 0, 50);
-
-    new Lights(this, this.humanPlayer, this.ghostPlayer, this.lights, 100, 0, 50);
-    new Lights(this, this.humanPlayer, this.ghostPlayer, this.lights, 100, 75, 50);
-
+    new Lights(this, this.humanPlayer, this.ghostPlayer, this.lights, 125, 0, 60);
+    new Lights(this, this.humanPlayer, this.ghostPlayer, this.lights, 10, 0, 60);
+    new Lights(this, this.humanPlayer, this.ghostPlayer, this.lights, 230, 0, 60);
 
     this.colLayer.setCollisionByProperty({
       colisiona: true
     });
     this.physics.add.collider(this.ghostPlayer, this.colLayer);
 
-    this.physics.add.collider(this.ghostPlayer, this.extraLayer);
-    this.extraLayer.setCollisionByProperty({
-      colisiona: true
-    });
 
 
-   
-   
+    //CREACIÓN DEL RAYCAST
+    this.raycaster = this.raycasterPlugin.createRaycaster();
+    //objetos que reaccionan al raycast
+    this.dynamicObstacles = [
+      this.humanPlayer,
+      this.ghostPlayer, this.mirror, this.candle,
+    ];
+    this.raycaster.mapGameObjects(this.dynamicObstacles, true);
+
+    this.window = new Window(this, 193, 35, 270);
 
 
   }
 
 
   ResetLevel() {
-    this.scene.start('level1');
+    this.scene.start('level2');
   }
   //Check the final de nivel para ambos jugadores
   update() {
     this.timer.updateTimer();
 
     if (this.basefant.ininbase() && this.basepers.ininbase()) {
-      this.scene.start('level2');
+      this.scene.start('mainMenu');
     }
     // this.raycaster.updateObstacle(this.dynamicObstacles);
   }
