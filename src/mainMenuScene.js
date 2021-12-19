@@ -25,23 +25,23 @@ export default class MainMenuScene extends Phaser.Scene {
    
      let tittle=this.add.text(screenCenterX, screenCenterY-250, 'ECLIPSE',{ fontFamily: 'men', fontSize:100, color: '#dddddd'}).setOrigin(0.5)
    
-      this.menu= this.add.sprite(screenCenterX , screenCenterY, 'menu');
+      this.menu= this.add.sprite(screenCenterX , screenCenterY, 'menu').setInteractive();;
       this.menu.setScale(4);
    
    this.loadingText = this.add.text(screenCenterX, screenCenterY, 'Play',{ fontFamily: 'men', fontSize: 80, color: '#ffffff' }).setOrigin(0.5)
-   .setInteractive();
-      this.loadingText.on("pointerover",()=>{
+   
+      this.menu.on("pointerover",()=>{
         this.loadingText.setScale(1.5);    
   
         this.menu.setScale(4.5);
     });
-    this.loadingText.on("pointerout", ()=>{
+    this.menu.on("pointerout", ()=>{
       this.loadingText.setScale(1);
 
       this.menu.setScale(4);
     });
  
-    this.loadingText.on('pointerdown', function () {
+    this.menu.on('pointerdown', function () {
       this.scene.music.play();
       this.scene.scene.start('scene');
     })
