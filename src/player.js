@@ -139,7 +139,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
   CheckForNearestObject(objetos) {
     this.objectList = objetos;
-    var disOffset = 60;
+    var disOffset = 20;
     let initialDist = 9000;
 
     //Checkeo si sigo suficietemente cerca del objeto que estaba seleccionando anteriormente

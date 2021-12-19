@@ -75,7 +75,7 @@ export default class Scene extends Phaser.Scene {
     this.camera.zoom = 2.9;
 
     //Timer
-    this.timer = new Timer(this, this.camera.displayWidth - 25, 40);
+    this.timer = new Timer(this, this.camera.displayWidth - 50, 40);
 
     //BOTON DE PAUSA Y ESC
     this.isPaused = false;
@@ -100,10 +100,8 @@ export default class Scene extends Phaser.Scene {
       this.scene.sceneSound.clickMusic();
 
     });
+
     //Jugadores
-
-
-
     let humanList; //lista de objetos humanos
     let ghostList; //lista de objetos poseibles
     let lampList;
