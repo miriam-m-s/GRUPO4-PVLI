@@ -97,11 +97,11 @@ export default class Level3 extends Phaser.Scene {
 
     let lampList;
     lampList = [
-      new Lamp(this, 180, 180, 'lampDefault', this.humanPlayer, this.ghostPlayer, this.lampGroup, 50, true)
+      this.newLamp = new Lamp(this, 180, 180, 'lampDefault', this.humanPlayer, this.ghostPlayer, this.lampGroup, 50)
     ];
 
     humanList = [
-      new Switch(this, 110, 180, 'switchDefault', this.humanPlayer, this.ghostPlayer, this.lampGroup, lampList[0])
+      new Switch(this, 110, 180, 'switchDefault', this.humanPlayer, this.ghostPlayer, this.lampGroup, this.newLamp)
     ];
 
     //Objetos Fantasma(muebles/espejo)

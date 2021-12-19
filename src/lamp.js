@@ -48,6 +48,7 @@ export default class Lamp extends Phaser.GameObjects.Sprite {
       if (this.light == null) {
         if(this.scene.musicOn) this.soundlight.play();
         // Avisar a la light de esta lampara
+        this.light = new Lights(this.scene, this.scene.humanPlayer, this.scene.ghostPlayer, this.scene.lights, this.lampPosX - this.radius, this.lampPosY - this.radius, this.radius, false, true);
         this.light.LampClicked(true);
       } else {
         this.setTexture('lampSelected');
