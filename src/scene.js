@@ -60,9 +60,6 @@ export default class Scene extends Phaser.Scene {
     this.colLayer = this.map.createLayer('ColLayer', [tileset1]);
     this.extraLayer = this.map.createLayer('ExtraLayer', [tileset1]);
 
-    //Timer
-    this.timer = new Timer(this, 205, 40);
-
     //OBJETOS DE LA ESCENA
     this.bases = this.add.group();
     //Grupos de objetos
@@ -76,6 +73,9 @@ export default class Scene extends Phaser.Scene {
 
     this.camera.setBounds(0, 0, 8, 8);
     this.camera.zoom = 2.9;
+
+    //Timer
+    this.timer = new Timer(this, this.camera.displayWidth - 25, 40);
 
     //BOTON DE PAUSA Y ESC
     this.isPaused = false;
@@ -93,7 +93,7 @@ export default class Scene extends Phaser.Scene {
 
     //Music
     this.musicOn = true;
-    this.musica = this.add.image(190, 20, 'musicButton').setInteractive();
+    this.musica = this.add.image(this.camera.displayWidth - 40, 20, 'musicButton').setInteractive();
     this.musica.scale = 0.01;
     this.sceneSound = new Music(this, 190, 20);
     this.musica.on('pointerdown', function () {
