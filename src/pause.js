@@ -16,9 +16,8 @@
        let textConfig = {
           fontSize: '20px',
           color: '#ffffff',
-          fontFamily: 'men'
+          fontFamily: 'Arial'
        };
-      
        this.pauseText = this.scene.add.text(-35, -60, "Paused", textConfig);
        this.resumeText = this.scene.add.text(-35, -7, "Resume", textConfig).setInteractive();
        this.resumeText.scale = 0.6;

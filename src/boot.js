@@ -16,20 +16,11 @@ export default class Boot extends Phaser.Scene {
     });
     this.animationFrameRate = 3;
   }
-  loadFont(name, url) {
-    let newFont = new FontFace(name, `url(${url})`);
-    newFont.load().then(function (loaded) {
-        document.fonts.add(loaded);
-    }).catch(function (error) {
-        return error;
-    });
-}
+
   /**
    * Carga de los assets del juego
    */
   preload() {
-    //font
-    this.loadFont("men", "/assets/fonts/retroFont.ttf");
     //video
     this.load.video('vid','./assets/video/a.mp4');
 
@@ -46,8 +37,6 @@ export default class Boot extends Phaser.Scene {
     //Boton y menú de pausa
     this.load.image('pauseButton', 'pausebutton.png');
     this.load.image('pauseMenu', 'pausemenu.png');
-    this.load.image('menu', 'menu.png');
-    this.load.image('background', 'background.png');
 
     this.load.image('musicButton', 'music.png');
 

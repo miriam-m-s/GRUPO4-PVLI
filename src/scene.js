@@ -33,15 +33,12 @@ export default class Level extends Phaser.Scene {
   create() {
     //MAPA TILESET
     //creacion del tilemap
-   
     this.map = this.make.tilemap({
       key: 'tilemap01',
       tileWidth: 8,
       tileHeight: 8
     });
-    this.camera = this.cameras.main;
-    this.camera.setBounds(0,0,8,8);
-    this.camera.zoom = 2.9;
+
     const config = {
       mute: false,
       volume: 0.2,
@@ -64,7 +61,7 @@ export default class Level extends Phaser.Scene {
     this.extraLayer = this.map.createLayer('ExtraLayer', [tileset1]);
 
     //Timer
-    this.timer = new Timer(this, 330, 40);
+    this.timer = new Timer(this, 205, 40);
 
     //OBJETOS DE LA ESCENA
     this.bases = this.add.group();
@@ -83,8 +80,8 @@ export default class Level extends Phaser.Scene {
       this.isPaused = !this.isPaused;
       this.clickPause();
     });
-    this.pausa = this.add.image(335, 20, 'pauseButton').setInteractive();
-    this.pausa.scale = 0.03;
+    this.pausa = this.add.image(225, 20, 'pauseButton').setInteractive();
+    this.pausa.scale = 0.05;
 
     this.pausa.on('pointerdown', function () {
       //this.scene.scene.pause();
@@ -97,8 +94,8 @@ export default class Level extends Phaser.Scene {
     
     //Music
     this.musicOn = true;
-    this.musica = this.add.image(310, 20, 'musicButton').setInteractive();
-    this.musica.scale = 0.007;
+    this.musica = this.add.image(190, 20, 'musicButton').setInteractive();
+    this.musica.scale = 0.01;
     this.sceneSound = new Music(this, 190, 20);
     this.musica.on('pointerdown', function () {
       this.scene.sceneSound.clickMusic();
@@ -161,7 +158,10 @@ export default class Level extends Phaser.Scene {
     this.lights = this.add.group();
     new Lights(this, this.humanPlayer, this.ghostPlayer, this.lights, 60, 60, 50);
 
-  
+    this.camera = this.cameras.main;
+
+    this.camera.setBounds(0,0,8,8);
+    this.camera.zoom = 2.9;
     this.colLayer.setCollisionByProperty({colisiona: true});
     this.physics.add.collider(this.ghostPlayer, this.colLayer);
 
@@ -209,7 +209,7 @@ export default class Level extends Phaser.Scene {
       this.pauseMenu.alpha = 1;
 
       //Sonido
-      
+      this.music.stop();
       if(this.musicOn) this.exit.play();
       
     } else //Lo desactiva
