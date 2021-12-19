@@ -41,6 +41,7 @@ export default class Boot extends Phaser.Scene {
     this.load.audio('changeplayer', 'bubllepop.mp3');
     this.load.audio('light', 'light.mp3');
     this.load.audio('exit', 'exit.mp3')
+    this.load.audio('menus', 'menus.mp3')
 
     //SPRITESHEETS
     this.load.setPath('assets/sprites/');

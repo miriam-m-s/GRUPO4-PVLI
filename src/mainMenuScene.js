@@ -13,6 +13,8 @@ export default class MainMenuScene extends Phaser.Scene {
   }
 
   create() {
+    //musica del botón del menu
+    this.music = this.sound.add("menus");
     let textConfig = {
       width: 20,
       height: 20
@@ -40,6 +42,7 @@ export default class MainMenuScene extends Phaser.Scene {
     });
  
     this.loadingText.on('pointerdown', function () {
+      this.scene.music.play();
       this.scene.scene.start('scene');
     })
 }
