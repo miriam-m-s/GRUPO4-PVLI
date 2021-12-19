@@ -11,7 +11,6 @@ import Pause from './pause.js';
 import Music from './music.js';
 import Timer from './timer.js'
 
-
 /**
  * @extends Phaser.Scene
  */

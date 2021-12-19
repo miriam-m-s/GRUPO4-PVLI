@@ -48,7 +48,6 @@ export default class Candle extends Phaser.GameObjects.Sprite {
         this.scale = 1.05;
         this.setTexture('SelectedCandle');
       }
-     
     }
   
     DeselectObject() {
