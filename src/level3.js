@@ -97,11 +97,11 @@ export default class Level3 extends Phaser.Scene {
 
     let lampList;
     lampList = [
-      new Lamp(this, 180, 180, 'lampDefault', this.humanPlayer, this.ghostPlayer, this.lampGroup, true)
+      new Lamp(this, 180, 180, 'lampDefault', this.humanPlayer, this.ghostPlayer, this.lampGroup, 50, true)
     ];
 
     humanList = [
-      new Switch(this, 290, 185, 'switchDefault', this.humanPlayer, this.ghostPlayer, this.lampGroup, lampList[0])
+      new Switch(this, 110, 180, 'switchDefault', this.humanPlayer, this.ghostPlayer, this.lampGroup, lampList[0])
     ];
 
     //Objetos Fantasma(muebles/espejo)
@@ -116,7 +116,7 @@ export default class Level3 extends Phaser.Scene {
 
     this.ghostPlayer = new Ghost(this, 175, 250, false, ghostList);
 
-    this.basepers = new Base(this, this.humanPlayer, 'basepers', 40, 185);
+    this.basepers = new Base(this, this.humanPlayer, 'basepers', 300, 185);
     this.basefant = new Base(this, this.ghostPlayer, 'basefantas', 180, 80);
 
     this.lights = this.add.group();
@@ -127,8 +127,6 @@ export default class Level3 extends Phaser.Scene {
       colisiona: true
     });
     this.physics.add.collider(this.ghostPlayer, this.colLayer);
-
-
 
     //CREACIÓN DEL RAYCAST
     this.raycaster = this.raycasterPlugin.createRaycaster();

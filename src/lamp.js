@@ -14,7 +14,7 @@ export default class Lamp extends Phaser.GameObjects.Sprite {
    * @param {Object} lightCircle circulo de luz
    */
 
-  constructor(scene, lampPosX, lampPosY, sprite, human, ghost, lampGroup, radius, on) {
+  constructor(scene, lampPosX, lampPosY, sprite, human, ghost, lampGroup, radius) {
 
     super(scene, lampPosX, lampPosY, sprite);
     this.scene = scene;
@@ -27,10 +27,8 @@ export default class Lamp extends Phaser.GameObjects.Sprite {
     this.soundlight = scene.sound.add('light');
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
-    this.isOn = on;
     
-    //this.depth = -5;
-    this.light = null;
+    console.log("this.isOn = " + this.isOn);
   }
 
   SelectObject() {
@@ -49,8 +47,6 @@ export default class Lamp extends Phaser.GameObjects.Sprite {
     {
       if (this.light == null) {
         if(this.scene.musicOn) this.soundlight.play();
-        let radius = 30;
-        this.light = new Lights(this.scene, this.scene.humanPlayer, this.scene.ghostPlayer, this.scene.lights, this.lampPosX - radius, this.lampPosY - radius, radius, false, true);
         // Avisar a la light de esta lampara
         this.light.LampClicked(true);
       } else {
