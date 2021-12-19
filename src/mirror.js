@@ -87,7 +87,7 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
   drawRay(ray, intersection){
 
     this.graphic1.clear();
-    this.graphic1.lineStyle(1, 0xffffb2, 2);
+    this.graphic1.lineStyle(1, 0xfffff, 2);
     let line = new Phaser.Geom.Line(ray.origin.x, ray.origin.y, intersection.x, intersection.y);
     this.graphic1.strokeLineShape(line);
   }
