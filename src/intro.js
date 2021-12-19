@@ -9,8 +9,10 @@ export default class Intro extends Phaser.Scene {
     
 
     create() {
-        this.intro = this.add.video(500, 300, 'vid');
-        this.intro.setScale(0.3);
+        const screenCenterX = this.cameras.main.worldView.x + this.cameras.main.width / 2;
+        const screenCenterY = this.cameras.main.worldView.y + this.cameras.main.height / 2;
+        this.intro = this.add.video( screenCenterX , screenCenterY, 'vid');
+        this.intro.setScale(0.6);
         this.intro.play(true);
     }
     update() {
