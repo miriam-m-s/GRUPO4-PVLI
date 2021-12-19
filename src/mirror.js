@@ -11,11 +11,9 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
   constructor(scene, furnitureGroup, x, y, dir) {
     super(scene, x, y, 'mirrorDefault');
 
-
-
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
-
+    this.body.setSize(18, 25, false);
     furnitureGroup.add(this);
 
     this.scene = scene;
@@ -29,28 +27,33 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
     this.xOffset = 0;
     this.yOffset = 0;
 
-    if (dir == 0) this.xOffset =( this.width / 2)+0.5;
+    this.degreeDir = dir;
+
+    if (dir == 0) this.xOffset =( this.width / 2)-6;
     else if (dir === 90) {
       dir = 4.71;
-      this.yOffset = (-this.height / 2)-0.5;
+      this.yOffset = (-this.height / 2)+3;
     } else if (dir === 180) {
       dir = Math.PI;
-      this.xOffset = (-this.width / 2)-0.5;
+      this.xOffset = (-this.width / 2)+6;
     } else if (dir === 270) {
       dir = 1.57;
-      this.yOffset = (this.height / 2)+0.5;
+      this.yOffset = (this.height / 2)-3;
     }
     this.x = x;
     this.y = y;
     this.dir = dir;
+
+
+    this.setTexture('mirror_Unsel_' + this.degreeDir);
   }
+  
   SelectObject() {
     if (this.isPossesed) return;
     this.scale = 1.05;
-    this.setTexture('mirrorSelected');
+    this.setTexture('mirror_Sel_' + this.degreeDir);
   }
   Mirrordetect() {
-    console.log("soy espejo");
     // if (this.mirrorDetectors == null)
     //   this.mirrorDetectors = new MirrorDetector(this.scene, this.x, this.y);
      this.inLight = true;
@@ -58,12 +61,12 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
   DeselectObject() {
     if (this.isPossesed) return;
     this.scale = 1;
-    this.setTexture('mirrorDefault');
+    this.setTexture('mirror_Unsel_' + this.degreeDir);
   }
 
   Interact() {
     this.isPossesed = !this.isPossesed;
-    this.setTexture('mirrorPossessed');
+    this.setTexture('mirror_Pos_' + this.degreeDir);
     this.body.depth = 3;
 
     this.scene.ghostPlayer.PossessObject(this);
@@ -76,7 +79,7 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
         y: posy,
       },
       angle: angles,
-      detectionRange: 1000
+      detectionRange: 100
     });
 
     return ray

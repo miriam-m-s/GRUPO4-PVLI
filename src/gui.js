@@ -14,7 +14,6 @@ export default class GUI extends Phaser.Scene {
   //Creación de los elementos de la escena principal de juego
 
   create() {
-    console.log("GUI");
     var textConfig = {
       fontSize: '20px',
       color: '#ff0000',

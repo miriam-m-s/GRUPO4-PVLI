@@ -62,7 +62,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.space.on('down', () => {
       //this.body.stop();//para la animacion actual
       this.body.setVelocity(0);
-      this.soundchange.play();
+      if(this.scene.musicOn)this.soundchange.play();
       if (this.selectedObject != null) {
         this.selectedObject.DeselectObject();
       }
@@ -139,7 +139,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
   CheckForNearestObject(objetos) {
     this.objectList = objetos;
-    var disOffset = 60;
+    var disOffset = 20;
     let initialDist = 9000;
 
     //Checkeo si sigo suficietemente cerca del objeto que estaba seleccionando anteriormente
@@ -176,7 +176,6 @@ export default class Player extends Phaser.GameObjects.Sprite {
   {
     if(Phaser.Utils.Debug && this.debugIndicator == null)
     {
-      console.log("ADDIND");
       this.debugIndicator = this.scene.physics.add.sprite(debugPos.x, debugPos.y, 'debugIndic');
       this.debugIndicator.depth = 900;
     }

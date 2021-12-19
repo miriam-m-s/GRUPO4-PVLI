@@ -31,17 +31,17 @@ export default class Switch extends Phaser.GameObjects.Sprite {
     this.depth = 5;
   }
 
-
   SelectObject() {
     if (this.isOn) return;
     this.setTexture('switchSelected');
   }
+  
   DeselectObject() {
     if (this.isOn) return;
     this.setTexture('switchDefault');
   }
 
-  Interact() 
+  Interact()
   {
     this.lampAsigned.Interact();
   }

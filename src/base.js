@@ -16,7 +16,7 @@ export default class Base extends Phaser.GameObjects.Sprite {
 
   constructor(scene, player, texture, x, y) {
     super(scene, x, y, texture);
-    this.setScale(0.05);
+    //this.setScale(0.05);
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
 
@@ -39,10 +39,6 @@ export default class Base extends Phaser.GameObjects.Sprite {
     this.inbase = false;
     if (this.scene.physics.overlap(this.player, this)) {
       this.inbase = true;
-
     }
-
-
-
   }
 }

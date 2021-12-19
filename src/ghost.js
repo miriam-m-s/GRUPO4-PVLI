@@ -19,6 +19,7 @@ export default class Ghost extends Player {
     this.shouldMoveItem = false;
     this.ghostItems = ghostItems;
     this.possesion = scene.sound.add('possesion');
+
   }
 
   preUpdate(t, dt) {
@@ -28,16 +29,18 @@ export default class Ghost extends Player {
     }
     if (this.itemPossesed != null && this.shouldMoveItem) {
      
-      this.itemPossesed.setPosition(this.body.x, this.body.y);
+      this.itemPossesed.setPosition(this.body.x+this.body.width/2, this.body.y+this.body.height/2);
+      this.setScale(0.5);
       this.setAlpha(0);
     }
+    if(this.itemPossesed === null) this.setScale(1);
   }
   
   Mirrordetect() {
     console.log("soy fantasma");
     this.scene.ResetLevel();
   }
-  
+ 
   PossessObject(objectToPossess) {
 
     if (this.AssignObject(objectToPossess)) {
@@ -60,13 +63,15 @@ export default class Ghost extends Player {
   AssignObject(objectToPossess) {
     if (!this.scene.levelPaused()) {
       if (this.itemPossesed == null) {
-        this.possesion.play();
+        if(this.scene.musicOn)
+          this.possesion.play();
         this.itemPossesed = objectToPossess;
 
         return true;
 
       } else {
-        this.possesion.play();
+        if(this.scene.musicOn)
+          this.possesion.play();
         this.setAlpha(1);
         this.itemPossesed = null;
       }

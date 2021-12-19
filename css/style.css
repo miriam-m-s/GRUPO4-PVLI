@@ -1,74 +1,50 @@
 body {
   background: #000000 none repeat scroll 0 0;
   margin: 0;
-  overflow: hidden;
+  overflow: visible;
   height: 100vh;
   width: 100vw;
   cursor: url("../images/pixelCursor.png"), auto;
 }
 
+h1 {
+  font-size: 40px;
+}
 
-@keyframes color-change 
-{
+@keyframes color-change {
   0% { color: black; }
   100% { color: white; }
 }
-mainHeader
-{
+
+.mainHeader{
+  margin:auto;
   transition-delay: 2s;
   animation: color-change 3s 1;
   word-wrap: break-word;
-  width: 70%;
 	margin: 0 auto;
   font-family: 'Sys', Fallback, sans-serif;
   font-size: 14px;
   text-align: center;
   color:rgb(255, 255, 255);
-  position: absolute; /* or absolute */
-  top: 10%;
-  left: 0px;
-  right: 0px;
 }
 
-
-terminalFont
-{
-  font-family: 'Sys', Fallback, sans-serif;
-  font-size: 10px;
-  text-align: left;
-  color:rgb(255, 255, 255);
-  position:absolute;
-  top:20px;
-  left:20px;
-}
-
-menuwrapper 
-{
-  color:rgb(255, 255, 255);
-  line-height: 40%;
-  text-align: center;
-  position:absolute;
-  top:20px;
-  right:20px;
-  z-index: 0;
-}
-
-canvasGame 
-{
-  position: absolute;
-    top: 40%;
-    right: 30%;
-    bottom: 50%;
+.socialwrapper {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  position: relative;
 }
 
 @font-face {
   src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/86186/terminal_copy.ttf);
   font-family: "Terminal";
 }
+
 @font-face {
   src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/86186/sys.ttf) format("truetype");
   font-family: "Sys";
 }
+
 .scanlines .overlay {
   pointer-events:none;
   height: 100%;
@@ -81,6 +57,11 @@ canvasGame
   align-items: center;
   justify-content: center;
 }
+
+.juegocanvas{
+  z-index: 69;
+}
+
 .scanlines .overlay::after {
   pointer-events:none;
   position: absolute;
@@ -92,6 +73,7 @@ canvasGame
   background-size: 100% 100%;
   content: "";
 }
+
 .scanlines .overlay::before {
   position: absolute;
   top: 0;

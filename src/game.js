@@ -1,28 +1,33 @@
 import Boot from './boot.js';
 import End from './end.js';
-import Level from './scene.js';
+import Scene from './scene.js';
 import Intro from './intro.js'; 
+import Level1 from './level1.js';
+import Level2 from './level2.js';
+import Level3 from './level3.js';
 import MainMenuScene from './mainMenuScene.js';
 
 let config = 
 {
     type: Phaser.WEBGL,
-    //NES aspect ratio es 8:7
-    width:  400,
-    height: 350,
+    parent:"mygame",
     roundPixels: true,
     scale: {
-        parent: 'mygame',
-        autoCenter: Phaser.Scale.CENTER_BOTH
-        //autoCenter: Phaser.Scale.CENTER_BOTH,
+        mode: Phaser.Scale.FIT,
+        autoCenter: Phaser.Scale.CENTER_BOTH,
+        parent: 'GameContainer',
+        max:{
+            width: 1400,
+            height: 800,
+          }
     },
-    zoom: 1.4,
+  
     pixelArt: true,
-    scene: [Boot,Intro, MainMenuScene, Level, End],
+    scene: [Boot,Intro, MainMenuScene, Level1,Level2, Level3, End],
     physics: { 
-        default: 'arcade', 
-        arcade: { 
-            debug: true
+        default: 'arcade',
+        arcade: {
+            debug: false
         } 
     },
     plugins: {

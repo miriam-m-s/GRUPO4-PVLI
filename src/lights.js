@@ -20,7 +20,6 @@ export default class Lights extends Phaser.GameObjects.Sprite {
 
     this.setAlpha(.2);
 
-
     this.setOrigin(0);
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this, true);
@@ -63,7 +62,6 @@ export default class Lights extends Phaser.GameObjects.Sprite {
   }
 
   LampClicked(newState) {
-    console.log("LampClicked");
     this.isLampOn = newState;
   }
 

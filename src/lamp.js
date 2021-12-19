@@ -15,6 +15,7 @@ export default class Lamp extends Phaser.GameObjects.Sprite {
    */
 
   constructor(scene, lampPosX, lampPosY, sprite, human, ghost, lampGroup, radius) {
+
     super(scene, lampPosX, lampPosY, sprite);
     this.scene = scene;
     this.human = human;
@@ -26,11 +27,9 @@ export default class Lamp extends Phaser.GameObjects.Sprite {
     this.soundlight = scene.sound.add('light');
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
-    this.isOn = false;
-    //this.depth = -5;
-    this.light = null;
+    
+    console.log("this.isOn = " + this.isOn);
   }
-
 
   SelectObject() {
     if (this.isOn) return;
@@ -47,14 +46,13 @@ export default class Lamp extends Phaser.GameObjects.Sprite {
     if (!this.isOn) //si no esta encendida
     {
       if (this.light == null) {
-        this.soundlight.play();
-        let radius = 30;
-        this.light = new Lights(this.scene, this.scene.humanPlayer, this.scene.ghostPlayer, this.scene.lights, this.lampPosX - radius, this.lampPosY - radius, radius, false, true);
+        if(this.scene.musicOn) this.soundlight.play();
         // Avisar a la light de esta lampara
+        this.light = new Lights(this.scene, this.scene.humanPlayer, this.scene.ghostPlayer, this.scene.lights, this.lampPosX - this.radius, this.lampPosY - this.radius, this.radius, false, true);
         this.light.LampClicked(true);
       } else {
         this.setTexture('lampSelected');
-        this.soundlight.play();
+        if(this.scene.musicOn) this.soundlight.play();
         this.light.body.enable = true;
         this.light.body.gameObject.alpha = 0.3;
 
@@ -63,7 +61,7 @@ export default class Lamp extends Phaser.GameObjects.Sprite {
       }
     } else //Esta encendida
     {
-      this.soundlight.play();
+      if(this.scene.musicOn) this.soundlight.play();
       this.light.body.enable = false;
      // this.light.body.gameObject.alpha = 0;
       this.setTexture('lampDefault');

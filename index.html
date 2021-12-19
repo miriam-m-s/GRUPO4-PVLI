@@ -1,80 +1,73 @@
-
 <!DOCTYPE html>
+<html lang="es">
 
- <html class="baseHTML"> 
-	<body style="background-color:rgb(0, 0, 0);">
-	<head>
-		<link rel="stylesheet" href="css\style.css">	
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<head>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" href="assets/sprites/player.png" type="image/png" />
+  <meta name="viewport" content="width=device-width, initial-scale=2.0">
+  <link rel="stylesheet" href="./css/game.css">
+  <link rel="stylesheet" href="css\style.css">
 
+  <script src="./lib/phaser.js"></script>
+  <script src="./lib/phaser-raycaster.js"></script>
 
-	</head>
-	<div class="fade-in">
-	<mainHeader>
-		<img src="./images/moonIcon02.png" style="width:30px; height:30px; margin: 0px 20px 0px 20px;"></img>
-		<h1>Eclipse</h1>
-		<p>EL MEJOR JUEGO DE LA HISTORIA CERO BUGS GOTY 2022 PHASER MEJOR MOTOR DE LA HISTORIA meter el resto de la historia aqui porfi que no me la se
-			</del>
-		</p>
-	</mainHeader>
-</div>
-	
+  <title>Eclipse</title>
+</head>
 
-	<body>	
-		<menuwrapper>
-			<a href="https://twitter.com/gameclipse_">
-				<img src="./images/twitterIcon02.png" style="width:30px; height:30px; margin: 0px 20px 0px 20px;"></img>
-				
-			</a><p>Twitter</p>
-			<a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
-				<img src="./images/githubIcon.png"  style="width:30px; height:30px; margin: 20px 20px 0px 20px;"></img>
-				
-			</a>
-			<p>Github</p>
-			<a href="https://www.pivotaltracker.com/n/projects/2533583">
-				<img src="./images/pivotalIcon.png"  style="width:30px; height:30px; margin: 20px 20px 0px 20px;"></img>
-				
-			</a>
-			<p>Pivotal</p>
-	</menuwrapper>
-			
-	<!-- Scanlines/CRT Efecto -->
-	<main class="scanlines">
-		<div class="screen">
-			<div class="overlay">
-			</div>
-		</div>
-	</main>
+<body>
+  <div class="fade-in">
+    <div class="mainHeader">
+      <img src="./images/moonIcon02.png" style="width:30px; height:30px; margin: 0px 20px 0px 20px; padding-top: 30px;" />
+      <h1>Eclipse</h1>
+    </div>
+  </div>
+  <div id="juego" class="juegocanvas">
+    <div id="GameContainer"></div>
+    <script src="./src/game.js" type="module"></script>
+  </div>
 
-	<!--<canvasGame><img src="./images/hitch.png"  style="width:30px; height:30px; margin: 20px 20px 0px 20px;"></img></canvasGame>
-	-->
-	
-	
-	<canvasGame>		
-		<div id='mygame'></div>
-		<script src="./lib/phaser.js" ></script>
-		<script src="./lib/phaser-raycaster.js"></script>
-		<script src="./src/game.js"type="module"></script>
-		<script src="js/main.js"></script>
-	
-	</canvasGame>
+  <div class="atg">
 
-	<!--
-	<terminalFont>
-	<table cellspacing="10" cellpadding="10" border="0" >
-		<tbody>
-			<tr>
-				<td style="border: 0">
-				<h2 class="rtecenter"><img src = "./images/keyCursorsIcon.png"> Move character</img></h2>
-				<h2 class="rtecenter"><img src = "./images/keySpaceIcon.png">   Swap Characters</img></h2>
-				<h2 class="rtecenter"><img src = "./images/keyShiftIcon.png">   Sprint</img></h2>
-				<h2 class="rtecenter"><img src = "./images/keyEIcon.png">   Interact</img></h2>
-				</td>
-			</tr>
-		</tbody>
-	</table>
-	</terminalFont>
-	-->
-	</body>
+    <img src="./images/ourstory2.png" style="width: 30vh; margin-bottom: 10vh" />
+
+    <span class="text1">
+      Estrella is a little girl, so she is afraid of the dark and therefore cannot go through areas that are not
+       illuminated, while Moon being a ghost, cannot pass through the light. Accompany them on their journey so that
+        the two sisters may finally be together.
+
+    </span>
+    <span class="text1">
+      <p style="color:rgb(74, 148, 190)"> CONTROLES</p><br><br><br>
+      <img src="./images/keySpaceIcon.png" style="width: 15vh; margin-bottom: 10vh" /> change player<br>
+      <img src="./images/keyCursorsIcon.png" style="width: 15vh; margin-bottom: 10vh" />moving player<br>
+      <img src="./images/keyEIcon.png" style="width:5vh; margin-bottom: 10vh" />interact objects<br><br>
+      <img src="./images/keyShiftIcon.png" style="width:10vh; margin-bottom: 10vh" />increase speed<br>
+    </span>
+
+  </div>
+
+</body>
+<footer>
+  <div class="footer-container">
+    <div class="socialwrapper">
+      <a href="https://twitter.com/gameclipse_">
+        <img src="./images/twitterIcon02.png" style="width:30px; height:30px; margin: 20px 20px 0px 20px;" />
+      </a>
+      <p>Twitter</p>
+    </div>
+    <div class="socialwrapper">
+      <a href="https://github.com/miriam-m-s/GRUPO4-PVLI">
+        <img src="./images/githubIcon.png" style="width:30px; height:30px; margin: 20px 20px 0px 20px;" />
+      </a>
+      <p>Github</p>
+    </div>
+
+    <div class="socialwrapper">
+      <a href="https://www.pivotaltracker.com/n/projects/2533583">
+        <img src="./images/pivotalIcon.png" style="width:30px; height:30px; margin: 20px 20px 0px 20px;" />
+      </a>
+      <p>Pivotal</p>
+    </div>
+</footer>
+
 </html>
