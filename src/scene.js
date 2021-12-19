@@ -56,8 +56,8 @@ export default class Scene extends Phaser.Scene {
 
     this.backgroundLayer = this.map.createLayer('BackLayer', [tileset1]);
     this.lightLayer = this.map.createLayer('LightLayer', [tileset1]);
-    
-    this.colLayer = this.map.createLayer('ColLayer', [tileset1]); 
+
+    this.colLayer = this.map.createLayer('ColLayer', [tileset1]);
     this.extraLayer = this.map.createLayer('ExtraLayer', [tileset1]);
 
     //Timer
@@ -71,22 +71,26 @@ export default class Scene extends Phaser.Scene {
 
 
     this.mirrorGroup = this.add.group();
+    //CAMERA
+    this.camera = this.cameras.main;
 
+    this.camera.setBounds(0, 0, 8, 8);
+    this.camera.zoom = 2.9;
 
     //BOTON DE PAUSA Y ESC
     this.isPaused = false;
-    this.pauseMenu = new Pause(this, 120, 130, 0);
+    this.pauseMenu = new Pause(this, this.camera.centerX / this.camera.zoom, this.camera.centerY / this.camera.zoom, 0);
     this.escape = this.input.keyboard.addKey('ESC');
     this.escape.on('down', () => {
       this.isPaused = !this.isPaused;
       this.scene.pauseMenu.clickPause();
     });
-    this.pausa = this.add.image(225, 20, 'pauseButton').setInteractive();
+    this.pausa = this.add.image(this.camera.displayWidth - 15, 20, 'pauseButton').setInteractive();
     this.pausa.scale = 0.05;
     this.pausa.on('pointerdown', function () {
       this.scene.pauseMenu.clickPause();
     });
-    
+
     //Music
     this.musicOn = true;
     this.musica = this.add.image(190, 20, 'musicButton').setInteractive();
@@ -119,7 +123,7 @@ export default class Scene extends Phaser.Scene {
     ];
 
     new Lamp(this, 60, 80, 'lampDefault', this.humanPlayer, this.ghostPlayer, this.lampGroup, 30),
-    new Lamp(this, 190, 150, 'lampDefault', this.humanPlayer, this.ghostPlayer, this.lampGroup, 30)
+      new Lamp(this, 190, 150, 'lampDefault', this.humanPlayer, this.ghostPlayer, this.lampGroup, 30)
     // new Mirror(this, this.humanPlayer, this.lampGroup, new Phaser.Math.Vector2(190,70)), 
     //new Lamp(this, this.humanPlayer, this.lampGroup, new Phaser.Math.Vector2(190,150))];
 
@@ -153,32 +157,33 @@ export default class Scene extends Phaser.Scene {
     this.lights = this.add.group();
     new Lights(this, this.humanPlayer, this.ghostPlayer, this.lights, 60, 60, 50);
 
-    this.camera = this.cameras.main;
 
-    this.camera.setBounds(0,0,8,8);
-    this.camera.zoom = 2.9;
-    this.colLayer.setCollisionByProperty({colisiona: true});
+    this.colLayer.setCollisionByProperty({
+      colisiona: true
+    });
     this.physics.add.collider(this.ghostPlayer, this.colLayer);
 
     this.physics.add.collider(this.ghostPlayer, this.extraLayer);
-    this.extraLayer.setCollisionByProperty({colisiona: true});
-    
+    this.extraLayer.setCollisionByProperty({
+      colisiona: true
+    });
+
 
     //CREACIÓN DEL RAYCAST
-   this.raycaster = this.raycasterPlugin.createRaycaster();
+    this.raycaster = this.raycasterPlugin.createRaycaster();
     //objetos que reaccionan al raycast
     this.dynamicObstacles = [
       this.humanPlayer,
-       this.ghostPlayer, this.mirror, this.furniture2, this.furniture,this.mirror2, this.candle,
+      this.ghostPlayer, this.mirror, this.furniture2, this.furniture, this.mirror2, this.candle,
     ];
     this.raycaster.mapGameObjects(this.dynamicObstacles, true);
 
-     this.window = new Window(this, 20, 200, 90);
+    this.window = new Window(this, 20, 200, 90);
 
-     
+
   }
 
- 
+
   ResetLevel() {
     this.scene.start('end');
   }
@@ -189,7 +194,7 @@ export default class Scene extends Phaser.Scene {
     if (this.basefant.ininbase() && this.basepers.ininbase()) {
       this.scene.start('end');
     }
-   // this.raycaster.updateObstacle(this.dynamicObstacles);
+    // this.raycaster.updateObstacle(this.dynamicObstacles);
   }
 
   levelPaused() {
