@@ -17,12 +17,12 @@ import Timer from './timer.js'
  * @extends Phaser.Scene
  */
 
-export default class Level extends Phaser.Scene {
+export default class Scene extends Phaser.Scene {
 
   static TILE_SIZE = 16; //tamano de tiles de los tilemaps
   constructor() {
     super({
-      key: 'level'
+      key: 'scene'
     });
   }
 

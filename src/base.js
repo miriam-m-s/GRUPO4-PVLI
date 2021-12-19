@@ -39,10 +39,6 @@ export default class Base extends Phaser.GameObjects.Sprite {
     this.inbase = false;
     if (this.scene.physics.overlap(this.player, this)) {
       this.inbase = true;
-
     }
-
-
-
   }
 }

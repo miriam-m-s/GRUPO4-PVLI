@@ -21,25 +21,18 @@ export default class Boot extends Phaser.Scene {
    * Carga de los assets del juego
    */
   preload() {
-    //video
+    //VIDEO
     this.load.video('vid','./assets/video/a.mp4');
-
+    
     //MUSIC
-    this.load.audio('bckMusic', [
-      './assets/audio/music/bckMusic.mp3'
-    ]);
-    this.load.audio('possesion', './assets/audio/music/possesion.mp3');
-    this.load.audio('changeplayer', './assets/audio/music/bubllepop.mp3');
-    this.load.audio('light', './assets/audio/music/light.mp3');
-    this.load.audio('exit', './assets/audio/music/exit.mp3')
-    this.load.setPath('assets/sprites/');
+    this.load.setPath('assets/audio/music/');
+    this.load.audio('bckMusic', 'bckMusic.mp3');
+    this.load.audio('possesion', 'possesion.mp3');
+    this.load.audio('changeplayer', 'bubllepop.mp3');
+    this.load.audio('light', 'light.mp3');
+    this.load.audio('exit', 'exit.mp3')
 
-    //Boton y menú de pausa
-    this.load.image('pauseButton', 'pausebutton.png');
-    this.load.image('pauseMenu', 'pausemenu.png');
-
-    this.load.image('musicButton', 'music.png');
-
+    //SPRITESHEETS
     this.load.setPath('assets/sprites/');
     //Cursor
     this.load.image('CursorSelector', 'cursorSelector.png');
@@ -64,12 +57,14 @@ export default class Boot extends Phaser.Scene {
       frameWidth: 16,
       frameHeight: 16
     });
+
+    //IMAGES
     this.load.image('ghost', 'ghostSprite.png');
     this.load.image('human', 'humanSprite.png');
     // Objects/Enviroment
     this.load.image('lightCircleMedium', 'lightCircleMedium.png');
     this.load.image('lightCircleBig', 'lightCircleBig.png');
-    // Lampara
+    // Lamp
     this.load.image('lampDefault', 'lampSpr01.png');
     this.load.image('lampSelected', 'lampSpr02.png'); 
     this.load.image('switchDefault', 'switchSprite01.png');
@@ -78,9 +73,31 @@ export default class Boot extends Phaser.Scene {
     this.load.image('furniture', 'furnitureSpr01.png');
     this.load.image('furnitureSelected', 'furnitureSpr02.png');
     this.load.image('furniturePossesed', 'furnitureSpr03.png');
+    //Pause button
+    this.load.image('pauseButton', 'pausebutton.png');
+    this.load.image('pauseMenu', 'pausemenu.png');
+    //Music button
+    this.load.image('musicButton', 'music.png');
+    // Light
+    this.load.image('light', 'light.png');
+    // Detected mirror
+    this.load.image('mirrordetector', 'mirrordetector.png');
+    // Window
+    this.load.image('window', 'window.png');
+    // Candle
+    this.load.image('SelectedCandle', 'SelectedCandle.png');
+    this.load.image('UnselectedCandle', 'UnselectedCandle.png');
+    this.load.image('PossesedCandle', 'PossesedCandle.png');
+    // Bases
+    this.load.image('basefantas', 'basefant.png')
+    this.load.image('basepers', 'basepers.png')
+    // Debug
+    this.load.image('debugIndic', 'debugIndicator.png');
+
+
+    this.load.setPath('assets/sprites/Mirrors/');
     // Mirror
     // Unselected
-    this.load.setPath('assets/sprites/Mirrors/');
     this.load.image('mirror_Unsel_90', 'mirror_Unsel_Up.png');
     this.load.image('mirror_Unsel_270', 'mirror_Unsel_Down.png');
     this.load.image('mirror_Unsel_180', 'mirror_Unsel_Left.png');
@@ -95,28 +112,10 @@ export default class Boot extends Phaser.Scene {
     this.load.image('mirror_Pos_270', 'mirror_Pos_Down.png');
     this.load.image('mirror_Pos_180', 'mirror_Pos_Left.png');
     this.load.image('mirror_Pos_0', 'mirror_Pos_Right.png');
-    // this.load.image('mirrorDefault', 'mirrorSpr01.png');
-    // this.load.image('mirrorSelected', 'mirrorSpr02.png');
-    // this.load.image('mirrorPossessed', 'mirrorSpr03.png');
-    this.load.setPath('assets/sprites/');
-    // LIGHT
-    this.load.image('light', 'light.png');
-    // MIRRORDETECTED
-    this.load.image('mirrordetector', 'mirrordetector.png');
-    // WINDOW
-    this.load.image('window', 'window.png');
-    // Candle
-    this.load.image('SelectedCandle', 'SelectedCandle.png');
-    this.load.image('UnselectedCandle', 'UnselectedCandle.png');
-    this.load.image('PossesedCandle', 'PossesedCandle.png');
-    // Bases
-    this.load.image('basefantas', 'basefant.png')
-    this.load.image('basepers', 'basepers.png')
 
-    // Debug
-    this.load.image('debugIndic', 'debugIndicator.png');
 
-    this.load.setPath('assets/maps/');
+
+    this.load.setPath('assets/maps/'); 
     // Carga de Tilemap
     this.load.tilemapTiledJSON('tilemap01', 'Map02.json');
     // Carga de spritesheet
@@ -140,10 +139,10 @@ export default class Boot extends Phaser.Scene {
       loop: true,
       delay: 0,
     }; // config es opcional
-    var music = this.sound.add('bckMusic', audioConfig);
-    //music.play();
 
-    //GHOST ANIMATIONS  NO SELECTED
+    
+    //ANIMATIONS
+    //------------Ghost-----------------
     this.anims.create({
       key: "_idleGhost",
       frameRate: this.animationFrameRate,
@@ -154,8 +153,7 @@ export default class Boot extends Phaser.Scene {
       repeat: -1
     });
 
-    //GHOST SELECTED ANIMATIONS
-
+    //selected animations
     this.anims.create({
       key: "_idleGhostsel",
       frameRate: this.animationFrameRate,
@@ -165,6 +163,7 @@ export default class Boot extends Phaser.Scene {
       }),
       repeat: -1
     });
+
     this.anims.create({
       key: "_downGhostsel",
       frameRate: this.animationFrameRate,
@@ -174,6 +173,7 @@ export default class Boot extends Phaser.Scene {
       }),
       repeat: -1
     });
+
     this.anims.create({
       key: "_leftGhostsel",
       frameRate: this.animationFrameRate,
@@ -183,6 +183,7 @@ export default class Boot extends Phaser.Scene {
       }),
       repeat: -1
     });
+
     this.anims.create({
       key: "_rightGhostsel",
       frameRate: this.animationFrameRate,
@@ -192,6 +193,7 @@ export default class Boot extends Phaser.Scene {
       }),
       repeat: -1
     });
+
     this.anims.create({
       key: "_upGhostsel",
       frameRate: this.animationFrameRate,
@@ -201,7 +203,8 @@ export default class Boot extends Phaser.Scene {
       }),
       repeat: -1
     });
-    //HUMAN ANIMATIONS -------------------------------------------------------------
+
+    //------------Human-----------------
     this.anims.create({
       key: "_idleHuman",
       frameRate: this.animationFrameRate,
@@ -212,7 +215,7 @@ export default class Boot extends Phaser.Scene {
       repeat: -1
     });
 
-    //HUMAN ANIMATIONS SELECTED -------------------------------------------------------------
+    //selected animations
     this.anims.create({
       key: "_idleHumansel",
       frameRate: this.animationFrameRate,
@@ -222,6 +225,7 @@ export default class Boot extends Phaser.Scene {
       }),
       repeat: -1
     });
+
     this.anims.create({
       key: "_downHumansel",
       frameRate: this.animationFrameRate,
@@ -231,6 +235,7 @@ export default class Boot extends Phaser.Scene {
       }),
       repeat: -1
     });
+
     this.anims.create({
       key: "_leftHumansel",
       frameRate: this.animationFrameRate,
@@ -240,6 +245,7 @@ export default class Boot extends Phaser.Scene {
       }),
       repeat: -1
     });
+
     this.anims.create({
       key: "_rightHumansel",
       frameRate: this.animationFrameRate,
@@ -249,6 +255,7 @@ export default class Boot extends Phaser.Scene {
       }),
       repeat: -1
     });
+
     this.anims.create({
       key: "_upHumansel",
       frameRate: this.animationFrameRate,
@@ -259,7 +266,7 @@ export default class Boot extends Phaser.Scene {
       repeat: -1
     });
 
-    //CANDLE ANIMATIONS SELECTED -------------------------------------------------------------
+    //------------Candle-----------------
     this.anims.create({
       key: "_candleLighted",
       frameRate: this.animationFrameRate,
@@ -270,7 +277,7 @@ export default class Boot extends Phaser.Scene {
       repeat: -1
     });
 
-    //CREACION DEL NIVEL
+    //Level creation
     this.scene.start('intros');
   }
 }

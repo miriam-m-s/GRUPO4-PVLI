@@ -24,16 +24,15 @@
        this.resumeText = this.scene.add.text(-35, -7, "Resume", textConfig).setInteractive();
        this.resumeText.scale = 0.6;
        this.resumeText.on('pointerdown', function () {
-
-          this.scene.isPaused = false;
-          this.scene.clickPause();
+          this.scene.pauseMenu.clickPause();
        });
+
        this.restartText = this.scene.add.text(-35, 8, "Restart", textConfig).setInteractive();
        this.restartText.scale = 0.6;
        this.restartText.on('pointerdown', function () {
-
-          this.scene.scene.start('level');
+          this.scene.scene.start('scene');
        });
+
        this.quitText = this.scene.add.text(-35, 23, "Quit", textConfig).setInteractive();
        this.quitText.scale = 0.6;
        this.quitText.on('pointerdown', function () {

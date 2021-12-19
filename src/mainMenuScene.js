@@ -23,7 +23,7 @@ export default class MainMenuScene extends Phaser.Scene {
       .setInteractive();
 
     this.loadingText.on('pointerdown', function () {
-      this.scene.scene.start('level');
+      this.scene.scene.start('scene');
     })
 
     this.add.sprite(screenCenterX - 80, screenCenterY, 'CursorSelector');
