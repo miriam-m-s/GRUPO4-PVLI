@@ -141,7 +141,7 @@ export default class Level3 extends Phaser.Scene {
   }
 
   ResetLevel() {
-    this.scene.start('level2');
+    this.scene.start('level3');
   }
   //Check the final de nivel para ambos jugadores
   update() {
