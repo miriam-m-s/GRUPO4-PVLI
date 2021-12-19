@@ -75,17 +75,22 @@ export default class Scene extends Phaser.Scene {
 
     //BOTON DE PAUSA Y ESC
     this.isPaused = false;
-    this.pauseMenu = new Pause(this, 120, 130, 0);
     this.escape = this.input.keyboard.addKey('ESC');
     this.escape.on('down', () => {
       this.isPaused = !this.isPaused;
-      this.scene.pauseMenu.clickPause();
+      this.clickPause();
     });
     this.pausa = this.add.image(225, 20, 'pauseButton').setInteractive();
     this.pausa.scale = 0.05;
+
     this.pausa.on('pointerdown', function () {
-      this.scene.pauseMenu.clickPause();
+      //this.scene.scene.pause();
+      this.scene.isPaused = !this.scene.isPaused;
+      this.scene.clickPause();
+
     });
+
+    this.pauseMenu = null;
     
     //Music
     this.musicOn = true;
@@ -96,8 +101,10 @@ export default class Scene extends Phaser.Scene {
       this.scene.sceneSound.clickMusic();
 
     });
-
     //Jugadores
+
+
+
     let humanList; //lista de objetos humanos
     let ghostList; //lista de objetos poseibles
     let lampList;
@@ -189,6 +196,36 @@ export default class Scene extends Phaser.Scene {
     }
    // this.raycaster.updateObstacle(this.dynamicObstacles);
   }
+
+  clickPause() {
+    if (this.isPaused) //Crea el menu con los botones
+    {
+      if (this.pauseMenu === null) {
+        this.pauseMenu = new Pause(this, 120, 130);
+      } 
+      //Visual
+      this.anims.pauseAll(); //Pausa todas las animaciones de la escena
+      this.pauseMenu.active = true;
+      this.pauseMenu.alpha = 1;
+
+      //Sonido
+      this.music.stop();
+      if(this.musicOn) this.exit.play();
+      
+    } else //Lo desactiva
+    {
+      //Visual
+
+      this.pauseMenu.active = false;
+      this.pauseMenu.alpha = 0;
+      this.anims.resumeAll(); //Reanuda las animaciones que habia activas al pausar la escena
+      
+      //Sonido
+      if(this.musicOn) this.music.play();
+    }
+    this.timer.change();
+  }
+
 
   levelPaused() {
     return this.isPaused;
