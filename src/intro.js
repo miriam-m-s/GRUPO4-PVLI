@@ -9,13 +9,12 @@ export default class Intro extends Phaser.Scene {
     
 
     create() {
-        this.intro = this.add.video(500, 300, 'vid');
-        this.intro.setScale(0.3);
-        this.intro.play(true);
+        const video = this.add.video(this.game.config.width/2-40,this.game.config.height/2,'vid');
+        video.play(false);  //No loop
+        video.on('complete', (video)=>{
+            video.destroy();
+            this.scene.start('mainMenu');
+        });
     }
-    update() {
-         if (this.intro.getProgress() >= 0.99) {
-             this.scene.start('mainMenu');
-         }
-    };
+  
 }
