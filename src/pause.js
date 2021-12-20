@@ -11,8 +11,8 @@
 
        super(scene, x, y);
        this.alpha = alpha;
+       
        this.scene = scene;
-       this.setDepth(10);
        this.fondo = this.scene.add.image(0,0 , 'pauseMenu');
        this.fondo.scale = 0.3;
        let textConfig = {
@@ -39,7 +39,7 @@
        this.quitText.on('pointerdown', function () {
           this.scene.scene.start('mainMenu');
        });
-
+       this.depth = 10;
        this.add([this.fondo, this.pauseText, this.resumeText, this.restartText, this.quitText]);
        this.scene.add.existing(this);
     }

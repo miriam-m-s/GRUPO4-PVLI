@@ -19,6 +19,7 @@ export default class Lamp extends Phaser.GameObjects.Sprite {
     super(scene, lampPosX, lampPosY, sprite);
     this.scene = scene;
     this.human = human;
+    this.depth = 4;
     this.ghost = ghost;
     this.lampPosX = lampPosX;
     this.lampPosY = lampPosY;
