@@ -100,6 +100,10 @@ export default class Level3 extends Phaser.Scene {
     this.musica.scale = 0.01;
     this.stoppedMusic.scale = 0.01;
     this.sceneSound = new Music(this, 190, 20);
+    this.pausa.depth =10;
+    this.playButton.depth = 10;
+    this.musica.depth =10;
+    this.stoppedMusic.depth =10;
     this.musica.on('pointerdown', function () {
       this.scene.sceneSound.clickMusic();
     });
