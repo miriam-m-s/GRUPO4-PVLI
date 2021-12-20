@@ -79,7 +79,7 @@ export default class Scene extends Phaser.Scene {
 
     //BOTON DE PAUSA Y ESC
     this.isPaused = false;
-    this.pauseMenu = new Pause(this, this.camera.centerX / this.camera.zoom, this.camera.centerY / this.camera.zoom, 0);
+    this.pauseMenu = new Pause(this, this.camera.centerX / this.camera.zoom, this.camera.centerY / this.camera.zoom, 0, 'level1');
     this.escape = this.input.keyboard.addKey('ESC');
     this.escape.on('down', () => {
       this.pauseMenu.clickPause();
