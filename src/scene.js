@@ -55,7 +55,7 @@ export default class Scene extends Phaser.Scene {
     const tileset1 = this.map.addTilesetImage('mansionNes', 'mapSpriteSheet');
 
     this.backgroundLayer = this.map.createLayer('BackLayer', [tileset1]);
-    this.lightLayer = this.map.createLayer('LightLayer', [tileset1]);
+    //this.lightLayer = this.map.createLayer('LightLayer', [tileset1]);
 
     this.colLayer = this.map.createLayer('ColLayer', [tileset1]);
     this.extraLayer = this.map.createLayer('ExtraLayer', [tileset1]);
@@ -180,7 +180,8 @@ export default class Scene extends Phaser.Scene {
     //objetos que reaccionan al raycast
     this.dynamicObstacles = [
       this.humanPlayer,
-      this.ghostPlayer, this.mirror, this.furniture2, this.furniture, this.mirror2, this.candle,
+      this.ghostPlayer, this.mirror, this.furniture2, this.furniture, this.mirror2, this.candle, 
+      this.extraLayer, this.colLayer
     ];
     this.raycaster.mapGameObjects(this.dynamicObstacles, true);
 

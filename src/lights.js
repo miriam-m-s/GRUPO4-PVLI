@@ -19,6 +19,7 @@ export default class Lights extends Phaser.GameObjects.Sprite {
     this.posY = y;
 
     this.setAlpha(.2);
+    this.depth = 1;
 
     this.setOrigin(0);
     this.scene.add.existing(this);

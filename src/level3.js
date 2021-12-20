@@ -49,9 +49,13 @@ export default class Level3 extends Phaser.Scene {
     const tileset1 = this.map.addTilesetImage('mansionNes', 'mapSpriteSheet');
 
     this.backgroundLayer = this.map.createLayer('BackLayer', [tileset1]);
-    this.lightLayer = this.map.createLayer('LightLayer', [tileset1]);
+    this.backgroundLayer.depth = 1;
+    //this.lightLayer = this.map.createLayer('LightLayer', [tileset1]);
 
     this.colLayer = this.map.createLayer('ColLayer', [tileset1]);
+    this.colLayer.depth = 3;
+    this.extraLayer = this.map.createLayer('ExtraLayer', [tileset1]);
+    this.extraLayer.depth = 4;
 
     //OBJETOS DE LA ESCENA
     this.bases = this.add.group();
@@ -96,6 +100,10 @@ export default class Level3 extends Phaser.Scene {
     this.musica.scale = 0.01;
     this.stoppedMusic.scale = 0.01;
     this.sceneSound = new Music(this, 190, 20);
+    this.pausa.depth =10;
+    this.playButton.depth = 10;
+    this.musica.depth =10;
+    this.stoppedMusic.depth =10;
     this.musica.on('pointerdown', function () {
       this.scene.sceneSound.clickMusic();
     });
@@ -135,10 +143,13 @@ export default class Level3 extends Phaser.Scene {
     new Lights(this, this.humanPlayer, this.ghostPlayer, this.lights, 10, 130, 60);
     new Lights(this, this.humanPlayer, this.ghostPlayer, this.lights, 230, 130, 60);
 
-    this.colLayer.setCollisionByProperty({
-      colisiona: true
-    });
+    this.colLayer.setCollisionByProperty({ colisiona: true });
     this.physics.add.collider(this.ghostPlayer, this.colLayer);
+    this.physics.add.collider(this.ghostPlayer, this.extraLayer);
+
+    this.extraLayer.setCollisionByProperty({ colisiona: true });
+    this.physics.add.collider(this.humanPlayer, this.colLayer);
+    this.physics.add.collider(this.humanPlayer, this.extraLayer);
 
     //CREACIÓN DEL RAYCAST
     this.raycaster = this.raycasterPlugin.createRaycaster();
