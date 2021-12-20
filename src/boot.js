@@ -130,6 +130,8 @@ export default class Boot extends Phaser.Scene {
     this.load.image('mirror_Pos_180', 'mirror_Pos_Left.png');
     this.load.image('mirror_Pos_0', 'mirror_Pos_Right.png');
 
+    this.load.image('YouWin', 'YouWin.png');
+
 
     this.load.setPath('assets/maps/'); 
     // Carga de Tilemap
