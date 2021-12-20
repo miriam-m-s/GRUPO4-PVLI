@@ -1,6 +1,5 @@
 import Boot from './boot.js';
 import End from './end.js';
-import Scene from './scene.js';
 import Intro from './intro.js'; 
 import Level1 from './level1.js';
 import Level2 from './level2.js';

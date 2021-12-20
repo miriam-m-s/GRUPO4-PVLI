@@ -1,4 +1,4 @@
-import MirrorDetector from "./mirrordtect.js";
+
 export default class Window extends Phaser.GameObjects.Sprite {
 
   /**

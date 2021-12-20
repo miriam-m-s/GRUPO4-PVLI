@@ -1,7 +1,5 @@
 import Lights from './lights.js';
 import Lamp from './lamp.js';
-import Mirror from './mirror.js';
-import Candle from './candle.js';
 import Human from './human.js';
 import Ghost from './ghost.js'
 import Base from './base.js';
