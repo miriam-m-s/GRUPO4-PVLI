@@ -15,6 +15,7 @@ export default class Timer extends Phaser.GameObjects.Container {
         fill: "#fff",
         align: "right"
       });
+      this.gameTime.depth=10;
       this.timer = this.scene.time.addEvent({
         delay: 999999,
         paused: false
