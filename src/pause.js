@@ -45,6 +45,8 @@
     }
 
     clickPause() {
+      this.scene.pausa.alpha = !this.scene.pausa.alpha;
+      this.scene.playButton.alpha = !this.scene.playButton.alpha;
       this.scene.isPaused = !this.scene.isPaused;
       if (this.scene.isPaused) //Crea el menu con los botones
       {

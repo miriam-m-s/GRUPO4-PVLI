@@ -83,11 +83,16 @@ export default class Level1 extends Phaser.Scene {
       this.pauseMenu.clickPause();
     });
     this.pausa = this.add.image(this.camera.displayWidth - 15, 20, 'pauseButton').setInteractive();
+    this.playButton = this.add.image(this.camera.displayWidth - 15, 20, 'playButton').setInteractive();
     this.pausa.scale = 0.05;
+    this.playButton.scale = 0.05;
+    this.playButton.alpha = 0;
     this.pausa.on('pointerdown', function () {
       this.scene.pauseMenu.clickPause();
     });
-  
+    this.playButton.on('pointerdown', function () {
+      this.scene.pauseMenu.clickPause();
+    });
     //Music
     this.musicOn = true;
     this.musica = this.add.image(this.camera.displayWidth - 40, 20, 'musicButton').setInteractive();
