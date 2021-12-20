@@ -139,21 +139,13 @@ export default class Level1 extends Phaser.Scene {
     new Lights(this, this.humanPlayer, this.ghostPlayer, this.lights, 100, 75, 50);
 
 
-    this.colLayer.setCollisionByProperty({
-      colisiona: true
-    });
+    this.colLayer.setCollisionByProperty({ colisiona: true });
     this.physics.add.collider(this.ghostPlayer, this.colLayer);
-
     this.physics.add.collider(this.ghostPlayer, this.extraLayer);
-    this.extraLayer.setCollisionByProperty({
-      colisiona: true
-    });
-
-
-   
-   
-
-
+    
+    this.extraLayer.setCollisionByProperty({ colisiona: true });
+    this.physics.add.collider(this.humanPlayer, this.colLayer);
+    this.physics.add.collider(this.humanPlayer, this.extraLayer);
   }
 
 

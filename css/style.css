@@ -7,23 +7,22 @@ body {
   cursor: url("../images/pixelCursor.png"), auto;
 }
 
-h1 {
-  font-size: 40px;
-}
-
 @keyframes color-change {
   0% { color: black; }
   100% { color: white; }
 }
 
-.mainHeader{
+.mainHeader
+{
   margin:auto;
   transition-delay: 2s;
   animation: color-change 3s 1;
   word-wrap: break-word;
 	margin: 0 auto;
-  font-family: 'Sys', Fallback, sans-serif;
-  font-size: 14px;
+  font-family: 'Alagard', Fallback, sans-serif;
+  font-size: 20px;
+  -webkit-font-smoothing: antialiased;
+  font-weight: normal;
   text-align: center;
   color:rgb(255, 255, 255);
 }
@@ -42,6 +41,12 @@ h1 {
   position: relative;
   align-items: flex-start;
 }
+
+@font-face {
+  src:"./fonts/nokiafc22.ttf";
+  font-family: "Alagard";
+}
+
 
 @font-face {
   src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/86186/terminal_copy.ttf);

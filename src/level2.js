@@ -52,6 +52,7 @@ export default class Level2 extends Phaser.Scene {
     //this.lightLayer = this.map.createLayer('LightLayer', [tileset1]);
 
     this.colLayer = this.map.createLayer('ColLayer', [tileset1]);
+    this.extraLayer = this.map.createLayer('ExtraLayer', [tileset1]);
 
     //OBJETOS DE LA ESCENA
     this.bases = this.add.group();
@@ -130,11 +131,13 @@ export default class Level2 extends Phaser.Scene {
     new Lights(this, this.humanPlayer, this.ghostPlayer, this.lights, 10, 0, 60);
     new Lights(this, this.humanPlayer, this.ghostPlayer, this.lights, 230, 0, 60);
 
-    this.colLayer.setCollisionByProperty({
-      colisiona: true
-    });
+    this.colLayer.setCollisionByProperty({ colisiona: true });
     this.physics.add.collider(this.ghostPlayer, this.colLayer);
-
+    this.physics.add.collider(this.ghostPlayer, this.extraLayer);
+    
+    this.extraLayer.setCollisionByProperty({ colisiona: true });
+    this.physics.add.collider(this.humanPlayer, this.colLayer);
+    this.physics.add.collider(this.humanPlayer, this.extraLayer);
 
 
     //CREACIÓN DEL RAYCAST
