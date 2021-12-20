@@ -16,7 +16,8 @@ export default class Furniture extends Phaser.GameObjects.Sprite {
     this.scene.physics.add.existing(this);
 
     this.isPossesed = false;
-
+    this.depth = 4;
+    
     //this.debugIndicator = this.scene.physics.add.sprite(this.body.x, this.body.y, 'debugIndic');
   }
   Mirrordetect() {

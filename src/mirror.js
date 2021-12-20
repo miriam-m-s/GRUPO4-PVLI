@@ -19,6 +19,7 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
     this.scene = scene;
     this.x = x;
     this.y = y;
+    this.depth = 5;
 
     this.mirrorDetectors = null;
 
@@ -67,7 +68,7 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
   Interact() {
     this.isPossesed = !this.isPossesed;
     this.setTexture('mirror_Pos_' + this.degreeDir);
-    this.body.depth = 3;
+    this.body.depth = 5;
 
     this.scene.ghostPlayer.PossessObject(this);
   }
@@ -87,8 +88,10 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
   drawRay(ray, intersection){
 
     this.graphic1.clear();
-    this.graphic1.lineStyle(1, 0xfffff, 2);
+    this.graphic1.lineStyle(2, 0xFF7E00, 2);
     let line = new Phaser.Geom.Line(ray.origin.x, ray.origin.y, intersection.x, intersection.y);
+    this.graphic1.depth = 5;
+    this.graphic1.alpha = 0.2;
     this.graphic1.strokeLineShape(line);
   }
   preUpdate(t, dt) {

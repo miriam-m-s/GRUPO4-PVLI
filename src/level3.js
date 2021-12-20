@@ -49,9 +49,13 @@ export default class Level3 extends Phaser.Scene {
     const tileset1 = this.map.addTilesetImage('mansionNes', 'mapSpriteSheet');
 
     this.backgroundLayer = this.map.createLayer('BackLayer', [tileset1]);
-    this.lightLayer = this.map.createLayer('LightLayer', [tileset1]);
+    this.backgroundLayer.depth = 1;
+    //this.lightLayer = this.map.createLayer('LightLayer', [tileset1]);
 
     this.colLayer = this.map.createLayer('ColLayer', [tileset1]);
+    this.colLayer.depth = 3;
+    this.extraLayer = this.map.createLayer('ExtraLayer', [tileset1]);
+    this.extraLayer.depth = 4;
 
     //OBJETOS DE LA ESCENA
     this.bases = this.add.group();
@@ -71,23 +75,35 @@ export default class Level3 extends Phaser.Scene {
 
     //BOTON DE PAUSA Y ESC
     this.isPaused = false;
-    this.pauseMenu = new Pause(this, this.camera.centerX / this.camera.zoom, this.camera.centerY / this.camera.zoom, 0);
+    this.pauseMenu = new Pause(this, this.camera.centerX / this.camera.zoom, this.camera.centerY / this.camera.zoom, 0, 'level3');
     this.escape = this.input.keyboard.addKey('ESC');
     this.escape.on('down', () => {
       this.pauseMenu.clickPause();
     });
     this.pausa = this.add.image(this.camera.displayWidth - 15, 20, 'pauseButton').setInteractive();
+    this.playButton = this.add.image(this.camera.displayWidth - 15, 20, 'playButton').setInteractive();
     this.pausa.scale = 0.05;
+    this.playButton.scale = 0.05;
+    this.playButton.alpha = 0;
     this.pausa.on('pointerdown', function () {
+      this.scene.pauseMenu.clickPause();
+    });
+    this.playButton.on('pointerdown', function () {
       this.scene.pauseMenu.clickPause();
     });
 
     //Music
     this.musicOn = true;
     this.musica = this.add.image(this.camera.displayWidth - 40, 20, 'musicButton').setInteractive();
+    this.stoppedMusic = this.add.image(this.camera.displayWidth - 40, 20, 'stoppedMusicButton').setInteractive();
+    this.stoppedMusic.alpha = 0;
     this.musica.scale = 0.01;
+    this.stoppedMusic.scale = 0.01;
     this.sceneSound = new Music(this, 190, 20);
     this.musica.on('pointerdown', function () {
+      this.scene.sceneSound.clickMusic();
+    });
+    this.stoppedMusic.on('pointerdown', function () {
       this.scene.sceneSound.clickMusic();
     });
 
@@ -123,10 +139,13 @@ export default class Level3 extends Phaser.Scene {
     new Lights(this, this.humanPlayer, this.ghostPlayer, this.lights, 10, 130, 60);
     new Lights(this, this.humanPlayer, this.ghostPlayer, this.lights, 230, 130, 60);
 
-    this.colLayer.setCollisionByProperty({
-      colisiona: true
-    });
+    this.colLayer.setCollisionByProperty({ colisiona: true });
     this.physics.add.collider(this.ghostPlayer, this.colLayer);
+    this.physics.add.collider(this.ghostPlayer, this.extraLayer);
+
+    this.extraLayer.setCollisionByProperty({ colisiona: true });
+    this.physics.add.collider(this.humanPlayer, this.colLayer);
+    this.physics.add.collider(this.humanPlayer, this.extraLayer);
 
     //CREACIÓN DEL RAYCAST
     this.raycaster = this.raycasterPlugin.createRaycaster();
@@ -148,7 +167,7 @@ export default class Level3 extends Phaser.Scene {
     this.timer.updateTimer();
 
     if (this.basefant.ininbase() && this.basepers.ininbase()) {
-      this.scene.start('mainMenu');
+      this.scene.start('congrats');
     }
     // this.raycaster.updateObstacle(this.dynamicObstacles);
   }

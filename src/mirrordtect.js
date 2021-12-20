@@ -10,6 +10,7 @@ export default class MirrorDetector extends Phaser.GameObjects.Sprite {
     super(scene, x, y, 'mirrordetector');
     this.setScale(2);
     this.scene.add.existing(this);
+    this.depth = 4;
     this.scene.physics.add.existing(this);
     this.dynamicobjects = this.scene.dynamicObstacles;
     for (let i = 0; i < this.dynamicobjects.length; i++) {

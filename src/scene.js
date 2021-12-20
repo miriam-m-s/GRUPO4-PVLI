@@ -55,7 +55,7 @@ export default class Scene extends Phaser.Scene {
     const tileset1 = this.map.addTilesetImage('mansionNes', 'mapSpriteSheet');
 
     this.backgroundLayer = this.map.createLayer('BackLayer', [tileset1]);
-    this.lightLayer = this.map.createLayer('LightLayer', [tileset1]);
+    //this.lightLayer = this.map.createLayer('LightLayer', [tileset1]);
 
     this.colLayer = this.map.createLayer('ColLayer', [tileset1]);
     this.extraLayer = this.map.createLayer('ExtraLayer', [tileset1]);
@@ -85,19 +85,30 @@ export default class Scene extends Phaser.Scene {
       this.pauseMenu.clickPause();
     });
     this.pausa = this.add.image(this.camera.displayWidth - 15, 20, 'pauseButton').setInteractive();
+    this.playButton = this.add.image(this.camera.displayWidth - 15, 20, 'playButton').setInteractive();
     this.pausa.scale = 0.05;
+    this.playButton.scale = 0.05;
+    this.playButton.alpha = 0;
     this.pausa.on('pointerdown', function () {
+      this.scene.pauseMenu.clickPause();
+    });
+    this.playButton.on('pointerdown', function () {
       this.scene.pauseMenu.clickPause();
     });
 
     //Music
     this.musicOn = true;
     this.musica = this.add.image(this.camera.displayWidth - 40, 20, 'musicButton').setInteractive();
+    this.stoppedMusic = this.add.image(this.camera.displayWidth - 40, 20, 'stoppedMusicButton').setInteractive();
+    this.stoppedMusic.alpha = 0;
     this.musica.scale = 0.01;
+    this.stoppedMusic.scale = 0.01;
     this.sceneSound = new Music(this, 190, 20);
     this.musica.on('pointerdown', function () {
       this.scene.sceneSound.clickMusic();
-
+    });
+    this.stoppedMusic.on('pointerdown', function () {
+      this.scene.sceneSound.clickMusic();
     });
 
     //Jugadores
@@ -169,7 +180,8 @@ export default class Scene extends Phaser.Scene {
     //objetos que reaccionan al raycast
     this.dynamicObstacles = [
       this.humanPlayer,
-      this.ghostPlayer, this.mirror, this.furniture2, this.furniture, this.mirror2, this.candle,
+      this.ghostPlayer, this.mirror, this.furniture2, this.furniture, this.mirror2, this.candle, 
+      this.extraLayer, this.colLayer
     ];
     this.raycaster.mapGameObjects(this.dynamicObstacles, true);
 

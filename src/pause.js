@@ -7,7 +7,7 @@
      * @param {int} y posicion y del menu
      */
 
-    constructor(scene, x, y, alpha) {
+    constructor(scene, x, y, alpha, levelName) {
 
        super(scene, x, y);
        this.alpha = alpha;
@@ -31,7 +31,7 @@
        this.restartText = this.scene.add.text(-25, 8, "Restart", textConfig).setInteractive();
        this.restartText.scale = 0.6;
        this.restartText.on('pointerdown', function () {
-          this.scene.scene.start('scene');
+          this.scene.scene.start(levelName);
        });
 
        this.quitText = this.scene.add.text(-25, 23, "Quit", textConfig).setInteractive();
@@ -45,6 +45,8 @@
     }
 
     clickPause() {
+      this.scene.pausa.alpha = !this.scene.pausa.alpha;
+      this.scene.playButton.alpha = !this.scene.playButton.alpha;
       this.scene.isPaused = !this.scene.isPaused;
       if (this.scene.isPaused) //Crea el menu con los botones
       {

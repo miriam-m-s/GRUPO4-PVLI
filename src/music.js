@@ -14,12 +14,14 @@ export default class Music extends Phaser.GameObjects.Container {
 
     clickMusic() {
         if(!this.scene.isPaused){
+          this.scene.musica.alpha = 1 - this.scene.musica.alpha;
+          this.scene.stoppedMusic.alpha = 1 - this.scene.stoppedMusic.alpha;
           this.scene.musicOn = !this.scene.musicOn;
           if (this.scene.musicOn) 
             this.scene.music.play();
           else 
             this.scene.music.stop();
         } 
-      }
+    }
 
  }

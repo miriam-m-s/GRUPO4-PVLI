@@ -21,6 +21,7 @@ export default class Base extends Phaser.GameObjects.Sprite {
     this.scene.physics.add.existing(this);
 
     this.player = player;
+    this.depth = 4;
 
     this.scene.physics.add.overlap(this, player);
     this.inbase = false;

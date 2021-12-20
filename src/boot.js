@@ -86,14 +86,17 @@ export default class Boot extends Phaser.Scene {
     this.load.image('furniturePossesed', 'furnitureSpr03.png');
     //Pause button
     this.load.image('pauseButton', 'pausebutton.png');
+    this.load.image('playButton', 'playbutton.png');
     this.load.image('pauseMenu', 'pausemenu.png');
     this.load.image('menu', 'menu.png');
+    this.load.image('bigmenu', 'bigmenu.png');
     this.load.image('background', 'background.png');
 
     //Music button
     this.load.image('musicButton', 'music.png');
+    this.load.image('stoppedMusicButton', 'stopmusic.png');
     // Light
-    this.load.image('light', 'light.png');
+    this.load.image('light', 'lightCircleMedium.png');
     // Detected mirror
     this.load.image('mirrordetector', 'mirrordetector.png');
     // Window
