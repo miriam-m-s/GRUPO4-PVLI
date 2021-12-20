@@ -160,7 +160,7 @@ export default class Level3 extends Phaser.Scene {
     this.timer.updateTimer();
 
     if (this.basefant.ininbase() && this.basepers.ininbase()) {
-      this.scene.start('mainMenu');
+      this.scene.start('congrats');
     }
     // this.raycaster.updateObstacle(this.dynamicObstacles);
   }

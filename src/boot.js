@@ -89,6 +89,7 @@ export default class Boot extends Phaser.Scene {
     this.load.image('playButton', 'playbutton.png');
     this.load.image('pauseMenu', 'pausemenu.png');
     this.load.image('menu', 'menu.png');
+    this.load.image('bigmenu', 'bigmenu.png');
     this.load.image('background', 'background.png');
 
     //Music button
