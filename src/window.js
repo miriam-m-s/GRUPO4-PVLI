@@ -45,9 +45,9 @@ export default class Window extends Phaser.GameObjects.Sprite {
   drawRay(ray, intersection){
 
     this.graphic.clear();
-    this.graphic.lineStyle(1, 0xfffff, 2);
+    this.graphic.lineStyle(2, 0xFF7E00, 2);
     let line = new Phaser.Geom.Line(ray.origin.x, ray.origin.y, intersection.x, intersection.y);
-   
+    this.graphic.depth = 2;
     this.graphic.strokeLineShape(line);
   }
 

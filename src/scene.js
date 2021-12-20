@@ -180,7 +180,8 @@ export default class Scene extends Phaser.Scene {
     //objetos que reaccionan al raycast
     this.dynamicObstacles = [
       this.humanPlayer,
-      this.ghostPlayer, this.mirror, this.furniture2, this.furniture, this.mirror2, this.candle,
+      this.ghostPlayer, this.mirror, this.furniture2, this.furniture, this.mirror2, this.candle, 
+      this.extraLayer, this.colLayer
     ];
     this.raycaster.mapGameObjects(this.dynamicObstacles, true);
 

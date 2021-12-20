@@ -35,7 +35,7 @@ body {
 }
 
 .horizontalwrapper {
-  display: flex;
+  display:flow-root;
   flex-direction: row;
   color: white;
   position: relative;
