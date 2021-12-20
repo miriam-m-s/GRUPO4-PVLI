@@ -149,15 +149,14 @@ nav li:hover::before{
 .container{
   width: 80%;
   margin: 0 auto;
-  
 }
 
 canvas{   
   margin-top: 5vh;
   display: block;
   position: relative;
-  border-color:rgb(17, 7, 48);
+  /*border-color:rgb(17, 7, 48);
   border-width:2vh;
   border-style: solid;
-  border-radius: 0px;
+  border-radius: 0px;*/
 }

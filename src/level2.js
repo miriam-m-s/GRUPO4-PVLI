@@ -49,7 +49,7 @@ export default class Level2 extends Phaser.Scene {
     const tileset1 = this.map.addTilesetImage('mansionNes', 'mapSpriteSheet');
 
     this.backgroundLayer = this.map.createLayer('BackLayer', [tileset1]);
-    this.lightLayer = this.map.createLayer('LightLayer', [tileset1]);
+    //this.lightLayer = this.map.createLayer('LightLayer', [tileset1]);
 
     this.colLayer = this.map.createLayer('ColLayer', [tileset1]);
 
