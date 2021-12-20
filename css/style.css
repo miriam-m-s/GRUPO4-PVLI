@@ -35,6 +35,14 @@ h1 {
   position: relative;
 }
 
+.horizontalwrapper {
+  display: flex;
+  flex-direction: row;
+  color: white;
+  position: relative;
+  align-items: flex-start;
+}
+
 @font-face {
   src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/86186/terminal_copy.ttf);
   font-family: "Terminal";
