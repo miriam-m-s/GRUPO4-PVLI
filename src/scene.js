@@ -93,11 +93,16 @@ export default class Scene extends Phaser.Scene {
     //Music
     this.musicOn = true;
     this.musica = this.add.image(this.camera.displayWidth - 40, 20, 'musicButton').setInteractive();
+    this.stoppedMusic = this.add.image(this.camera.displayWidth - 40, 20, 'stoppedMusicButton').setInteractive();
+    this.stoppedMusic.alpha = 0;
     this.musica.scale = 0.01;
+    this.stoppedMusic.scale = 0.01;
     this.sceneSound = new Music(this, 190, 20);
     this.musica.on('pointerdown', function () {
       this.scene.sceneSound.clickMusic();
-
+    });
+    this.stoppedMusic.on('pointerdown', function () {
+      this.scene.sceneSound.clickMusic();
     });
 
     //Jugadores
