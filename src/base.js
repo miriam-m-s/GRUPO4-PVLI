@@ -6,26 +6,33 @@
 export default class Base extends Phaser.GameObjects.Sprite {
 
   /**
-   * Constructor de la Plataforma4
-   * @param {Phaser.Scene} scene Escena a la que pertenece la plataforma
-   * @param {Player} player Jugador del juego
-   * @param {Phaser.GameObjects.Group} baseGroup Grupo en el que se incluirá la base creada por la plataforma
-   * @param {number} x Coordenada x
+   * @param {Phaser.Scene} scene escena a la que pertenece la base
+   * @param {Player} player jugador asociado a la base
+   * @param {number} x Coordenada x 
    * @param {number} y Coordenada y
+   * @param {string} texture nombre del sprite de la base
+   * @param {number} inbase devuelve true si el personaje esta colisionando con la base
    */
 
   constructor(scene, player, texture, x, y) {
     super(scene, x, y, texture);
+
+    // Fisicas
+    this.scene.physics.add.overlap(this, player);
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
 
+  
     this.player = player;
+
     this.depth = 4;
 
-    this.scene.physics.add.overlap(this, player);
+    // Vas
     this.inbase = false;
   }
-  ininbase() {
+
+  // Acceder a la variable "this.inbase"
+  isInbase() {
     return this.inbase;
   }
   /**

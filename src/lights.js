@@ -55,11 +55,6 @@ export default class Lights extends Phaser.GameObjects.Sprite {
       this.body.scale *= 0.5;
     }
     this.lightScale = 1;
-
-    // Si cuando se crea la luz el fantasma esta cerca, reiniciar el fantasma
-    if (this.scene.physics.overlap(ghostPlayer, this)) {
-      this.scene.ResetLevel();
-    }
   }
 
   LampClicked(newState) {

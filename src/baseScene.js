@@ -13,29 +13,46 @@ import Music from './music.js';
 import Timer from './timer.js'
 
 
-export class BaseScene extends Phaser.Scene {
+export default class BaseScene extends Phaser.Scene {
+    /**
+     * Constructor de la Plataforma
+     * @param {Phaser.Scene}
+     * @param {string} tilemap nombre del tilemap para esa escena
+     * @param {Array} lampList array de lamparas 
+     * @param {Array} humanList array de objetos interactuables para el humano 
+     * @param {Array} ghostList array de obbjetos interactuables para el fantasma
+     * @param {Array} posIniFant posicion inicial del fantasma (x,y)
+     * @param {Array} posIniPers posicion inicial del humano (x,y)
+     * @param {Array} posBaseGhost posicion base fantasma (x,y)
+     * @param {Array} posBaseGhost posicion base humano (x, y)
+     */
 
     static TILE_SIZE = 16; //tamano de tiles de los tilemaps
-    constructor(tilemap, lampList, humanList, ghostList) {
+    constructor(tilemap, lampList, lightsInfo, humanList, ghostList, posIniFant, posIniPers, posBaseGhost, posBaseHuman, level) {
         super({
-            key: 'baseScene'
+            key: level
         });
 
+        this.posBaseGhost = posBaseGhost;
+        this.posBaseHUman = posBaseHuman;
         this.tilemap = tilemap;
-        this.lampList=lampList;
-        this.humanList=humanList;
-        this.ghostList=ghostList;
-        this.totaltime=0;
+        this.lampList = lampList;
+        this.humanList = humanList;
+        this.ghostList = ghostList;
+        this.lightsInfo = lightsInfo;
+        this.totaltime = 0;
+        this.posIniFant = posIniFant;
+        this.posIniPers = posIniPers;
     }
+
 
     init(datos) {
         this.totaltime = datos.time;
     }
-    //Creación de los elementos de la escena principal de juego
+    //Creacion de los elementos de la escena principal de juego
     preload() {}
 
     create() {
-
         //MAPA TILESET
 
         //creacion del tilemap
@@ -49,8 +66,13 @@ export class BaseScene extends Phaser.Scene {
 
         //Capas del tilemap
         this.backgroundLayer = this.map.createLayer('BackLayer', [tileset1]);
+        this.backgroundLayer.depth = 1;
+
+
         this.colLayer = this.map.createLayer('ColLayer', [tileset1]);
+        this.colLayer.depth = 3;
         this.extraLayer = this.map.createLayer('ExtraLayer', [tileset1]);
+        this.extraLayer.depth = 4;
 
         //CAMERA
         this.camera = this.cameras.main;
@@ -58,7 +80,7 @@ export class BaseScene extends Phaser.Scene {
         this.camera.zoom = 2.9;
 
         //Timer
-        this.timer = new Timer(this, this.camera.displayWidth - 50, 40); 
+        this.timer = new Timer(this, this.camera.displayWidth - 50, 40);
 
         //SOUND
         //Configuracion musica
@@ -72,11 +94,12 @@ export class BaseScene extends Phaser.Scene {
             delay: 0,
         }; // config es opcional
 
+
+        // MUSIC
         this.music = this.sound.add("bckMusic", config);
         this.exit = this.sound.add('exit');
         this.music.play();
 
-        //MUSIC BUTTON
         this.musicOn = true;
         this.musica = this.add.image(this.camera.displayWidth - 40, 20, 'musicButton').setInteractive();
         this.stoppedMusic = this.add.image(this.camera.displayWidth - 40, 20, 'stoppedMusicButton').setInteractive();
@@ -91,7 +114,8 @@ export class BaseScene extends Phaser.Scene {
             this.scene.sceneSound.clickMusic();
         });
 
-        //BOTON DE PAUSA Y ESC
+
+        // PAUSE
         this.isPaused = false;
         this.pauseMenu = new Pause(this, this.camera.centerX / this.camera.zoom, this.camera.centerY / this.camera.zoom, 0, 'level1');
         this.escape = this.input.keyboard.addKey('ESC');
@@ -110,53 +134,64 @@ export class BaseScene extends Phaser.Scene {
             this.scene.pauseMenu.clickPause();
         });
 
-
         //OBJETOS DE LA ESCENA
-        
+
         let humanList; //lista de objetos humanos
         let ghostList; //lista de objetos poseibles
         let lampList;
 
         //Lista de lamparas base
         lampList = [];
-        
-        //Lista de 
+
+        //Lista de objetos interactuables para el humano
         humanList = [];
 
+        //Lista de objetos interactuables para el fantasma
         ghostList = [];
 
         //CAMBIAR ESTO EN FANTASMA / HUMANO
 
-        this.humanPlayer = new Human(this, 130, 100, true, humanList);
+        this.humanPlayer = new Human(this, this.posIniPers[0], this.posIniPers[1], true, humanList);
 
-        this.ghostPlayer = new Ghost(this, 180, 100, false, ghostList);
+        this.ghostPlayer = new Ghost(this, this.posIniFant[0], this.posIniFant[1], false, ghostList);
 
-        this.basepers = new Base(this, this.humanPlayer, 'basepers', 70, 110);
-        this.basefant = new Base(this, this.ghostPlayer, 'basefantas', 185, 75);
+        for (let i = 0; i < this.lightsInfo.length; i++) {
+            new Lights(this, this.humanPlayer, this.ghostPlayer, this.lightsInfo[i][0], this.lightsInfo[i][1], this.lightsInfo[i][2]);
+        }
 
-        
+        this.basepers = new Base(this, this.humanPlayer, 'basepers', this.posBaseHUman[0], this.posBaseHUman[1]);
+        this.basefant = new Base(this, this.ghostPlayer, 'basefantas', this.posBaseGhost[0], this.posBaseGhost[1]);
+
+
         this.colLayer.setCollisionByProperty({
             colisiona: true
         });
-
         this.physics.add.collider(this.ghostPlayer, this.colLayer);
-
         this.physics.add.collider(this.ghostPlayer, this.extraLayer);
+
         this.extraLayer.setCollisionByProperty({
             colisiona: true
         });
+        this.physics.add.collider(this.humanPlayer, this.colLayer);
+        this.physics.add.collider(this.humanPlayer, this.extraLayer);
+
     }
 
+
     ResetLevel() {
-        let tim=this.timer.getTotalSeconds();
-        this.scene.start('end',{ time:tim });
+        let tim = this.timer.getTotalSeconds();
+        this.scene.start('end', {
+            time: tim
+        });
     }
     //Check the final de nivel para ambos jugadores
     update() {
         this.timer.updateTimer();
-        if (this.basefant.ininbase() && this.basepers.ininbase()) {
-            let tim=this.timer.getTotalSeconds();
-            this.scene.start('end',{ time: tim });
+        if (this.basefant.isInbase() && this.basepers.isInbase()) {
+            let tim = this.timer.getTotalSeconds();
+            this.scene.start('end', {
+                time: tim
+            });
         }
 
     }
