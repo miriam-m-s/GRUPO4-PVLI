@@ -65,8 +65,8 @@ export default class Lights extends Phaser.GameObjects.Sprite {
    * Redefinición del preUpdate de Phaser
    * @override
    */
-  preUpdate() {
-    super.preUpdate();
+  preUpdate(t, dt) {
+    super.preUpdate(t, dt);
     if (this.scene.physics.overlap(this.human, this)) {
       this.human.onLightFunction(this.body.x + this.radius,
         this.body.y + this.radius);
@@ -75,7 +75,7 @@ export default class Lights extends Phaser.GameObjects.Sprite {
     if (this.isCandleLight) {
       if (this.lightScale < this.radius) {
         // Increase collider
-        this.lightScale += .03;
+        this.lightScale += .5 * dt;
         this.scale = ((this.lightScale - 1) / 1000); 
 
         this.lightVariable = this.lightScale / 100;

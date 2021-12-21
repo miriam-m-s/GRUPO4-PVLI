@@ -71,14 +71,14 @@ export default class BaseScene extends Phaser.Scene {
         //Capas del tilemap
         this.backgroundLayer = this.map.createLayer('BackLayer', [tileset1]);
         this.backgroundLayer.depth = 1;
-        this.backgroundLayer.alpha=0;
+       
 
         this.colLayer = this.map.createLayer('ColLayer', [tileset1]);
         this.colLayer.depth = 3;
-        this.colLayer.alpha=0;
+
         this.extraLayer = this.map.createLayer('ExtraLayer', [tileset1]);
         this.extraLayer.depth = 4;
-        this.extraLayer.alpha=0;
+    
 
         //CAMERA
         this.camera = this.cameras.main;
@@ -103,16 +103,23 @@ export default class BaseScene extends Phaser.Scene {
 
         // MUSIC
         this.music = this.sound.add("bckMusic", config);
+       
         this.exit = this.sound.add('exit');
         this.music.play();
 
         this.musicOn = true;
         this.musica = this.add.image(this.camera.displayWidth - 40, 20, 'musicButton').setInteractive();
+        this.musica.depth=10;
         this.stoppedMusic = this.add.image(this.camera.displayWidth - 40, 20, 'stoppedMusicButton').setInteractive();
+        this.stoppedMusic.depth=10;
         this.stoppedMusic.alpha = 0;
         this.musica.scale = 0.01;
         this.stoppedMusic.scale = 0.01;
         this.sceneSound = new Music(this, 190, 20);
+        this.mkey = this.input.keyboard.addKey('M');
+        this.mkey.on('down', () => {
+            this.sceneSound.clickMusic();
+        });
         this.musica.on('pointerdown', function () {
             this.scene.sceneSound.clickMusic();
         });
@@ -123,14 +130,16 @@ export default class BaseScene extends Phaser.Scene {
 
         // PAUSE
         this.isPaused = false;
-        this.pauseMenu = new Pause(this, this.camera.centerX / this.camera.zoom, this.camera.centerY / this.camera.zoom, 0, 'level1');
+        this.pauseMenu = new Pause(this, this.camera.centerX / this.camera.zoom, this.camera.centerY / this.camera.zoom, 0, this.level);
         this.escape = this.input.keyboard.addKey('ESC');
         this.escape.on('down', () => {
             this.pauseMenu.clickPause();
         });
         this.pausa = this.add.image(this.camera.displayWidth - 15, 20, 'pauseButton').setInteractive();
+        this.pausa.depth=10;
         this.playButton = this.add.image(this.camera.displayWidth - 15, 20, 'playButton').setInteractive();
         this.pausa.scale = 0.05;
+        this.playButton.depth = 10;
         this.playButton.scale = 0.05;
         this.playButton.alpha = 0;
         this.pausa.on('pointerdown', function () {
@@ -160,6 +169,7 @@ export default class BaseScene extends Phaser.Scene {
                 this.mirror = new Mirror(this, this.mirrorpos[0], this.mirrorpos[1], this.mirrorpos[2])
             ];
         }
+        else   ghostList = []
         
 
         //CAMBIAR ESTO EN FANTASMA / HUMANO
@@ -199,7 +209,8 @@ export default class BaseScene extends Phaser.Scene {
         this.timer.updateTimer();
         if (this.basefant.isInbase() && this.basepers.isInbase()) {
             let tim = this.timer.getTotalSeconds();
-            this.scene.start(this.nextlevel, {
+
+            this.scene.start(this.nextLevel, {
                 time: tim
             });
         }
