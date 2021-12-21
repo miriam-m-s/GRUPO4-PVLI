@@ -16,7 +16,6 @@ export default class Base extends Phaser.GameObjects.Sprite {
 
   constructor(scene, player, texture, x, y) {
     super(scene, x, y, texture);
-    //this.setScale(0.05);
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
 
@@ -25,8 +24,6 @@ export default class Base extends Phaser.GameObjects.Sprite {
 
     this.scene.physics.add.overlap(this, player);
     this.inbase = false;
-    //this.scene.physics.add.overlap(this, player, () => { console.log("colision"); });
-
   }
   ininbase() {
     return this.inbase;

@@ -53,7 +53,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.eKey = scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
     this.runKey = scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SHIFT);
     //this.start();
-    this.depth = 3;
+    this.depth = 6;
 
     //DEBUG INDICATOR
     //this.debugIndicator = this.scene.physics.add.sprite(this.body.x, this.body.y, 'debugIndic'); this.debugIndicator.depth = 9999;

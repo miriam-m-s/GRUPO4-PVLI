@@ -19,7 +19,6 @@ export default class Ghost extends Player {
     this.shouldMoveItem = false;
     this.ghostItems = ghostItems;
     this.possesion = scene.sound.add('possesion');
-
   }
 
   preUpdate(t, dt) {

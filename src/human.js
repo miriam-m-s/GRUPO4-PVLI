@@ -18,7 +18,6 @@ export default class Human extends Player {
     this.anims.play('_up' + this.playerName, false);
 
     this.onLight = true;
-    this.depth = 5;
 
     this.saveX = 0;
     this.saveY = 0;
