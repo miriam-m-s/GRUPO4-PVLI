@@ -76,9 +76,8 @@ Proyecto para PVLI
 
 El objetivo del juego es que Estrella, una niña asustada de la oscuridad, encuentre el cadáver de su hermana Luna, con la ayuda del fantasma que ésta ha dejado atrás. Para ello Luna la ayudará a avanzar por las diferentes salas resolviendo distintos puzles formados por zonas de luz y sombra.
 
-
 ### Aspectos Generales
-Eclipse busca ofrecer una experiencia de corta duración que le resulte al jugador satisfactoria y divertida al resolver los puzles de los distintos niveles. Tendrá una tonalidad oscura que se adecúa a la fría historia del juego. Aunque se mostrarán tonalidades más claras para representar la luz, un elemento importante del juego. 
+Eclipse busca ofrecer una experiencia de corta duración que le resulte al jugador satisfactoria y divertida al resolver los puzles de los distintos niveles. Tendrá una tonalidad oscura que se adecúa a la fría historia del juego. Aunque se mostrarán tonalidades más claras para representar la luz, un elemento importante del juego.
 La historia está ambientada en una mansión, allí Estrella y Luna tendrán que superar las distintas pruebas hasta llegar a encontrar el cadáver de Luna. Para ello los jugadores tendrán que dominar las distintas mecánicas de cada personaje. El jugador en el momento de controlar a Luna tendrá que aprender la mecánica de la posesión de objetos y cuando controle a Estrella tendrá que apagar las luces o ponerse en medio de ellas para dar sombra.  
 <p align="center">
   <img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/vistageneral.jpg" width="400"/>
@@ -104,10 +103,11 @@ La historia está ambientada en una mansión, allí Estrella y Luna tendrán que
 <p><b>Modos de juego: </b> solo existirá el modo 1 jugador, el cual irá alternando entre los dos personajes</p>
 
 ### Interfaz y control  
-<p>Los personajes se controlarán utilizando las teclas WASD, se empezará controlando a estrella, y se utilizará la barra espaciadora para cambiar de personaje. Para realizar acciones como la posesión de objetos del fantasma o la activación de interruptores del humano  se utilizará la tecla "p".</p>
+<p>Los personajes se controlarán utilizando las teclas WASD, se empezará controlando a estrella, y se utilizará la barra espaciadora para cambiar de personaje. Para realizar acciones como la posesión de objetos del fantasma o la activación de interruptores del humano  se utilizará la tecla "e".</p>
    <p align="center">
   <img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/MENUDEPAUSA.jpg" width="400"/>
 <p> El menú de pausa se activará haciendo click izquierdo sobre un botón situado en la esquina superior izquierda o presionando la tecla escape que ofrecerá las opciones de: reanudar, reiniciar el nivel, y salir del juego.</p>
+<p> Tambien esta el boton de la musica al lado del de pause, que al ser presionado silencia la musica del juego.</p>
 
 <!-- Jugabilidad -->
 
@@ -122,7 +122,7 @@ Los dos personajes se mueven en las 8 direcciones.
 
 El fantasma tiene la mecánica de poseer objetos, habilidad que le permite modificar la posición de elementos del escenario. A continuación se explica cómo se realizaría dicha mecánica:
 Los objetos poseibles tienen dos estados: 
-    -No poseídos: Son estáticos, el humano no puede atravesarlos mientras que el fantasma sí.
+    -No poseídos: Son estáticos, pero el comprotamiento del objeto sige activo.
     -Poseídos: En este estado el fantasma desaparece de la pantalla y el jugador pasa a controlar al objeto, moviéndolo como si fuese otro personaje en las 8 direcciones.
 Cada vez que el fantasma presiona la tecla "e" encima de un objeto poseible en estado no poseído, el objeto pasa al estado poseído. Si se vuelve a presionar la tecla "e", el fantasma aparece de nuevo y el objeto pasa al estado no poseído.El fantasma cuando toca un rayo de luz el juego se reiniciará.
 
@@ -137,24 +137,24 @@ Cada vez que el fantasma presiona la tecla "e" encima de un objeto poseible en e
 ### Mecánicas de escenario
 |      OBJETOS      |  POSEIBLE |    DESCRIPCION     |   
 | ----------------- | --------- | ----------------------------------------------------------------------------------------- |
-|       Mueble      |     SI    | Objeto que ocupa una casilla, bloquea la luz y colisiona con el humano. |
+|       Mueble      |     SI    | Objeto que ocupa una casilla, bloquea la luz. |
 |    Rayo de luz    |     NO    | Líneas con dirección que salen de las paredes y solo se mueven en las 4 direcciones básicas. Su rumbo puede ser alterado por espejos. |
 |       Espejo      |     SI    | Modifican la dirección de los rayos de luz cuando estos entran en contacto. |
-|       Velas       |     SI    | Crea un <b>círculo de luz</b> alrededor al estar encendida, o nada al estar apagada. Comienza siempre estando apagada, y se enciende cuando ntra en contacto con un <b>rayo de luz</b>|
+|       Velas       |     SI    | Crea un <b>círculo de luz</b> alrededor al estar encendida, o nada al estar apagada. Comienza siempre estando apagada, y se enciende cuando entra en contacto con un <b>rayo de luz</b>|
 |       Lámpara     |     NO    | Crea un <b>círculo de luz</b> alrededor al estar encendida, o nada al estar apagada. Comparte color con su interruptor asociado  |
-|     Interruptor   |     NO    | Asociado a una lámpara por nivel. Alterna su estado al interaccionar con él. Comparte color con su lámpara asociada |
+|     Interruptor   |     NO    | Alterna el estado de encendido/apagado de la lampara de la escena al interactuar con él.
 
 ### Dinámica
-El objetivo final del juego es encontrar el cuerpo del fantasma que se sitúa en el último nivel. Para ello es necesario superar todos los niveles anteriores logrando que tanto el humano como el fantasma lleguen a sus diferentes bases (una puerta para el humano y un pentagrama para el fantasma).
+El objetivo final del juego es encontrar el cuerpo del fantasma que se sitúa en el último nivel. Para ello es necesario superar todos los niveles anteriores logrando que tanto el humano como el fantasma lleguen a sus diferentes bases (una trampilla para el humano y un pentagrama para el fantasma).
 
-Sin embargo si se comete algún error a la hora de resolver el puzle, el jugador deberá reiniciar el nivel hasta resolverlo. Lo mismo sucederá si el fantasma entra en contacto con la luz durante el desarrollo de la partida.
+Sin embargo si se comete algún error a la hora de resolver el puzle, el jugador podra reiniciar el nivel hasta resolverlo. Lo mismo sucederá si el fantasma entra en contacto con la luz durante el desarrollo de la partida.
 
 Se espera que el jugador identifique los elementos que pueden utilizar a su favor a la hora de resolver los diferentes puzles (Ej: Si identifica una lámpara que puede abrir camino al humano, que la encienda) así como que reflexione sobre las posibles formas de resolver cada nivel.
 
 <!-- Créditos/Reconocimientos -->
 ## Estética
 
-Los nombres de los personajes Estrella y Luna se han elegido porque estos dan a entender la mecánica de cada personaje. Luna que representa la noche, la oscuridad dando a entender que ésta solo puede estar por zonas oscuras. Estrella representa luz ,claridad, dando a entender que ésta sólo puede moverse por zonas de luz.
+Los nombres de los personajes Estrella y Luna se han elegido porque estos dan a entender la mecánica de cada personaje. Luna que representa la noche, la oscuridad dando a entender que ésta solo puede estar por zonas oscuras. Estrella representa luz, claridad, dando a entender que ésta sólo puede moverse por zonas de luz.
 
 ## Elementos de Juego
 <img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/assetsIcon.png" width="48"/>
@@ -231,7 +231,7 @@ AUDIO
      </ul>
        </li>
        
-       
+
 ### Historia
 El juego está ambientado en la película “Psicosis”, del director Alfred Hitchcock. La historia comienza tras la muerte de Marion Crane (“Luna” en el juego) y gira en torno a la búsqueda que emprende junto a su hermana, Lila Crane (“Estrella” en el juego), con el objetivo de encontrar su cadáver en la casa de los Bates. En esta adaptación Estrella es una niña pequeña, de manera que le teme a la oscuridad y por ello no puede pasar por zonas que no están bien iluminadas, mientras que Luna al ser un fantasma, no puede atravesar la luz.
 
