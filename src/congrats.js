@@ -39,14 +39,15 @@ export default class Congrats extends Phaser.Scene {
       fontSize: 65,
       color: '#dddddd'
     }).setOrigin(0.5)
-    this.menu = this.add.sprite(screenCenterX, screenCenterY + 240, 'bigmenu').setInteractive();;
+    this.menu = this.add.sprite(screenCenterX, screenCenterY + 300, 'bigmenu').setInteractive();;
     this.menu.setScale(4);
 
-    this.loadingText = this.add.text(screenCenterX, screenCenterY + 240, 'Play again', {
+    this.loadingText = this.add.text(screenCenterX, screenCenterY + 300, 'Play again', {
       fontFamily: 'men',
-      fontSize: 80,
+      fontSize: 75,
       color: '#ffffff'
     }).setOrigin(0.5)
+    
 
     this.menu.on("pointerover", () => {
       this.loadingText.setScale(1.4);
@@ -63,9 +64,6 @@ export default class Congrats extends Phaser.Scene {
       this.scene.scene.start('level1');
     })
   }
-  preUpdate(t, dt) {
-    super.preUpdate(t, dt);
-     console.log(this.totaltime);
-  }
+ 
 
 }
