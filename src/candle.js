@@ -3,9 +3,9 @@ import Lights from './lights.js';
 export default class Candle extends Phaser.GameObjects.Sprite {
 
     /**
-     * Constructor de la Plataforma
-     * @param {Phaser.Scene} scene Escena a la que pertenece la plataforma
-     * @param {Phaser.GameObjects.Group} furnitureGroup Grupo en el que se incluirán los muebles
+     * Constructor de la Vela
+     * @param {Phaser.Scene} scene Escena a la que pertenece
+     * @param {Phaser.GameObjects.Group} furnitureGroup Grupo en el que se incluirán las velas
      */
     constructor(scene, ghostPlayer, furnitureGroup, x, y, radius, sprite) {
       super(scene, x, y, sprite);
@@ -29,7 +29,6 @@ export default class Candle extends Phaser.GameObjects.Sprite {
 
     Mirrordetect() {
       if (!this.isOn) {
-        console.log("light candle");
         this.light = new Lights(this.scene, this.scene.humanPlayer, this.scene.ghostPlayer, this.scene.lights, this.x - this.radius, this.y - this.radius, this.radius, true);
         this.isOn = true;
         
