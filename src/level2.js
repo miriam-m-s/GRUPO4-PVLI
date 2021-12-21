@@ -1,14 +1,5 @@
-import Lights from './lights.js';
-import Mirror from './mirror.js';
-import Candle from './candle.js';
-import Human from './human.js';
-import Ghost from './ghost.js'
-import Base from './base.js';
-import Window from './window.js'
-import Pause from './pause.js';
-import Music from './music.js';
-import Timer from './timer.js'
 import BaseScene from './baseScene.js'
+import Window from './window.js';
 /**
  * @extends Phaser.Scene
  */

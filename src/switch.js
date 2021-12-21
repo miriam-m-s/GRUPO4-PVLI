@@ -41,6 +41,6 @@ export default class Switch extends Phaser.GameObjects.Sprite {
   }
   Interact()
   {
-    this.lampAsigned.Interact();
+    this.scene.lamp.Interact();
   }
 }

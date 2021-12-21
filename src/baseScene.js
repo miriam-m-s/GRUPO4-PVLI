@@ -153,19 +153,18 @@ export default class BaseScene extends Phaser.Scene {
 
         //OBJETOS DE LA ESCENA
 
-      
-        
-        let humanList; //lista de objetos humanos
+        let humanList = [0,0];
         let ghostList; //lista de objetos poseibles
         let lampList;
-        if(this.lampPos) {
-            this.lamp = new Lamp(this, this.lampPos[0], this.lampPos[1], 50, this.humanPlayer, this.ghostPlayer);
-        }
+       
         //Lista de objetos interactuables para el humano
         if(this.switchPos) {
-            humanList = [ 
-                this.switch = new Switch(this, this.switchPos[0], this.switchPos[1], this.humanPlayer, this.ghostPlayer, this.lamp)
-            ];
+            // for(let i=0;i<this.switchPos.length;i++){
+            //     humanList.push(0);
+            // }
+            for (let i = 0; i < this.switchPos.length; i++) {
+                humanList[i] = new Switch(this, this.switchPos[i][0], this.switchPos[i][1], this.humanPlayer, this.ghostPlayer, this.lamp);
+            }
         }
         else humanList=[];
 
@@ -183,6 +182,10 @@ export default class BaseScene extends Phaser.Scene {
         this.humanPlayer = new Human(this, this.posIniPers[0], this.posIniPers[1], true, humanList);
 
         this.ghostPlayer = new Ghost(this, this.posIniFant[0], this.posIniFant[1], false, ghostList);
+        if(this.lampPos) {
+            this.lamp = new Lamp(this, this.lampPos[0], this.lampPos[1], 50, this.humanPlayer, this.ghostPlayer);  
+        }
+     
     
 
         for (let i = 0; i < this.lightsInfo.length; i++) {
@@ -192,6 +195,7 @@ export default class BaseScene extends Phaser.Scene {
         this.basepers = new Base(this, this.humanPlayer, 'basepers', this.posBaseHUman[0], this.posBaseHUman[1]);
         this.basefant = new Base(this, this.ghostPlayer, 'basefantas', this.posBaseGhost[0], this.posBaseGhost[1]);
 
+        //Colisiones con las cosas
         this.colLayer.setCollisionByProperty({
             colisiona: true
         });

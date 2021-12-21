@@ -29,6 +29,8 @@ export default class Lamp extends Phaser.GameObjects.Sprite {
     this.scene.physics.add.existing(this);
     this.light=null;
     console.log("this.isOn = " + this.isOn);
+
+    this.Interact();
   }
 
   SelectObject() {

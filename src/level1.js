@@ -1,4 +1,3 @@
-import Lights from './lights.js';
 import BaseScene from './baseScene.js'
 
 /**
