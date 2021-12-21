@@ -111,6 +111,9 @@ export default class Boot extends Phaser.Scene {
     // Debug
     this.load.image('debugIndic', 'debugIndicator.png');
 
+    // You win
+    this.load.image('YouWin', 'YouWin.png');
+
 
     this.load.setPath('assets/sprites/Mirrors/');
     // Mirror
@@ -130,10 +133,8 @@ export default class Boot extends Phaser.Scene {
     this.load.image('mirror_Pos_180', 'mirror_Pos_Left.png');
     this.load.image('mirror_Pos_0', 'mirror_Pos_Right.png');
 
-    this.load.image('YouWin', 'YouWin.png');
-
-
     this.load.setPath('assets/maps/'); 
+
     // Carga de Tilemap
     this.load.tilemapTiledJSON('tilemap01', 'Map01.json');
     this.load.tilemapTiledJSON('tilemap02', 'Map02.json');
@@ -301,6 +302,6 @@ export default class Boot extends Phaser.Scene {
 
     //Level creation
     //this.scene.start('intros');
-     this.scene.start('level2');
+     this.scene.start('congrats');
   }
 }

@@ -20,7 +20,7 @@ export default class Level2 extends BaseScene {
   
       let posBaseGhost=[80, 150];
       let posBaseHuman=[280, 150];
-      let lightsInfo=[[125,10,50],[20,10,60],[210,10,50]];
+      let lightsInfo=[[125,30,50],[20,30,60],[210,30,50]];
       super(tilemap, lightsInfo,posIniFant,posIniPers,posBaseGhost,posBaseHuman,furniturePos, mirrorPos,candlePos,lampPos,switchPos,'level2','level3');
   }
 
