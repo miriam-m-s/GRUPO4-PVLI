@@ -185,7 +185,7 @@ export default class Boot extends Phaser.Scene {
     });
 
     this.anims.create({
-      key: "_downGhostsel",
+      key: "_downGhost",
       frameRate: this.animationFrameRate,
       frames: this.anims.generateFrameNumbers("GhostSpriteSheetselect", {
         start: 3,
@@ -195,7 +195,7 @@ export default class Boot extends Phaser.Scene {
     });
 
     this.anims.create({
-      key: "_leftGhostsel",
+      key: "_leftGhost",
       frameRate: this.animationFrameRate,
       frames: this.anims.generateFrameNumbers("GhostSpriteSheetselect", {
         start: 6,
@@ -205,7 +205,7 @@ export default class Boot extends Phaser.Scene {
     });
 
     this.anims.create({
-      key: "_rightGhostsel",
+      key: "_rightGhost",
       frameRate: this.animationFrameRate,
       frames: this.anims.generateFrameNumbers("GhostSpriteSheetselect", {
         start: 9,
@@ -215,7 +215,7 @@ export default class Boot extends Phaser.Scene {
     });
 
     this.anims.create({
-      key: "_upGhostsel",
+      key: "_upGhost",
       frameRate: this.animationFrameRate,
       frames: this.anims.generateFrameNumbers("GhostSpriteSheetselect", {
         start: 12,
@@ -247,7 +247,7 @@ export default class Boot extends Phaser.Scene {
     });
 
     this.anims.create({
-      key: "_downHumansel",
+      key: "_downHuman",
       frameRate: this.animationFrameRate,
       frames: this.anims.generateFrameNumbers("HumanSpriteSheetselect", {
         start: 3,
@@ -257,7 +257,7 @@ export default class Boot extends Phaser.Scene {
     });
 
     this.anims.create({
-      key: "_leftHumansel",
+      key: "_leftHuman",
       frameRate: this.animationFrameRate,
       frames: this.anims.generateFrameNumbers("HumanSpriteSheetselect", {
         start: 6,
@@ -267,7 +267,7 @@ export default class Boot extends Phaser.Scene {
     });
 
     this.anims.create({
-      key: "_rightHumansel",
+      key: "_rightHuman",
       frameRate: this.animationFrameRate,
       frames: this.anims.generateFrameNumbers("HumanSpriteSheetselect", {
         start: 9,
@@ -277,7 +277,7 @@ export default class Boot extends Phaser.Scene {
     });
 
     this.anims.create({
-      key: "_upHumansel",
+      key: "_upHuman",
       frameRate: this.animationFrameRate,
       frames: this.anims.generateFrameNumbers("HumanSpriteSheetselect", {
         start: 12,
