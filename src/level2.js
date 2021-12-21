@@ -22,7 +22,7 @@ export default class Level2 extends BaseScene {
       let tilemap='tilemap02';
       
       let mirrorPos=[250,120,0];
-      let candlePos=[300,120,50];
+      let candlePos=[300,120,50]; 
       let switchPos= null;
       let lampPos= null;
   
