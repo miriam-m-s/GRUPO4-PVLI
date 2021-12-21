@@ -5,6 +5,7 @@ import Level1 from './level1.js';
 import Level2 from './level2.js';
 import Level3 from './level3.js';
 import Level4 from  './level4.js';
+import Level5 from  './level5.js';
 import Congrats from './congrats.js';
 import MainMenuScene from './mainMenuScene.js';
 
@@ -24,7 +25,7 @@ let config =
     },
   
     pixelArt: true,
-    scene: [Boot,Intro, MainMenuScene, Level1, Level2, Level3, Level4, Congrats, End],
+    scene: [Boot,Intro, MainMenuScene, Level1, Level2, Level3, Level4,Level5, Congrats, End],
     physics: { 
         default: 'arcade',
         arcade: {

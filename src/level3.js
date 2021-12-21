@@ -11,6 +11,7 @@ import BaseScene from './baseScene.js'
   let posIniPers=[50,185];
   let tilemap='tilemap03';
   
+  let furniturePos=null;
   let mirrorPos=null;
   let candlePos=null;
   // let switchPos=[[100,185],[240,185]];
@@ -21,7 +22,7 @@ import BaseScene from './baseScene.js'
   let posBaseHuman=[300, 185];
   let lightsInfo=[[10,130,60],[220,130,60]];
 
-  super(tilemap, lightsInfo,posIniFant,posIniPers,posBaseGhost,posBaseHuman,mirrorPos,candlePos,lampPos,switchPos,'level3','level4');
+  super(tilemap, lightsInfo,posIniFant,posIniPers,posBaseGhost,posBaseHuman,furniturePos,mirrorPos,candlePos,lampPos,switchPos,'level3','level4');
 }
 
   create() {

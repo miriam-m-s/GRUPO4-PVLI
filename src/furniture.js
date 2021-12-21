@@ -4,12 +4,11 @@ export default class Furniture extends Phaser.GameObjects.Sprite {
    * Constructor de la Plataforma
    * @param {Phaser.Scene} scene Escena a la que pertenece la plataformas
    */
-  constructor(scene, ghostPlayer, x, y, sprite) {
-    super(scene, x, y, sprite);
+  constructor(scene, ghostPlayer, x, y) {
+    super(scene, x, y, 'furniture');
 
     this.scene = scene;
     this.player = ghostPlayer;
-
 
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);

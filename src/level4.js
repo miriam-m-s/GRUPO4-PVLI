@@ -12,6 +12,7 @@ import Window from './window.js';
   let posIniPers=[170,230];
   let tilemap='tilemap04';
   
+  let furniturePos=null;
   let mirrorPos=null;
   let candlePos=null; 
   // let switchPos=[[150,100],[220,240]];
@@ -22,7 +23,7 @@ import Window from './window.js';
   let posBaseHuman=[130,230];
   let lightsInfo=[[90,190,70],[50,-80,120]];
 
-  super(tilemap, lightsInfo,posIniFant,posIniPers,posBaseGhost,posBaseHuman,mirrorPos,candlePos,lampPos,switchPos,'level4','congrats');
+  super(tilemap, lightsInfo,posIniFant,posIniPers,posBaseGhost,posBaseHuman,furniturePos,mirrorPos,candlePos,lampPos,switchPos,'level4','level5');
 }
 
   create() {

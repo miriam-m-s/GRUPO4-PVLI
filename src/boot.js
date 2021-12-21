@@ -139,6 +139,7 @@ export default class Boot extends Phaser.Scene {
     this.load.tilemapTiledJSON('tilemap02', 'Map02.json');
     this.load.tilemapTiledJSON('tilemap03', 'Map03.json');
     this.load.tilemapTiledJSON('tilemap04', 'Map04.json');
+    this.load.tilemapTiledJSON('tilemap05', 'Map05.json');
     // Carga de spritesheet
     this.load.image('mapSpriteSheet', 'spritesheets/mansionNes.png');
   }
@@ -299,7 +300,7 @@ export default class Boot extends Phaser.Scene {
     });
 
     //Level creation
-    this.scene.start('intros');
-     //this.scene.start('level2');
+    //this.scene.start('intros');
+     this.scene.start('level2');
   }
 }

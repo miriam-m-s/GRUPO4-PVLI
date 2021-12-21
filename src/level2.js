@@ -12,6 +12,7 @@ export default class Level2 extends BaseScene {
       let posIniPers=[60,70];
       let tilemap='tilemap02';
       
+      let furniturePos=null;
       let mirrorPos=[250,120,0];
       let candlePos=[300,120,50]; 
       let switchPos= null;
@@ -19,8 +20,8 @@ export default class Level2 extends BaseScene {
   
       let posBaseGhost=[80, 150];
       let posBaseHuman=[280, 150];
-      let lightsInfo=[[125,0,60],[10,0,60],[230,0,60]];
-      super(tilemap, lightsInfo,posIniFant,posIniPers,posBaseGhost,posBaseHuman,mirrorPos,candlePos,lampPos,switchPos,'level2','level3');
+      let lightsInfo=[[125,10,50],[20,10,60],[210,10,50]];
+      super(tilemap, lightsInfo,posIniFant,posIniPers,posBaseGhost,posBaseHuman,furniturePos, mirrorPos,candlePos,lampPos,switchPos,'level2','level3');
   }
 
   create() {
