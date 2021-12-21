@@ -84,10 +84,11 @@ La historia está ambientada en una mansión, allí Estrella y Luna tendrán que
   <img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/vistageneral.jpg" width="400"/>
 </p>
 
-## Partida Típica
+## Partida Típica 
   <p align="center">
   <img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/descripcionpartidatipica.jpg" width="400"/>
 <p>El juego comenzará en una habitación, en ella están Estrella (niña humana) en la zona iluminada y Luna (el fantasma) en la zona oscura. En la parte izquierda de la habitación hay una ventana (1), que deja pasar un rayo de sol que atraviesa toda la habitación horizontalmente. El fantasma no puede atrvesar la zona con luz, por lo que ahora su movimiento es limitado. En la parte iluminada se encuentra la niña, que atravesará la habitación hasta encontrarse con el rayo(1). A continuación se pondrá en frente de éste para bloquearlo y que no pase la luz. En consecuencia el movimiento del fantasma ya no se verá limitado y por lo tanto podrá poseer la vela que se halla en la parte inferior (2). La vela se pondrá en la zona donde acababa el rayo de luz (3). Para encender esta vela Estrella deberá apartarse dejando pasar de nuevo el rayo de luz, y la vela se encenderá. Finalmente Estrella podrá acceder a la trampilla y Luna al pentagrama, terminando así el nivel.</p>
+<img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/screenShot01.png" width="400"/>
 <!-- Menus/Modos -->
 
 ## Menús y modos de juego
@@ -102,6 +103,7 @@ La historia está ambientada en una mansión, allí Estrella y Luna tendrán que
 <p align="left">
   <img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/niveles.jpg" width="200"/>
 <p><b>Modos de juego: </b> solo existirá el modo 1 jugador, el cual irá alternando entre los dos personajes</p>
+<img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/screenShot01.png" width="400"/>
 
 ### Interfaz y control  
 <p>Los personajes se controlarán utilizando las teclas WASD, se empezará controlando a estrella, y se utilizará la barra espaciadora para cambiar de personaje. Para realizar acciones como la posesión de objetos del fantasma o la activación de interruptores del humano  se utilizará la tecla "p".</p>
