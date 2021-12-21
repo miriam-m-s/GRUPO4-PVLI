@@ -153,20 +153,27 @@ export default class BaseScene extends Phaser.Scene {
 
         //OBJETOS DE LA ESCENA
 
-        let humanList = [0,0];
+       // let humanList = [0,0];
+        let humanList;
         let ghostList; //lista de objetos poseibles
         let lampList;
        
         //Lista de objetos interactuables para el humano
-        if(this.switchPos) {
-            // for(let i=0;i<this.switchPos.length;i++){
-            //     humanList.push(0);
-            // }
-            for (let i = 0; i < this.switchPos.length; i++) {
-                humanList[i] = new Switch(this, this.switchPos[i][0], this.switchPos[i][1], this.humanPlayer, this.ghostPlayer, this.lamp);
-            }
-        }
-        else humanList=[];
+        // if(this.switchPos) {
+        //     // for(let i=0;i<this.switchPos.length;i++){
+        //     //     humanList.push(0);
+        //     // }
+        //     for (let i = 0; i < this.switchPos.length; i++) {
+        //         humanList[i] = new Switch(this, this.switchPos[i][0], this.switchPos[i][1], this.humanPlayer, this.ghostPlayer, this.lamp);
+        //     }
+        // }
+        // else humanList=[];
+
+        if (this.switchPos) {
+             humanList = [
+                this.switch = new Switch(this, this.switchPos[0], this.switchPos[1], this.humanPlayer, this.ghostPlayer, this.lamp)
+                ];
+        } else humanList = [];
 
         //Lista de objetos interactuables para el fantasma
         if(this.candlepos || this.mirrorpos){

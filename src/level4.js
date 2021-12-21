@@ -14,7 +14,8 @@ import Window from './window.js';
   
   let mirrorPos=null;
   let candlePos=null; 
-  let switchPos=[[150,100],[220,240]];
+  // let switchPos=[[150,100],[220,240]];
+  let switchPos=[150,100];
   let lampPos=[100,175];
 
   let posBaseGhost=[50,185];

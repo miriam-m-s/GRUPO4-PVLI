@@ -13,7 +13,8 @@ import BaseScene from './baseScene.js'
   
   let mirrorPos=null;
   let candlePos=null;
-  let switchPos=[[100,185],[240,185]];
+  // let switchPos=[[100,185],[240,185]];
+  let switchPos=[100,185];
   let lampPos=[180,180];
 
   let posBaseGhost=[180, 80];
