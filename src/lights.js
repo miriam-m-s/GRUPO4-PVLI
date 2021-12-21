@@ -12,7 +12,7 @@ export default class Lights extends Phaser.GameObjects.Sprite {
    * @param {number} y Coordenada y
    * @param {number} radius Coordenada y
    */
-  constructor(scene, humanPlayer, ghostPlayer, baseGroup, x, y, radius, isCandleLight, isLampLight) {
+  constructor(scene, humanPlayer, ghostPlayer, x, y, radius, isCandleLight, isLampLight) {
     super(scene, x, y, 'light', radius);
 
     this.posX = x;

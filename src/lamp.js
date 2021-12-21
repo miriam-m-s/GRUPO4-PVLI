@@ -14,7 +14,7 @@ export default class Lamp extends Phaser.GameObjects.Sprite {
    * @param {Object} lightCircle circulo de luz
    */
 
-  constructor(scene, lampPosX, lampPosY, sprite, human, ghost, lampGroup, radius) {
+  constructor(scene, lampPosX, lampPosY, sprite, human, ghost, radius) {
 
     super(scene, lampPosX, lampPosY, sprite);
     this.scene = scene;
@@ -23,7 +23,6 @@ export default class Lamp extends Phaser.GameObjects.Sprite {
     this.ghost = ghost;
     this.lampPosX = lampPosX;
     this.lampPosY = lampPosY;
-    this.lampGroup = lampGroup;
     this.radius = radius;
     this.soundlight = scene.sound.add('light');
     this.scene.add.existing(this);

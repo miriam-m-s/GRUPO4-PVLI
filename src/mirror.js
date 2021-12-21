@@ -8,26 +8,19 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
    * @param {number} x Coordenada x
    * @param {number} y Coordenada y
    */
-  constructor(scene, furnitureGroup, x, y, dir) {
+  constructor(scene, x, y, dir) {
     super(scene, x, y, 'mirrorDefault');
-
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
     this.body.setSize(18, 25, false);
-    furnitureGroup.add(this);
-
     this.scene = scene;
     this.x = x;
     this.y = y;
     this.depth = 5;
-
-    this.mirrorDetectors = null;
-
     this.inLight = false;
     this.graphic1 = this.scene.add.graphics();
     this.xOffset = 0;
     this.yOffset = 0;
-
     this.degreeDir = dir;
 
     if (dir == 0) this.xOffset =( this.width / 2)-6;
@@ -45,7 +38,6 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
     this.y = y;
     this.dir = dir;
 
-
     this.setTexture('mirror_Unsel_' + this.degreeDir);
   }
   
@@ -55,8 +47,6 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
     this.setTexture('mirror_Sel_' + this.degreeDir);
   }
   Mirrordetect() {
-    // if (this.mirrorDetectors == null)
-    //   this.mirrorDetectors = new MirrorDetector(this.scene, this.x, this.y);
      this.inLight = true;
   }
   DeselectObject() {
@@ -98,7 +88,7 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
     super.preUpdate(t, dt);
   
     if(this.inLight){
-    
+       //si un rayo le toca ,crea un rayo
       this.ray=this.createRay(this.dir,this.x+this.xOffset,this.y+ this.yOffset);
       let intersection = this.ray.cast();
       this.drawRay(this.ray,intersection);
@@ -107,6 +97,7 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
       }
     }
     else{
+      //si no toca un rayo al espejo no se crea el raycast
       this.graphic1.clear();
     }
     this.inLight = false;

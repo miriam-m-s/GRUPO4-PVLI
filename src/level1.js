@@ -5,7 +5,7 @@ import Base from './base.js';
 import Pause from './pause.js';
 import Music from './music.js';
 import Timer from './timer.js'
-
+import BaseScene from './baseScene.js'
 
 /**
  * @extends Phaser.Scene

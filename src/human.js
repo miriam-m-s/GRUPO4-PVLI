@@ -13,7 +13,7 @@ export default class Human extends Player {
    */
 
   constructor(scene, playerPosX, playerPosY, beingControlled, humanItems) {
-    super(scene, playerPosX, playerPosY, 'Human', 'Human', beingControlled, humanItems);
+    super(scene, playerPosX, playerPosY, 'Human', beingControlled, humanItems);
     this.humanItems = humanItems;
     this.anims.play('_up' + this.playerName, false);
 

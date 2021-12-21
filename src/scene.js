@@ -150,7 +150,7 @@ export default class Scene extends Phaser.Scene {
     // }
     //RAYLIGHT DETECTOR
 
-
+    
     //CAMBIAR ESTO EN FANTASMA / HUMANO
 
     this.humanPlayer = new Human(this, 130, 100, true, humanList);
@@ -174,7 +174,6 @@ export default class Scene extends Phaser.Scene {
       colisiona: true
     });
 
-
     //CREACIÓN DEL RAYCAST
     this.raycaster = this.raycasterPlugin.createRaycaster();
     //objetos que reaccionan al raycast
@@ -186,8 +185,6 @@ export default class Scene extends Phaser.Scene {
     this.raycaster.mapGameObjects(this.dynamicObstacles, true);
 
     this.window = new Window(this, 20, 200, 90);
-
-
   }
 
 
