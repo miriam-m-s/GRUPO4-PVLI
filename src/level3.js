@@ -15,11 +15,19 @@ import Timer from './timer.js'
 
 export default class Level3 extends Phaser.Scene {
 
-  static TILE_SIZE = 16; //tamano de tiles de los tilemaps
-  constructor() {
-    super({
-      key: 'level3'
-    });
+  let baseFant=[65,170];
+  let basePers=[310, 170];
+  let posIniFant=[65,140];
+  let posIniPers=[60,70];
+  let tilemap='tilemap03';
+  
+  let mirrorPos=[250,120,0];
+  let candlePos=[300,120,50]; 
+
+  let posBaseGhost=[80, 150];
+  let posBaseHuman=[280, 150];
+  let lightsInfo=[[125,0,60],[10,0,60],[230,0,60]];
+  super(tilemap, lightsInfo,posIniFant,posIniPers,posBaseGhost,posBaseHuman,mirrorPos,candlePos,'level3','level4');
   }
 
   create() {
