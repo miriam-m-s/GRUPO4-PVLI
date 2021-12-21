@@ -43,7 +43,7 @@ export default class Lamp extends Phaser.GameObjects.Sprite {
     this.scale = 1;
   }
 
-  Interact() {
+    Interact() {
 
     if (!this.isOn) //si no esta encendida
     {
