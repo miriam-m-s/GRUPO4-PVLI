@@ -18,8 +18,9 @@ export default class Level1 extends BaseScene {
     let lightsInfo=[[75,0,50],[175,0,50],[170,75,50]];
     let mirrorPos= null
     let candlePos= null; 
-    //super(tilemap, lightsInfo,posIniFant,posIniPers,posBaseGhost,posBaseHuman,'level1','level2');
-    super(tilemap, lightsInfo,posIniFant,posIniPers,posBaseGhost,posBaseHuman,mirrorPos,candlePos,'level1','level2');
+    let switchPos= null;
+    let lampPos= null;
+    super(tilemap, lightsInfo,posIniFant,posIniPers,posBaseGhost,posBaseHuman,mirrorPos,candlePos,lampPos,switchPos,'level1','level2');
   }
 
   //Creacion de los elementos de la escena principal de juego

@@ -99,7 +99,7 @@ export default class Lights extends Phaser.GameObjects.Sprite {
       } else if (!this.isLampOn && this.lightScale >= 0) {
         this.lightScale -= .2;
         if (this.lightScale < 0) this.lightScale
-        this.scale = ((this.lightScale - 1) / 1000); 
+        this.scale = ((this.lightScale - 1) / 1000);
 
         this.lightVariable = this.lightScale / 100;
         

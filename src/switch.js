@@ -14,8 +14,8 @@ export default class Switch extends Phaser.GameObjects.Sprite {
    * @param {Object} asignedLamp circulo de luz
    */
 
-  constructor(scene, switchPosX, switchPosY, sprite, human, ghost, lampAsigned) {
-    super(scene, switchPosX, switchPosY, sprite, lampAsigned);
+  constructor(scene, switchPosX, switchPosY, human, ghost, lampAsigned) {
+    super(scene, switchPosX, switchPosY, 'switchDefault', lampAsigned);
 
     this.scene = scene;
     this.human = human;

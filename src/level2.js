@@ -23,18 +23,19 @@ export default class Level2 extends BaseScene {
       
       let mirrorPos=[250,120,0];
       let candlePos=[300,120,50]; 
+      let switchPos= null;
+      let lampPos= null;
   
       let posBaseGhost=[80, 150];
       let posBaseHuman=[280, 150];
       let lightsInfo=[[125,0,60],[10,0,60],[230,0,60]];
-      super(tilemap, lightsInfo,posIniFant,posIniPers,posBaseGhost,posBaseHuman,mirrorPos,candlePos,'level2','level3');
+      super(tilemap, lightsInfo,posIniFant,posIniPers,posBaseGhost,posBaseHuman,mirrorPos,candlePos,lampPos,switchPos,'level2','level3');
   }
 
   create() {
     
     //Objetos Fantasma(muebles/espejo)
     
-  
     super.create();
 
     //CREACIÓN DEL RAYCAST
@@ -47,7 +48,5 @@ export default class Level2 extends BaseScene {
     this.raycaster.mapGameObjects(this.dynamicObstacles, true);
 
     this.window = new Window(this, 193, 35, 270);
-
-   
   }
 }

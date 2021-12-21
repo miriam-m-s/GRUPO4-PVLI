@@ -24,12 +24,15 @@ export default class BaseScene extends Phaser.Scene {
      * @param {Array} posBaseHuman posicion base humano (x, y)
      * @param {Array} mirrorpos posicion del mirror(x, y)
      * @param {Array} candlepos posicion de la candle (x, y)
+     * @param {Array} lampPos posicion de la lampara (x, y)
+     * @param {Array} switchPos posicion de la lampara (x, y)
      * @param {string} level nombre del nivel actual
      * @param {string} nextLevel nombre del siguiente nivel
+     * 
      */
 
     static TILE_SIZE = 16; //tamano de tiles de los tilemaps
-    constructor(tilemap, lightsInfo, posIniFant, posIniPers, posBaseGhost, posBaseHuman,mirrorpos,candlepos, level, nextLevel) {
+    constructor(tilemap, lightsInfo, posIniFant, posIniPers, posBaseGhost, posBaseHuman, mirrorpos, candlepos, lampPos, switchPos, level, nextLevel) {
         super({
             key: level
         });
@@ -44,14 +47,16 @@ export default class BaseScene extends Phaser.Scene {
         this.posIniPers = posIniPers;
         this.candlepos=candlepos;
         this.mirrorpos=mirrorpos;
+        this.lampPos=lampPos;
+        this.switchPos=switchPos;
     }
 
 
     init(datos) {
         this.totaltime = datos.time;
     }
+
     //Creacion de los elementos de la escena principal de juego
-    preload() {}
 
     create() {
         //MAPA TILESET
@@ -65,9 +70,6 @@ export default class BaseScene extends Phaser.Scene {
 
         const tileset1 = this.map.addTilesetImage('mansionNes', 'mapSpriteSheet');
 
-        // Create Objects
-        
-
         //Capas del tilemap
         this.backgroundLayer = this.map.createLayer('BackLayer', [tileset1]);
         this.backgroundLayer.depth = 1;
@@ -80,7 +82,7 @@ export default class BaseScene extends Phaser.Scene {
         this.extraLayer.depth = 4;
     
 
-        //CAMERA
+        //Camara
         this.camera = this.cameras.main;
         this.camera.setBounds(0, 0, 8, 8);
         this.camera.zoom = 2.9;
@@ -88,7 +90,7 @@ export default class BaseScene extends Phaser.Scene {
         //Timer
         this.timer = new Timer(this, this.camera.displayWidth - 50, 40);
 
-        //SOUND
+        //Sonido
         //Configuracion musica
         const config = {
             mute: false,
@@ -101,7 +103,7 @@ export default class BaseScene extends Phaser.Scene {
         }; // config es opcional
 
 
-        // MUSIC
+        // Musica
         this.music = this.sound.add("bckMusic", config);
        
         this.exit = this.sound.add('exit');
@@ -128,7 +130,7 @@ export default class BaseScene extends Phaser.Scene {
         });
 
 
-        // PAUSE
+        // Pausa
         this.isPaused = false;
         this.pauseMenu = new Pause(this, this.camera.centerX / this.camera.zoom, this.camera.centerY / this.camera.zoom, 0, this.level);
         this.escape = this.input.keyboard.addKey('ESC');
@@ -150,17 +152,22 @@ export default class BaseScene extends Phaser.Scene {
         });
 
         //OBJETOS DE LA ESCENA
+
       
         
-         let humanList; //lista de objetos humanos
+        let humanList; //lista de objetos humanos
         let ghostList; //lista de objetos poseibles
         let lampList;
-
-        //Lista de lamparas base
-        lampList = [];
-
+        if(this.lampPos) {
+            this.lamp = new Lamp(this, this.lampPos[0], this.lampPos[1], 50, this.humanPlayer, this.ghostPlayer);
+        }
         //Lista de objetos interactuables para el humano
-        humanList = [];
+        if(this.switchPos) {
+            humanList = [ 
+                this.switch = new Switch(this, this.switchPos[0], this.switchPos[1], this.humanPlayer, this.ghostPlayer, this.lamp)
+            ];
+        }
+        else humanList=[];
 
         //Lista de objetos interactuables para el fantasma
         if(this.candlepos || this.mirrorpos){
@@ -169,14 +176,14 @@ export default class BaseScene extends Phaser.Scene {
                 this.mirror = new Mirror(this, this.mirrorpos[0], this.mirrorpos[1], this.mirrorpos[2])
             ];
         }
-        else   ghostList = []
-        
+        else ghostList = [];
 
-        //CAMBIAR ESTO EN FANTASMA / HUMANO
 
+                        //CAMBIAR ESTO EN FANTASMA / HUMANO
         this.humanPlayer = new Human(this, this.posIniPers[0], this.posIniPers[1], true, humanList);
 
         this.ghostPlayer = new Ghost(this, this.posIniFant[0], this.posIniFant[1], false, ghostList);
+    
 
         for (let i = 0; i < this.lightsInfo.length; i++) {
             new Lights(this, this.humanPlayer, this.ghostPlayer, this.lightsInfo[i][0], this.lightsInfo[i][1], this.lightsInfo[i][2]);
