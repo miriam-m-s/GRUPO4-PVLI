@@ -159,12 +159,12 @@ export default class BaseScene extends Phaser.Scene {
         let ghostList; //lista de objetos poseibles
         let lampList;
         if(this.lampPos) {
-            this.lamp = new Lamp(this, this.lampPos[0], this.lampPos[1], 50, this.humanPlayer, this.ghostPlayer);
+            this.lamp;
         }
         //Lista de objetos interactuables para el humano
         if(this.switchPos) {
             humanList = [ 
-                this.switch = new Switch(this, this.switchPos[0], this.switchPos[1], this.humanPlayer, this.ghostPlayer, this.lamp)
+                this.switch = new Switch(this, this.switchPos[0], this.switchPos[1], this.humanPlayer, this.ghostPlayer)
             ];
         }
         else humanList=[];
@@ -183,6 +183,8 @@ export default class BaseScene extends Phaser.Scene {
         this.humanPlayer = new Human(this, this.posIniPers[0], this.posIniPers[1], true, humanList);
 
         this.ghostPlayer = new Ghost(this, this.posIniFant[0], this.posIniFant[1], false, ghostList);
+
+        this.lamp = new Lamp(this, this.lampPos[0], this.lampPos[1], 50, this.humanPlayer, this.ghostPlayer);
     
 
         for (let i = 0; i < this.lightsInfo.length; i++) {

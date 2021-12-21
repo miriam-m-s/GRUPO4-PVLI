@@ -28,10 +28,8 @@ export default class Lights extends Phaser.GameObjects.Sprite {
     this.radius = radius;
     this.human = humanPlayer;
 
-    this.scene.physics.add.collider(this, ghostPlayer);
-    this.scene.physics.add.overlap(this, this.human);
-
-    this.scene.physics.add.overlap(this, ghostPlayer);
+    this.scene.physics.add.collider(this, this.scene.ghostPlayer);
+    this.scene.physics.add.overlap(this, this.scene.humanPlayer);
 
     this.isCandleLight = isCandleLight;
     this.isLampLight = isLampLight;
@@ -67,8 +65,8 @@ export default class Lights extends Phaser.GameObjects.Sprite {
    */
   preUpdate(t, dt) {
     super.preUpdate(t, dt);
-    if (this.scene.physics.overlap(this.human, this)) {
-      this.human.onLightFunction(this.body.x + this.radius,
+    if (this.scene.physics.overlap(this.scene.humanPlayer, this)) {
+      this.scene.humanPlayer.onLightFunction(this.body.x + this.radius,
         this.body.y + this.radius);
     }
 

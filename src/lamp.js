@@ -29,6 +29,8 @@ export default class Lamp extends Phaser.GameObjects.Sprite {
     this.scene.physics.add.existing(this);
     this.light=null;
     console.log("this.isOn = " + this.isOn);
+
+    this.Interact();
   }
 
   SelectObject() {
@@ -41,7 +43,7 @@ export default class Lamp extends Phaser.GameObjects.Sprite {
     this.scale = 1;
   }
 
-  Interact() {
+    Interact() {
 
     if (!this.isOn) //si no esta encendida
     {
