@@ -43,7 +43,7 @@ export default class MainMenuScene extends Phaser.Scene {
  
     this.menu.on('pointerdown', function () {
       this.scene.music.play();
-      this.scene.scene.start('level1');
+      this.scene.scene.start('level2');
     })
 }
 }

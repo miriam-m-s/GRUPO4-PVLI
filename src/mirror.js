@@ -4,19 +4,20 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
   /**
    * Constructor de la Plataforma
    * @param {Phaser.Scene} scene Escena a la que pertenece la plataforma
-   * @param {Phaser.GameObjects.Group} furnitureGroup Grupo en el que se incluirán los muebles
    * @param {number} x Coordenada x
    * @param {number} y Coordenada y
    */
   constructor(scene, x, y, dir) {
     super(scene, x, y, 'mirrorDefault');
+  
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
     this.body.setSize(18, 25, false);
     this.scene = scene;
     this.x = x;
     this.y = y;
-    this.depth = 5;
+    this.depth=4;
+   
     this.inLight = false;
     this.graphic1 = this.scene.add.graphics();
     this.xOffset = 0;
@@ -72,7 +73,6 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
       angle: angles,
       detectionRange: 100
     });
-
     return ray
   }
   drawRay(ray, intersection){
@@ -84,6 +84,7 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
     this.graphic1.alpha = 0.2;
     this.graphic1.strokeLineShape(line);
   }
+
   preUpdate(t, dt) {
     super.preUpdate(t, dt);
   

@@ -16,33 +16,34 @@ import Timer from './timer.js'
 export default class BaseScene extends Phaser.Scene {
     /**
      * Constructor de la Plataforma
-     * @param {Phaser.Scene}
      * @param {string} tilemap nombre del tilemap para esa escena
-     * @param {Array} lampList array de lamparas 
-     * @param {Array} humanList array de objetos interactuables para el humano 
-     * @param {Array} ghostList array de obbjetos interactuables para el fantasma
+     * @param {Array of Arrays} lightsInfo info luces
      * @param {Array} posIniFant posicion inicial del fantasma (x,y)
      * @param {Array} posIniPers posicion inicial del humano (x,y)
      * @param {Array} posBaseGhost posicion base fantasma (x,y)
-     * @param {Array} posBaseGhost posicion base humano (x, y)
+     * @param {Array} posBaseHuman posicion base humano (x, y)
+     * @param {Array} mirrorpos posicion del mirror(x, y)
+     * @param {Array} candlepos posicion de la candle (x, y)
+     * @param {string} level nombre del nivel actual
+     * @param {string} nextLevel nombre del siguiente nivel
      */
 
     static TILE_SIZE = 16; //tamano de tiles de los tilemaps
-    constructor(tilemap, lampList, lightsInfo, humanList, ghostList, posIniFant, posIniPers, posBaseGhost, posBaseHuman, level) {
+    constructor(tilemap, lightsInfo, posIniFant, posIniPers, posBaseGhost, posBaseHuman,mirrorpos,candlepos, level, nextLevel) {
         super({
             key: level
         });
-
+        this.level=level;
+        this.nextLevel=nextLevel;
         this.posBaseGhost = posBaseGhost;
         this.posBaseHUman = posBaseHuman;
         this.tilemap = tilemap;
-        this.lampList = lampList;
-        this.humanList = humanList;
-        this.ghostList = ghostList;
         this.lightsInfo = lightsInfo;
         this.totaltime = 0;
         this.posIniFant = posIniFant;
         this.posIniPers = posIniPers;
+        this.candlepos=candlepos;
+        this.mirrorpos=mirrorpos;
     }
 
 
@@ -64,15 +65,20 @@ export default class BaseScene extends Phaser.Scene {
 
         const tileset1 = this.map.addTilesetImage('mansionNes', 'mapSpriteSheet');
 
+        // Create Objects
+        
+
         //Capas del tilemap
         this.backgroundLayer = this.map.createLayer('BackLayer', [tileset1]);
         this.backgroundLayer.depth = 1;
-
+        this.backgroundLayer.alpha=0;
 
         this.colLayer = this.map.createLayer('ColLayer', [tileset1]);
         this.colLayer.depth = 3;
+        this.colLayer.alpha=0;
         this.extraLayer = this.map.createLayer('ExtraLayer', [tileset1]);
         this.extraLayer.depth = 4;
+        this.extraLayer.alpha=0;
 
         //CAMERA
         this.camera = this.cameras.main;
@@ -135,8 +141,9 @@ export default class BaseScene extends Phaser.Scene {
         });
 
         //OBJETOS DE LA ESCENA
-
-        let humanList; //lista de objetos humanos
+      
+        
+         let humanList; //lista de objetos humanos
         let ghostList; //lista de objetos poseibles
         let lampList;
 
@@ -147,7 +154,13 @@ export default class BaseScene extends Phaser.Scene {
         humanList = [];
 
         //Lista de objetos interactuables para el fantasma
-        ghostList = [];
+        if(this.candlepos || this.mirrorpos){
+            ghostList = [
+                this.candle = new Candle(this, this.ghostPlayer, this.candlepos[0], this.candlepos[1], this.candlepos[2]),
+                this.mirror = new Mirror(this, this.mirrorpos[0], this.mirrorpos[1], this.mirrorpos[2])
+            ];
+        }
+        
 
         //CAMBIAR ESTO EN FANTASMA / HUMANO
 
@@ -162,7 +175,6 @@ export default class BaseScene extends Phaser.Scene {
         this.basepers = new Base(this, this.humanPlayer, 'basepers', this.posBaseHUman[0], this.posBaseHUman[1]);
         this.basefant = new Base(this, this.ghostPlayer, 'basefantas', this.posBaseGhost[0], this.posBaseGhost[1]);
 
-
         this.colLayer.setCollisionByProperty({
             colisiona: true
         });
@@ -174,13 +186,11 @@ export default class BaseScene extends Phaser.Scene {
         });
         this.physics.add.collider(this.humanPlayer, this.colLayer);
         this.physics.add.collider(this.humanPlayer, this.extraLayer);
-
     }
-
 
     ResetLevel() {
         let tim = this.timer.getTotalSeconds();
-        this.scene.start('end', {
+        this.scene.start(this.level, {
             time: tim
         });
     }
@@ -189,7 +199,7 @@ export default class BaseScene extends Phaser.Scene {
         this.timer.updateTimer();
         if (this.basefant.isInbase() && this.basepers.isInbase()) {
             let tim = this.timer.getTotalSeconds();
-            this.scene.start('end', {
+            this.scene.start(this.nextlevel, {
                 time: tim
             });
         }
