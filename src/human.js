@@ -1,15 +1,14 @@
-
 import Player from './player.js';
 import Lamp from './lamp.js';
 /**
  * @extends Player
  */
 export default class Human extends Player {
-/**
- * Clase que representa el jugador humano. Tiene la capacidad de interactuar con objetos 
- * y asi generar luces en el  escenario. No puede abandonar las zonas iluminadas.
- */
-    /**
+  /**
+   * Clase que representa el jugador humano. Tiene la capacidad de interactuar con objetos 
+   * y asi generar luces en el  escenario. No puede abandonar las zonas iluminadas.
+   */
+  /**
    * @param {Phaser.Scene} scene Escena a la que pertenece el jugador
    * @param {int} x posicion x del ghost
    * @param {int} y posicion y del ghost

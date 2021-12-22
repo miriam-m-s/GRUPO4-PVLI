@@ -1,6 +1,6 @@
  /**
- * @extends Phaser.GameObjects.Container
- */
+  * @extends Phaser.GameObjects.Container
+  */
  export default class Pause extends Phaser.GameObjects.Container {
 
     /** 

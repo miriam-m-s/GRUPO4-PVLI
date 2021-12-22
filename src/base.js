@@ -29,7 +29,7 @@ export default class Base extends Phaser.GameObjects.Sprite {
   isInbase() {
     return this.inbase;
   }
-  
+
   preUpdate() {
     super.preUpdate();
     this.inbase = false;

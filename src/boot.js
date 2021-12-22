@@ -1,10 +1,9 @@
-
 /**
  * @extends Phaser.Scene
  */
 export default class Boot extends Phaser.Scene {
   /*
-    *Escena para la precarga de los assets que se usarán en el juego.
+   *Escena para la precarga de los assets que se usarán en el juego.
    * Constructor de la escena
    */
   constructor() {
@@ -17,11 +16,11 @@ export default class Boot extends Phaser.Scene {
   loadFont(name, url) {
     let newFont = new FontFace(name, `url(${url})`);
     newFont.load().then(function (loaded) {
-        document.fonts.add(loaded);
+      document.fonts.add(loaded);
     }).catch(function (error) {
-        return error;
+      return error;
     });
-}
+  }
 
   /*
    * Precarga de los assets del juego
@@ -30,8 +29,8 @@ export default class Boot extends Phaser.Scene {
     //font
     this.loadFont("men", "/assets/fonts/retroFont.ttf");
     //VIDEO
-    this.load.video('vid','./assets/video/a.mp4');
-    this.load.video('introClipVideo','./assets/video/clip01.mp4');
+    this.load.video('vid', './assets/video/a.mp4');
+    this.load.video('introClipVideo', './assets/video/clip01.mp4');
 
     //MUSIC
     this.load.setPath('assets/audio/music/');
@@ -76,7 +75,7 @@ export default class Boot extends Phaser.Scene {
     this.load.image('lightCircleBig', 'lightCircleBig.png');
     // Lamp
     this.load.image('lampDefault', 'lampSpr01.png');
-    this.load.image('lampSelected', 'lampSpr02.png'); 
+    this.load.image('lampSelected', 'lampSpr02.png');
     this.load.image('switchDefault', 'switchSprite01.png');
     this.load.image('switchSelected', 'switchSprite02.png');
     // Furniture
@@ -132,7 +131,7 @@ export default class Boot extends Phaser.Scene {
     this.load.image('mirror_Pos_180', 'mirror_Pos_Left.png');
     this.load.image('mirror_Pos_0', 'mirror_Pos_Right.png');
 
-    this.load.setPath('assets/maps/'); 
+    this.load.setPath('assets/maps/');
 
     // Carga de Tilemap
     this.load.tilemapTiledJSON('tilemap01', 'Map01.json');
@@ -161,7 +160,7 @@ export default class Boot extends Phaser.Scene {
       delay: 0,
     }; // config es opcional
 
-    
+
     //ANIMATIONS
     //------------Ghost-----------------
     this.anims.create({
@@ -299,6 +298,7 @@ export default class Boot extends Phaser.Scene {
     });
 
     //Level creation
-    this.scene.start('intros');
+   /// this.scene.start('intros');
+   this.scene.start('congrats');
   }
 }

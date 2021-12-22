@@ -16,7 +16,7 @@ export default class Lamp extends Phaser.GameObjects.Sprite {
    * @param {int} light  Luz asignada a este objeto
    * @param {boolean} isOn  Devuelve 'true' si la lampara esta encendida
    */
-  
+
   constructor(scene, lampPosX, lampPosY, radius) {
     super(scene, lampPosX, lampPosY, 'lampDefault');
 
@@ -26,7 +26,7 @@ export default class Lamp extends Phaser.GameObjects.Sprite {
     this.lampPosX = lampPosX;
     this.lampPosY = lampPosY;
     this.radius = radius;
-    this.light=null;
+    this.light = null;
     this.soundlight = scene.sound.add('light');
 
     // Fisicas
@@ -51,13 +51,12 @@ export default class Lamp extends Phaser.GameObjects.Sprite {
     this.scale = 1;
   }
 
-    Interact() {
+  Interact() {
 
     if (!this.isOn) // Si no esta encendida, encenderla
     {
       this.SetOn();
-    }
-    else // Si esta encendida, apagarla
+    } else // Si esta encendida, apagarla
     {
       this.SetOff();
     }
@@ -67,7 +66,7 @@ export default class Lamp extends Phaser.GameObjects.Sprite {
   // Encender lampara
   SetOn() {
     this.setTexture('lampSelected');
-    if(this.scene.musicOn) this.soundlight.play();
+    if (this.scene.musicOn) this.soundlight.play();
     this.light.body.enable = true;
     // Avisar a la light de que el estado de la lampara ha cambiado
     this.light.LampClicked(true);
@@ -76,7 +75,7 @@ export default class Lamp extends Phaser.GameObjects.Sprite {
   // Apagar lampara
   SetOff() {
     this.setTexture('lampDefault');
-    if(this.scene.musicOn) this.soundlight.play();
+    if (this.scene.musicOn) this.soundlight.play();
     this.light.body.enable = false;
     // Avisar a la light de que el estado de la lampara ha cambiado
     this.light.LampClicked(false);

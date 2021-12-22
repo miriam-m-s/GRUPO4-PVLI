@@ -41,9 +41,9 @@ export default class Level4 extends BaseScene {
     this.dynamicObstacles = [
       this.ghostPlayer, this.humanPlayer, this.extraLayer
     ];
-    
+
     // Añadir todos los objetos de ghostList
-    for (let i = 0; i < this.ghostList.length; i++){
+    for (let i = 0; i < this.ghostList.length; i++) {
       this.dynamicObstacles.push(this.ghostList[i])
     }
 

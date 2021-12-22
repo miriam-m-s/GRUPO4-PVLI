@@ -91,12 +91,12 @@ export default class BaseScene extends Phaser.Scene {
 
 
         // CREACION DE LOS OBJETOS DE LA ESCENA
-        
+
         let humanList = []; //Lista de objetos interactuables para el humano
         this.ghostList = []; //Lista de objetos interactuables para el fantasma
         let lampList;
 
-        
+
         // Human List
         if (this.switchPos) {
             humanList.push(new Switch(this, this.switchPos[0], this.switchPos[1]));
@@ -113,7 +113,7 @@ export default class BaseScene extends Phaser.Scene {
             this.ghostList.push(new Candle(this, this.candlepos[0], this.candlepos[1], this.candlepos[2]));
         }
         //objeto mirror
-        if (this.mirrorpos) { 
+        if (this.mirrorpos) {
             for (let i = 0; i < this.mirrorpos.length; i++) {
                 this.ghostList.push(new Mirror(this, this.mirrorpos[i][0], this.mirrorpos[i][1], this.mirrorpos[i][2]));
             }
@@ -135,7 +135,7 @@ export default class BaseScene extends Phaser.Scene {
         this.basepers = new Base(this, this.humanPlayer, 'basepers', this.posBaseHUman[0], this.posBaseHUman[1]);
         this.basefant = new Base(this, this.ghostPlayer, 'basefantas', this.posBaseGhost[0], this.posBaseGhost[1]);
 
-        
+
         // COLISIONES
         this.colLayer.setCollisionByProperty({
             colisiona: true
@@ -168,7 +168,7 @@ export default class BaseScene extends Phaser.Scene {
         }
     }
 
-    tilemapConfig(){
+    tilemapConfig() {
         // Creacion del tilemap
         this.map = this.make.tilemap({
             key: this.tilemap,
@@ -191,7 +191,7 @@ export default class BaseScene extends Phaser.Scene {
         this.extraLayer.depth = 4;
     }
 
-    musicConfig(){
+    musicConfig() {
         //Configuracion musica
         const config = {
             mute: false,
@@ -209,7 +209,7 @@ export default class BaseScene extends Phaser.Scene {
         this.musicButton();
     }
 
-    musicButton(){
+    musicButton() {
         //Boton para activar y desactivar la musica
         this.musicOn = true;
         this.sceneSound = new Music(this);
@@ -227,7 +227,7 @@ export default class BaseScene extends Phaser.Scene {
         return this.isPaused;
     }
 
-    pauseButton(){
+    pauseButton() {
         this.isPaused = false;
         this.pauseMenu = new Pause(this, this.camera.centerX / this.camera.zoom, this.camera.centerY / this.camera.zoom, 0, this.level);
         this.pausa = this.getButton(this.camera.displayWidth - 15, 20, 'pauseButton', 0.05, 1, 'pause');
@@ -240,16 +240,16 @@ export default class BaseScene extends Phaser.Scene {
         });
     }
 
-    getButton(x, y, texture, scale, alpha, action){
-        let button = this.add.image(x, y, texture).setInteractive(); 
+    getButton(x, y, texture, scale, alpha, action) {
+        let button = this.add.image(x, y, texture).setInteractive();
         button.depth = 10;
         button.scale = scale;
         button.alpha = alpha;
-        if(action === 'pause'){
+        if (action === 'pause') {
             button.on('pointerdown', function () {
                 this.scene.pauseMenu.clickPause();
             });
-        }else if(action === 'music'){
+        } else if (action === 'music') {
             button.on('pointerdown', function () {
                 this.scene.sceneSound.clickMusic();
             });

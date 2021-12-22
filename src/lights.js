@@ -6,7 +6,7 @@ export default class Lights extends Phaser.GameObjects.Sprite {
   /**
    * Constructor de Light: crea una luz en la cual el fantasma no puede entrar y de la que el humano no 
    * puede salir.
-   * @param {Phaser.Scene} scene Escena a la que pertenece la plataforma
+   * @param {Phaser.Scene} scene Escena a la que pertenece la luz
    * @param {Player} humanPlayer Jugador humano
    * @param {Player} ghostPlayer Jugador ghost
    * @param {number} x Coordenada x
@@ -49,8 +49,7 @@ export default class Lights extends Phaser.GameObjects.Sprite {
       this.setOrigin(.5);
       this.x += this.radius; // Posicionar el sprite del circulo en mitad de la vela
       this.y += this.radius;
-      } 
-      else {
+    } else {
       this.body.setCircle(radius);
       this.scale = ((radius - 1) / 1000);
       this.body.scale *= 0.5;
@@ -80,7 +79,7 @@ export default class Lights extends Phaser.GameObjects.Sprite {
         this.scale = ((this.lightScale - 1) / 1000);
 
         this.lightVariable = this.lightScale / 100;
-        
+
         this.body.x = -this.lightScale + this.posX + this.radius;
         this.body.y = -this.lightScale + this.posY + this.radius;
       }
@@ -90,11 +89,11 @@ export default class Lights extends Phaser.GameObjects.Sprite {
 
       if (this.isLampOn && this.lightScale < this.radius) {
         // Increase collider
-        this.lightScale += .07 *dt;
-        this.scale = ((this.lightScale - 1) / 1000); 
+        this.lightScale += .07 * dt;
+        this.scale = ((this.lightScale - 1) / 1000);
 
         this.lightVariable = this.lightScale / 100;
-        
+
         this.body.x = -this.lightScale + this.posX + this.radius;
         this.body.y = -this.lightScale + this.posY + this.radius;
       } else if (!this.isLampOn && this.lightScale >= 0) {
@@ -103,7 +102,7 @@ export default class Lights extends Phaser.GameObjects.Sprite {
         this.scale = ((this.lightScale - 1) / 1000);
 
         this.lightVariable = this.lightScale / 100;
-        
+
         this.body.x = -this.lightScale + this.posX + this.radius;
         this.body.y = -this.lightScale + this.posY + this.radius;
       }
