@@ -20,14 +20,15 @@ export default class Timer extends Phaser.GameObjects.Container {
         delay: 999999,
         paused: false
       });
+      this.totalSeconds=0;
     }
 
     updateTimer() {
-        let totalSeconds = this.timer.getElapsedSeconds().toFixed(0);
-        this.gameTime.setText(totalSeconds);
-        let minutes = Math.floor(totalSeconds / 60);
-        let seconds = totalSeconds - 60 * minutes;
-        if (totalSeconds < 60) {
+        this.totalSeconds = this.timer.getElapsedSeconds().toFixed(0);
+        this.gameTime.setText(this.totalSeconds);
+        let minutes = Math.floor(this.totalSeconds / 60);
+        let seconds = this.totalSeconds - 60 * minutes;
+        if (this.totalSeconds < 60) {
           this.gameTime.setText(seconds + "s");
         } else {
           this.gameTime.setText(minutes + "m" + seconds + "s");
@@ -36,6 +37,10 @@ export default class Timer extends Phaser.GameObjects.Container {
 
     change(){
         this.timer.paused = !this.timer.paused;
+    }
+
+    getTotalSeconds(){
+      return this.totalSeconds;
     }
 
  }

@@ -111,6 +111,9 @@ export default class Boot extends Phaser.Scene {
     // Debug
     this.load.image('debugIndic', 'debugIndicator.png');
 
+    // You win
+    this.load.image('YouWin', 'YouWin.png');
+
 
     this.load.setPath('assets/sprites/Mirrors/');
     // Mirror
@@ -130,12 +133,14 @@ export default class Boot extends Phaser.Scene {
     this.load.image('mirror_Pos_180', 'mirror_Pos_Left.png');
     this.load.image('mirror_Pos_0', 'mirror_Pos_Right.png');
 
-
     this.load.setPath('assets/maps/'); 
+
     // Carga de Tilemap
     this.load.tilemapTiledJSON('tilemap01', 'Map01.json');
     this.load.tilemapTiledJSON('tilemap02', 'Map02.json');
     this.load.tilemapTiledJSON('tilemap03', 'Map03.json');
+    this.load.tilemapTiledJSON('tilemap04', 'Map04.json');
+    this.load.tilemapTiledJSON('tilemap05', 'Map05.json');
     // Carga de spritesheet
     this.load.image('mapSpriteSheet', 'spritesheets/mansionNes.png');
   }
@@ -183,7 +188,7 @@ export default class Boot extends Phaser.Scene {
     });
 
     this.anims.create({
-      key: "_downGhostsel",
+      key: "_downGhost",
       frameRate: this.animationFrameRate,
       frames: this.anims.generateFrameNumbers("GhostSpriteSheetselect", {
         start: 3,
@@ -193,7 +198,7 @@ export default class Boot extends Phaser.Scene {
     });
 
     this.anims.create({
-      key: "_leftGhostsel",
+      key: "_leftGhost",
       frameRate: this.animationFrameRate,
       frames: this.anims.generateFrameNumbers("GhostSpriteSheetselect", {
         start: 6,
@@ -203,7 +208,7 @@ export default class Boot extends Phaser.Scene {
     });
 
     this.anims.create({
-      key: "_rightGhostsel",
+      key: "_rightGhost",
       frameRate: this.animationFrameRate,
       frames: this.anims.generateFrameNumbers("GhostSpriteSheetselect", {
         start: 9,
@@ -213,7 +218,7 @@ export default class Boot extends Phaser.Scene {
     });
 
     this.anims.create({
-      key: "_upGhostsel",
+      key: "_upGhost",
       frameRate: this.animationFrameRate,
       frames: this.anims.generateFrameNumbers("GhostSpriteSheetselect", {
         start: 12,
@@ -245,7 +250,7 @@ export default class Boot extends Phaser.Scene {
     });
 
     this.anims.create({
-      key: "_downHumansel",
+      key: "_downHuman",
       frameRate: this.animationFrameRate,
       frames: this.anims.generateFrameNumbers("HumanSpriteSheetselect", {
         start: 3,
@@ -255,7 +260,7 @@ export default class Boot extends Phaser.Scene {
     });
 
     this.anims.create({
-      key: "_leftHumansel",
+      key: "_leftHuman",
       frameRate: this.animationFrameRate,
       frames: this.anims.generateFrameNumbers("HumanSpriteSheetselect", {
         start: 6,
@@ -265,7 +270,7 @@ export default class Boot extends Phaser.Scene {
     });
 
     this.anims.create({
-      key: "_rightHumansel",
+      key: "_rightHuman",
       frameRate: this.animationFrameRate,
       frames: this.anims.generateFrameNumbers("HumanSpriteSheetselect", {
         start: 9,
@@ -275,7 +280,7 @@ export default class Boot extends Phaser.Scene {
     });
 
     this.anims.create({
-      key: "_upHumansel",
+      key: "_upHuman",
       frameRate: this.animationFrameRate,
       frames: this.anims.generateFrameNumbers("HumanSpriteSheetselect", {
         start: 12,

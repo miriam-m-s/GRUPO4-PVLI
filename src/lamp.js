@@ -14,22 +14,23 @@ export default class Lamp extends Phaser.GameObjects.Sprite {
    * @param {Object} lightCircle circulo de luz
    */
 
-  constructor(scene, lampPosX, lampPosY, sprite, human, ghost, lampGroup, radius) {
+  constructor(scene, lampPosX, lampPosY, radius, human, ghost) {
 
-    super(scene, lampPosX, lampPosY, sprite);
+    super(scene, lampPosX, lampPosY, 'lampDefault');
     this.scene = scene;
-    this.human = human;
     this.depth = 4;
+    this.human = human;
     this.ghost = ghost;
     this.lampPosX = lampPosX;
     this.lampPosY = lampPosY;
-    this.lampGroup = lampGroup;
     this.radius = radius;
     this.soundlight = scene.sound.add('light');
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
-    
+    this.light=null;
     console.log("this.isOn = " + this.isOn);
+
+    this.Interact();
   }
 
   SelectObject() {
@@ -42,29 +43,30 @@ export default class Lamp extends Phaser.GameObjects.Sprite {
     this.scale = 1;
   }
 
-  Interact() {
+    Interact() {
 
     if (!this.isOn) //si no esta encendida
     {
       if (this.light == null) {
-        if(this.scene.musicOn) this.soundlight.play();
+        if(this.scene.musicOn){ 
+          this.soundlight.play();
+        }
         // Avisar a la light de esta lampara
-        this.light = new Lights(this.scene, this.scene.humanPlayer, this.scene.ghostPlayer, this.scene.lights, this.lampPosX - this.radius, this.lampPosY - this.radius, this.radius, false, true);
-        this.light.LampClicked(true);
-      } else {
+        this.light = new Lights(this.scene, this.scene.humanPlayer, this.scene.ghostPlayer, this.x - this.radius, this.y - this.radius, this.radius, false, true);
+        this.light.LampClicked(true); 
+      } 
+      else {
         this.setTexture('lampSelected');
         if(this.scene.musicOn) this.soundlight.play();
         this.light.body.enable = true;
-        this.light.body.gameObject.alpha = 0.3;
-
         // Avisar a la light de esta lampara
         this.light.LampClicked(true);
       }
-    } else //Esta encendida
+    }
+    else //Esta encendida
     {
       if(this.scene.musicOn) this.soundlight.play();
       this.light.body.enable = false;
-     // this.light.body.gameObject.alpha = 0;
       this.setTexture('lampDefault');
       //this.body.setActive(false);
 

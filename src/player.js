@@ -18,16 +18,15 @@ export default class Player extends Phaser.GameObjects.Sprite {
    * @param {number} secCounter
    */
 
-  constructor(scene, initialPosX, initialPosY, initialName, NoSelectedName, startController) {
+  constructor(scene, initialPosX, initialPosY, playerName, startController) {
 
-    super(scene, initialPosX, initialPosY, initialName);
+    super(scene, initialPosX, initialPosY, playerName);
 
     //Asignar Parametros
 
     this.scene = scene;
     this.playerPos = new Phaser.Math.Vector2(initialPosX, initialPosY); //donde comienza el jugador en la escena
-    this.playerName = initialName;
-    this.playerNamenoselect = NoSelectedName;
+    this.playerName = playerName;
     //Ghost / Human
     this.beingControlled = startController; //comenzamos controlando al fantasma
     this.soundchange = scene.sound.add('changeplayer');
@@ -35,7 +34,6 @@ export default class Player extends Phaser.GameObjects.Sprite {
     //Litas/Objetos
     this.objectList = null;
     this.selectedObject = null;
-
 
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
@@ -52,8 +50,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.space = scene.input.keyboard.addKey('SPACE');
     this.eKey = scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
     this.runKey = scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SHIFT);
-    //this.start();
-    this.depth = 3;
+    this.depth = 6;
 
     //DEBUG INDICATOR
     //this.debugIndicator = this.scene.physics.add.sprite(this.body.x, this.body.y, 'debugIndic'); this.debugIndicator.depth = 9999;
@@ -99,40 +96,47 @@ export default class Player extends Phaser.GameObjects.Sprite {
   }
 
   preUpdate(t, dt) {
-    if (!this.beingControlled) {
-      this.play('_idle' + this.playerNamenoselect, true);
-      return;
-    }
 
     super.preUpdate(t, dt);
 
+    // Comprobar si se esta controlando este personaje
+    if (!this.beingControlled) {
+      this.play('_idle' + this.playerName, true);
+      return;
+    }
+
+    // En caso de que si se este controlando este personaje, mover al personaje y actualizar su animacion
     if (!this.scene.levelPaused()) {
-      if (this.cursors.left.isDown) //move left
+      if (this.cursors.left.isDown) // move left
       {
         this.body.setVelocityX(-this.speed);
-        //animation left
+        // animation left
         this.play('_left' + this.playerName, true);
-      } else if (this.cursors.right.isDown) //move right
+      } 
+      else if (this.cursors.right.isDown) // move right
       {
         this.body.setVelocityX(this.speed);
-        //animation right
+        // animation right
         this.play('_right' + this.playerName, true);
-      } else if (this.cursors.up.isDown) //move up
+      } 
+      else if (this.cursors.up.isDown) // move up
       {
         this.body.setVelocityY(-this.speed);
-        //animation up
+        // animation up
         this.play('_up' + this.playerName, true);
-      } else if (this.cursors.down.isDown) //move down
+      }
+       else if (this.cursors.down.isDown) // move down
       {
         this.body.setVelocityY(this.speed);
-        //animation down
+        // animation down
         this.play('_down' + this.playerName, true);
-      } else //no movement
+      } else
       {
         this.body.setVelocityX(0);
         this.body.setVelocityY(0);
-        //animation stop
-        this.play('_idle' + this.playerName, true);
+
+        // Asignar la animacion Idle con personaje seleccionado
+        this.play('_idle' + this.playerName + "sel", true);
       }
     }
   }

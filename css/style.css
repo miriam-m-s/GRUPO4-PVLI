@@ -1,5 +1,5 @@
 body {
-  background: #000000 none repeat scroll 0 0;
+  background: #030316 none repeat scroll 0 0;
   margin: 0;
   overflow: visible;
   height: 100vh;
@@ -19,7 +19,7 @@ body {
   animation: color-change 3s 1;
   word-wrap: break-word;
 	margin: 0 auto;
-  font-family: 'Alagard', Fallback, sans-serif;
+  font-family: 'Sys', Fallback, sans-serif;
   font-size: 20px;
   -webkit-font-smoothing: antialiased;
   font-weight: normal;
@@ -77,6 +77,7 @@ body {
   left: 10%;
   right: 10%;
   height: 90%;
+  
 }
 
 .atg{
@@ -134,7 +135,6 @@ body {
           animation: 750ms cubic-bezier(0.23, 1, 0.32, 1) 0ms normal forwards 1 running off;
 }
 
-
 .text1{
   font-size: 13px;
   margin-bottom: 7vh;
@@ -189,6 +189,7 @@ footer img{
 .container{
   width: 80%;
   margin: 0 auto;
+
 }
 
 canvas{   

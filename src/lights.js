@@ -12,7 +12,7 @@ export default class Lights extends Phaser.GameObjects.Sprite {
    * @param {number} y Coordenada y
    * @param {number} radius Coordenada y
    */
-  constructor(scene, humanPlayer, ghostPlayer, baseGroup, x, y, radius, isCandleLight, isLampLight) {
+  constructor(scene, humanPlayer, ghostPlayer, x, y, radius, isCandleLight, isLampLight) {
     super(scene, x, y, 'light', radius);
 
     this.posX = x;
@@ -28,10 +28,8 @@ export default class Lights extends Phaser.GameObjects.Sprite {
     this.radius = radius;
     this.human = humanPlayer;
 
-    this.scene.physics.add.collider(this, ghostPlayer);
-    this.scene.physics.add.overlap(this, this.human);
-
-    this.scene.physics.add.overlap(this, ghostPlayer);
+    this.scene.physics.add.collider(this, this.scene.ghostPlayer);
+    this.scene.physics.add.overlap(this, this.scene.humanPlayer);
 
     this.isCandleLight = isCandleLight;
     this.isLampLight = isLampLight;
@@ -55,11 +53,6 @@ export default class Lights extends Phaser.GameObjects.Sprite {
       this.body.scale *= 0.5;
     }
     this.lightScale = 1;
-
-    // Si cuando se crea la luz el fantasma esta cerca, reiniciar el fantasma
-    if (this.scene.physics.overlap(ghostPlayer, this)) {
-      this.scene.ResetLevel();
-    }
   }
 
   LampClicked(newState) {
@@ -70,18 +63,18 @@ export default class Lights extends Phaser.GameObjects.Sprite {
    * Redefinición del preUpdate de Phaser
    * @override
    */
-  preUpdate() {
-    super.preUpdate();
-    if (this.scene.physics.overlap(this.human, this)) {
-      this.human.onLightFunction(this.body.x + this.radius,
+  preUpdate(t, dt) {
+    super.preUpdate(t, dt);
+    if (this.scene.physics.overlap(this.scene.humanPlayer, this)) {
+      this.scene.humanPlayer.onLightFunction(this.body.x + this.radius,
         this.body.y + this.radius);
     }
 
     if (this.isCandleLight) {
       if (this.lightScale < this.radius) {
         // Increase collider
-        this.lightScale += .03;
-        this.scale = ((this.lightScale - 1) / 1000); 
+        this.lightScale += .07 * dt;
+        this.scale = ((this.lightScale - 1) / 1000);
 
         this.lightVariable = this.lightScale / 100;
         
@@ -94,7 +87,7 @@ export default class Lights extends Phaser.GameObjects.Sprite {
 
       if (this.isLampOn && this.lightScale < this.radius) {
         // Increase collider
-        this.lightScale += .2;
+        this.lightScale += .07 *dt;
         this.scale = ((this.lightScale - 1) / 1000); 
 
         this.lightVariable = this.lightScale / 100;
@@ -102,9 +95,9 @@ export default class Lights extends Phaser.GameObjects.Sprite {
         this.body.x = -this.lightScale + this.posX + this.radius;
         this.body.y = -this.lightScale + this.posY + this.radius;
       } else if (!this.isLampOn && this.lightScale >= 0) {
-        this.lightScale -= .2;
+        this.lightScale -= .07 * dt;
         if (this.lightScale < 0) this.lightScale
-        this.scale = ((this.lightScale - 1) / 1000); 
+        this.scale = ((this.lightScale - 1) / 1000);
 
         this.lightVariable = this.lightScale / 100;
         

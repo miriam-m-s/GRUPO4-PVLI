@@ -39,7 +39,8 @@
        this.quitText.on('pointerdown', function () {
           this.scene.scene.start('mainMenu');
        });
-       this.depth = 10;
+       
+       this.depth = 100;
        this.add([this.fondo, this.pauseText, this.resumeText, this.restartText, this.quitText]);
        this.scene.add.existing(this);
     }
