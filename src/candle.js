@@ -23,7 +23,6 @@ export default class Candle extends Phaser.GameObjects.Sprite {
       this.isPossesed = false;
 
       this.isOn = false;
-      //this.debugIndicator = this.scene.physics.add.sprite(this.body.x, this.body.y, 'debugIndic');
     }
 
     Mirrordetect() {
