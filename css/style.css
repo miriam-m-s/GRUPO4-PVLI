@@ -198,7 +198,4 @@ canvas{
   margin-top: 5vh;
   display: block;
   position: relative;
-  border-color: white;
-  border-width: 7px;
-  border-style:groove;
 }
