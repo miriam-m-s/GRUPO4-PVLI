@@ -28,7 +28,7 @@ export default class MainMenuScene extends Phaser.Scene {
     //botón de play
     this.menu= this.add.sprite(screenCenterX , screenCenterY, 'menu').setInteractive();;
     this.menu.setScale(4);
-    this.loadingText = this.add.text(screenCenterX, screenCenterY, 'Play',{ fontFamily: 'men', fontSize: 80, color: '#ffffff' }).setOrigin(0.5)
+    this.loadingText = this.add.text(screenCenterX, screenCenterY, 'Jugar',{ fontFamily: 'men', fontSize: 80, color: '#ffffff' }).setOrigin(0.5)
   
     //cambio del tamaño del boton al pasar por encima el raton 
     this.menu.on("pointerover",()=>{

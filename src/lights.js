@@ -5,7 +5,7 @@ export default class Lights extends Phaser.GameObjects.Sprite {
 
   /**
    * Constructor de Light: crea una luz en la cual el fantasma no puede entrar y de la que el humano no 
-   * puede salir de ella
+   * puede salir.
    * @param {Phaser.Scene} scene Escena a la que pertenece la plataforma
    * @param {Player} humanPlayer Jugador humano
    * @param {Player} ghostPlayer Jugador ghost

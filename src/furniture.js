@@ -31,7 +31,7 @@ export default class Furniture extends Phaser.GameObjects.Sprite {
 
   //Metodo de deteccion de rayo explicado en el script window.js
   RayDetect() {
-    //cuando un rayo detecta al furniture no hace nada
+    //cuando un rayo detecta al furniture no hace nada, el mueble interrumpe su paso
   }
 
   //Se selecciona el objeto y se cambia su sprite

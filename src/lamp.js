@@ -1,8 +1,6 @@
 /**
 
- 
  * @extends Phaser.GameObjects.Sprite
-
  */
 
 import Lights from './lights.js';

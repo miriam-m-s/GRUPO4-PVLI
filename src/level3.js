@@ -5,6 +5,7 @@ import BaseScene from './baseScene.js'
  */
 
  export default class Level3 extends BaseScene {
+   //Tercer nivel del juego
   constructor() {
 
   // Asignar posiciones
