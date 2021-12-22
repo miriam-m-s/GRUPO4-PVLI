@@ -8,7 +8,7 @@ export default class Furniture extends Phaser.GameObjects.Sprite {
    * puede interactuar con estos objetos y al hacerlo los puede controlar cambiando asi su
    * posicion al moverse por el nivel. 
   
-   * @param {Phaser.Scene} scene Escena a la que pertenece la plataformas
+   * @param {Phaser.Scene} scene Escena 
    * @param {int} x coordenada inicial x del mueble
    * @param {int} y coordenada incial y del mueble
    */

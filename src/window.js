@@ -6,7 +6,7 @@ export default class Window extends Phaser.GameObjects.Sprite {
   /**Clase window :crea un rayo de luz en la direccion asignada. Este rayo se comportara
   de distinta manera dependiendo del objeto con el que se colisione
 
-   * @param {Phaser.Scene} scene Escena a la que pertenece la plataforma
+   * @param {Phaser.Scene} scene Escena a la que pertenece la ventana
    * @param {number} x Coordenada x
    * @param {number} y Coordenada y
    * @param {number} rayAngle direccion del rayo
