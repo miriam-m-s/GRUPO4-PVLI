@@ -11,7 +11,6 @@ export default class Base extends Phaser.GameObjects.Sprite {
    * @param {number} x Coordenada x 
    * @param {number} y Coordenada y
    * @param {string} texture nombre del sprite de la base
-   * @param {number} inbase devuelve true si el personaje esta colisionando con la base
    */
 
   constructor(scene, player, texture, x, y) {
@@ -22,12 +21,12 @@ export default class Base extends Phaser.GameObjects.Sprite {
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
 
-  
+    //jugadores
     this.player = player;
 
     this.depth = 4;
 
-    // Vas
+    // Inicializacion del boolenao a false
     this.inbase = false;
   }
 
