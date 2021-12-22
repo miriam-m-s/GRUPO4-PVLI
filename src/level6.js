@@ -7,18 +7,18 @@ import Window from './window.js';
 export default class Level6 extends BaseScene {
     constructor() {
       let posIniFant=[80,170];
-      let posIniPers=[330,160];
+      let posIniPers=[330,170];
       let tilemap='tilemap02';
       
       let furniturePos=null;
-      let mirrorPos=[[50,150,180], [90,110,0], [70,150,90]];
-      let candlePos=[270,70,40];
-      let switchPos=[310,160];
-      let lampPos=[250,90];
+      let mirrorPos=[[80,90,180], [35,160,0], [120,90,270]];
+      let candlePos=[280,90,40];
+      let switchPos=[310,170];
+      let lampPos=[260,90];
   
       let posBaseGhost=[80, 170];
-      let posBaseHuman=[210, 80];
-      let lightsInfo=[[20,30,60],[300,130,30]];
+      let posBaseHuman=[230, 90];
+      let lightsInfo=[[-10,120,40],[300,145,30]];
       super(tilemap, lightsInfo,posIniFant,posIniPers,posBaseGhost,posBaseHuman,furniturePos, mirrorPos,candlePos,lampPos,switchPos,'level6','congrats');
   }
 
@@ -41,6 +41,6 @@ export default class Level6 extends BaseScene {
 
     this.raycaster.mapGameObjects(this.dynamicObstacles, true);
 
-    this.window = new Window(this, 193, 35, 270);
+    this.window = new Window(this, 192, 35, 270);
   }
 }
