@@ -12,7 +12,10 @@
     <img src="images/moonIcon.png" alt="Logo" | width=124)>
   </a>
   <p align="center">
-    Juego de Alfred Hitch<b>cock</b>
+  <b> ECLIPSE </b>
+  </p>
+  <p align="center">
+  <b> Aksejuegames </b>
   </p>
 </p>
 
