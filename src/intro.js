@@ -1,3 +1,6 @@
+/**
+ * @extends Phaser.GameObjects.Scene
+ */
 export default class Intro extends Phaser.Scene {
     //video de introduccion del nombre del grupo
     constructor() {
@@ -9,7 +12,7 @@ export default class Intro extends Phaser.Scene {
     create() 
     {
         //texto "click para empezar" 
-        this.gameTime = this.add.text(this.game.config.width/3, this.game.config.height/2, "CLICK TO START", {
+        this.gameTime = this.add.text(this.game.config.width/3, this.game.config.height/2, "CLICK PARA EMPEZAR", {
             fontFamily: '"Press Start 2P"',
             font: "40px",
             fill: "#fff",
