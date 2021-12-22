@@ -5,8 +5,10 @@ import BaseScene from './baseScene.js'
  */
 
 export default class Level1 extends BaseScene {
-
+  //Primer nivel del juego
   constructor() {
+
+      // Asignar posiciones
     let posIniFant=[180,200];
     let posIniPers=[120,60];
     let tilemap='tilemap01';
@@ -22,7 +24,6 @@ export default class Level1 extends BaseScene {
     super(tilemap, lightsInfo,posIniFant,posIniPers,posBaseGhost,posBaseHuman,furniturePos,mirrorPos,candlePos,lampPos,switchPos,'level1','level2');
   }
 
-  //Creacion de los elementos de la escena principal de juego
   create() {
     super.create();
   }

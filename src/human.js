@@ -1,21 +1,26 @@
+
 import Player from './player.js';
 import Lamp from './lamp.js';
 /**
- * Clase que representa el jugador del juego. El jugador se mueve por el mundo usando los cursores.
- * También almacena la puntuación o número de estrellas que ha recogido hasta el momento.
+ * @extends Player
  */
 export default class Human extends Player {
-
+/**
+ * Clase que representa el jugador humano. Tiene la capacidad de interactuar con objetos 
+ * y asi generar luces en el  escenario. No puede abandonar las zonas iluminadas.
+ */
     /**
    * @param {Phaser.Scene} scene Escena a la que pertenece el jugador
-   * @param {int} playerPosx posicion x del ghost
-   * @param {int}playerPosY posicion y del ghost
+   * @param {int} x posicion x del ghost
+   * @param {int} y posicion y del ghost
    * @param {bool} beingControlled booleano que dice si un jugador se mueve o no
    * @param {Array<Furniture>} humanItems lista de muebles
    */
 
-  constructor(scene, playerPosX, playerPosY, beingControlled, humanItems) {
-    super(scene, playerPosX, playerPosY, 'Human', beingControlled, humanItems);
+  constructor(scene, x, y, beingControlled, humanItems) {
+    super(scene, x, y, 'Human', beingControlled, humanItems);
+
+
     this.humanItems = humanItems;
     this.anims.play('_up' + this.playerName, false);
 
@@ -24,21 +29,24 @@ export default class Human extends Player {
     this.saveX = 0;
     this.saveY = 0;
   }
+
   RayDetect() {
+    //cuando un rayo detecta al humano no hace nada, el humano interrumpe su paso
   }
 
-  onLightFunction(x, y) {
+  // La luz en la que este el Human en este momento llama a esta funcion para actualizar 
+  // las variables saveX y saveY
 
+  onLightFunction(x, y) {
     this.onLight = true;
     this.saveX = x;
     this.saveY = y;
   }
 
   preUpdate(t, dt) {
-
     super.preUpdate(t, dt);
 
-    // Check Lights
+    // En el caso en el que el human se salga de la luz
     if (!this.onLight) {
       // tween animation
       var tween = this.scene.tweens.add({

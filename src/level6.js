@@ -5,6 +5,7 @@ import Window from './window.js';
  */
 
 export default class Level6 extends BaseScene {
+     //Sexto nivel del juego
     constructor() {
       let posIniFant=[100,120];
       let posIniPers=[330,170];
@@ -32,11 +33,12 @@ export default class Level6 extends BaseScene {
     this.raycaster = this.raycasterPlugin.createRaycaster();
     //objetos que reaccionan al raycast
     this.dynamicObstacles = [
-       this.candle,this.ghostPlayer,this.humanPlayer,this.extraLayer
+       this.ghostPlayer,this.humanPlayer,this.extraLayer
     ];
     
-    for (let i = 0; i < this.mirror.length; i++) {
-        this.dynamicObstacles.push(this.mirror[i])
+    // Añadir todos los objetos de ghostList
+    for (let i = 0; i < this.ghostList.length; i++){
+      this.dynamicObstacles.push(this.ghostList[i])
     }
 
     this.raycaster.mapGameObjects(this.dynamicObstacles, true);

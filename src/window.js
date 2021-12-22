@@ -1,7 +1,11 @@
-
+/**
+ * @extends Phaser.GameObjects.Sprite
+ */
 export default class Window extends Phaser.GameObjects.Sprite {
 
-  /**
+  /**Clase window :crea un rayo de luz en la direccion asignada. Este rayo se comportara
+  de distinta manera dependiendo del objeto con el que se colisione
+
    * Constructor de la Plataforma
    * @param {Phaser.Scene} scene Escena a la que pertenece la plataforma
    * @param {number} x Coordenada x
@@ -51,7 +55,9 @@ export default class Window extends Phaser.GameObjects.Sprite {
     let intersection = this.ray.cast();
     this.drawRay(this.ray,intersection);
     if(intersection.object!=null){
-      //si un objeto se interseca con el rayo llama al MirrorDetect()del objeto 
+      /*si un objeto se interseca con el rayo llama al MirrorDetect()del objeto,aunque algunos objetos
+      no reaccionan de ninguna manera al rayo,tendrán un metodo vacio.
+      */ 
       intersection.object.RayDetect();
     }
     

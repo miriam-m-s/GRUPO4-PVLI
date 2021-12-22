@@ -1,16 +1,19 @@
-//import Base from "./base";
-
+/**
+ * @extends Phaser.GameObjects.Sprite
+ */
 export default class Lights extends Phaser.GameObjects.Sprite {
 
   /**
-   * Constructor de la Plataforma
+   * Constructor de Light: crea una luz en la cual el fantasma no puede entrar y de la que el humano no 
+   * puede salir de ella
    * @param {Phaser.Scene} scene Escena a la que pertenece la plataforma
-   * @param {Player} player Jugador del juego
-   * @param {Player} player2 Jugador del juego
-   * @param {Phaser.GameObjects.Group} baseGroup Grupo en el que se incluirá la base creada por la plataforma
+   * @param {Player} humanPlayer Jugador humano
+   * @param {Player} ghostPlayer Jugador ghost
    * @param {number} x Coordenada x
    * @param {number} y Coordenada y
    * @param {number} radius Coordenada y
+   * @param {bool} isCandleLight boleano que dice si es la luz de una vela
+   * @param {bool} isLampLight boleano que dice si es la luz de una lampara
    */
   constructor(scene, humanPlayer, ghostPlayer, x, y, radius, isCandleLight, isLampLight) {
     super(scene, x, y, 'light', radius);
