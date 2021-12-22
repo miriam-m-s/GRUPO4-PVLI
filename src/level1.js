@@ -7,10 +7,8 @@ import BaseScene from './baseScene.js'
 export default class Level1 extends BaseScene {
 
   constructor() {
-    let baseFant=[50,120];
-    let basePers=[170, 150];
     let posIniFant=[180,200];
-    let posIniPers=[180,40];
+    let posIniPers=[120,60];
     let tilemap='tilemap01';
     let posBaseGhost=[120, 120];
     let posBaseHuman=[240, 150];

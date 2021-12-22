@@ -16,7 +16,7 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
     this.scene = scene;
     this.x = x;
     this.y = y;
-    this.depth=4;
+    this.depth=5;
    
     this.inLight = false;
     this.graphic1 = this.scene.add.graphics();

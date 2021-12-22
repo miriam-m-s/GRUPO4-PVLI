@@ -14,7 +14,7 @@ export default class Candle extends Phaser.GameObjects.Sprite {
 
       this.posX = x;
       this.posY = y;
-      this.depth = 4;
+      this.depth = 5;
 
       this.radius = radius; 
       this.scene.add.existing(this);
