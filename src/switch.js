@@ -14,15 +14,14 @@ export default class Switch extends Phaser.GameObjects.Sprite {
    * @param {Object} asignedLamp circulo de luz
    */
 
-  constructor(scene, switchPosX, switchPosY, sprite, human, ghost, lampGroup, lampAsigned) {
-    super(scene, switchPosX, switchPosY, sprite, lampAsigned);
+  constructor(scene, switchPosX, switchPosY, human, ghost, lampAsigned) {
+    super(scene, switchPosX, switchPosY, 'switchDefault', lampAsigned);
 
     this.scene = scene;
     this.human = human;
     this.ghost = ghost;
     this.switchPosX = switchPosX;
     this.switchPosY = switchPosY;
-    this.lampGroup = lampGroup;
     this.soundlight = scene.sound.add('light');
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
@@ -40,9 +39,8 @@ export default class Switch extends Phaser.GameObjects.Sprite {
     if (this.isOn) return;
     this.setTexture('switchDefault');
   }
-
   Interact()
   {
-    this.lampAsigned.Interact();
+    this.scene.lamp.Interact();
   }
 }

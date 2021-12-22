@@ -18,16 +18,15 @@ export default class Player extends Phaser.GameObjects.Sprite {
    * @param {number} secCounter
    */
 
-  constructor(scene, initialPosX, initialPosY, initialName, NoSelectedName, startController) {
+  constructor(scene, initialPosX, initialPosY, playerName, startController) {
 
-    super(scene, initialPosX, initialPosY, initialName);
+    super(scene, initialPosX, initialPosY, playerName);
 
     //Asignar Parametros
 
     this.scene = scene;
     this.playerPos = new Phaser.Math.Vector2(initialPosX, initialPosY); //donde comienza el jugador en la escena
-    this.playerName = initialName;
-    this.playerNamenoselect = NoSelectedName;
+    this.playerName = playerName;
     //Ghost / Human
     this.beingControlled = startController; //comenzamos controlando al fantasma
     this.soundchange = scene.sound.add('changeplayer');
@@ -51,7 +50,6 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.space = scene.input.keyboard.addKey('SPACE');
     this.eKey = scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
     this.runKey = scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SHIFT);
-    //this.start();
     this.depth = 6;
 
     //DEBUG INDICATOR
