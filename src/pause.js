@@ -1,6 +1,3 @@
- /**
-  * @extends Phaser.GameObjects.Container
-  */
  export default class Pause extends Phaser.GameObjects.Container {
 
     /** 
@@ -15,15 +12,15 @@
 
     constructor(scene, x, y, alpha, levelName) {
 
-       //Asignacion de los parametros
+      //Asignacion de los parametros
 
        super(scene, x, y);
 
        this.alpha = alpha;
        this.scene = scene;
 
-       //Creacion del fondo sobre el que se muestran las letras
-       this.fondo = this.scene.add.image(0, 0, 'pauseMenu');
+      //Creacion del fondo sobre el que se muestran las letras
+       this.fondo = this.scene.add.image(0,0 , 'pauseMenu');
        this.fondo.scale = 0.3;
 
        //Configuracion del texto
@@ -32,7 +29,7 @@
           color: '#ffffff',
           fontFamily: 'Arial'
        };
-
+       
        //Texto de pausa
        this.pauseText = this.scene.add.text(-35, -62, "Paused", textConfig);
 
@@ -56,7 +53,7 @@
        this.quitText.on('pointerdown', function () {
           this.scene.scene.start('mainMenu');
        });
-
+       
        //Profundidad del menu
        this.depth = 100;
 
@@ -70,36 +67,37 @@
     //Metodo que se ejecuta al pausar el juego
     clickPause() {
 
-       //Cambia el alpha del menu y boton para que sea o no visible
-       this.scene.pausa.alpha = !this.scene.pausa.alpha;
-       this.scene.playButton.alpha = !this.scene.playButton.alpha;
+      //Cambia el alpha del menu y boton para que sea o no visible
+      this.scene.pausa.alpha = !this.scene.pausa.alpha;
+      this.scene.playButton.alpha = !this.scene.playButton.alpha;
 
-       //Cambia la variable que indica si la pausa esta activa
-       this.scene.isPaused = !this.scene.isPaused;
+      //Cambia la variable que indica si la pausa esta activa
+      this.scene.isPaused = !this.scene.isPaused;
 
-       if (this.scene.isPaused) {
-          //Pausa todas las animaciones de la escena, lo activa y sube su alpha
-          this.scene.anims.pauseAll();
-          this.active = true;
-          this.alpha = 1;
+      if (this.scene.isPaused)
+      {
+         //Pausa todas las animaciones de la escena, lo activa y sube su alpha
+        this.scene.anims.pauseAll(); 
+        this.active = true;
+        this.alpha = 1;
+  
+        //Para la musica y hace un sonido indicando que se ha activado el menu
+        this.scene.music.stop();
+        if(this.scene.musicOn) this.scene.exit.play();
+        
+      } else //Lo desactiva
+      {
+        //Visual
+        this.active = false;
+        this.alpha = 0;
+        this.scene.anims.resumeAll(); //Reanuda las animaciones que habia activas al pausar la escena
+        
+        //Vuelve a sonar la musica
+        if(this.scene.musicOn) this.scene.music.play();
+      }
 
-          //Para la musica y hace un sonido indicando que se ha activado el menu
-          this.scene.music.stop();
-          if (this.scene.musicOn) this.scene.exit.play();
-
-       } else //Lo desactiva
-       {
-          //Visual
-          this.active = false;
-          this.alpha = 0;
-          this.scene.anims.resumeAll(); //Reanuda las animaciones que habia activas al pausar la escena
-
-          //Vuelve a sonar la musica
-          if (this.scene.musicOn) this.scene.music.play();
-       }
-
-       //Avisa al timer de si el juego esta pausado o no
-       this.scene.timer.change();
+      //Avisa al timer de si el juego esta pausado o n
+      this.scene.timer.change();
     }
 
  }
