@@ -26,7 +26,7 @@ export default class Level4 extends BaseScene {
     let posBaseHuman = [30, 165];
     let lightsInfo = [
       [90, 190, 70],
-      [145, -10, 70]
+      [145, 10, 65]
     ];
 
     super(tilemap, lightsInfo, posIniFant, posIniPers, posBaseGhost, posBaseHuman, furniturePos, mirrorPos, candlePos, lampPos, switchPos, 'level4', 'level5');

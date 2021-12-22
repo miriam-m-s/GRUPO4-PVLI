@@ -3,8 +3,8 @@
  */
 
 export default class Mirror extends Phaser.GameObjects.Sprite {
-//Clase Mirror que recibe rayos de luz y los refleja dependiendo de la direccion que tenga asignada
-  /**
+  /**Clase Mirror que recibe rayos de luz y los refleja dependiendo 
+    de la direccion que tenga asignada
    * @param {Phaser.Scene} scene Escena a la que pertenece la plataforma
    * @param {number} x Coordenada x
    * @param {number} y Coordenada y
