@@ -7,14 +7,14 @@ import Window from './window.js';
 export default class Level2 extends BaseScene {
     constructor() {
       let baseFant=[65,170];
-      let basePers=[310, 170];
+      let basePers=[310, 190];
       let posIniFant=[65,140];
       let posIniPers=[60,70];
       let tilemap='tilemap02';
       
       let furniturePos=null;
-      let mirrorPos=[250,120,0];
-      let candlePos=[300,120,50]; 
+      let mirrorPos=[250,130,0];
+      let candlePos=[300,130,50]; 
       let switchPos= null;
       let lampPos= null;
   

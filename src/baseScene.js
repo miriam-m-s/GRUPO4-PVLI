@@ -40,7 +40,7 @@ export default class BaseScene extends Phaser.Scene {
         this.level = level;
         this.nextLevel = nextLevel;
         this.posBaseGhost = posBaseGhost;
-        this.posBaseHUman = posBaseHuman;        
+        this.posBaseHUman = posBaseHuman;
         this.furniturePos = furniturePos;
         this.tilemap = tilemap;
         this.lightsInfo = lightsInfo;
@@ -56,7 +56,12 @@ export default class BaseScene extends Phaser.Scene {
 
 
     init(datos) {
-        this.totaltime = datos.time;
+        if (datos.time != null) {
+            this.totaltime = datos.time;
+        } else {
+            this.totaltime = 0;
+        }
+
     }
 
     //Creacion de los elementos de la escena principal de juego
@@ -216,21 +221,21 @@ export default class BaseScene extends Phaser.Scene {
 
     ResetLevel() {
         let tim = this.timer.getTotalSeconds();
+        console.log(this.totaltime + tim);
         this.scene.start(this.level, {
-            time: tim
+            time: this.totaltime + Number(tim)
         });
     }
     //Check the final de nivel para ambos jugadores
     update() {
         this.timer.updateTimer();
+
         if (this.basefant.isInbase() && this.basepers.isInbase()) {
             let tim = this.timer.getTotalSeconds();
-
             this.scene.start(this.nextLevel, {
-                time: tim
+                time: this.totaltime + Number(tim),
             });
         }
-
     }
 
     levelPaused() {

@@ -73,8 +73,8 @@ export default class Lights extends Phaser.GameObjects.Sprite {
     if (this.isCandleLight) {
       if (this.lightScale < this.radius) {
         // Increase collider
-        this.lightScale += .5 * dt;
-        this.scale = ((this.lightScale - 1) / 1000); 
+        this.lightScale += .07 * dt;
+        this.scale = ((this.lightScale - 1) / 1000);
 
         this.lightVariable = this.lightScale / 100;
         
@@ -87,7 +87,7 @@ export default class Lights extends Phaser.GameObjects.Sprite {
 
       if (this.isLampOn && this.lightScale < this.radius) {
         // Increase collider
-        this.lightScale += .2 *dt;
+        this.lightScale += .07 *dt;
         this.scale = ((this.lightScale - 1) / 1000); 
 
         this.lightVariable = this.lightScale / 100;
@@ -95,7 +95,7 @@ export default class Lights extends Phaser.GameObjects.Sprite {
         this.body.x = -this.lightScale + this.posX + this.radius;
         this.body.y = -this.lightScale + this.posY + this.radius;
       } else if (!this.isLampOn && this.lightScale >= 0) {
-        this.lightScale -= .2 * dt;
+        this.lightScale -= .07 * dt;
         if (this.lightScale < 0) this.lightScale
         this.scale = ((this.lightScale - 1) / 1000);
 
