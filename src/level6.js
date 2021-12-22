@@ -6,7 +6,7 @@ import Window from './window.js';
 
 export default class Level6 extends BaseScene {
     constructor() {
-      let posIniFant=[80,170];
+      let posIniFant=[100,120];
       let posIniPers=[330,170];
       let tilemap='tilemap02';
       
@@ -16,7 +16,7 @@ export default class Level6 extends BaseScene {
       let switchPos=[310,170];
       let lampPos=[260,90];
   
-      let posBaseGhost=[80, 170];
+      let posBaseGhost=[100, 180];
       let posBaseHuman=[230, 90];
       let lightsInfo=[[-10,120,40],[300,145,30]];
       super(tilemap, lightsInfo,posIniFant,posIniPers,posBaseGhost,posBaseHuman,furniturePos, mirrorPos,candlePos,lampPos,switchPos,'level6','congrats');
