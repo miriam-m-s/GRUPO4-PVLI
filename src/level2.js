@@ -13,13 +13,13 @@ export default class Level2 extends BaseScene {
       let tilemap='tilemap02';
       
       let furniturePos=null;
-      let mirrorPos=[250,130,0];
-      let candlePos=[300,130,50]; 
+      let mirrorPos=[250,150,0];
+      let candlePos=[280,150,50];
       let switchPos= null;
       let lampPos= null;
   
-      let posBaseGhost=[80, 150];
-      let posBaseHuman=[280, 150];
+      let posBaseGhost=[80, 170];
+      let posBaseHuman=[320, 150];
       let lightsInfo=[[125,30,50],[20,30,60],[210,30,50]];
       super(tilemap, lightsInfo,posIniFant,posIniPers,posBaseGhost,posBaseHuman,furniturePos, mirrorPos,candlePos,lampPos,switchPos,'level2','level3');
   }

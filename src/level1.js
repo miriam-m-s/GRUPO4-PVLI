@@ -14,7 +14,7 @@ export default class Level1 extends BaseScene {
     let tilemap='tilemap01';
     let posBaseGhost=[120, 120];
     let posBaseHuman=[240, 150];
-    let lightsInfo=[[75,0,50],[175,0,50],[170,75,50]];
+    let lightsInfo=[[75,0,50],[175,0,60],[170,75,50]];
 
     let furniturePos=null;
     let mirrorPos= null
