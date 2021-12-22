@@ -34,12 +34,9 @@ export default class Lamp extends Phaser.GameObjects.Sprite {
 
     // Todas las lamparas empiezan encendidas
     this.isOn = true;
+    // Crear la luz que controlara esta lampara
     this.light = new Lights(this.scene, this.scene.humanPlayer, this.scene.ghostPlayer, this.x - this.radius, this.y - this.radius, this.radius, false, true);
-    this.light.LampClicked(true); 
-    if(this.scene.musicOn){ 
-      this.soundlight.play();
-    }
-    this.setTexture('lampSelected');
+    this.SetOn();
 
    // this.Interact();
   }

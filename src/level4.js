@@ -14,14 +14,13 @@ import Window from './window.js';
   
   let furniturePos=null;
   let mirrorPos=null;
-  let candlePos=null; 
-  // let switchPos=[[150,100],[220,240]];
-  let switchPos=[150,100];
-  let lampPos=[100,175];
+  let candlePos=null;
+  let switchPos=[195,80];
+  let lampPos=[140,145];
 
-  let posBaseGhost=[50,185];
+  let posBaseGhost=[40,240];
   let posBaseHuman=[130,230];
-  let lightsInfo=[[90,190,70],[50,-80,120]];
+  let lightsInfo=[[90,190,70],[145,-10,70]];
 
   super(tilemap, lightsInfo,posIniFant,posIniPers,posBaseGhost,posBaseHuman,furniturePos,mirrorPos,candlePos,lampPos,switchPos,'level4','level5');
 }
@@ -36,7 +35,7 @@ import Window from './window.js';
 
     this.raycaster.mapGameObjects(this.dynamicObstacles, true);
 
-    this.window = new Window(this, 275, 55, 270);
+    this.window = new Window(this, 265, 55, 270);
   }
 
 }  
