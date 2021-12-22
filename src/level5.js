@@ -22,7 +22,7 @@ import Window from './window.js';
   let posBaseHuman=[335,120];
   let lightsInfo=[[80,70,80],[300,90,40]];
 
-  super(tilemap, lightsInfo,posIniFant,posIniPers,posBaseGhost,posBaseHuman,furniturePos,mirrorPos,candlePos,lampPos,switchPos,'level5','congrats');
+  super(tilemap, lightsInfo,posIniFant,posIniPers,posBaseGhost,posBaseHuman,furniturePos,mirrorPos,candlePos,lampPos,switchPos,'level5','level6');
 }
 
   create() {
