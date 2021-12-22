@@ -1,10 +1,11 @@
 body {
-  background: #030316 none repeat scroll 0 0;
+  background: #000000 none repeat scroll 0 0;
   margin: 0;
   overflow: visible;
   height: 100vh;
   width: 100vw;
   cursor: url("../images/pixelCursor.png"), auto;
+  background-image: url("../images/starBack.png");
 }
 
 @keyframes color-change {
@@ -182,7 +183,8 @@ footer img{
 
 .juego{
   font-size: 18px;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: 'Sys', Fallback, sans-serif;
+
 }
 
 
@@ -196,8 +198,7 @@ canvas{
   margin-top: 5vh;
   display: block;
   position: relative;
-  /*border-color:rgb(17, 7, 48);
-  border-width:2vh;
-  border-style: solid;
-  border-radius: 0px;*/
+  border-color: white;
+  border-width: 7px;
+  border-style:groove;
 }
