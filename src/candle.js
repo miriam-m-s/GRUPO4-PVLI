@@ -5,10 +5,9 @@ export default class Candle extends Phaser.GameObjects.Sprite {
     /**
      * Constructor de la Vela
      * @param {Phaser.Scene} scene Escena a la que pertenece
-     * @param {Phaser.GameObjects.Group} furnitureGroup Grupo en el que se incluirán las velas
      */
-    constructor(scene, ghostPlayer, furnitureGroup, x, y, radius, sprite) {
-      super(scene, x, y, sprite);
+    constructor(scene, ghostPlayer, x, y, radius) {
+      super(scene, x, y, 'UnselectedCandle');
   
       this.scene = scene;
       this.player = ghostPlayer;
@@ -29,7 +28,7 @@ export default class Candle extends Phaser.GameObjects.Sprite {
 
     Mirrordetect() {
       if (!this.isOn) {
-        this.light = new Lights(this.scene, this.scene.humanPlayer, this.scene.ghostPlayer, this.scene.lights, this.x - this.radius, this.y - this.radius, this.radius, true);
+        this.light = new Lights(this.scene, this.scene.humanPlayer, this.scene.ghostPlayer, this.x - this.radius, this.y - this.radius, this.radius, true);
         this.isOn = true;
         
         // Si el fantasma esta dentro de la vela reiniciar el nivel
