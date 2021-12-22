@@ -152,7 +152,6 @@ export default class BaseScene extends Phaser.Scene {
 
     ResetLevel() {
         let tim = this.timer.getTotalSeconds();
-        console.log(this.totaltime + tim);
         this.scene.start(this.level, {
             time: this.totaltime + Number(tim)
         });
