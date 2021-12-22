@@ -18,7 +18,7 @@
   <b> Aksejuegames </b>
   </p>
     <p align="center">
-  <b> [[ENLACE JUEGO]](https://miriam-m-s.github.io/GRUPO4-PVLI/) ECLIPSE JUEGO   </b>
+  <b> [[ENLACE JUEGO]](https://miriam-m-s.github.io/GRUPO4-PVLI/) </b>
   </p>
    </p>
     <p align="center">
