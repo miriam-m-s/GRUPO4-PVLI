@@ -20,6 +20,14 @@
     <p align="center">
   <b> [[ENLACE JUEGO]](https://miriam-m-s.github.io/GRUPO4-PVLI/) ECLIPSE JUEGO   </b>
   </p>
+   </p>
+    <p align="center">
+  <b> [[PIVOTAL]](https://www.pivotaltracker.com/n/projects/2533583)   </b>
+  </p>
+   </p>
+    <p align="center">
+  <b> [[REPOSITORIO]](https://github.com/miriam-m-s/GRUPO4-PVLI)   </b>
+  </p>
 </p>
 
 <h1 align="center">Proyecto para la asignatura de programación en lenguajes interpretados</h1>
