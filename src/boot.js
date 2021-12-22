@@ -31,7 +31,8 @@ export default class Boot extends Phaser.Scene {
     this.loadFont("men", "/assets/fonts/retroFont.ttf");
     //VIDEO
     this.load.video('vid','./assets/video/a.mp4');
-    
+    this.load.video('introClipVideo','./assets/video/clip01.mp4');
+
     //MUSIC
     this.load.setPath('assets/audio/music/');
     this.load.audio('bckMusic', 'bckMusic.mp3');

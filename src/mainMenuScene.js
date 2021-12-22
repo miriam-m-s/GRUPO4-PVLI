@@ -45,7 +45,7 @@ export default class MainMenuScene extends Phaser.Scene {
     //al presionar el botón el juego comienza
     this.menu.on('pointerdown', function () {
       this.scene.music.play();
-      this.scene.scene.start('level1');
+      this.scene.scene.start('introClip');
     })
 }
 }
