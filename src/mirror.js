@@ -1,7 +1,10 @@
-//Clase Mirror que recibe 
-export default class Mirror extends Phaser.GameObjects.Sprite {
+/**
+ * @extends Phaser.GameObjects.Sprite
+ */
 
-  /**
+export default class Mirror extends Phaser.GameObjects.Sprite {
+  /**Clase Mirror que recibe rayos de luz y los refleja dependiendo 
+    de la direccion que tenga asignada
    * @param {Phaser.Scene} scene Escena a la que pertenece la plataforma
    * @param {number} x Coordenada x
    * @param {number} y Coordenada y
@@ -21,26 +24,29 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
     this.scene.physics.add.existing(this);
     this.body.setSize(18, 25, false);
    
-    // Variables de CandleinLi
+    // Variables de Mirror
     this.inLight = false;
     this.graphic1 = this.scene.add.graphics();
     this.xOffset = 0;
     this.yOffset = 0;
     this.degreeDir = dir;
+    this.x = x;
+    this.y = y;
 
+    //Convierte de grados a radianes
     if (dir == 0) this.xOffset =( this.width / 2)-6;
     else if (dir === 90) {
       dir = 4.71;
       this.yOffset = (-this.height / 2)+3;
-    } else if (dir === 180) {
+    } 
+    else if (dir === 180) {
       dir = Math.PI;
       this.xOffset = (-this.width / 2)+6;
-    } else if (dir === 270) {
+    }
+     else if (dir === 270) {
       dir = 1.57;
       this.yOffset = (this.height / 2)-3;
     }
-    this.x = x;
-    this.y = y;
     this.dir = dir;
 
     this.setTexture('mirror_Unsel_' + this.degreeDir);
@@ -52,6 +58,7 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
   }
 
   RayDetect() {
+    //si el rayo toca el mirror se activa el booleano para crear otro rayo
      this.inLight = true;
   }
 
@@ -69,6 +76,7 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
   }
 
   createRay(angles,posx,posy){
+    //creacion del rayo
     let ray = this.scene.raycaster.createRay({
       origin: {
         x: posx,
@@ -81,6 +89,7 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
   }
 
   drawRay(ray, intersection){
+    //dibuja el rayo
     this.graphic1.clear();
     this.graphic1.lineStyle(2, 0xFF7E00, 2);
     let line = new Phaser.Geom.Line(ray.origin.x, ray.origin.y, intersection.x, intersection.y);

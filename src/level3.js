@@ -2,11 +2,12 @@ import BaseScene from './baseScene.js'
 
 /**
  * @extends Phaser.Scene
- *  */
+ */
 
  export default class Level3 extends BaseScene {
   constructor() {
 
+  // Asignar posiciones
   let posIniFant=[175,250];
   let posIniPers=[85,185];
   let tilemap='tilemap03';
@@ -18,7 +19,7 @@ import BaseScene from './baseScene.js'
   let switchPos=[280,185];
   let lampPos=[180,180];
 
-  let posBaseGhost=[180, 80];   
+  let posBaseGhost=[180, 80];
   let posBaseHuman=[30, 190];
   let lightsInfo=[[10,130,60],[220,130,60]];
 

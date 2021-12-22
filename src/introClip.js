@@ -1,3 +1,6 @@
+/**
+ * @extends Phaser.GameObjects.Scene
+ */
 export default class IntroClip extends Phaser.Scene {
     constructor() {
         super({

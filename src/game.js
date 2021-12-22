@@ -10,6 +10,7 @@ import Level6 from  './level6.js';
 import Congrats from './congrats.js';
 import MainMenuScene from './mainMenuScene.js';
 
+//Configuracion del juego
 let config = 
 {
     type: Phaser.WEBGL,
@@ -30,7 +31,7 @@ let config =
     physics: { 
         default: 'arcade',
         arcade: {
-            debug: true
+            debug: false
         } 
     },
     plugins: {

@@ -1,13 +1,17 @@
 import Lights from './lights.js';
-
+/**
+ * @extends Phaser.GameObjects.Sprite
+ */
 export default class Candle extends Phaser.GameObjects.Sprite {
 
-    /**
-     * Constructor de la Vela
+    /** La clase Candle representa a las velas de la escena. Pueden ser poseidas por el fantasma, 
+     * cambiando asi su posicion, al igual que pueden interactuar con los rayos de luz generando 
+     * zonas de luz por las que el humano puede pasar.
+     * 
      * @param {Phaser.Scene} scene Escena a la que pertenece el lamp
      * @param {int} x posicion x del candle
      * @param {int} y posicion y del candle
-     * @param {Lights} radius  tamaño del radio de luz
+     * @param {Lights} radius  tamano del radio de luz
    */
 
 

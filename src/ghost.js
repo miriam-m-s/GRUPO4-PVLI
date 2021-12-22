@@ -1,12 +1,14 @@
 import Player from './player.js';
 import Furniture from './furniture.js';
 /**
- * Clase que representa el jugador del juego. El jugador se mueve por el mundo usando los cursores.
- * También almacena la puntuación o número de estrellas que ha recogido hasta el momento.
+ * @extends Player
  */
 export default class Ghost extends Player {
-
-  /**
+/**
+ * Clase que representa el jugador fantasma. Tiene la capacidad de poseer objetos 
+ * y moverlos por el  escenario. No puede atravesar las zonas iluminadas.
+ */
+  /**Constructor del jugador fantasma
    * @param {Phaser.Scene} scene Escena a la que pertenece el jugador
    * @param {int} playerPosx posicion x del ghost
    * @param {int}playerPosY posicion y del ghost
@@ -30,7 +32,7 @@ export default class Ghost extends Player {
       this.CheckForNearestObject(this.ghostItems);
     }
     if (this.itemPossesed != null && this.shouldMoveItem) {
-       //si poseé un objeto le pasa su posicion para que se mueve con él
+       //si posee un objeto le pasa su posicion para que se mueve con él
       this.itemPossesed.setPosition(this.body.x+this.body.width/2, this.body.y+this.body.height/2);
       this.setScale(0.5);
       this.setAlpha(0);
@@ -41,7 +43,6 @@ export default class Ghost extends Player {
   
   RayDetect() {
     //si un rayo detecta un fantasma el nivel vuelve a empezar
-    console.log("soy fantasma");
     this.scene.ResetLevel();
   }
  
@@ -59,10 +60,12 @@ export default class Ghost extends Player {
     }
   }
 
+  //Permite el movimiento del objeto poseido
   AllowMovement() {
     this.shouldMoveItem = true;
   }
 
+  //Asigna el objeto que debe ser poseido
   AssignObject(objectToPossess) {
     if (!this.scene.levelPaused()) {
       if (this.itemPossesed == null) {

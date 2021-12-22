@@ -1,7 +1,11 @@
+/**
+ * @extends Phaser.GameObjects.Container
+ */
 export default class Timer extends Phaser.GameObjects.Container {
 
-    /** 
-     * Constructor del Timer
+    /** La clase Timer crea un contador en la escena que va mostrando el paso del tiempo 
+     * en el nivel, adaptadose tambien al paso de minutos.
+     * Constructor del Timer 
      * @param {Phaser.Scene} scene Nivel en el que se crea el timer
      * @param {int} x posicion x del timer
      * @param {int} y posicion y del timer

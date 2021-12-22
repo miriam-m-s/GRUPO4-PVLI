@@ -1,17 +1,21 @@
+/**
+ * @extends Phaser.GameObjects.Container
+ */
 export default class Music extends Phaser.GameObjects.Container {
 
     /** 
-     * Constructor del musica
+     * Constructor del boton de musica. Detiene y reanuda la musica del juego
      * @param {Phaser.Scene} scene Nivel en el que se crea el sonido
      * @param {int} x posicion x del music button
      * @param {int} y posicion y del menu button
      */
 
-    constructor(scene, x, y) {
-       super(scene, x, y);
+    constructor(scene) {
+       super(scene);
        this.scene = scene
     }
 
+    
     clickMusic() {
         if(!this.scene.isPaused){
           this.scene.musica.alpha = 1 - this.scene.musica.alpha;
@@ -23,5 +27,5 @@ export default class Music extends Phaser.GameObjects.Container {
             this.scene.music.stop();
         } 
     }
-
+    
  }

@@ -1,27 +1,23 @@
+
 /**
-
- 
  * @extends Phaser.GameObjects.Sprite
-
  */
 
 import Lamp from './lamp.js';
 export default class Switch extends Phaser.GameObjects.Sprite {
 
-
-   /**
+   /**Clase Switch:interruptor que lo hace interaccionar el humano,este al ser pulsado
+    llama a la lamapara del nivel y la enciende
    * @param {Phaser.Scene} scene Escena a la que pertenece el jugador
-   * @param {int} switchPosx posicion x del ghost
-   * @param {int} switchPosY posicion y del ghost
+   * @param {int} x posicion x del ghost
+   * @param {int} y posicion y del ghost
    * @param {boolean} isOn  Devuelve 'true' si la candle esta encendida
    */
-  constructor(scene, switchPosX, switchPosY) {
-    super(scene, switchPosX, switchPosY, 'switchDefault');
+  constructor(scene, x, y) {
+    super(scene, x, y, 'switchDefault');
 
     // SetUp variables
     this.scene = scene;
-    this.switchPosX = switchPosX;
-    this.switchPosY = switchPosY;
     this.soundlight = scene.sound.add('light');
     this.depth = 5;
 
@@ -43,9 +39,10 @@ export default class Switch extends Phaser.GameObjects.Sprite {
     this.setTexture('switchDefault');
   }
   
+  // Este metodo se llama cuando el Human interactua con este Switch
   Interact()
   {
-    //si el switch se enciende llama a la lampara
+    // El switch le 
     this.scene.lamp.Interact();
   }
 }

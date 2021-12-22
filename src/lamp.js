@@ -8,7 +8,8 @@
 import Lights from './lights.js';
 export default class Lamp extends Phaser.GameObjects.Sprite {
 
-  
+  /*Clase Lamp:este objeto creara un circulo de luz cuando el humano interaccione con 
+  el objeto switch */
   /**
    * @param {Phaser.Scene} scene Escena a la que pertenece el lamp
    * @param {int} lampPosx posicion x del lamp

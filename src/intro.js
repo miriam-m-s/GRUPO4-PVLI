@@ -1,4 +1,5 @@
 export default class Intro extends Phaser.Scene {
+    //video de introduccion del nombre del grupo
     constructor() {
         super({
             key: 'intros'
