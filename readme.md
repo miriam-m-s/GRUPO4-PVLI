@@ -98,9 +98,7 @@ La historia está ambientada en una mansión, allí Estrella y Luna tendrán que
 <p><b>Menú Inicial del juego:</b> este tendrá una imagen relacionada con el juego , aparecerá el título del juego y tendrá una música de fondo ambientada al juego. También tendrá un botón de play con el que empezará el primer puzle, a medida que se vayan superando los niveles, se pasará automaticamente al siguiente nivel. Cuando se complete el juego, se volverá al menú principal.
 </p>
 
-<p align="left">
-  <img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/niveles.jpg" width="200"/>
-<p><b>Modos de juego: </b> solo existirá el modo 1 jugador, el cual irá alternando entre los dos personajes</p>
+<b>Modos de juego: </b> solo existirá el modo 1 jugador, el cual irá alternando entre los dos personajes</p>
 
 ### Interfaz y control  
 <p>Los personajes se controlarán utilizando las teclas WASD, se empezará controlando a estrella, y se utilizará la barra espaciadora para cambiar de personaje. Para realizar acciones como la posesión de objetos del fantasma o la activación de interruptores del humano  se utilizará la tecla "e".</p>
