@@ -1,23 +1,27 @@
-
+//Clase Mirror que recibe 
 export default class Mirror extends Phaser.GameObjects.Sprite {
 
   /**
-   * Constructor de la Plataforma
    * @param {Phaser.Scene} scene Escena a la que pertenece la plataforma
    * @param {number} x Coordenada x
    * @param {number} y Coordenada y
+   * @param {number} dir Direccion en la que se creara el nuevo rayo de luz
    */
   constructor(scene, x, y, dir) {
     super(scene, x, y, 'mirrorDefault');
   
+    // SetUp variables
+    this.scene = scene;
+    this.x = x;
+    this.y = y; 
+    this.depth = 5;
+
+    // Fisicas
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
     this.body.setSize(18, 25, false);
-    this.scene = scene;
-    this.x = x;
-    this.y = y;
-    this.depth=5;
    
+    // Variables de CandleinLi
     this.inLight = false;
     this.graphic1 = this.scene.add.graphics();
     this.xOffset = 0;
@@ -46,9 +50,11 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
     if (this.isPossesed) return;
     this.setTexture('mirror_Sel_' + this.degreeDir);
   }
-  Mirrordetect() {
+
+  RayDetect() {
      this.inLight = true;
   }
+
   DeselectObject() {
     if (this.isPossesed) return;
     this.setTexture('mirror_Unsel_' + this.degreeDir);
@@ -61,8 +67,8 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
 
     this.scene.ghostPlayer.PossessObject(this);
   }
-  createRay(angles,posx,posy){
 
+  createRay(angles,posx,posy){
     let ray = this.scene.raycaster.createRay({
       origin: {
         x: posx,
@@ -73,8 +79,8 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
     });
     return ray
   }
-  drawRay(ray, intersection){
 
+  drawRay(ray, intersection){
     this.graphic1.clear();
     this.graphic1.lineStyle(2, 0xFF7E00, 2);
     let line = new Phaser.Geom.Line(ray.origin.x, ray.origin.y, intersection.x, intersection.y);
@@ -92,7 +98,7 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
       let intersection = this.ray.cast();
       this.drawRay(this.ray,intersection);
       if(intersection.object!=null){
-        intersection.object.Mirrordetect();
+        intersection.object.RayDetect();
       }
     }
     else{

@@ -7,18 +7,20 @@ export default class Furniture extends Phaser.GameObjects.Sprite {
   constructor(scene, ghostPlayer, x, y) {
     super(scene, x, y, 'furniture');
 
+    // SetUp variables
     this.scene = scene;
     this.player = ghostPlayer;
+    this.depth = 4;
 
+    // Fisicas
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
 
+    // variables de furniture
     this.isPossesed = false;
-    this.depth = 4;
-    
-    //this.debugIndicator = this.scene.physics.add.sprite(this.body.x, this.body.y, 'debugIndic');
   }
-  Mirrordetect() {
+
+  RayDetect() {
   }
 
   SelectObject() {
@@ -33,12 +35,10 @@ export default class Furniture extends Phaser.GameObjects.Sprite {
     this.setTexture('furniture');
   }
 
-  Interact() {
 
+  Interact() {
     this.isPossesed = !this.isPossesed;
     this.setTexture('furniturePossesed');
-    this.body.depth = 3;
-
     this.scene.ghostPlayer.PossessObject(this);
   }
 }

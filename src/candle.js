@@ -4,63 +4,68 @@ export default class Candle extends Phaser.GameObjects.Sprite {
 
     /**
      * Constructor de la Vela
-     * @param {Phaser.Scene} scene Escena a la que pertenece
-     */
-    constructor(scene, ghostPlayer, x, y, radius) {
+     * @param {Phaser.Scene} scene Escena a la que pertenece el lamp
+     * @param {int} x posicion x del candle
+     * @param {int} y posicion y del candle
+     * @param {Lights} radius  tamaño del radio de luz
+   */
+
+
+    constructor(scene, x, y, radius) {
       super(scene, x, y, 'UnselectedCandle');
   
+      // SetUp variables
       this.scene = scene;
-      this.player = ghostPlayer;
-
-      this.posX = x;
-      this.posY = y;
+      this.x = x;
+      this.y = y;
+      this.radius = radius;
       this.depth = 5;
 
-      this.radius = radius; 
+      // Fisicas
       this.scene.add.existing(this);
       this.scene.physics.add.existing(this);
   
-      this.isPossesed = false;
-
-      this.isOn = false;
-      //this.debugIndicator = this.scene.physics.add.sprite(this.body.x, this.body.y, 'debugIndic');
+      // Variables de Candle
+      this.isPossesed = false; // Devuelve 'true' si la candle esta siendo poseida
+      this.isOn = false; // Devuelve 'true' si la candle esta encendida
     }
 
-    Mirrordetect() {
+    // Este metodo se ejecuta al ser tocado por un rayo de luz
+    RayDetect() {
       if (!this.isOn) {
+        // Crear la luz
         this.light = new Lights(this.scene, this.scene.humanPlayer, this.scene.ghostPlayer, this.x - this.radius, this.y - this.radius, this.radius, true);
         this.isOn = true;
         
-        // Si el fantasma esta dentro de la vela reiniciar el nivel
+        // Si el fantasma esta poseeyendo de la vela y a esta le alcanza un rayo, reiniciar
         if (this.isPossesed) this.scene.ResetLevel();
       }
     }
+
     preUpdate(t, dt) {
         super.preUpdate(t, dt);
-
+        // Animacion de la vela encendida
         if (this.isOn) this.play('_candleLighted', true);
     }
 
     SelectObject() {
       if (this.isPossesed) return;
       if (!this.isOn){
-        this.scale = 1.05;
         this.setTexture('SelectedCandle');
       }
     }
   
     DeselectObject() {
       if (this.isPossesed) return;
-      this.scale = 1;
       this.setTexture('UnselectedCandle');
     }
   
+    // Este metodo se llama cuando el fantasma ha interactuado con la vela (poseyendola/desposeyendola)
     Interact() {
-      if (!this.isOn){this.isPossesed = !this.isPossesed;
+      if (!this.isOn){
+        this.isPossesed = !this.isPossesed;
         this.setTexture('PossesedCandle');
-        this.body.depth = 3;
-    
-        this.scene.ghostPlayer.PossessObject(this);}
-      
+        this.scene.ghostPlayer.PossessObject(this);
+      }
     }
   }

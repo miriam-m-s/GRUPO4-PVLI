@@ -8,28 +8,31 @@
 import Lights from './lights.js';
 export default class Lamp extends Phaser.GameObjects.Sprite {
 
+  
   /**
-   * Constructor de la Plataforma
-   * @param {bool} isOn esta encendida? comienza apagada por defecto
-   * @param {Object} lightCircle circulo de luz
+   * @param {Phaser.Scene} scene Escena a la que pertenece el lamp
+   * @param {int} lampPosx posicion x del lamp
+   * @param {int} lampPosY posicion y del lamp
+   * @param {Lights} radius  tamaño del radio de luz
+   * @param {int} light  Luz asignada a este objeto
+   * @param {boolean} isOn  Devuelve 'true' si la lampara esta encendida
    */
-
-  constructor(scene, lampPosX, lampPosY, radius, human, ghost) {
-
+  
+  constructor(scene, lampPosX, lampPosY, radius) {
     super(scene, lampPosX, lampPosY, 'lampDefault');
+
+    // SetUp variables
     this.scene = scene;
     this.depth = 4;
-    this.human = human;
-    this.ghost = ghost;
     this.lampPosX = lampPosX;
     this.lampPosY = lampPosY;
     this.radius = radius;
+    this.light=null;
     this.soundlight = scene.sound.add('light');
+
+    // Fisicas
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
-    this.light=null;
-    console.log("this.isOn = " + this.isOn);
-
 
 
     // Todas las lamparas empiezan encendidas
@@ -37,8 +40,6 @@ export default class Lamp extends Phaser.GameObjects.Sprite {
     // Crear la luz que controlara esta lampara
     this.light = new Lights(this.scene, this.scene.humanPlayer, this.scene.ghostPlayer, this.x - this.radius, this.y - this.radius, this.radius, false, true);
     this.SetOn();
-
-   // this.Interact();
   }
 
   SelectObject() {
@@ -53,11 +54,11 @@ export default class Lamp extends Phaser.GameObjects.Sprite {
 
     Interact() {
 
-    if (!this.isOn) //si no esta encendida
+    if (!this.isOn) // Si no esta encendida, encenderla
     {
       this.SetOn();
     }
-    else //Esta encendida
+    else // Si esta encendida, apagarla
     {
       this.SetOff();
     }
@@ -69,7 +70,7 @@ export default class Lamp extends Phaser.GameObjects.Sprite {
     this.setTexture('lampSelected');
     if(this.scene.musicOn) this.soundlight.play();
     this.light.body.enable = true;
-    // Avisar a la light de esta lampara
+    // Avisar a la light de que el estado de la lampara ha cambiado
     this.light.LampClicked(true);
   }
 
@@ -78,7 +79,7 @@ export default class Lamp extends Phaser.GameObjects.Sprite {
     this.setTexture('lampDefault');
     if(this.scene.musicOn) this.soundlight.play();
     this.light.body.enable = false;
-    // Avisar a la light de esta lampara
+    // Avisar a la light de que el estado de la lampara ha cambiado
     this.light.LampClicked(false);
   }
 }

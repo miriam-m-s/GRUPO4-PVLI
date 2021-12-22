@@ -8,9 +8,9 @@ export default class Base extends Phaser.GameObjects.Sprite {
   /**
    * @param {Phaser.Scene} scene escena a la que pertenece la base
    * @param {Player} player jugador asociado a la base
+   * @param {string} texture nombre del sprite de la base
    * @param {number} x Coordenada x 
    * @param {number} y Coordenada y
-   * @param {string} texture nombre del sprite de la base
    */
 
   constructor(scene, player, texture, x, y) {
@@ -21,13 +21,9 @@ export default class Base extends Phaser.GameObjects.Sprite {
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
 
-    //jugadores
-    this.player = player;
-
+    this.player = player; //jugador
     this.depth = 4;
-
-    // Inicializacion del boolenao a false
-    this.inbase = false;
+    this.inbase = false; // Inicializacion del boolenao a false
   }
 
   // Acceder a la variable "this.inbase"

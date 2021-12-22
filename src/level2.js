@@ -24,8 +24,6 @@ export default class Level2 extends BaseScene {
 
   create() {
     
-    //Objetos Fantasma(muebles/espejo)
-    
     super.create();
 
     //CREACIÓN DEL RAYCAST

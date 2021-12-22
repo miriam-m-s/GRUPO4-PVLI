@@ -6,10 +6,12 @@ import Lamp from './lamp.js';
  */
 export default class Human extends Player {
 
-  /**
-   * Constructor del jugador
+    /**
    * @param {Phaser.Scene} scene Escena a la que pertenece el jugador
-   * @param {Array<Lamp>} humanItems la lista de lamparas
+   * @param {int} playerPosx posicion x del ghost
+   * @param {int}playerPosY posicion y del ghost
+   * @param {bool} beingControlled booleano que dice si un jugador se mueve o no
+   * @param {Array<Furniture>} humanItems lista de muebles
    */
 
   constructor(scene, playerPosX, playerPosY, beingControlled, humanItems) {
@@ -22,7 +24,7 @@ export default class Human extends Player {
     this.saveX = 0;
     this.saveY = 0;
   }
-  Mirrordetect() {
+  RayDetect() {
   }
 
   onLightFunction(x, y) {
@@ -38,8 +40,6 @@ export default class Human extends Player {
 
     // Check Lights
     if (!this.onLight) {
-      // this.body.setPosition(this.saveX, this.saveY);
-
       // tween animation
       var tween = this.scene.tweens.add({
         targets: this,
@@ -48,13 +48,13 @@ export default class Human extends Player {
         ease: 'Cubic',
         duration: 1000,
         yoyo: false,
-        //onComplete: this.AllowMovement()
       });
     }
 
     this.onLight = false;
 
     if (this.beingControlled) {
+      //busca el objeto mas cercano que este su array de human list
       this.CheckForNearestObject(this.humanItems);
     }
 

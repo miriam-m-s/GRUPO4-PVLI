@@ -33,14 +33,16 @@ export default class Congrats extends Phaser.Scene {
     let title = this.add.text(screenCenterX, screenCenterY - 250, 'ECLIPSE', textConfig).setOrigin(0.5)
     let congrats = this.add.text(screenCenterX, screenCenterY - 170, 'Congrats!', textConfig).setOrigin(0.5)
     let text = this.add.text(screenCenterX, screenCenterY - 130, 'You finished all our levels!', textConfig).setOrigin(0.5)
-    
+    //convertir tiempo en minutos y segundos
     let minutes = Math.floor(this.totaltime / 60);
     let seconds = this.totaltime - 60 * minutes;
+    if(seconds<10)seconds="0"+seconds;
     if(minutes >= 1) {
-      let time = this.add.text(screenCenterX, 20, 'TIME: '+ minutes + 'm'+ seconds + 's', timeConfig).setOrigin(0.5)
+      
+      let time = this.add.text(screenCenterX, 20, 'TIME: '+ minutes + ':'+ seconds, timeConfig).setOrigin(0.5)
     }
     else{
-      let time = this.add.text(screenCenterX, screenCenterY-270, 'TIME: '+ seconds + 's', timeConfig).setOrigin(0.5)
+      let time = this.add.text(screenCenterX, screenCenterY-270, 'TIME: 0:'+ seconds, timeConfig).setOrigin(0.5)
     }
     
     this.menu = this.add.sprite(screenCenterX, screenCenterY + 290, 'bigmenu').setInteractive();;

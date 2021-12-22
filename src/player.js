@@ -1,21 +1,17 @@
 import Lamp from './lamp.js';
-/**
- * Clase que representa el jugador del juego. El jugador se mueve por el mundo usando los cursores.
- * También almacena la puntuación o número de estrellas que ha recogido hasta el momento.
- */
 
 export default class Player extends Phaser.GameObjects.Sprite {
 
   /** 
-   * Constructor del jugador
+   * Player es la clase de la que heredan ghost y human. Reune aquellas caracteristicas que tienen ambos en comun como 
+   * el movimiento con cursores, el cambio de personajes con la tecla espacio, el aumento de velocidad con la tecla 
+   * shift asi como la deteccion de objetos cercanos.
    * 
-   * @param {GameObject} selectedObject el objeto mas cercano seleccionable
-   * @param {Array<GameObject>} objectList lista de objetos interactuables
-   * @param {Phaser.Scene} scene Escena a la que pertenece el jugador
-   * @param {Phaser.Math.Vector2} playerPos vector posicion del jugador
-   * @param {string} playerName nombre del jugador Humano/Ghost
-   * @param {boolean} beingControlled esta siendo controlado?
-   * @param {number} secCounter
+   * @param {Phaser.Scene} scene escena a la que pertenece el jugador
+   * @param {int} initialPosX coordenada x de la posicion inicial del jugador
+   * @param {int} initialPosY coordenada y de la posicion inicial del jugador
+   * @param {string} playerName nombre del jugador
+   * @param {bool} startController booleano que indica si el jugador comienza estando activo o no
    */
 
   constructor(scene, initialPosX, initialPosY, playerName, startController) {
@@ -23,12 +19,12 @@ export default class Player extends Phaser.GameObjects.Sprite {
     super(scene, initialPosX, initialPosY, playerName);
 
     //Asignar Parametros
-
     this.scene = scene;
     this.playerPos = new Phaser.Math.Vector2(initialPosX, initialPosY); //donde comienza el jugador en la escena
     this.playerName = playerName;
-    //Ghost / Human
-    this.beingControlled = startController; //comenzamos controlando al fantasma
+    this.beingControlled = startController; //comenzamos controlando al humano
+
+    //Sonido en el cambio de jugador
     this.soundchange = scene.sound.add('changeplayer');
 
     //Litas/Objetos
@@ -41,7 +37,6 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.body.setSize(15, 20, false);
 
     //FISICAS
-    // this.body = this.scene.physics.add.sprite(this.playerPos.x, this.playerPos.y, this.playerName + 'SpriteSheet');
     this.body.setCollideWorldBounds();
     this.speed = 50;
 
@@ -52,12 +47,9 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.runKey = scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SHIFT);
     this.depth = 6;
 
-    //DEBUG INDICATOR
-    //this.debugIndicator = this.scene.physics.add.sprite(this.body.x, this.body.y, 'debugIndic'); this.debugIndicator.depth = 9999;
-
     //Cambiar personajes con Espacio
     this.space.on('down', () => {
-      //this.body.stop();//para la animacion actual
+
       this.body.setVelocity(0);
       if(this.scene.musicOn)this.soundchange.play();
       if (this.selectedObject != null) {
@@ -66,9 +58,11 @@ export default class Player extends Phaser.GameObjects.Sprite {
       this.ChangePlayer();
     });
 
+    //Activar/Poseer objetos
     this.eKey.on('down', () => {
 
       if (!this.beingControlled) return;
+
       //Llama al metodo Interact del objeto seleccionado si no estamos en pausa
       if (!this.scene.levelPaused() && this.selectedObject != null) {
 
@@ -85,10 +79,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     });
   }
 
-  setBeingControlled() {
-    this.beingControlled = !this.beingControlled;
-  }
-
+  //Cambio de jugador
   ChangePlayer() {
     if (!this.scene.levelPaused()) {
       this.beingControlled = !this.beingControlled;
@@ -107,28 +98,26 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
     // En caso de que si se este controlando este personaje, mover al personaje y actualizar su animacion
     if (!this.scene.levelPaused()) {
-      if (this.cursors.left.isDown) // move left
+      if (this.cursors.left.isDown)
       {
         this.body.setVelocityX(-this.speed);
-        // animation left
         this.play('_left' + this.playerName, true);
       } 
-      else if (this.cursors.right.isDown) // move right
+      else if (this.cursors.right.isDown)
       {
         this.body.setVelocityX(this.speed);
-        // animation right
+      
         this.play('_right' + this.playerName, true);
       } 
-      else if (this.cursors.up.isDown) // move up
+      else if (this.cursors.up.isDown)
       {
         this.body.setVelocityY(-this.speed);
-        // animation up
+
         this.play('_up' + this.playerName, true);
       }
-       else if (this.cursors.down.isDown) // move down
+       else if (this.cursors.down.isDown) 
       {
         this.body.setVelocityY(this.speed);
-        // animation down
         this.play('_down' + this.playerName, true);
       } else
       {
@@ -141,12 +130,13 @@ export default class Player extends Phaser.GameObjects.Sprite {
     }
   }
 
+  //Metodo utilizado ara la deteccion de objetos cercanos
   CheckForNearestObject(objetos) {
     this.objectList = objetos;
     var disOffset = 20;
     let initialDist = 9000;
 
-    //Checkeo si sigo suficietemente cerca del objeto que estaba seleccionando anteriormente
+    //Checkeo si sigo suficientemente cerca del objeto que estaba seleccionando anteriormente
 
     if (this.selectedObject != null) {
       let distanceBetween = Phaser.Math.Distance.Between(this.body.x, this.body.y, this.selectedObject.body.x, this.selectedObject.body.y);
@@ -167,7 +157,6 @@ export default class Player extends Phaser.GameObjects.Sprite {
         if (this.selectedObject != null) this.selectedObject.DeselectObject();
         this.selectedObject = this.objectList[i];
 
-        //this.AddIndicator(this.objectList[i].body.position);
       }
     }
     //Se selecciona el objeto mas cercano, si existe
@@ -176,12 +165,5 @@ export default class Player extends Phaser.GameObjects.Sprite {
     }
   }
 
-  /*AddIndicator(debugPos)
-  {
-    if(Phaser.Utils.Debug && this.debugIndicator == null)
-    {
-      this.debugIndicator = this.scene.physics.add.sprite(debugPos.x, debugPos.y, 'debugIndic');
-      this.debugIndicator.depth = 900;
-    }
-  }*/
+  
 }
