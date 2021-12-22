@@ -58,22 +58,30 @@ export default class Lamp extends Phaser.GameObjects.Sprite {
 
     if (!this.isOn) //si no esta encendida
     {
-        this.setTexture('lampSelected');
-        if(this.scene.musicOn) this.soundlight.play();
-        this.light.body.enable = true;
-        // Avisar a la light de esta lampara
-        this.light.LampClicked(true);
+      this.SetOn();
     }
     else //Esta encendida
     {
-      if(this.scene.musicOn) this.soundlight.play();
-      this.light.body.enable = false;
-      this.setTexture('lampDefault');
-      //this.body.setActive(false);
-
-      // Avisar a la light de esta lampara
-      this.light.LampClicked(false);
+      this.SetOff();
     }
     this.isOn = !this.isOn;
+  }
+
+  // Encender lampara
+  SetOn() {
+    this.setTexture('lampSelected');
+    if(this.scene.musicOn) this.soundlight.play();
+    this.light.body.enable = true;
+    // Avisar a la light de esta lampara
+    this.light.LampClicked(true);
+  }
+
+  // Apagar lampara
+  SetOff() {
+    this.setTexture('lampDefault');
+    if(this.scene.musicOn) this.soundlight.play();
+    this.light.body.enable = false;
+    // Avisar a la light de esta lampara
+    this.light.LampClicked(false);
   }
 }
