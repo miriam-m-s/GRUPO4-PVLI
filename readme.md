@@ -156,6 +156,11 @@ Se espera que el jugador identifique los elementos que pueden utilizar a su favo
 ## Estética
 
 Los nombres de los personajes Estrella y Luna se han elegido porque estos dan a entender la mecánica de cada personaje. Luna que representa la noche, la oscuridad dando a entender que ésta solo puede estar por zonas oscuras. Estrella representa luz, claridad, dando a entender que ésta sólo puede moverse por zonas de luz.
+## Dirección artística
+El juego tiene un estilo retro, con sprites pixelizados(16x16 y 32x32) y un efecto de pantalla arcade.
+ <p align="center">
+  <img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/paleta.png" width="400"/>
+
 
 ## Elementos de Juego
 <img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/assetsIcon.png" width="48"/>
@@ -231,7 +236,10 @@ AUDIO
        - Gameplay
      </ul>
        </li>
-       
+
+### PLATAFORMAS
+La plataforma de gestion que hemos elegido Pivotal Tracker, ya que es una herramienta muy util para la reparticion de trabajo en grupo y tener todas las tareas organizadas.<br>
+Para la plataforma de comunicación hemos elegido Discord, ya que nos ofrece una comunicación rápida, tanto para compartir enlaces a documentación o ver la pantalla de nuestros compañeros.
 
 ### Historia
 El juego está ambientado en la película “Psicosis”, del director Alfred Hitchcock. La historia comienza tras la muerte de Marion Crane (“Luna” en el juego) y gira en torno a la búsqueda que emprende junto a su hermana, Lila Crane (“Estrella” en el juego), con el objetivo de encontrar su cadáver en la casa de los Bates. En esta adaptación Estrella es una niña pequeña, de manera que le teme a la oscuridad y por ello no puede pasar por zonas que no están bien iluminadas, mientras que Luna al ser un fantasma, no puede atravesar la luz.
