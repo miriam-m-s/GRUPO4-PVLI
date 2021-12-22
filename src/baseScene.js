@@ -175,11 +175,17 @@ export default class BaseScene extends Phaser.Scene {
 
         //Lista de objetos interactuables para el fantasma
         //En caso de que en el nivel haya velas y espejos
+        this.mirror = []
         if (this.candlepos && this.mirrorpos) {
             ghostList = [
                 this.candle = new Candle(this, this.ghostPlayer, this.candlepos[0], this.candlepos[1], this.candlepos[2]),
-                this.mirror = new Mirror(this, this.mirrorpos[0], this.mirrorpos[1], this.mirrorpos[2])
+                //this.mirror = new Mirror(this, this.mirrorpos[0], this.mirrorpos[1], this.mirrorpos[2])
             ];
+            for (let i = 0; i < this.mirrorpos.length; i++) {
+                let m = new Mirror(this, this.mirrorpos[i][0], this.mirrorpos[i][1], this.mirrorpos[i][2])
+                ghostList.push(m)
+                this.mirror.push(m)
+            }
         }
         //En caso de que solo haya velas
         else if (this.candlepos && this.furniturePos) {
