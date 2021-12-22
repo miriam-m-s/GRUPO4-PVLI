@@ -1,12 +1,15 @@
-
+/**
+ * @extends Phaser.GameObjects.Sprite
+ */
 export default class Window extends Phaser.GameObjects.Sprite {
 
-  /**
-   * Constructor de la Plataforma
-   * @param {Phaser.Scene} scene Escena a la que pertenece la plataforma
-   * @param {Phaser.GameObjects.Group} furnitureGroup Grupo en el que se incluirán los muebles
+  /**Clase window :crea un rayo de luz en la direccion asignada. Este rayo se comportara
+  de distinta manera dependiendo del objeto con el que se colisione
+
+   * @param {Phaser.Scene} scene Escena a la que pertenece la ventana
    * @param {number} x Coordenada x
    * @param {number} y Coordenada y
+   * @param {number} rayAngle direccion del rayo
    */
   constructor(scene, x, y, rayAngle) {
     super(scene, x, y, 'window');
@@ -14,22 +17,15 @@ export default class Window extends Phaser.GameObjects.Sprite {
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
     this.graphic = this.scene.add.graphics();
-    this.pivot = new Phaser.Geom.Point(this.body.x + this.width / 2,
-    this.body.y + this.height);
 
     if (rayAngle === 90) rayAngle = 4.71;
-
     else if (rayAngle === 180) rayAngle = Math.PI;
-
     else if (rayAngle === 270) rayAngle = 1.57;
-
-
     this.rayAngle = rayAngle;
-
     this.scene = scene;
-   
+
   }
-  createRay(angles){
+  createRay(angles) {
 
     let ray = this.scene.raycaster.createRay({
       origin: {
@@ -42,8 +38,8 @@ export default class Window extends Phaser.GameObjects.Sprite {
 
     return ray
   }
-  drawRay(ray, intersection){
-
+  drawRay(ray, intersection) {
+    //dibujar un rayo
     this.graphic.clear();
     this.graphic.lineStyle(2, 0xFF7E00, 2);
     let line = new Phaser.Geom.Line(ray.origin.x, ray.origin.y, intersection.x, intersection.y);
@@ -54,13 +50,16 @@ export default class Window extends Phaser.GameObjects.Sprite {
 
   preUpdate(t, dt) {
     super.preUpdate(t, dt);
-    this.ray=this.createRay(this.rayAngle);
+    this.ray = this.createRay(this.rayAngle);
     let intersection = this.ray.cast();
-    this.drawRay(this.ray,intersection);
-    if(intersection.object!=null){
-      intersection.object.Mirrordetect();
+    this.drawRay(this.ray, intersection);
+    if (intersection.object != null) {
+      /*si un objeto se interseca con el rayo llama al MirrorDetect()del objeto,aunque algunos objetos
+      no reaccionan de ninguna manera al rayo,tendrán un metodo vacio.
+      */
+      intersection.object.RayDetect();
     }
-    
-    
+
+
   }
 }

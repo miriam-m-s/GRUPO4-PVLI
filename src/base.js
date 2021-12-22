@@ -1,17 +1,15 @@
 /**
- * Clase que representa las plataformas que aparecen en el escenario de juego.
- * Cada plataforma es responsable de crear la base que aparece sobre ella y en la 
- * que, durante el juego, puede aparecer una estrella
+ * @extends Phaser.GameObjects.Sprite
  */
 export default class Base extends Phaser.GameObjects.Sprite {
 
-  /**
+  /** Base es la clase asociada a las bases finales de los jugadores. Se encarga de detectar si el jugador
+   * esta posicionados en esta. 
    * @param {Phaser.Scene} scene escena a la que pertenece la base
    * @param {Player} player jugador asociado a la base
+   * @param {string} texture nombre del sprite de la base
    * @param {number} x Coordenada x 
    * @param {number} y Coordenada y
-   * @param {string} texture nombre del sprite de la base
-   * @param {number} inbase devuelve true si el personaje esta colisionando con la base
    */
 
   constructor(scene, player, texture, x, y) {
@@ -22,26 +20,21 @@ export default class Base extends Phaser.GameObjects.Sprite {
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
 
-  
-    this.player = player;
-
+    this.player = player; //jugador
     this.depth = 4;
-
-    // Vas
-    this.inbase = false;
+    this.inbase = false; // Inicializacion del boolenao a false
   }
 
-  // Acceder a la variable "this.inbase"
+  // Acceder a la variable "this.inbase" que indica si el jgador esta en su base.
   isInbase() {
     return this.inbase;
   }
-  /**
-   * Redefinición del preUpdate de Phaser
-   * @override
-   */
+
   preUpdate() {
     super.preUpdate();
     this.inbase = false;
+
+    //Comprueba si hay solapamiento entre el jugador y la base
     if (this.scene.physics.overlap(this.player, this)) {
       this.inbase = true;
     }

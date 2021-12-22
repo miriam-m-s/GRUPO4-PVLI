@@ -91,7 +91,7 @@ La historia está ambientada en una mansión, allí Estrella y Luna tendrán que
 
 ## Menús y modos de juego
 <p align="center">
-<img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/menuprincipals.jpg" width="300"/>
+<img src="https://github.com/miriam-m-s/GRUPO4-PVLI/blob/main/images/menuprincipals.png" width="300"/>
 </p>
 
 ### Diseño

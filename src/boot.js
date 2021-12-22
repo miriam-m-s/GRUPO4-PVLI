@@ -1,12 +1,9 @@
 /**
- * Escena para la precarga de los assets que se usarán en el juego.
- * Esta escena se puede mejorar añadiendo una imagen del juego y una 
- * barra de progreso de carga de los assets
- * @see {@link https://gamedevacademy.org/creating-a-preloading-screen-in-phaser-3/} como ejemplo
- * sobre cómo hacer una barra de progreso.
+ * @extends Phaser.Scene
  */
 export default class Boot extends Phaser.Scene {
-  /**
+  /*
+   *Escena para la precarga de los assets que se usarán en el juego.
    * Constructor de la escena
    */
   constructor() {
@@ -19,21 +16,22 @@ export default class Boot extends Phaser.Scene {
   loadFont(name, url) {
     let newFont = new FontFace(name, `url(${url})`);
     newFont.load().then(function (loaded) {
-        document.fonts.add(loaded);
+      document.fonts.add(loaded);
     }).catch(function (error) {
-        return error;
+      return error;
     });
-}
+  }
 
-  /**
-   * Carga de los assets del juego
+  /*
+   * Precarga de los assets del juego
    */
   preload() {
     //font
     this.loadFont("men", "/assets/fonts/retroFont.ttf");
     //VIDEO
-    this.load.video('vid','./assets/video/a.mp4');
-    
+    this.load.video('vid', './assets/video/a.mp4');
+    this.load.video('introClipVideo', './assets/video/clip01.mp4');
+
     //MUSIC
     this.load.setPath('assets/audio/music/');
     this.load.audio('bckMusic', 'bckMusic.mp3');
@@ -77,7 +75,7 @@ export default class Boot extends Phaser.Scene {
     this.load.image('lightCircleBig', 'lightCircleBig.png');
     // Lamp
     this.load.image('lampDefault', 'lampSpr01.png');
-    this.load.image('lampSelected', 'lampSpr02.png'); 
+    this.load.image('lampSelected', 'lampSpr02.png');
     this.load.image('switchDefault', 'switchSprite01.png');
     this.load.image('switchSelected', 'switchSprite02.png');
     // Furniture
@@ -133,7 +131,7 @@ export default class Boot extends Phaser.Scene {
     this.load.image('mirror_Pos_180', 'mirror_Pos_Left.png');
     this.load.image('mirror_Pos_0', 'mirror_Pos_Right.png');
 
-    this.load.setPath('assets/maps/'); 
+    this.load.setPath('assets/maps/');
 
     // Carga de Tilemap
     this.load.tilemapTiledJSON('tilemap01', 'Map01.json');
@@ -146,8 +144,7 @@ export default class Boot extends Phaser.Scene {
   }
 
   /**
-   * Creación de la escena. En este caso, solo cambiamos a la escena que representa el
-   * nivel del juego
+   * Animaciones y comienzo de la escena de introduccion.
    */
 
   create() {
@@ -163,7 +160,7 @@ export default class Boot extends Phaser.Scene {
       delay: 0,
     }; // config es opcional
 
-    
+
     //ANIMATIONS
     //------------Ghost-----------------
     this.anims.create({

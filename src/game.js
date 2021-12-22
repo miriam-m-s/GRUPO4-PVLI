@@ -1,44 +1,44 @@
 import Boot from './boot.js';
-import Intro from './intro.js'; 
+import Intro from './intro.js';
+import IntroClip from './introClip.js';
 import Level1 from './level1.js';
 import Level2 from './level2.js';
 import Level3 from './level3.js';
-import Level4 from  './level4.js';
-import Level5 from  './level5.js';
+import Level4 from './level4.js';
+import Level5 from './level5.js';
+import Level6 from './level6.js';
 import Congrats from './congrats.js';
 import MainMenuScene from './mainMenuScene.js';
 
-let config = 
-{
+//Configuracion del juego
+let config = {
     type: Phaser.WEBGL,
-    parent:"mygame",
+    parent: "mygame",
     roundPixels: true,
     scale: {
         mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH,
         parent: 'GameContainer',
-        max:{
+        max: {
             width: 1400,
             height: 800,
-          }
+        }
     },
-  
+
     pixelArt: true,
-    scene: [Boot,Intro, MainMenuScene, Level1, Level2, Level3, Level4,Level5, Congrats],
-    physics: { 
+    scene: [Boot, Intro, MainMenuScene, IntroClip, Level1, Level2, Level3, Level4, Level5, Level6, Congrats],
+    physics: {
         default: 'arcade',
         arcade: {
             debug: false
-        } 
+        }
     },
     plugins: {
-        scene: [
-            {
-                key: 'PhaserRaycaster',
-                plugin: PhaserRaycaster,
-                mapping: 'raycasterPlugin'
-            }
-        ]
+        scene: [{
+            key: 'PhaserRaycaster',
+            plugin: PhaserRaycaster,
+            mapping: 'raycasterPlugin'
+        }]
     },
     audio: {
         disableWebAudio: true
