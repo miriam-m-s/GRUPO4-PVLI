@@ -16,7 +16,7 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
     this.scene = scene;
     this.x = x;
     this.y = y;
-    this.depth=4;
+    this.depth=5;
    
     this.inLight = false;
     this.graphic1 = this.scene.add.graphics();
@@ -44,7 +44,6 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
   
   SelectObject() {
     if (this.isPossesed) return;
-    this.scale = 1.05;
     this.setTexture('mirror_Sel_' + this.degreeDir);
   }
   Mirrordetect() {
@@ -52,7 +51,6 @@ export default class Mirror extends Phaser.GameObjects.Sprite {
   }
   DeselectObject() {
     if (this.isPossesed) return;
-    this.scale = 1;
     this.setTexture('mirror_Unsel_' + this.degreeDir);
   }
 

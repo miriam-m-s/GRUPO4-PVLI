@@ -6,14 +6,12 @@ import Window from './window.js';
 
 export default class Level2 extends BaseScene {
     constructor() {
-      let baseFant=[65,170];
-      let basePers=[310, 190];
       let posIniFant=[65,140];
-      let posIniPers=[60,70];
+      let posIniPers=[60,80];
       let tilemap='tilemap02';
       
       let furniturePos=null;
-      let mirrorPos=[250,150,0];
+      let mirrorPos=[[250,150,0]];
       let candlePos=[280,150,50];
       let switchPos= null;
       let lampPos= null;
@@ -34,8 +32,11 @@ export default class Level2 extends BaseScene {
     this.raycaster = this.raycasterPlugin.createRaycaster();
     //objetos que reaccionan al raycast
     this.dynamicObstacles = [
-       this.mirror, this.candle,this.ghostPlayer,this.humanPlayer,this.extraLayer
+        this.candle,this.ghostPlayer,this.humanPlayer,this.extraLayer
     ];
+    for (let i = 0; i < this.mirror.length; i++) {
+      this.dynamicObstacles.push(this.mirror[i])
+  }
 
     this.raycaster.mapGameObjects(this.dynamicObstacles, true);
 

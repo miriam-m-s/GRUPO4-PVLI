@@ -7,14 +7,12 @@ import BaseScene from './baseScene.js'
 export default class Level1 extends BaseScene {
 
   constructor() {
-    let baseFant=[50,120];
-    let basePers=[170, 150];
     let posIniFant=[180,200];
-    let posIniPers=[180,40];
+    let posIniPers=[120,60];
     let tilemap='tilemap01';
     let posBaseGhost=[120, 120];
     let posBaseHuman=[240, 150];
-    let lightsInfo=[[75,0,50],[175,0,60],[170,75,50]];
+    let lightsInfo=[[75,0,50],[140,20,50],[170,75,50]];
 
     let furniturePos=null;
     let mirrorPos= null
