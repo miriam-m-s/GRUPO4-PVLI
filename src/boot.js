@@ -301,6 +301,7 @@ export default class Boot extends Phaser.Scene {
     });
 
     //Level creation
-    this.scene.start('intros');
+    //this.scene.start('intros');
+    this.scene.start('level3');
   }
 }
