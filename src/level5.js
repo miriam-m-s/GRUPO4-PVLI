@@ -16,8 +16,7 @@ export default class Level5 extends BaseScene {
 
     let furniturePos = [40, 230];
     let mirrorPos = null;
-    let candlePos = [195, 245, 30];
-    //let candlePos=[270,125,30];
+    let candlePos = [270, 120, 30];
     let switchPos = [180, 200];
     let lampPos = [270, 220];
 

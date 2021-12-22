@@ -42,8 +42,8 @@ export default class Congrats extends Phaser.Scene {
     const screenCenterY = this.cameras.main.worldView.y + this.cameras.main.height / 2;
     let background = this.add.sprite(screenCenterX, screenCenterY, 'YouWin');
     let title = this.add.text(screenCenterX, screenCenterY - 250, 'ECLIPSE', textConfig).setOrigin(0.5)
-    let congrats = this.add.text(screenCenterX, screenCenterY - 170, 'Congrats!', textConfig).setOrigin(0.5)
-    let text = this.add.text(screenCenterX, screenCenterY - 130, 'You finished all our levels!', textConfig).setOrigin(0.5)
+    let congrats = this.add.text(screenCenterX, screenCenterY - 170, 'Enhorabuena!', textConfig).setOrigin(0.5)
+    let text = this.add.text(screenCenterX, screenCenterY - 130, 'Has completado todos los niveles!', textConfig).setOrigin(0.5)
     
     //convertir tiempo en minutos y segundos
     let minutes = Math.floor(this.totaltime / 60);
@@ -51,16 +51,16 @@ export default class Congrats extends Phaser.Scene {
     if(seconds<10)seconds="0"+seconds;
     if(minutes >= 1) {
       
-      let time = this.add.text(screenCenterX, 20, 'TIME: '+ minutes + ':'+ seconds, timeConfig).setOrigin(0.5)
+      let time = this.add.text(screenCenterX, 20, 'TIEMPO: '+ minutes + ':'+ seconds, timeConfig).setOrigin(0.5)
     }
     else{
-      let time = this.add.text(screenCenterX, screenCenterY-270, 'TIME: 0:'+ seconds, timeConfig).setOrigin(0.5)
+      let time = this.add.text(screenCenterX, screenCenterY-270, 'TIEMPO: 0:'+ seconds, timeConfig).setOrigin(0.5)
     }
     
     //boton para empezar de nuevo el juego
     this.menu = this.add.sprite(screenCenterX, screenCenterY + 290, 'bigmenu').setInteractive();;
     this.menu.setScale(4);
-    this.loadingText = this.add.text(screenCenterX, screenCenterY + 290, 'Play again', textConfig).setOrigin(0.5)
+    this.loadingText = this.add.text(screenCenterX, screenCenterY + 290, 'Jugar de nuevo', textConfig).setOrigin(0.5)
 
 
     //Cambio del tamano de boton al pasar el cursor por encima 
